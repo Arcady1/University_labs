@@ -8,18 +8,16 @@ typedef struct List{
     struct List *next;
 } List;
 
-int main(int argc, char const *argv[])
+int main()
 {
-    FILE *file;
+    int digit = 0;
     
-    file = fopen(argv[0], r);
-    printf("!");
-    input();
-
+    while( digit != 111 )
+    {
+        scanf("%d", &digit);
+        
+        //printf("%d\n", digit);
+    }
+    
     return 0;
-}
-
-void input()
-{
-    for 
 }
