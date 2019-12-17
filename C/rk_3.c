@@ -9,6 +9,7 @@ typedef struct List{
 List *first = NULL;
 
 List* fill_in(int);
+void output(void);
 
 int main()
 {
@@ -21,6 +22,8 @@ int main()
         fill_in(digit);
         //printf("%d\n", digit);
     }
+    
+    output();
     
     return 0;
 }
@@ -37,3 +40,38 @@ List* fill_in(int digit)
     
     return first;
 }
+
+void output(void)
+{
+    while( first != NULL )
+    {
+        printf("=======\n");
+        printf("%d\n", first -> num);
+        
+        first = first -> next;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
