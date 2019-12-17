@@ -21,7 +21,6 @@ int main()
         scanf("%d", &digit);
         
         fill_in(digit);
-        //printf("%d\n", digit);
     }
     
     search();
@@ -90,28 +89,6 @@ void output(void)
         
         first = first -> next;
     }
+    
+    printf("=======\n");
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
