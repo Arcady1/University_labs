@@ -1,12 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void fill_in(int);
-
 typedef struct List{
-    int digit;
+    int num;
     struct List *next;
 } List;
+
+List *first = NULL;
+
+List* fill_in(int);
 
 int main()
 {
@@ -23,7 +25,15 @@ int main()
     return 0;
 }
 
-void fill_in(int digit)
+List* fill_in(int digit)
 {
+    List *p;
     
+    p = (List *) malloc( sizeof(List) );
+    
+    p -> num = digit;
+    p -> next = first;
+    first = p;
+    
+    return first;
 }
