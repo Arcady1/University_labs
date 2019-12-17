@@ -9,19 +9,22 @@ typedef struct List{
 List *first = NULL;
 
 List* fill_in(int);
+List* search(void);
 void output(void);
 
 int main()
 {
     int digit = 0;
     
-    while( digit != 111 )
+    while( digit != 5 )
     {
         scanf("%d", &digit);
         
         fill_in(digit);
         //printf("%d\n", digit);
     }
+    
+    search();
     
     output();
     
@@ -41,8 +44,30 @@ List* fill_in(int digit)
     return first;
 }
 
-void output(void)
+List* search(void)
 {
+    List *pf, *pb, *pn;
+    
+    pf = first;
+    
+    while( pf != NULL )
+    {
+        if( (pf -> num) > 10 )
+        {
+            if( (pf -> next) == (first -> next) )
+            {
+                first = first -> next;
+                
+                free(pf);
+                
+                
+            }
+        }
+    }
+}
+
+void output(void)
+{   
     while( first != NULL )
     {
         printf("=======\n");
