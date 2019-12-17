@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void input();
+void fill_in(int);
 
 typedef struct List{
     int digit;
@@ -16,8 +16,14 @@ int main()
     {
         scanf("%d", &digit);
         
+        fill_in(digit);
         //printf("%d\n", digit);
     }
     
     return 0;
+}
+
+void fill_in(int digit)
+{
+    
 }
