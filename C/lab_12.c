@@ -22,7 +22,7 @@ FILE* output(FILE *);               // ф-ия принимает имя фай�
 int main(int args, char *argv[])
 {    
     FILE *file;
-    
+
     file = fopen(argv[args - 1], "w");
     
     errors(file, args, argv);
