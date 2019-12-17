@@ -25,7 +25,6 @@ int main()
     }
     
     search();
-    
     output();
     
     return 0;
@@ -60,10 +59,26 @@ List* search(void)
                 
                 free(pf);
                 
+                pf = first;
+            }
+            else
+            {
+                pn = pf -> next;
                 
+                free(pf);
+                
+                pf = pn;
+                pb -> next = pf;
             }
         }
+        else
+        {
+            pb = pf;
+            pf = pf -> next;
+        }
     }
+    
+    return first;
 }
 
 void output(void)
