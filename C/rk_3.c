@@ -12,6 +12,7 @@ List *pl = NULL;                        // создаем указатель н�
 void fill_in(int);                      // ф-ия принимает считанное из файла число и вносит его в список
 void search(void);                      // ф-ия ищет числа, которые > 10, и удаляет их из списка
 void output(void);                      // ф-ия выводит измененный список
+void errors(int, char *[]);
 
 int main(int argc, char* argv[])
 {
@@ -29,6 +30,8 @@ int main(int argc, char* argv[])
     FILE *file;    
     file = fopen(argv[1], "r");
     
+    errors(argc, argv);
+    
     while( fscanf(file, "%d", &num_f ) != EOF )     // считываем числа из файла
     {
         digit = num_f;
@@ -36,10 +39,17 @@ int main(int argc, char* argv[])
         fill_in(digit);
     }
     
+    fclose(file);
+    
     search();
     output();
     
     return 0;
+}
+
+void errors(int argc, char *argv[])
+{
+    
 }
 
 void fill_in(int digit)
