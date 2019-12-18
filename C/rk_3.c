@@ -12,7 +12,7 @@ List *pl = NULL;                        // создаем указатель н�
 void fill_in(int);                      // ф-ия принимает считанное из файла число и вносит его в список
 void search(void);                      // ф-ия ищет числа, которые > 10, и удаляет их из списка
 void output(void);                      // ф-ия выводит измененный список
-void errors(int, char *[]);
+int errors(int, char *[], FILE *);      // ф-ия принимает argc (кол-во аргументов), их имена, значение, которое вернула ф-ия fopen(); возвращает код ошибки
 
 int main(int argc, char* argv[])
 {
@@ -30,7 +30,7 @@ int main(int argc, char* argv[])
     FILE *file;    
     file = fopen(argv[1], "r");
     
-    errors(argc, argv);
+    errors(argc, argv, file);
     
     while( fscanf(file, "%d", &num_f ) != EOF )     // считываем числа из файла
     {
@@ -47,9 +47,36 @@ int main(int argc, char* argv[])
     return 0;
 }
 
-void errors(int argc, char *argv[])
+int errors(int argc, char *argv[], FILE *file)
 {
+    int check;
     
+    if( file == NULL )                          // проверка, что файл существует
+    {
+        printf("ERROR: NO SUCH FILE\n");
+        exit (101);
+    }
+    
+    if( fscanf(file, "%d", &check ) == EOF )    // проверка, что файл не пустой
+    {
+        printf("ERROR: FILE IS EMPTY\n");
+        exit (104);
+    }
+    
+    if( argc < 2 )                              // проверка, что аргументов не менее 2-х
+    {
+        printf("ERROR: NO ARGUMENTS\n");
+        exit (102);
+    }
+    
+    else if( argc > 2 )                         // проверка, что аргументов не более 2-х
+    {
+        printf("ERROR: TOO MANY ARGUMENTS\n");
+        exit (103);
+    }
+    
+    else
+        return 10;
 }
 
 void fill_in(int digit)
