@@ -9,8 +9,8 @@ typedef struct List{
 List first;
 List *pl = &first;
 
-List fill_in(int);
-List search(void);
+void fill_in(int);
+void search(void);
 void output(void);
 
 int main(int argc, char* argv[])
@@ -37,7 +37,7 @@ int main(int argc, char* argv[])
     return 0;
 }
 
-List fill_in(int digit)
+void fill_in(int digit)
 {
     List *pw;
     
@@ -47,11 +47,9 @@ List fill_in(int digit)
     pw -> next = NULL;
     pl -> next = pw;
     pl = pw;
-    
-    return first;
 }
 
-/*List* search(void)
+/*void search(void)
 {
     List *pf, *pb, *pn;
     
@@ -85,8 +83,6 @@ List fill_in(int digit)
             pf = pf -> next;
         }
     }
-    
-    return first;
 }*/
 
 void output(void)
@@ -101,5 +97,7 @@ void output(void)
         a = a -> next;
     }
     
+    printf("=======\n");
+    printf("%d\n", a -> num);
     printf("=======\n");
 }
