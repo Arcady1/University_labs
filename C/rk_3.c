@@ -24,7 +24,7 @@ int main(int argc, char* argv[])
     {
         digit = num_f;
         
-        printf("%d\n", digit);
+        fill_in(digit);
     }
     
     search();
