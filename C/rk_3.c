@@ -6,19 +6,23 @@ typedef struct List{
     struct List *next;
 } List;
 
-List *first = NULL;
+List first;
+List *pl = &first;
 
-List* fill_in(int);
-List* search(void);
+List fill_in(int);
+List search(void);
 void output(void);
 
 int main(int argc, char* argv[])
 {
     int digit, num_f;
     
+    first.num = 100;
+    first.next = NULL;
+    
     FILE *file;
     
-    file = fopen(argv[1], "r");
+    file = fopen(argv[1], "r");    
     
     while( fscanf(file, "%d", &num_f ) != EOF )
     {
@@ -27,26 +31,27 @@ int main(int argc, char* argv[])
         fill_in(digit);
     }
     
-    search();
+    //search();
     output();
     
     return 0;
 }
 
-List* fill_in(int digit)
+List fill_in(int digit)
 {
-    List *p;
+    List *pw;
     
-    p = (List *) malloc( sizeof(List) );
+    pw = (List *) malloc( sizeof(List) );
     
-    p -> num = digit;
-    p -> next = first;
-    first = p;
+    pw -> num = digit;
+    pw -> next = NULL;
+    pl -> next = pw;
+    pl = pw;
     
     return first;
 }
 
-List* search(void)
+/*List* search(void)
 {
     List *pf, *pb, *pn;
     
@@ -82,16 +87,18 @@ List* search(void)
     }
     
     return first;
-}
+}*/
 
 void output(void)
 {   
-    while( first != NULL )
+    List *a = &first;
+    
+    while( a -> next != NULL )
     {
         printf("=======\n");
-        printf("%d\n", first -> num);
+        printf("%d\n", a -> num);
         
-        first = first -> next;
+        a = a -> next;
     }
     
     printf("=======\n");
