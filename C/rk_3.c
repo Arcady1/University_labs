@@ -31,7 +31,7 @@ int main(int argc, char* argv[])
         fill_in(digit);
     }
     
-    //search();
+    search();
     output();
     
     return 0;
@@ -49,23 +49,24 @@ void fill_in(int digit)
     pl = pw;
 }
 
-/*void search(void)
+void search(void)
 {
-    List *pf, *pb, *pn;
+    List *pf, *pb, *pn, *p_first;
     
-    pf = first;
+    pf = &first;
     
-    while( pf != NULL )
+    while( pf -> next != NULL )
     {
         if( (pf -> num) > 10 )
         {
-            if( (pf -> next) == (first -> next) )
+            if( (pf -> next) == (first.next) )
             {
-                first = first -> next;
+                p_first = first.next;
+                first = *p_first;
                 
-                free(pf);
+                //free(pf);
                 
-                pf = first;
+                pf = p_first;
             }
             else
             {
@@ -83,21 +84,28 @@ void fill_in(int digit)
             pf = pf -> next;
         }
     }
-}*/
+}
 
 void output(void)
 {   
-    List *a = &first;
+    List *pn;
     
-    while( a -> next != NULL )
+    pl = &first;
+    
+    while( pl -> next != NULL )
     {
         printf("=======\n");
-        printf("%d\n", a -> num);
+        printf("%d\n", pl -> num);
         
-        a = a -> next;
+        pn = pl -> next;
+        
+        //free(pl);
+        
+        pl = pn;
     }
     
     printf("=======\n");
-    printf("%d\n", a -> num);
-    printf("=======\n");
+    printf("%d\n", pl -> num);
+        
+    free(pl);
 }
