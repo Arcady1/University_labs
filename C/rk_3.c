@@ -6,25 +6,30 @@ typedef struct List{
     struct List *next;
 } List;
 
-List first;                         // создаем пустой список (внешняя переменная)
-List *pl = &first;                  // создаем укзатель на последний узел списка (внешняя переменная)
+List *first = NULL;
+List *pl = NULL;
 
-void fill_in(int);                  // ф-ия принимает считанное из файла число и вносит его в список
-void search(void);                  // ф-ия ищет числа, которые > 10, и удаляет их из списка
-void output(void);                  // ф-ия выводит измененный список
+void fill_in(int);
+void search(void);
+void output(void);
 
 int main(int argc, char* argv[])
 {
     int digit, num_f;
+    List *pf;
     
-    first.num = 100;                // заполняем внешний узел first значениями
-    first.next = NULL;
+    pf = (List *) malloc( sizeof(List) );
     
-    FILE *file;
+    pf -> num = 100;
+    pf -> next = NULL;
+    first = pf;
     
-    file = fopen(argv[1], "r");    
+    pl = first;
     
-    while( fscanf(file, "%d", &num_f ) != EOF )     // считываем числа из файла
+    FILE *file;    
+    file = fopen(argv[1], "r");
+    
+    while( fscanf(file, "%d", &num_f ) != EOF )
     {
         digit = num_f;
         
@@ -41,37 +46,37 @@ void fill_in(int digit)
 {
     List *pw;
     
-    pw = (List *) malloc( sizeof(List) );           // создаем новый узел и заполняем
+    pw = (List *) malloc( sizeof(List) );
     
     pw -> num = digit;
     pw -> next = NULL;
-    pl -> next = pw;                                // pl сдвигается в конец списка 
+    pl -> next = pw;
     pl = pw;
 }
 
 void search(void)
 {
-    List *pf, *pb, *pn, *p_first;
+    List *pf, *pb, *pn;
     
-    pf = &first;                                    // pf - указатель на первый узел списка
+    pf = first;
     
     while( pf != NULL )
     {
         if( (pf -> num) > 10 )
         {
-            if( (pf -> next) == (first.next) )
+            if( (pf -> next) == (first -> next) )
             {
-                first = *first.next;
+                first = first -> next;
                 
-                //free(pf);
+                free(pf);
                 
-                pf = &first;
+                pf = first;
             }
             else
             {
                 pn = pf -> next;
                 
-                //free(pf);
+                free(pf);
                 
                 pf = pn;
                 pb -> next = pf;
@@ -87,14 +92,16 @@ void search(void)
 
 void output(void)
 {   
-    List *a = &first;
+    List *pf;
     
-    while( a -> next != NULL )
+    pf = first;
+    
+    while( first -> next != NULL )
     {
-        printf("%d\n", a -> num);
+        printf("%d\n", first -> num);
         
-        a = a -> next;
+        first = first -> next;
     }
     
-    printf("%d\n", a -> num);
+    printf("%d\n", first -> num);
 }
