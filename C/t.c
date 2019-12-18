@@ -10,7 +10,8 @@ List *first = NULL;
 List *pf = NULL;
 
 void fill_in(int);
-void search(void);
+void searchMin(void);
+void searchMax(void);
 
 int main(int argc, char* argv[])
 {
@@ -27,7 +28,8 @@ int main(int argc, char* argv[])
         scanf("%d", &number);
     }
     
-    search();
+    searchMin();
+    searchMax();
     
     return 0;
 }
@@ -43,7 +45,7 @@ void fill_in(int digit)
     first = pw;
 }
 
-void search(void)
+void searchMin(void)
 {
     List *pn;
     
@@ -81,8 +83,51 @@ void search(void)
     {
         min = b;
     }
+    
+    printf("%d\n", min);
 }
 
+void searchMax(void)
+{
+    List *pn;
+    
+    pf = first;
+    
+    int max, b;
+    
+    max = pf -> num;
+    pn = pf -> next;
+    b = pn -> num;
+    
+    pf = pn -> next;
+    
+    while(pf != NULL)
+    {
+        if( max < b )
+        {
+            max = b;
+            pn = pf;
+            pf = pn -> next;
+            
+            b = pn -> num;
+        }
+        
+        else
+        {
+            pn = pf;
+            pf = pn -> next;
+            
+            b = pn -> num;
+        }
+    }
+    
+    if( max < b )
+    {
+        max = b;
+    }
+    
+    printf("%d\n", max);
+}
 
 
 
