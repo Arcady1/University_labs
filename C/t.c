@@ -1,58 +1,110 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-#define SIZE 256
 
-typedef struct Word {               // typedef - чтобы указать, что создан новый тип (не нужно будет писать struct)
-    char *str;                      // указатель на введенное слово
-    int count;                      // кол-во повторений слова
-    struct Word *next;              // указатель на следующий узел списка
-} List;                             // задаем имя списка
+typedef struct List{
+    int num;
+    struct List *next;
+} List;
 
-List *first = NULL;                 // first - указатель на узел
+List *first = NULL;  
+List *pf = NULL;
 
-int errors(FILE *, int, char *[]);  // ф-ия принимает имя файла, кол-во введенных аргументов, имена аргументов
-List* search(char []);              // ф-ия принимает введенное слово, проверят на повторения; возвращает список first
-List* create(char []);              // ф-ия принимает буфер buff[] и создает новый узел с новым словом; возвращает List
-FILE* output(FILE *);               // ф-ия принимает имя файла, заполняет его и возвращает
+void fill_in(int);
+void search(void);
 
-int main(int args, char *argv[])
-{    
-    FILE *file;
-
-    file = fopen(argv[args - 1], "w");
+int main(int argc, char* argv[])
+{
+    int digit, number;
     
-    errors(file, args, argv);
+    scanf("%d", &number);
     
-    char buff[SIZE], c;
-    int index_w, cut;
-	
-    index_w = 0;
-    cut = 1;
-	
-    while( (c = getchar()) != EOF )
+    while( number != 111 )     // считываем числа из файла
     {
-        if( (c >= 'a') & (c <= 'z') |
-            (c >= 'A') & (c <= 'Z') )
-        {
-                buff[index_w] = c;
-                ++index_w;
-                cut = 0;                                                        // счетчик символов-разделителей
-        }
-        else if( ((c == ' ') | (c == '\t') | (c == '\n')) & (cut == 0) )        // получили слово
-        {
-            buff[index_w] = '\0';
-            
-            search(buff);
-            
-            index_w = 0;                                                        // заполняем буфер с 0-го эл-та
-            ++cut;
-        }
+        digit = number;
+        
+        fill_in(digit);
+        
+        scanf("%d", &number);
     }
-	
-    output(file);
     
-    fclose(file);
+    search();
     
     return 0;
 }
+
+void fill_in(int digit)
+{
+    List *pw;
+    
+    pw = (List *) malloc( sizeof(List) );           // создаем новый узел и заполняем его
+    
+    pw -> num = digit;
+    pw -> next = first;
+    first = pw;
+}
+
+void search(void)
+{
+    List *pn;
+    
+    pf = first;
+    
+    int min, b;
+    
+    min = pf -> num;
+    pn = pf -> next;
+    b = pn -> num;
+    
+    pf = pn -> next;
+    
+    while(pf != NULL)
+    {
+        if( min > b )
+        {
+            min = b;
+            pn = pf;
+            pf = pn -> next;
+            
+            b = pn -> num;
+        }
+        
+        else
+        {
+            pn = pf;
+            pf = pn -> next;
+            
+            b = pn -> num;
+        }
+    }
+    
+    if( min > b )
+    {
+        min = b;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
