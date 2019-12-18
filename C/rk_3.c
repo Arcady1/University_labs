@@ -55,24 +55,23 @@ void search(void)
     
     pf = &first;
     
-    while( pf -> next != NULL )
+    while( pf != NULL )
     {
         if( (pf -> num) > 10 )
         {
             if( (pf -> next) == (first.next) )
             {
-                p_first = first.next;
-                first = *p_first;
+                first = *first.next;
                 
                 //free(pf);
                 
-                pf = p_first;
+                pf = &first;
             }
             else
             {
                 pn = pf -> next;
                 
-                free(pf);
+                //free(pf);
                 
                 pf = pn;
                 pb -> next = pf;
@@ -88,24 +87,17 @@ void search(void)
 
 void output(void)
 {   
-    List *pn;
+    List *a = &first;
     
-    pl = &first;
-    
-    while( pl -> next != NULL )
+    while( a -> next != NULL )
     {
         printf("=======\n");
-        printf("%d\n", pl -> num);
+        printf("%d\n", a -> num);
         
-        pn = pl -> next;
-        
-        //free(pl);
-        
-        pl = pn;
+        a = a -> next;
     }
     
     printf("=======\n");
-    printf("%d\n", pl -> num);
-        
-    free(pl);
+    printf("%d\n", a -> num);
+    printf("=======\n");
 }
