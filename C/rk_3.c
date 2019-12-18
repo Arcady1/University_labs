@@ -51,6 +51,12 @@ int errors(int argc, char *argv[], FILE *file)
 {
     int check;
     
+    if( argc < 2 )                              // проверка, что аргументов не менее 2-х
+    {
+        printf("ERROR: NO ARGUMENTS\n");
+        exit (102);
+    }
+    
     if( file == NULL )                          // проверка, что файл существует
     {
         printf("ERROR: NO SUCH FILE\n");
@@ -63,20 +69,13 @@ int errors(int argc, char *argv[], FILE *file)
         exit (104);
     }
     
-    if( argc < 2 )                              // проверка, что аргументов не менее 2-х
-    {
-        printf("ERROR: NO ARGUMENTS\n");
-        exit (102);
-    }
-    
-    else if( argc > 2 )                         // проверка, что аргументов не более 2-х
+    if( argc > 2 )                              // проверка, что аргументов не более 2-х
     {
         printf("ERROR: TOO MANY ARGUMENTS\n");
         exit (103);
     }
     
-    else
-        return 10;
+    return 10;
 }
 
 void fill_in(int digit)
