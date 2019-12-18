@@ -12,15 +12,19 @@ List* fill_in(int);
 List* search(void);
 void output(void);
 
-int main()
+int main(int argc, char* argv[])
 {
-    int digit = 0;
+    int digit, num_f;
     
-    while( digit != 5 )
+    FILE *file;
+    
+    file = fopen(argv[1], "r");
+    
+    while( fscanf(file, "%d", &num_f ) != EOF )
     {
-        scanf("%d", &digit);
+        digit = num_f;
         
-        fill_in(digit);
+        printf("%d\n", digit);
     }
     
     search();
