@@ -26,7 +26,7 @@ int main(int argc, char* argv[])
     
     errors(argc, argv, file);
     
-    while( fscanf(file, "%d", &number ) != EOF )     // считываем числа из файла
+    while( fscanf(file, "%d", &number ) != EOF )     // СЃС‡РёС‚С‹РІР°РµРј С‡РёСЃР»Р° РёР· С„Р°Р№Р»Р°
     {
         digit = number;
         
@@ -45,19 +45,19 @@ int errors(int argc, char *argv[], FILE *file)
 {
     int check;
     
-    if( argc < 2 )                              // проверка, что аргументов не менее 2-х
+    if( argc < 2 )                              // РїСЂРѕРІРµСЂРєР°, С‡С‚Рѕ Р°СЂРіСѓРјРµРЅС‚РѕРІ РЅРµ РјРµРЅРµРµ 2-С…
     {
         printf("ERROR: NO ARGUMENTS\n");
         exit (102);
     }
     
-    if( argc > 2 )                              // проверка, что аргументов не более 2-х
+    if( argc > 2 )                              // РїСЂРѕРІРµСЂРєР°, С‡С‚Рѕ Р°СЂРіСѓРјРµРЅС‚РѕРІ РЅРµ Р±РѕР»РµРµ 2-С…
     {
         printf("ERROR: TOO MANY ARGUMENTS\n");
         exit (103);
     }
     
-    if( file == NULL )                          // проверка, что файл существует
+    if( file == NULL )                          // РїСЂРѕРІРµСЂРєР°, С‡С‚Рѕ С„Р°Р№Р» СЃСѓС‰РµСЃС‚РІСѓРµС‚
     {
         printf("ERROR: NO SUCH FILE\n");
         exit (101);
@@ -70,7 +70,7 @@ void fill_in(int digit)
 {
     List *pw;
     
-    pw = (List *) malloc( sizeof(List) );           // создаем новый узел и заполняем его
+    pw = (List *) malloc( sizeof(List) );           // СЃРѕР·РґР°РµРј РЅРѕРІС‹Р№ СѓР·РµР» Рё Р·Р°РїРѕР»РЅСЏРµРј РµРіРѕ
     
     pw -> num = digit;
     pw -> next = first;
@@ -179,12 +179,14 @@ void output(void)
 {
     pf = first;
     
-    while( pf -> next != NULL )
+    while( pf != NULL )
     {
-        pl = first -> next;
+        printf("%d\n", pf -> num);
         
-        first = first -> next;
+        pf = pf -> next;
+        
+        free(first);
+        
+        first = pf;
     }
-    
-    printf("%d\n", first -> num);
 }
