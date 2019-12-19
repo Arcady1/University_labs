@@ -190,25 +190,3 @@ void output(void)
         first = pf;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
