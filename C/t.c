@@ -15,20 +15,22 @@ void searchMin(void);
 void searchMax(void);
 void change(void);
 void output(void);
+int errors(int, char *[], FILE *);
 
 int main(int argc, char* argv[])
 {
     int digit, number;
     
-    scanf("%d", &number);
+    FILE *file;    
+    file = fopen(argv[1], "r");
     
-    while( number != 111 )     // считываем числа из файла
+    //errors(argc, argv, file);
+    
+    while( fscanf(file, "%d", &number ) != EOF )     // считываем числа из файла
     {
         digit = number;
         
         fill_in(digit);
-        
-        scanf("%d", &number);
     }
     
     searchMin();
@@ -37,6 +39,37 @@ int main(int argc, char* argv[])
     output();
     
     return 0;
+}
+
+int errors(int argc, char *argv[], FILE *file)
+{
+    int check;
+    
+    if( argc < 2 )                              // проверка, что аргументов не менее 2-х
+    {
+        printf("ERROR: NO ARGUMENTS\n");
+        exit (102);
+    }
+    
+    if( argc > 2 )                              // проверка, что аргументов не более 2-х
+    {
+        printf("ERROR: TOO MANY ARGUMENTS\n");
+        exit (103);
+    }
+    
+    if( file == NULL )                          // проверка, что файл существует
+    {
+        printf("ERROR: NO SUCH FILE\n");
+        exit (101);
+    }
+    
+    if( fscanf(file, "%d", &check ) == EOF )    // проверка, что файл не пустой
+    {
+        printf("ERROR: FILE IS EMPTY\n");
+        exit (104);
+    }    
+    
+    return 10;
 }
 
 void fill_in(int digit)
@@ -92,8 +125,6 @@ void searchMin(void)
         
         pmin = pn;
     }
-    
-    printf("%d\n", min);
 }
 
 void searchMax(void)
@@ -138,8 +169,6 @@ void searchMax(void)
         
         pmax = pn;
     }
-    
-    printf("%d\n", max);
 }
 
 void change(void)
@@ -158,7 +187,7 @@ void output(void)
     
     while( pf != NULL )
     {
-        printf("@: %d\n", pf -> num);
+        printf("%d\n", pf -> num);
         
         pf = pf -> next;
     }
