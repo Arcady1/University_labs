@@ -24,7 +24,7 @@ int main(int argc, char* argv[])
     FILE *file;    
     file = fopen(argv[1], "r");
     
-    //errors(argc, argv, file);
+    errors(argc, argv, file);
     
     while( fscanf(file, "%d", &number ) != EOF )     // считываем числа из файла
     {
@@ -62,12 +62,6 @@ int errors(int argc, char *argv[], FILE *file)
         printf("ERROR: NO SUCH FILE\n");
         exit (101);
     }
-    
-    if( fscanf(file, "%d", &check ) == EOF )    // проверка, что файл не пустой
-    {
-        printf("ERROR: FILE IS EMPTY\n");
-        exit (104);
-    }    
     
     return 10;
 }
