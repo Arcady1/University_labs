@@ -8,10 +8,13 @@ typedef struct List{
 
 List *first = NULL;  
 List *pf = NULL;
+List *pmin, *pmax;
 
 void fill_in(int);
 void searchMin(void);
 void searchMax(void);
+void change(void);
+void output(void);
 
 int main(int argc, char* argv[])
 {
@@ -30,6 +33,8 @@ int main(int argc, char* argv[])
     
     searchMin();
     searchMax();
+    change();
+    output();
     
     return 0;
 }
@@ -64,6 +69,8 @@ void searchMin(void)
         if( min > b )
         {
             min = b;
+
+            pmin = pn;
             pn = pf;
             pf = pn -> next;
             
@@ -82,6 +89,8 @@ void searchMin(void)
     if( min > b )
     {
         min = b;
+        
+        pmin = pn;
     }
     
     printf("%d\n", min);
@@ -106,6 +115,8 @@ void searchMax(void)
         if( max < b )
         {
             max = b;
+            
+            pmax = pn;
             pn = pf;
             pf = pn -> next;
             
@@ -124,13 +135,34 @@ void searchMax(void)
     if( max < b )
     {
         max = b;
+        
+        pmax = pn;
     }
     
     printf("%d\n", max);
 }
 
+void change(void)
+{
+    int helpful_digit;
+    
+    helpful_digit = pmax -> num;
+    
+    pmax -> num = pmin -> num;
+    pmin -> num = helpful_digit;    
+}
 
-
+void output(void)
+{
+    pf = first;
+    
+    while( pf != NULL )
+    {
+        printf("@: %d\n", pf -> num);
+        
+        pf = pf -> next;
+    }
+}
 
 
 
