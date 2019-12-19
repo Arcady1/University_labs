@@ -130,12 +130,20 @@ void search(void)
 
 void output(void)
 {   
+    pl = first;
+    
     while( first -> next != NULL )
     {
         printf("%d\n", first -> num);
         
-        first = first -> next;
+        pl = pl -> next;
+        
+        free(first);
+        
+        first = pl;
     }
     
     printf("%d\n", first -> num);
+    
+    free(first);
 }
