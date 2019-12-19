@@ -179,14 +179,12 @@ void output(void)
 {
     pf = first;
     
-    while( pf != NULL )
+    while( pf -> next != NULL )
     {
-        printf("%d\n", pf -> num);
+        pl = first -> next;
         
-        pf = pf -> next;
-        
-        free(first);
-        
-        first = pf;
+        first = first -> next;
     }
+    
+    printf("%d\n", first -> num);
 }
