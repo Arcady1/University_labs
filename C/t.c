@@ -184,6 +184,10 @@ void output(void)
         printf("%d\n", pf -> num);
         
         pf = pf -> next;
+        
+        free(first);
+        
+        first = pf;
     }
 }
 
