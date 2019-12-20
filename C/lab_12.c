@@ -14,10 +14,11 @@ typedef struct Word {               // typedef - чтобы указать, чт
 List *first = NULL;                 // first - указатель на узел
 List *pl = NULL;                    // создаем указатель который сдвигается в конец списка
 List *pend = NULL;                  // создаем указатель на последний узел списка
+List *pf = NULL;                    // создаем указатель, который будет перемещаться по списку во время поиска слова
 
 int errors(FILE *, int, char *[]);  // ф-ия принимает имя файла, кол-во введенных аргументов, имена аргументов
-void search(char []);              // ф-ия принимает введенное слово, проверят на повторения
-void create(char []);              // ф-ия принимает буфер buff[] и создает новый узел с новым словом
+List* search(char []);              // ф-ия принимает введенное слово, проверят на повторения
+void create(char []);               // ф-ия принимает буфер buff[] и создает новый узел с новым словом
 FILE* output(FILE *);               // ф-ия принимает имя файла, заполняет его и возвращает
 
 int main(int args, char *argv[])
@@ -77,9 +78,9 @@ int errors(FILE *file, int args, char *argv[])
     return (10);
 }
 
-void search(char buff[])
+List* search(char buff[])
 {
-    List *pf = first;                               // создаю указатель на first
+    pf = first;                                     // создаю указатель на first
     
     while( pf != NULL )
     {
@@ -118,11 +119,14 @@ void create(char buff[])
     pn -> str = pw;                         // внесли слово в  узел
     pn -> count += 1;
     
-    if( first == NULL )
+    if( first == NULL )                     // смещаем указатель на первый узел
     {
-        first = pn;
         pl = first;
+        first = pn;
         
+        free(pl);
+        
+        pl = first;        
         pl -> next = pend;
     }
 
@@ -130,13 +134,11 @@ void create(char buff[])
     {
         pl -> next = pn;
         
-        pl = pn;
+        free(pf);
         
+        pl = pn;        
         pl -> next = pend;
     }
-    
-    //pn -> next = first;                   // объединили узел со списком
-    //first = pn;                           // сохранили полученный список в first
 }
 
 FILE* output(FILE *file)
