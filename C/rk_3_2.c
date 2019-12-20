@@ -19,19 +19,21 @@ int errors(int, char *[], FILE *);
 
 int main(int argc, char* argv[])
 {
-    int digit, number;
+    int digit, number;    
+    FILE *file;
     
-    FILE *file;    
     file = fopen(argv[1], "r");
     
     errors(argc, argv, file);
     
-    while( fscanf(file, "%d", &number ) != EOF )     // СЃС‡РёС‚С‹РІР°РµРј С‡РёСЃР»Р° РёР· С„Р°Р№Р»Р°
+    while( fscanf(file, "%d", &number ) != EOF )
     {
         digit = number;
         
         fill_in(digit);
     }
+    
+    fclose(file);
     
     searchMin();
     searchMax();
@@ -45,19 +47,19 @@ int errors(int argc, char *argv[], FILE *file)
 {
     int check;
     
-    if( argc < 2 )                              // РїСЂРѕРІРµСЂРєР°, С‡С‚Рѕ Р°СЂРіСѓРјРµРЅС‚РѕРІ РЅРµ РјРµРЅРµРµ 2-С…
+    if( argc < 2 )
     {
         printf("ERROR: NO ARGUMENTS\n");
         exit (102);
     }
     
-    if( argc > 2 )                              // РїСЂРѕРІРµСЂРєР°, С‡С‚Рѕ Р°СЂРіСѓРјРµРЅС‚РѕРІ РЅРµ Р±РѕР»РµРµ 2-С…
+    if( argc > 2 )
     {
         printf("ERROR: TOO MANY ARGUMENTS\n");
         exit (103);
     }
     
-    if( file == NULL )                          // РїСЂРѕРІРµСЂРєР°, С‡С‚Рѕ С„Р°Р№Р» СЃСѓС‰РµСЃС‚РІСѓРµС‚
+    if( file == NULL )
     {
         printf("ERROR: NO SUCH FILE\n");
         exit (101);
@@ -70,7 +72,7 @@ void fill_in(int digit)
 {
     List *pw;
     
-    pw = (List *) malloc( sizeof(List) );           // СЃРѕР·РґР°РµРј РЅРѕРІС‹Р№ СѓР·РµР» Рё Р·Р°РїРѕР»РЅСЏРµРј РµРіРѕ
+    pw = (List *) malloc( sizeof(List) );
     
     pw -> num = digit;
     pw -> next = first;
@@ -79,11 +81,10 @@ void fill_in(int digit)
 
 void searchMin(void)
 {
+    int min, b;
     List *pn;
     
     pf = first;
-    
-    int min, b;
     
     min = pf -> num;
     pn = pf -> next;
@@ -99,35 +100,31 @@ void searchMin(void)
 
             pmin = pn;
             pn = pf;
-            pf = pn -> next;
-            
+            pf = pn -> next;            
             b = pn -> num;
         }
         
         else
         {
             pn = pf;
-            pf = pn -> next;
-            
+            pf = pn -> next;            
             b = pn -> num;
         }
     }
     
     if( min > b )
     {
-        min = b;
-        
+        min = b;        
         pmin = pn;
     }
 }
 
 void searchMax(void)
 {
+    int max, b;
     List *pn;
     
-    pf = first;
-    
-    int max, b;
+    pf = first;    
     
     max = pf -> num;
     pn = pf -> next;
@@ -144,7 +141,6 @@ void searchMax(void)
             pmax = pn;
             pn = pf;
             pf = pn -> next;
-            
             b = pn -> num;
         }
         
@@ -152,7 +148,6 @@ void searchMax(void)
         {
             pn = pf;
             pf = pn -> next;
-            
             b = pn -> num;
         }
     }
@@ -160,7 +155,6 @@ void searchMax(void)
     if( max < b )
     {
         max = b;
-        
         pmax = pn;
     }
 }
