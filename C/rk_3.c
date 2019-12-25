@@ -20,7 +20,6 @@ void errors(int, char *[], FILE *);     // ф-ия принимает argc (ко
 int main(int argc, char* argv[])
 {
     int num_f;
-    List *pf;
     FILE *file;    
     
     file = fopen(argv[1], "r");
