@@ -1,5 +1,4 @@
-//Гусаров Аркадий РК6-13Б 1 курс. Программа ...
-// Запись производится не как в стек!!!; слова добавляются в начало списка!!!
+//Гусаров Аркадий РК6-13Б 1 курс. Программа читает из стандартного потока ввода слова и размещает их в односвязный список следующим образом: если слово встретилось первый раз, то для него добавляется новый элемент в конец списка. В противном случае в соответствующем элементе списка увеличивается счетчик слов.
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -13,22 +12,24 @@ typedef struct Word {               // typedef - чтобы указать, чт
 } List;                             // задаем имя списка
 
 List *first = NULL;                 // first - указатель на узел
+List *pl = NULL;                    // создаем указатель который сдвигается в конец списка
+List *pend = NULL;                  // создаем указатель на последний узел списка
+List *pf = NULL;                    // создаем указатель, который будет перемещаться по списку во время поиска слова
 
 int errors(FILE *, int, char *[]);  // ф-ия принимает имя файла, кол-во введенных аргументов, имена аргументов
-List* search(char []);              // ф-ия принимает введенное слово, проверят на повторения; возвращает список first
-List* create(char []);              // ф-ия принимает буфер buff[] и создает новый узел с новым словом; возвращает List
+List* search(char []);              // ф-ия принимает введенное слово, проверят на повторения
+void create(char []);               // ф-ия принимает буфер buff[] и создает новый узел с новым словом
 FILE* output(FILE *);               // ф-ия принимает имя файла, заполняет его и возвращает
 
 int main(int args, char *argv[])
 {    
+    char buff[SIZE], c;
+    int index_w, cut;
     FILE *file;
 
     file = fopen(argv[args - 1], "w");
     
     errors(file, args, argv);
-    
-    char buff[SIZE], c;
-    int index_w, cut;
 	
     index_w = 0;
     cut = 1;
@@ -79,7 +80,7 @@ int errors(FILE *file, int args, char *argv[])
 
 List* search(char buff[])
 {
-    List *pf = first;                               // создаю указатель на first
+    pf = first;                                     // создаю указатель на first
     
     while( pf != NULL )
     {
@@ -96,7 +97,7 @@ List* search(char buff[])
     create(buff);
 }
 
-List* create(char buff[])
+void create(char buff[])
 {
     int length;
     char *pw;
@@ -110,34 +111,52 @@ List* create(char buff[])
 
     strcpy(pw, buff);                                       // в выделенную память скоипровали слово
     
-    List *pl = (List *) malloc( sizeof(List) );             // выделили память под следующий узел (получили указатель)
+    List *pn = (List *) malloc( sizeof(List) );             // выделили память под следующий узел (получили указатель)
     
-    if( pl == NULL )
+    if( pn == NULL )
         exit(11);
     
-    pl -> str = pw;                     // внесли слово в  узел
-    pl -> count += 1;
-    pl -> next = first;                 // объединили узел со списком
-    first = pl;                         // сохранили полученный список в first
+    pn -> str = pw;                         // внесли слово в  узел
+    pn -> count += 1;
     
-    return first;
+    if( first == NULL )                     // смещаем указатель на первый узел
+    {
+        pl = first;
+        first = pn;
+        
+        free(pl);
+        
+        pl = first;        
+        pl -> next = pend;
+    }
+
+    else
+    {
+        pl -> next = pn;
+        
+        free(pf);
+        
+        pl = pn;        
+        pl -> next = pend;
+    }
 }
 
 FILE* output(FILE *file)
 {
-    List *ph;
-	
+    pl = first;
+    
     while( first != NULL )
     {
         fprintf(file, "%s\t%d\n", first -> str, first -> count);
         
         free(first -> str);
         
-        ph = first -> next;
+        pl = pl -> next;
+        
         free(first);
         
-        first = ph;
+        first = pl;
     }
-    
+	
     return file;
 }

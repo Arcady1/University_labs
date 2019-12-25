@@ -1,40 +1,38 @@
 #! /bin/bash
 # ﻿Гусаров Аркадий РК6-13Б 1 курс. Программа для перечисления всех одинаковых чисел различных месяцев любого указанного или текущего года, которые выпадают на заданный день недели.
 
-if [ $# -eq 01 ]                # если 1 переменная 
+if [ $# -eq 01 ]                # $# = 1
 then
     input_year=`date +"%Y"`
     dow=$1
     
-elif [ $# -eq 02 ]              # если 2 переменные
+elif [ $# -eq 02 ]              # $# = 2
 then
     input_year=$1
     dow=$2
-else                            # переменных больше 2-х или меньше 1
+else                            # $# > 2 OR < 1
     exit 133;
 fi
 
-if [ $input_year -le 0 ]        # год > 0
+if [ $input_year -le 0 ]        # year <= 0
 then
     exit 134;
 fi
 
-#case $dow in
-#    Пн) Mon;;
-#    Вт) Tue;;
-#    Ср) Wed;;
-#    Чт) Thu;;
-#    Пт) Fri;;
-#    Сб) Sat;;
-#    Вс) Sun;;
-#    *) break;;
-#esac
+case $dow in
+	Пн) dow=Mon;;
+	Вт) dow=Tue;;
+	Ср) dow=Wed;;
+	Чт) dow=Thu;;
+	Пт) dow=Fri;;
+	Сб) dow=Sat;;
+	Вс) dow=Sun;;
+esac
 
 count=1
 
-date_base=`date -d "01/01/$input_year" +"%x"`           # "%x" - формат вывода даты dd.mm.yyyy
-
-day=`date -d "01/01/$input_year" +"%a"`                 # "%a" - день недели
+date_base=`date -d "01/01/$input_year" +"%x"`           # "%x" - format of date input dd.mm.yyyy
+day=`date -d "01/01/$input_year" +"%a"`                 # "%a" - day of week
 
 while [ $day != $dow ]
 do
@@ -45,25 +43,16 @@ do
     let ++count
 done
 
-set ${date_base//./' '}
-
-dd=$1
-mm=$2
-yy=$3
-
-date_base=$mm/$dd/$yy
-
 date_=`date -d "$date_base 1 Week" '+%m/%d/%Y'`
 date_base=`date -d "$date_base" '+%m/%d/%Y'`
 
-#echo "date_base = "$date_base
-#echo "date_ = "$date_
+yy=`date -d "$date_base" +"%Y"`
 
 let ny=$yy+1
 
 while [ ${yy} -ne ${ny} ]
 do    
-    # игнорируем февраль
+    # ignoring February
     if [ `date -d "$date_base" +"%m"` -eq 02 ]
     then
         date_base=`date -d "$date_base 1 Month" '+%m/%d/%Y'`
@@ -82,9 +71,8 @@ do
         date_=`date -d "$date_base 1 Week" '+%m/%d/%Y'`
     else
         
-        date_=`date -d "$date_ 1 Week" '+%m/%d/%Y'`               # переход на неделю
+        date_=`date -d "$date_ 1 Week" '+%m/%d/%Y'`
         
-        # ограничить переход в следующий год
         year=`date -d "$date_" +"%Y"`
         if [ $year -ne $yy ]
         then
