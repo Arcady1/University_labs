@@ -26,13 +26,7 @@ public:
 
     double distance()
     {
-<<<<<<< HEAD
         return sqrt(x*x + y*y);
-=======
-        double r = sqrt(x*x + y*y);
-
-        return r;
->>>>>>> master
     }
 };
 
@@ -43,11 +37,7 @@ int main(int argc, char const *argv[])
     int X, Y;
     double R = 0.0;
     double current_distance;
-<<<<<<< HEAD
     Point *current_point;                               // указатель на текщие координаты
-=======
-    Point *current_point;
->>>>>>> master
     Point **p;                                          // массив указателей
 
 
@@ -65,7 +55,6 @@ int main(int argc, char const *argv[])
     }
 
     p[j] = NULL;                                        // инициализация последенй ячейки массива указателей
-<<<<<<< HEAD
 
     for ( i = 0; p[i] != NULL; i++ )
     {
@@ -87,21 +76,13 @@ int main(int argc, char const *argv[])
     cout << X << "\t";
     cout << Y << "\t";
     cout << R << endl;
-=======
 
+    // удаление указателей в массиве
     for ( i = 0; p[i] != NULL; i++ )
-    {
-        current_point = p[i];                           // указатель на i-ые координаты (чтобы посмотреть значение X: 'cout << current_point->GetX() << endl;')
-        current_distance = current_point->distance();
-
-        if ( current_distance > R )
-            R = current_distance;
-        
-        cout << current_point->GetX() << "\t";
-        cout << current_point->GetY() << "\t";
-        cout << current_point->distance() << endl;
-    }
->>>>>>> master
+        delete p[i];
+    
+    // удаление самого массива
+    delete []p;
 
     return 0;
 }
