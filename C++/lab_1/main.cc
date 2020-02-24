@@ -26,9 +26,7 @@ public:
 
     double distance()
     {
-        double r = sqrt(x*x + y*y);
-
-        return r;
+        return sqrt(x*x + y*y);
     }
 };
 
@@ -39,7 +37,7 @@ int main(int argc, char const *argv[])
     int X, Y;
     double R = 0.0;
     double current_distance;
-    Point *current_point;
+    Point *current_point;                               // указатель на текщие координаты
     Point **p;                                          // массив указателей
 
 
@@ -64,12 +62,20 @@ int main(int argc, char const *argv[])
         current_distance = current_point->distance();
 
         if ( current_distance > R )
+        {
+            X = current_point->GetX();
+            Y = current_point->GetY();
             R = current_distance;
+        }
         
-        cout << current_point->GetX() << "\t";
-        cout << current_point->GetY() << "\t";
-        cout << current_point->distance() << endl;
+        // cout << current_point->GetX() << "\t";
+        // cout << current_point->GetY() << "\t";
+        // cout << current_point->distance() << endl;
     }
+
+    cout << X << "\t";
+    cout << Y << "\t";
+    cout << R << endl;
 
     return 0;
 }
