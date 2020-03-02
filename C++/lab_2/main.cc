@@ -39,16 +39,17 @@ void Magic::Fill_in()
     unsigned n;                             // счетчик (позволяет не выходить за границы матрицы)
     int i, j;                               // координаты 'current_digit'
 
+    current_digit = 1;
     max_digit = N * N;
     n = N - 1;
     i = n;
     j = n/2;
-    tab[i][j] = 1;                        // расположение единицы в матрице (низ, центр)
+    tab[i][j] = current_digit;                              // расположение единицы в матрице (низ, центр)
 
-    while (current_digit != max_digit)
-    {
-        
-    }    
+    //while (current_digit != max_digit)
+    //{
+    //    
+    //}    
 }
 
 void Magic::Print()
