@@ -15,7 +15,7 @@ class Magic
     public:
         Magic(int dim) : N(dim) {};         // конструктор инициализации размерности массива
         //~Magic();                           // деструктор
-        void Create();
+        void Create();                      // метод создания N - мерного массива и заполнения нулями
         void Fill_in();                     // метод заполнения магического квадрата
         void Print();                       // метод вывода магического квадрата на экран
 };
@@ -34,7 +34,20 @@ void Magic::Create()
 
 void Magic::Fill_in()
 {
+    unsigned current_digit;                 // текущее число
+    unsigned max_digit;                     // максимально возможное число
+    unsigned n;                             // счетчик (позволяет не выходить за границы матрицы)
+    int i, j;                               // координаты 'current_digit'
 
+    max_digit = N * N;
+    n = N - 1;
+
+    tab[n][n/2] = 1;                        // расположение единицы в матрице (низ, центр)
+
+    while (current_digit != max_digit)
+    {
+        
+    }    
 }
 
 void Magic::Print()
@@ -53,9 +66,9 @@ int main(int argc, char const *argv[])
 {
     int N;
 
-    N = atoi(argv[1]);              // задаем размернность массива через аргумент командной строки
+    N = atoi(argv[1]);                      // задаем размернность массива через аргумент командной строки
 
-    Magic magic(N);                 // создаем объект класса Magic
+    Magic magic(N);                         // создаем объект класса Magic
     magic.Create();
     magic.Fill_in();
     magic.Print();
