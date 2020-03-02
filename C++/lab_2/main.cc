@@ -41,8 +41,9 @@ void Magic::Fill_in()
 
     max_digit = N * N;
     n = N - 1;
-
-    tab[n][n/2] = 1;                        // расположение единицы в матрице (низ, центр)
+    i = n;
+    j = n/2;
+    tab[i][j] = 1;                        // расположение единицы в матрице (низ, центр)
 
     while (current_digit != max_digit)
     {
