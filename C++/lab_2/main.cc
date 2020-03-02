@@ -7,18 +7,28 @@ using namespace std;
 class Magic
 {
     private:
-        int row;                // строка
-        int col;                // столбец
-        unsigned** p;           // указатель на начало двумерного массива
+        int row;                        // строка
+        int col;                        // столбец
+        int N;                          // размерность массива
+        unsigned** tab;                 // указатель на первый указатель массива указателей
     public:
-        
-        ~Magic();               // деструктор
-        void Fill_in();         // метод заполнения магического квадрата
-        void Print();           // метод вывода магического квадрата на экран
+        Magic(int dim) : N(dim) {};     // конструктор инициализации размерности массива
+        ~Magic();                       // деструктор
+        void Fill_in(int);              // метод заполнения магического квадрата
+        void Print();                   // метод вывода магического квадрата на экран
 };
+
+void Magic::Fill_in(int N)
+{
+
+}
 
 int main(int argc, char const *argv[])
 {
-    
+    int N;
+    N = atoi(argv[1]);              // задаем размернность массива через аргумент командной строки
+
+    Magic magic(N);                 // создаем объект класса Magic
+
     return 0;
 }
