@@ -4,61 +4,114 @@
 #include <stdio.h>
 using namespace std;
 
-// создаю класс Magic - магический квадрат
-class Magic
+class Magic                                                 // создаю класс Magic - магический квадрат
 {
     private:
-        int row;                            // строка
-        int col;                            // столбец
-        int N;                              // размерность массива
-        unsigned** tab;                     // указатель на первый указатель массива указателей (** - говорит, что будет двумерный массив)
+        int row;                                            // строка
+        int col;                                            // столбец
+        int N;                                              // размерность массива
+        unsigned** tab;                                     // указатель на первый указатель массива указателей (** - говорит, что будет двумерный массив)
     public:
-        Magic(int dim) : N(dim) {};         // конструктор инициализации размерности массива
-        //~Magic();                           // деструктор
-        void Create();                      // метод создания N - мерного массива и заполнения нулями
-        void Fill_in();                     // метод заполнения магического квадрата
-        void Print();                       // метод вывода магического квадрата на экран
+        Magic(int dim) : N(dim) {};                         // конструктор инициализации размерности массива
+        //~Magic();                                           // деструктор
+        void Create();                                      // метод создания N - мерного массива и заполнения нулями
+        void Fill_in();                                     // метод заполнения магического квадрата
+        void Check_for_free(unsigned);                      // в методе реализован алгоритм размещения числа в матрице, в зависимости от условия: клетка пустая / непустая
+        void Print();                                       // метод вывода магического квадрата на экран
 };
 
 void Magic::Create()
 {
-    tab = new unsigned* [N];                // tab присваиваем указатель на первый указатель массива указателей
+    tab = new unsigned* [N];                                // tab присваиваем указатель на первый указатель массива указателей
 
-    for (row = 0; row < N; row++)           // создаем N строк
+    for (row = 0; row < N; row++)                           // создаем N строк
         tab[row] = new unsigned [N];
         
     for (row = 0; row < N; row++)
-        for (col = 0; col < N; col++)       // создаем N столбоц
-            tab[row][col] = 0;              // инициализируем матрицу нулями
+        for (col = 0; col < N; col++)                       // создаем N столбоц
+            tab[row][col] = 0;                              // инициализируем матрицу нулями
 }
 
 void Magic::Fill_in()
 {
-    unsigned current_digit;                 // текущее число
-    unsigned max_digit;                     // максимально возможное число
-    unsigned n;                             // счетчик (позволяет не выходить за границы матрицы)
-    int i, j;                               // координаты 'current_digit'
+    unsigned current_digit;                                 // текущее число
+    unsigned max_digit;                                     // максимально возможное число
+    unsigned n;                                             // счетчик (позволяет не выходить за границы матрицы)
 
     current_digit = 1;
     max_digit = N * N;
     n = N - 1;
-    i = n;
-    j = n/2;
-    tab[i][j] = current_digit;                              // расположение единицы в матрице (низ, центр)
+    row = n;
+    col = n/2;
+    tab[row][col] = current_digit;                          // расположение единицы в матрице (низ, центр)
 
-    //while (current_digit != max_digit)
-    //{
-    //    
-    //}    
+    for (current_digit = 2; current_digit <= max_digit; current_digit++)
+    {
+        row -= 2;
+        col -= 1;
+
+        if ( ((row >=0) & (row <= n)) & ((col >=0) & (col <= n)) )
+            Check_for_free(current_digit);
+        else
+        {
+            if ( row >= 0 )
+            {
+                col += N;
+                Check_for_free(current_digit);
+            }
+            else if ( col >= 0 )
+            {
+                row += N;
+                Check_for_free(current_digit);
+            }
+            else
+            {
+                row += N;
+                col += N;
+                Check_for_free(current_digit);
+            }
+        }
+    }    
+}
+
+void Magic::Check_for_free(unsigned cur_digit)
+{
+    int old_row, old_col;                                   // координаты предыдущей точки
+
+    if ( tab[row][col] == 0 )
+    {
+        tab[row][col] = cur_digit;
+        old_row = row;
+        old_col = col;
+    }
+    else
+    {
+        row = old_row;
+        col = old_col;
+
+        if ( row < 4 )
+        {
+            row += N - 4;
+            tab[row][col] = cur_digit;
+        }                    
+        else
+        {
+            row -= 4;
+            tab[row][col] = cur_digit;
+        }
+    }
 }
 
 void Magic::Print()
 {
-    for (row = 0; row < N; row++)
+    int i;
+    int j;
+
+    for (i = 0; i < N; i++)
     {
-        for (col = 0; col < N; col++)
+        for (j = 0; j < N; j++)
         {
-            printf("%d\t", tab[row][col]);
+            printf("%d\t", tab[i][j]);
         }
         printf("\n");
     }
