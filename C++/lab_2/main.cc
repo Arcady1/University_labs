@@ -17,6 +17,7 @@ class Magic                                                 // создаю кл
         void Create();                                      // метод создания N - мерного массива и заполнения нулями
         void Fill_in();                                     // метод заполнения магического квадрата
         void Check_for_free(unsigned);                      // в методе реализован алгоритм размещения числа в матрице, в зависимости от условия: клетка пустая / непустая
+        unsigned Bitness();                                 // метод подсчета разрядности max числа
         void Print();                                       // метод вывода магического квадрата на экран
 };
 
@@ -102,10 +103,26 @@ void Magic::Check_for_free(unsigned cur_digit)
     }
 }
 
+unsigned Magic::Bitness()
+{
+    unsigned N_2;
+    int len;
+
+    len = 0;
+    N_2 = N*N;
+
+
+
+    return len;
+}
+
 void Magic::Print()
 {
+    unsigned bit;                                           // в переменной хранится разрядности max числа
     int i;
     int j;
+
+    bit = Bitness();
 
     for (i = 0; i < N; i++)
     {
@@ -118,24 +135,15 @@ void Magic::Print()
 }
 
 // предопределение функций для Main
-void Check_for_Errors (int);                    // ф-ия проверки на ошибки при передаче аргументов
+int Check_for_Errors (int, int);                    // ф-ия проверки на ошибки при передаче аргументов; принимает кол-во аргументов и введенное число
 
 int main(int argc, char const *argv[])
 {
     int N;
 
-    Check_for_Errors(argc);
+    N = Check_for_Errors(argc, atoi(argv[1]));      // задаем размернность массива через аргумент командной строки
 
-    N = atoi(argv[1]);                          // задаем размернность массива через аргумент командной строки
-
-    if ( (N % 2) == 0 )                         // проверка, что число нечетное
-    {
-        cout << "The number is even" << endl;
-
-        return 4;
-    }
-
-    Magic magic(N);                             // создаем объект класса Magic
+    Magic magic(N);                                 // создаем объект класса Magic
     magic.Create();
     magic.Fill_in();
     magic.Print();
@@ -143,19 +151,35 @@ int main(int argc, char const *argv[])
     return 0;
 }
 
-void Check_for_Errors(int argc_)
+int Check_for_Errors(int argc_, int N)
 {
-    if ( argc_ == 1 )                            // проверка, что число передано
+    if ( argc_ == 1 )                               // проверка, что число передано
     {
         cout << "No digit" << endl;
 
         exit (1);
     }
 
-    if ( argc_ > 2 )                             // проверка, что аргументов не больше двух
+    if ( argc_ > 2 )                                // проверка, что аргументов не больше двух
     {
         cout << "Too many arguments" << endl;
 
         exit (3);
     }
+
+    if ( N < 1 )                                    // проверка, что число >= 1
+    {
+        cout << "The number < 1" << endl;
+
+        exit (5);        
+    }
+    
+    if ( (N % 2) == 0 )                             // проверка, что число нечетное
+    {
+        cout << "The number is even" << endl;
+
+        exit (4);
+    }
+
+    return N;
 }
