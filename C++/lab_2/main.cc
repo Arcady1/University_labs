@@ -13,12 +13,20 @@ class Magic                                                 // создаю кл
         unsigned** tab;                                     // указатель на первый указатель массива указателей (** - говорит, что будет двумерный массив)
     public:
         Magic(int dim) : N(dim) {};                         // конструктор инициализации размерности массива
-        //~Magic();                                           // деструктор
+        ~Magic();                                           // деструктор
         void Create();                                      // метод создания N - мерного массива и заполнения нулями
         void Fill_in();                                     // метод заполнения магического квадрата
         void Check_for_free(unsigned);                      // в методе реализован алгоритм размещения числа в матрице, в зависимости от условия: клетка пустая / непустая
         void Print();                                       // метод вывода магического квадрата на экран
 };
+
+Magic::~Magic()
+{
+    for ( row = 0; row < N; row++ )
+        delete [] tab[row];
+        
+    delete [] tab;
+}
 
 void Magic::Create()
 {
@@ -28,15 +36,15 @@ void Magic::Create()
         tab[row] = new unsigned [N];
         
     for (row = 0; row < N; row++)
-        for (col = 0; col < N; col++)                       // создаем N столбоц
-            tab[row][col] = 0;                              // инициализируем матрицу нулями
+        for (col = 0; col < N; col++)                       // создаем N столбцов
+            tab[row][col] = 0;                              // заполняем матрицу нулями
 }
 
 void Magic::Fill_in()
 {
     unsigned current_digit;                                 // текущее число
     unsigned max_digit;                                     // максимально возможное число
-    unsigned n;                                             // счетчик (позволяет не выходить за границы матрицы)
+    unsigned n;                                             // счетчик (позволяет не выходить за границы массива)
 
     current_digit = 1;
     max_digit = N * N;
@@ -76,7 +84,7 @@ void Magic::Fill_in()
 
 void Magic::Check_for_free(unsigned cur_digit)
 {
-    int old_row, old_col;                                   // координаты предыдущей точки
+    int old_row, old_col;                           // координаты предыдущей точки
 
     if ( tab[row][col] == 0 )
     {
@@ -104,7 +112,7 @@ void Magic::Check_for_free(unsigned cur_digit)
 
 void Magic::Print()
 {
-    unsigned len;                                           // в переменной хранится разрядности max числа
+    unsigned len;                                   // в переменной хранится разрядности max числа
     unsigned N_2;
     int i;
     int j;
@@ -112,7 +120,7 @@ void Magic::Print()
     len = 0;
     N_2 = N * N;
 
-    while ( N_2 > 0 )                                       // подсчет max разрядности числа
+    while ( N_2 > 0 )                               // подсчет max разрядности числа
     {
         N_2 /= 10;
         len++;
@@ -129,13 +137,13 @@ void Magic::Print()
 }
 
 // предопределение функций для Main
-int Check_for_Errors (int, int);                    // ф-ия проверки на ошибки при передаче аргументов; принимает кол-во аргументов и введенное число
+int Check_for_Errors (int, int);                    // ф-ия проверки на ошибки при передаче аргументов; принимает кол-во аргументов и введенное число; возвращает введенное число
 
 int main(int argc, char const *argv[])
 {
     int N;
 
-    N = Check_for_Errors(argc, atoi(argv[1]));      // задаем размернность массива через аргумент командной строки
+    N = Check_for_Errors(argc, atoi(argv[1]));      // задаем размерность массива через аргумент командной строки
 
     Magic magic(N);                                 // создаем объект класса Magic
     magic.Create();
@@ -158,14 +166,14 @@ int Check_for_Errors(int argc_, int N)
     {
         cout << "Too many arguments" << endl;
 
-        exit (3);
+        exit (2);
     }
 
     if ( N < 1 )                                    // проверка, что число >= 1
     {
         cout << "The number < 1" << endl;
 
-        exit (5);        
+        exit (3);        
     }
     
     if ( (N % 2) == 0 )                             // проверка, что число нечетное
