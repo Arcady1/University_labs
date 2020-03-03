@@ -23,9 +23,9 @@ class Magic                                                 // создаю кл
 Magic::~Magic()
 {
     for ( row = 0; row < N; row++ )
-        delete [] tab[row];
+        delete[] tab[row];
         
-    delete [] tab;
+    delete[] tab;
 }
 
 void Magic::Create()
