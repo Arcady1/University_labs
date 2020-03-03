@@ -17,7 +17,6 @@ class Magic                                                 // создаю кл
         void Create();                                      // метод создания N - мерного массива и заполнения нулями
         void Fill_in();                                     // метод заполнения магического квадрата
         void Check_for_free(unsigned);                      // в методе реализован алгоритм размещения числа в матрице, в зависимости от условия: клетка пустая / непустая
-        unsigned Bitness();                                 // метод подсчета разрядности max числа
         void Print();                                       // метод вывода магического квадрата на экран
 };
 
@@ -103,38 +102,27 @@ void Magic::Check_for_free(unsigned cur_digit)
     }
 }
 
-unsigned Magic::Bitness()
-{
-    unsigned N_2;
-    int len;
-
-    N_2 = N*N;
-    len = 0;
-
-    while ( N_2 != 0 )
-    {
-        N_2 /= 10;
-
-        if ( N_2 != 0 )
-            len++;
-    }
-
-    return len;
-}
-
 void Magic::Print()
 {
-    unsigned bit;                                           // в переменной хранится разрядности max числа
+    unsigned len;                                           // в переменной хранится разрядности max числа
+    unsigned N_2;
     int i;
     int j;
 
-    bit = Bitness();
+    len = 0;
+    N_2 = N * N;
+
+    while ( N_2 > 0 )                                       // подсчет max разрядности числа
+    {
+        N_2 /= 10;
+        len++;
+    }
 
     for (i = 0; i < N; i++)
     {
         for (j = 0; j < N; j++)
         {
-            printf("%d\t", tab[i][j]);
+            printf("%0*d\t", len, tab[i][j]);
         }
         printf("\n");
     }
