@@ -122,7 +122,7 @@ void Magic::Print()
     {
         for (j = 0; j < N; j++)
         {
-            printf("%0*d\t", len, tab[i][j]);
+            printf("%0*d  ", len, tab[i][j]);
         }
         printf("\n");
     }
