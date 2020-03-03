@@ -108,10 +108,16 @@ unsigned Magic::Bitness()
     unsigned N_2;
     int len;
 
-    len = 0;
     N_2 = N*N;
+    len = 0;
 
+    while ( N_2 != 0 )
+    {
+        N_2 /= 10;
 
+        if ( N_2 != 0 )
+            len++;
+    }
 
     return len;
 }
