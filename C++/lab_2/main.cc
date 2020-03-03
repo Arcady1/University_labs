@@ -117,16 +117,45 @@ void Magic::Print()
     }
 }
 
+// предопределение функций для Main
+void Check_for_Errors (int);                    // ф-ия проверки на ошибки при передаче аргументов
+
 int main(int argc, char const *argv[])
 {
     int N;
 
-    N = atoi(argv[1]);                      // задаем размернность массива через аргумент командной строки
+    Check_for_Errors(argc);
 
-    Magic magic(N);                         // создаем объект класса Magic
+    N = atoi(argv[1]);                          // задаем размернность массива через аргумент командной строки
+
+    if ( (N % 2) == 0 )                         // проверка, что число нечетное
+    {
+        cout << "The number is even" << endl;
+
+        return 4;
+    }
+
+    Magic magic(N);                             // создаем объект класса Magic
     magic.Create();
     magic.Fill_in();
     magic.Print();
 
     return 0;
+}
+
+void Check_for_Errors(int argc_)
+{
+    if ( argc_ == 1 )                            // проверка, что число передано
+    {
+        cout << "No digit" << endl;
+
+        exit (1);
+    }
+
+    if ( argc_ > 2 )                             // проверка, что аргументов не больше двух
+    {
+        cout << "Too many arguments" << endl;
+
+        exit (3);
+    }
 }
