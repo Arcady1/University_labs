@@ -82,7 +82,7 @@ int main(int argc, char const *argv[])
         delete p[i];
     
     // удаление самого массива
-    delete []p;
+    delete[] p;
 
     return 0;
 }
