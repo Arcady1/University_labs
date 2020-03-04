@@ -1,4 +1,5 @@
 // Гусаров Аркадий РК6-23Б 1 курс. Программа поиска точки любого заданного набора точек на плоскости, которая наиболее удалена от начала координат
+// Пример ввода: ./a.out 4,6 5,9
 
 #include <iostream>
 #include <math.h>
@@ -37,8 +38,8 @@ int main(int argc, char const *argv[])
     int X, Y;
     double R = 0.0;
     double current_distance;
-    Point *current_point;                               // указатель на текщие координаты
-    Point **p;                                          // массив указателей
+    Point *current_point;                               // указатель на текущие координаты
+    Point **p;                                          // указателей на первый указатель массива указателей
 
 
     // проверка, что введены координаты хотя бы одной точки
@@ -67,10 +68,6 @@ int main(int argc, char const *argv[])
             Y = current_point->GetY();
             R = current_distance;
         }
-        
-        // cout << current_point->GetX() << "\t";
-        // cout << current_point->GetY() << "\t";
-        // cout << current_point->distance() << endl;
     }
 
     cout << X << "\t";
