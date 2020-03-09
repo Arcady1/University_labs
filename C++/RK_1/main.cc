@@ -48,7 +48,7 @@ int main(int argc, char const *argv[])
         tab[i] = new Point (X, Y);                              // записываем координаты в массив
     }
 
-    qsort(tab, N, sizeof(Point), distance_y);
+    qsort(tab, N, sizeof(Point), distance_y);                   // ф-ия быстрой сортировки; отсортированный массив хранится в первой переданной переменной
 
     printf("(%d; %d)", tab[0]->getX(), tab[0]->getY());         // вывод минимальной точки
 
@@ -63,6 +63,11 @@ int main(int argc, char const *argv[])
     }
 
     printf("\n");
+
+    for ( int i = 0; i < N; i++ )                               // деструктор
+        delete tab[i];
+    
+    delete[] tab;
 
     return 0;
 }
