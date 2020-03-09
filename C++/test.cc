@@ -5,21 +5,23 @@ using namespace std;
 class Point
 {
 private:
-    int x;                                          // координаты точек
+    int x;                                                  // координаты точек
     int y;
 public:
-    Point( int x_, int y_ ) : x(x_), y(y_) {};      // конструктор инициализации списком
-    //friend int distance_x(void);                    // дружественная ф-ия; принимает ..., возвращает расстояние между парами точек
-    //void distance_y (void);                         // метод класса; принимает ..., возвращает ...
+    Point(int x_, int y_) : x(x_), y(y_) {};              // конструктор инициализации списком
+    friend int distance_y(const void*, const void*);        // дружественная ф-ия; принимает ..., возвращает расстояние между парами точек
+    //void distance_x (void);                               // метод класса; принимает ..., возвращает ...
     int getX() { return x; };
     int getY() { return y; };
 };
 
-// int distance_x(void)
-// {
+int distance_y(const void* pp, const void* qq)
+{
+    Point** p = (Point**) pp;                       // приводим переменную pp типа void к типу Point** и записываем значение в p (сравнимо с tab** - с. 28)
+    Point** q = (Point**) qq;                       // приводим переменную qq типа void к типу Point** и записываем значение в q
 
-//     return 1;
-// }
+    return ( p[0]->y - q[0]->y );
+}
 
 int main(int argc, char const *argv[])
 {
@@ -36,6 +38,8 @@ int main(int argc, char const *argv[])
 
         tab[i] = new Point (X, Y);                  // записываем координаты в массив
     }
+
+    qsort(tab, N, sizeof(Point), distance_y);
 
     // вывод координат точек на экран
     for ( int i = 0; i < N; i++ )
