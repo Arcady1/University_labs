@@ -7,7 +7,7 @@ private:
     int numer;                                                          // числитель дроби
     int denom;                                                          // знаменатель дроби
 public:
-    Ratio() { numer = denom = 1; }                                      // конструктор по умолчанию
+    Ratio() { numer = denom = 1; };                                     // конструктор по умолчанию
     Ratio(int numer_, int denom_) : numer(numer_), denom(denom_) {};    // инициализация переменных списком
     void Div(int);                                                      // метод реализует деление дроби на число; принимает делитель
     int getNumer() { return numer; };
@@ -16,7 +16,7 @@ public:
 
 void Ratio::Div(int denom)
 {
-    this->denom *= denom;
+    this->denom *= denom;                                           // this указывает на то, что denom (слева от равно) принадлежит классу Ratio
 }
 
 int main(int argc, char const *argv[])
