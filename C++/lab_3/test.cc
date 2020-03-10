@@ -14,9 +14,9 @@ public:
     int getDenom() { return denom; };
 };
 
-void Ratio::Div(int &denom)
+void Ratio::Div(int &digit)
 {
-    this->denom *= denom;                                           // this указывает на то, что denom (слева от равно) принадлежит классу Ratio
+    this->denom *= digit;                                           // this указывает на то, что denom (слева от равно) принадлежит классу Ratio
 }
 
 int main(int argc, char const *argv[])
