@@ -51,15 +51,14 @@ int main(int argc, char const *argv[])
 
     Ratio drob(numer_, denom_);
     
-    // ВЫВОД ДРОБИ И ЧИСЛА, НА КОТОРОЕ ДЕЛИМ
-    cout << drob.getNumer() << "/" << drob.getDenom() << "; " << digit << endl;
-
     drob.Div(digit);
 
     // ВЫВОД ДРОБИ, РАЗДЕЛЕННОЙ НА ЧИСЛО (БЕЗ СОКРАЩЕНИЯ)
     cout << drob.getNumer() << "/" << drob.getDenom() << endl;
 
     drob.Evclid();
+
+    // ВЫВОД СОКРАЩЕННОЙ ДРОБИ
     cout << drob.getNumer() << "/" << drob.getDenom() << endl;
 
     return 0;
