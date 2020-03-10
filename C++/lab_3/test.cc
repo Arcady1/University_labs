@@ -9,12 +9,12 @@ private:
 public:
     Ratio() { numer = denom = 1; };                                     // конструктор по умолчанию
     Ratio(int numer_, int denom_) : numer(numer_), denom(denom_) {};    // инициализация переменных списком
-    void Div(int);                                                      // метод реализует деление дроби на число; принимает делитель
+    void Div(int &);                                                      // метод реализует деление дроби на число; принимает делитель по ссылке
     int getNumer() { return numer; };
     int getDenom() { return denom; };
 };
 
-void Ratio::Div(int denom)
+void Ratio::Div(int &denom)
 {
     this->denom *= denom;                                           // this указывает на то, что denom (слева от равно) принадлежит классу Ratio
 }
