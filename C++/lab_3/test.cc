@@ -16,7 +16,7 @@ public:
 
 void Ratio::Div(int &digit)
 {
-    this->denom *= digit;                                           // this указывает на то, что denom (слева от равно) принадлежит классу Ratio
+    this->denom *= digit;                                           // this указывает на то, что denom (слева от равно) принадлежит классу Ratio (указатель на текущий объект класса)
 }
 
 int main(int argc, char const *argv[])
@@ -25,7 +25,7 @@ int main(int argc, char const *argv[])
     int denom_;                                                     // знаменатель введенной дроби
     int digit;                                                      // число, на которое делим дробь
 
-    sscanf(argv[1], "%d%*c%d", &numer_, &denom_);
+    sscanf(argv[1], "%d/%d", &numer_, &denom_);
     sscanf(argv[2], "%d", &digit);
 
     Ratio drob(numer_, denom_);
