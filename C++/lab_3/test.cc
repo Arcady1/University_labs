@@ -25,17 +25,20 @@ void Ratio::Evclid(void)
 {
     int a, b, c;
 
+    // ??? ПЕРЕГРУЗКА ОПЕРАТОРА ПРИСВАИВАНИЯ ???
     a = abs(this->numer);
     b = abs(this->denom);
     c = 1;
 
     while ( c != 0 )
     {
-        c = a - (b * (a / b));
+        // ??? ПЕРЕГРУЗКА ОПЕРАТОРА ПРИСВАИВАНИЯ ???
+        c = a % b;
         a = b;
         b = c;
     }
 
+    // ??? ПЕРЕГРУЗКА ОПЕРАТОРА ДЕЛЕНИЯ ???
     this->numer /= a;
     this->denom /= a;
 }
@@ -52,12 +55,10 @@ int main(int argc, char const *argv[])
     Ratio drob(numer_, denom_);
     
     drob.Div(digit);
-
     // ВЫВОД ДРОБИ, РАЗДЕЛЕННОЙ НА ЧИСЛО (БЕЗ СОКРАЩЕНИЯ)
     cout << drob.getNumer() << "/" << drob.getDenom() << endl;
 
     drob.Evclid();
-
     // ВЫВОД СОКРАЩЕННОЙ ДРОБИ
     cout << drob.getNumer() << "/" << drob.getDenom() << endl;
 
