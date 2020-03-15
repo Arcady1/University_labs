@@ -1,66 +1,33 @@
-#include <math.h>
+#include <cctype>
 #include <iostream>
 using namespace std;
 
-class Ratio
+class Letters
 {
-private:
-    int numer;                                                          // числитель дроби
-    int denom;                                                          // знаменатель дроби
-public:
-    Ratio() { numer = denom = 1; };                                     // конструктор по умолчанию
-    Ratio(int numer_, int denom_) : numer(numer_), denom(denom_) {};    // инициализация переменных списком
-    void Div(int &);                                                    // метод реализует деление дроби на число; принимает делитель по ссылке
-    void Evclid(void);                                                  // метод реализует алгоритм Евклида
-    int getNumer() { return numer; };
-    int getDenom() { return denom; };
+    private:
+        unsigned short bin;                     // состав слова в виде бинарного кода
+    public:
+        Letters() { bin = 0; };
+        Letters(char*);                         // конструктор преобразование слова в бинарный код; присваивание в bin
 };
 
-void Ratio::Div(int &digit)
+Letters::Letters (char* s)
 {
-    this->denom *= digit;                                           // this указывает на то, что denom (слева от равно) принадлежит классу Ratio (указатель на текущий объект класса)
-}
-
-void Ratio::Evclid(void)
-{
-    int a, b, c;
-
-    // ??? ПЕРЕГРУЗКА ОПЕРАТОРА ПРИСВАИВАНИЯ ???
-    a = abs(this->numer);
-    b = abs(this->denom);
-    c = 1;
-
-    while ( c != 0 )
-    {
-        // ??? ПЕРЕГРУЗКА ОПЕРАТОРА ПРИСВАИВАНИЯ ???
-        c = a % b;
-        a = b;
-        b = c;
-    }
-
-    // ??? ПЕРЕГРУЗКА ОПЕРАТОРА ДЕЛЕНИЯ ???
-    this->numer /= a;
-    this->denom /= a;
-}
-
-int main(int argc, char const *argv[])
-{
-    int numer_;                                                     // числитель введенной дроби
-    int denom_;                                                     // знаменатель введенной дроби
-    int digit;                                                      // число, на которое делим дробь
-
-    sscanf(argv[1], "%d/%d", &numer_, &denom_);
-    sscanf(argv[2], "%d", &digit);
-
-    Ratio drob(numer_, denom_);
+    bin = 0;
     
-    drob.Div(digit);
-    // ВЫВОД ДРОБИ, РАЗДЕЛЕННОЙ НА ЧИСЛО (БЕЗ СОКРАЩЕНИЯ)
-    cout << drob.getNumer() << "/" << drob.getDenom() << endl;
+    while (*s)
+    {
+        bin |= ( 1 << (tolower(*s) - 'a' ) );
+        s++;
+    }
+}
 
-    drob.Evclid();
-    // ВЫВОД СОКРАЩЕННОЙ ДРОБИ
-    cout << drob.getNumer() << "/" << drob.getDenom() << endl;
+int main(int argc, char *argv[])
+{
+    // ф-ия проверки на ошибки при вводе в терминал
+
+    Letters x(argv[1]);
+    Letters y(argv[2]);
 
     return 0;
 }
