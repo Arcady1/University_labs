@@ -1,3 +1,6 @@
+// Гусаров Аркадий РК6-23Б 1 курс. Программа вычисления пересечения двух любых подмножеств латинских букв, которые передаются ей через аргументы командной строки.
+// Пример ввода: ./a.out asd xcv
+
 #include <cctype>
 #include <iostream>
 using namespace std;
@@ -51,9 +54,11 @@ ostream& operator<<(ostream& out, Letters& z)
     return out;
 }
 
+void Errors_check(int);                                     // предопределение ф-ии проверки на ошибки при вводе в терминал
+
 int main(int argc, char *argv[])
 {
-    // ф-ия проверки на ошибки при вводе в терминал
+    Errors_check(argc);
 
     Letters x(argv[1]);
     Letters y(argv[2]);
@@ -64,4 +69,15 @@ int main(int argc, char *argv[])
     cout << z << endl;
 
     return 0;
+}
+
+void Errors_check(int ac)
+{
+    if (ac != 3)
+    {
+        printf("Ошибка при вводе аргументов\n");
+
+        exit (1);
+    }
+    
 }
