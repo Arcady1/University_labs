@@ -1,3 +1,4 @@
+#include <math.h>
 #include <iostream>
 using namespace std;
 
@@ -7,36 +8,33 @@ class Letters
         unsigned word;                                          // кодировка слова (только заглавные буквы)
         unsigned alpha;                                         // кодировка алфавита заглавных букв
     public:
-        Letters() { word = 0; alpha = 0; };                     // конструктор по умолчанию
-        Letters(char*);                                         // конструктор инициализации строки и преобразования слова в 'word', заполнение 'alpha' алфавитом заглавных букв; принимает введенное слово
+        Letters(char*, unsigned&);                              // конструктор инициализации строки и закодирования слова 'word', заполнение 'alpha' алфавитом заглавных букв; принимает введенное слово, адрес на алфавит
         int operator,(unsigned&);                               // перегрузка оператора ',' для перемножения 'word' и 'alpha'; принимает введенное слово, возвращает число заглавных букв в слове
         friend ostream& operator<<(ostream&, Letters&);         // перегрузка оператора '<<'
-        unsigned getAlpha() { return alpha; };
 };
 
-Letters::Letters(char* s)
+Letters::Letters(char* s, unsigned& alpha_)
 {
     int code;
 
     word = 0;
-    alpha = 0;
+    alpha_ = 0;
 
-    while (*s)                                          // инициализация единицами позиции заглавных букв введенного слова
+    while (*s)                                          // в 'word' записывается закодированное введенное слово (позиции: a-z: 32-57; A-Z: 0-25)
     {
         code = (int)(*s);
+        word |= ( 1 << (abs(code - 'A')) );
 
-        if ( ((code > 64) & (code < 91)) )
-            word |= (1 << code);
-        
         s++;
     }
 
-    for (int i = 65; i < 91; i++)                       // заполнение 'alpha' алфавитом заглавных букв
-        alpha |= (1 << i);
+    for (int i = 0; i < 26; i++)                        // заполнение 'alpha' алфавитом заглавных букв (позиции: A-Z: 0-25)
+        alpha_ |= (1 << i);
     
+    this->alpha = alpha_;
 }
 
-int Letters::operator,(unsigned& alp)
+int Letters::operator,(unsigned& alpha_)
 {
     unsigned bin;
     int count;
@@ -44,9 +42,9 @@ int Letters::operator,(unsigned& alp)
     bin = 0;
     count = 0;
 
-    word = word & alp;                                      // в word перезаписали позиции заглавных букв слова
+    word = word & alpha_;                               // в word перезаписываются позиции заглавных букв слова
 
-    for (int i = 65; i < 91; i++)                           // подсчет заглавных букв
+    for (int i = 0; i < 26; i++)                        // подсчитываются заглавные буквы
     {
         bin = 1 << i;
 
@@ -63,30 +61,41 @@ ostream& operator<<(ostream& out, Letters& wd)
 
     bin = 0;
 
-    for (int i = 65; i < 91; i++)
+    for (int i = 0; i < 26; i++)
     {
         bin = 1 << i;
 
         if ( (wd.word & bin) > 0 )
-            out<<(char)(i);        
+            out<<(char)('A' + i);        
     }
 
     return out;
 }
 
+void Errors_check(int);                                 // ф-ия проверки на ошибки при передаче аргументов; принимает кол-во аргументов
+
 int main(int argc, char *argv[])
 {
-    Letters w;
+    Errors_check(argc);
+
+    unsigned Alphabet;
     int result;
-    unsigned alp;
 
+    Letters text(argv[1], Alphabet);
+    
+    result = (text, Alphabet);                          // перегрузка оператора ','
 
-    w = argv[1];
-    alp = w.getAlpha();
-    result = (w.operator,(alp));                      // перегрузка оператора ','
-
-    cout << w << endl;
+    cout << text << endl;
     cout << result << endl;
 
     return 0;
+}
+
+void Errors_check(int ac)
+{
+    if (ac != 2)
+    {
+        printf("Ошибка при вводе аргументов\n");
+        exit (1);
+    }
 }
