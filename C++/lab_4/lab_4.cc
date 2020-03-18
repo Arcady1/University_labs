@@ -38,29 +38,40 @@ Letters::Letters(char* s)
 
 int Letters::operator,(unsigned& alp)
 {
-    unsigned bin, dot;
+    unsigned bin;
     int count;
     
     bin = 0;
-    dot = 1;
     count = 0;
 
-    bin = word & alp;                                   // в bin - позиции заглавных букв слова
+    word = word & alp;                                      // в word перезаписали позиции заглавных букв слова
 
-    for (int i = 0; i < 91; i++)                        // подсчет заглавных букв
+    for (int i = 65; i < 91; i++)                           // подсчет заглавных букв
     {
-        if ( ((bin & dot) > 0) )
-            ++count;
+        bin = 1 << i;
 
-        dot = dot << 1;
+        if ( ((word & bin) > 0) )
+            ++count;
     }
 
     return count;
 }
 
-ostream& operator<<(ostream& out, Letters& word)
+ostream& operator<<(ostream& out, Letters& wd)
 {
+    unsigned bin;
 
+    bin = 0;
+
+    for (int i = 65; i < 91; i++)
+    {
+        bin = 1 << i;
+
+        if ( (wd.word & bin) > 0 )
+            out<<(char)(i);        
+    }
+
+    return out;
 }
 
 int main(int argc, char *argv[])
@@ -74,7 +85,8 @@ int main(int argc, char *argv[])
     alp = w.getAlpha();
     result = (w.operator,(alp));                      // перегрузка оператора ','
 
-    printf("%d\n", result);
+    cout << w << endl;
+    cout << result << endl;
 
     return 0;
 }
