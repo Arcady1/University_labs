@@ -1,4 +1,3 @@
-#include <math.h>
 #include <iostream>
 using namespace std;
 
@@ -8,33 +7,35 @@ class Letters
         unsigned word;                                          // кодировка слова (только заглавные буквы)
         unsigned alpha;                                         // кодировка алфавита заглавных букв
     public:
-        Letters(char*, unsigned&);                              // конструктор инициализации строки и закодирования слова 'word', заполнение 'alpha' алфавитом заглавных букв; принимает введенное слово, адрес на алфавит
+        Letters() { word = 0; alpha = 0; };                     // конструктор по умолчанию
+        Letters(char*, unsigned&);                              // конструктор инициализации строки и преобразования слова в 'word', заполнение 'alpha' алфавитом заглавных букв; принимает введенное слово
         int operator,(unsigned&);                               // перегрузка оператора ',' для перемножения 'word' и 'alpha'; принимает введенное слово, возвращает число заглавных букв в слове
         friend ostream& operator<<(ostream&, Letters&);         // перегрузка оператора '<<'
 };
 
-Letters::Letters(char* s, unsigned& alpha_)
+Letters::Letters(char* s, unsigned& alp)
 {
     int code;
 
     word = 0;
-    alpha_ = 0;
+    alp = 0;
 
-    while (*s)                                          // в 'word' записывается закодированное введенное слово (позиции: a-z: 32-57; A-Z: 0-25)
+    while (*s)                                          // инициализация единицами позиции заглавных букв введенного слова
     {
         code = (int)(*s);
-        word |= ( 1 << (abs(code - 'A')) );
 
+        if ( ((code > 64) & (code < 91)) )
+            word |= (1 << code);
+        
         s++;
     }
 
-    for (int i = 0; i < 26; i++)                        // заполнение 'alpha' алфавитом заглавных букв (позиции: A-Z: 0-25)
-        alpha_ |= (1 << i);
+    for (int i = 65; i < 91; i++)                       // заполнение 'alpha' алфавитом заглавных букв
+        alp |= (1 << i);
     
-    this->alpha = alpha_;
 }
 
-int Letters::operator,(unsigned& alpha_)
+int Letters::operator,(unsigned& alp)
 {
     unsigned bin;
     int count;
@@ -42,9 +43,9 @@ int Letters::operator,(unsigned& alpha_)
     bin = 0;
     count = 0;
 
-    word = word & alpha_;                               // в word перезаписываются позиции заглавных букв слова
+    word = word & alp;                                      // в word перезаписали позиции заглавных букв слова
 
-    for (int i = 0; i < 26; i++)                        // подсчитываются заглавные буквы
+    for (int i = 65; i < 91; i++)                           // подсчет заглавных букв
     {
         bin = 1 << i;
 
@@ -61,12 +62,12 @@ ostream& operator<<(ostream& out, Letters& wd)
 
     bin = 0;
 
-    for (int i = 0; i < 26; i++)
+    for (int i = 65; i < 91; i++)
     {
         bin = 1 << i;
 
         if ( (wd.word & bin) > 0 )
-            out<<(char)('A' + i);        
+            out<<(char)(i);        
     }
 
     return out;
@@ -78,12 +79,12 @@ int main(int argc, char *argv[])
 {
     Errors_check(argc);
 
-    unsigned Alphabet;
+    unsigned alphabet;
     int result;
 
-    Letters text(argv[1], Alphabet);
-    
-    result = (text, Alphabet);                          // перегрузка оператора ','
+    Letters text(argv[1], alphabet);
+
+    result = (text, alphabet);                             // перегрузка оператора ','
 
     cout << text << endl;
     cout << result << endl;
