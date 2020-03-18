@@ -36,9 +36,26 @@ Letters::Letters(char* s)
     
 }
 
-int Letters::operator,(unsigned& alph)
+int Letters::operator,(unsigned& alp)
 {
+    unsigned bin, dot;
+    int count;
     
+    bin = 0;
+    dot = 1;
+    count = 0;
+
+    bin = word & alp;                                   // в bin - позиции заглавных букв слова
+
+    for (int i = 0; i < 91; i++)                        // подсчет заглавных букв
+    {
+        if ( ((bin & dot) > 0) )
+            ++count;
+
+        dot = dot << 1;
+    }
+
+    return count;
 }
 
 ostream& operator<<(ostream& out, Letters& word)
