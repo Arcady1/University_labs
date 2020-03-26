@@ -1,3 +1,4 @@
+#include <cctype>
 #include <iostream>
 using namespace std;
 
@@ -18,18 +19,40 @@ Letters::Letters(char* s)
 {
     int code;
 
+    code = 0;
     word = 0;
+    alpha = 0;
 
-    while (*s)                                          // инициализация единицами позиции букв введенного слова
+    while (*s)                                          // инициализация единицами позиции букв введенного слова    #######################################
     {
         code = (int)(*s);
-        word |= (1 << code);
+
+        if ( (code > 64) & (code < 91) )
+        {
+            printf("A: %c; ", (char)(code));
+            word |= (1 << (26 + (code - 'A')));
+            printf("code: %d\n", 26 + (code - 'A'));
+        }
+            
+
+        else if ( (code > 96) & (code < 123) )
+        {
+            printf("a: %c; ", (char)(code));
+            word |= ( 1 << (code - 'a') );
+            printf("code: %d\n", code - 'a');
+        }
 
         s++;
     }
 
-    for (int i = 65; i < 91; i++)                       // заполнение 'alpha' алфавитом заглавных букв
-        alpha |= (1 << i);
+    int i = 0;
+
+    for (i = 26; i < 52; i++)                       // заполнение 'alpha' алфавитом заглавных букв
+    {
+        alpha |= (1 << 30);
+        printf("\n%d\n", alpha);
+        exit (20);
+    }
 }
 
 int Letters::operator,(unsigned& alp)
@@ -37,18 +60,18 @@ int Letters::operator,(unsigned& alp)
     unsigned bin;
     int count;
     
-    alp = alpha;
+    // alp = alpha;
     bin = 0;
     count = 0;
 
-    word = word & alp;                                      // в word перезаписали позиции заглавных букв слова
+    word = word & alpha;                                      // в word перезаписали позиции заглавных букв слова
 
-    for (int i = 65; i < 91; i++)                           // подсчет заглавных букв
+    for (int i = 0; i < 100; i++)                           // подсчет заглавных букв
     {
         bin = 1 << i;
 
         if ( ((word & bin) > 0) )
-            ++count;
+            count++;
     }
 
     printf("%d\n", count);
