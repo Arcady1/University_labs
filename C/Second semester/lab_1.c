@@ -20,12 +20,39 @@ int main(int argc, char const *argv[])
         return 1;
     }
 
-    strings_num = Strings_number(file);
+    // strings_num = Strings_number(file);
     array = (int*) malloc(strings_num * sizeof(int) + 1);
-    Array_fill_in(file, strings_num, array);
+    // Array_fill_in(file, strings_num, array);
 
-    for ( i = 0; array[i] != -10 ; i++ )
-        printf("[%d] Строка %d: %d\n", i, i + 1, array[i]);
+    // ###########################################################
+    char symbol[100];
+    char c;
+    int symb_num;
+    int j = 0;
+
+    symb_num = 0;
+
+    while( (c = fgetc(file)) != EOF )
+    {
+        if ( c == '\n' )
+        {
+            symbol[j] = 'Z';
+            printf("%c", symbol[j]);
+        }
+        else
+        {
+            symbol[j] = c;
+            printf("%c", symbol[j]);
+        }
+        
+        j++;
+    }
+
+    array[strings_num] = -10;
+    // ###########################################################
+
+    // for ( i = 0; array[i] != -10 ; i++ )
+    //     printf("[%d] Строка %d: %d\n", i, i + 1, array[i]);
 
     fclose(file);
 
@@ -52,13 +79,28 @@ int Strings_number(FILE* file)
 
 void Array_fill_in(FILE* file, int strings_num, int* array)
 {
-    char symbol;
+    char symbol[100];
+    char c;
     int symb_num;
-    int i;
+    int i = 0;
 
     symb_num = 0;
 
-    
+    while( (c = fgetc(file)) != EOF )
+    {
+        if ( c == '\n' )
+        {
+            symbol[i] = 'Z';
+            printf("%c", symbol[i]);
+        }
+        else
+        {
+            symbol[i] = c;
+            printf("%c", symbol[i]);
+        }
+        
+        i++;
+    }
 
     array[strings_num] = -10;
 }
