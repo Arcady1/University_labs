@@ -22,20 +22,12 @@ int main(int argc, char const *argv[])
 
     strings_num = Strings_number(file);
     array = (int*) malloc(strings_num * sizeof(int) + 1);
-
     Array_fill_in(file, strings_num, array);
 
-    // array[strings_num] = -10;
-
     for ( i = 0; array[i] != -10 ; i++ )
-    {
         printf("[%d] Строка %d: %d\n", i, i + 1, array[i]);
-    }
 
-    
-
-
-    fclose(file);                                       // файл закрыт
+    fclose(file);
 
     printf("Кол-во строк: %d\n", strings_num);
     
@@ -66,12 +58,7 @@ void Array_fill_in(FILE* file, int strings_num, int* array)
 
     symb_num = 0;
 
-    for ( i = 0; i < strings_num; i++ )
-    {
-        
-    }
+    
 
     array[strings_num] = -10;
 }
-
-// printf("# %d\n", strings_num);
