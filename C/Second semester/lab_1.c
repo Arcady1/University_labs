@@ -2,13 +2,14 @@
 #include <stdlib.h>
 
 int Strings_number(FILE*);                              // ф-ия подсчета кол-ва строк в файле; принимает файл, возвращает кол-во строк
-int* Array_fill_in(FILE*, int, int*);                   // ф-ия заполнение массива 'array' числами - кол-во символов в строке; принимает 'file', кол-во строк, указатель на массив 'array'
+void Array_fill_in(FILE*, int, int*);                   // ф-ия заполнение массива 'array' числами - кол-во символов в строке; принимает 'file', кол-во строк, указатель на массив 'array', ничего не возвращает, т.к. изменяет массив через указатель
 
 int main(int argc, char const *argv[])
 {
     FILE *file;                                         // указатель на файл
     int strings_num;                                    // кол-во строк в файле
     int* array;                                         // указатель на выделенную память (размер = кол-во строк + 1)
+    int i;
 
     file = fopen(argv[1], "r");                         // 'r' - только для чтения
 
@@ -20,13 +21,13 @@ int main(int argc, char const *argv[])
     }
 
     strings_num = Strings_number(file);
-    array = malloc(strings_num + 1);
-    array = Array_fill_in(file, strings_num, array);    // в 'array' перезапиываем заполненный массив
+    array = (int*) malloc(strings_num + 1);
+    Array_fill_in(file, strings_num, array);
 
-    // for (int i = 0; i < strings_num + 1; i++)
-    // for (int i = 0; i != NULL; i++)
-    //     printf("[%d]: %d\n", i + 1, array[i]);
-    
+    for ( i = 0; array[i] < 7; i++ )
+    {
+        printf("[%d]: %d\n", i + 1, array[i]);
+    }
 
 
     fclose(file);                                       // файл закрыт
@@ -52,7 +53,7 @@ int Strings_number(FILE* file)
     return str_count;
 }
 
-int* Array_fill_in(FILE* file, int strings_num, int* array)
+void Array_fill_in(FILE* file, int strings_num, int* array)
 {
     char symbol;
     int symb_num;
@@ -72,12 +73,10 @@ int* Array_fill_in(FILE* file, int strings_num, int* array)
         //         break;
         // }
         
-        array[i] = symb_num;
+        array[i] = i + 1;
     }
 
-    array[strings_num] = '\0';
-
-    // return array;
+    array[i] = i + 1;
 }
 
 // printf("# %d\n", strings_num);
