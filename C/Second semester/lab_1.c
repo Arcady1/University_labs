@@ -21,13 +21,18 @@ int main(int argc, char const *argv[])
     }
 
     strings_num = Strings_number(file);
-    array = (int*) malloc(strings_num + 1);
-    Array_fill_in(file, strings_num, array);
+    array = (int*) malloc(strings_num * sizeof(int) + 1);
 
-    for ( i = 0; array[i] < 7; i++ )
+    // Array_fill_in(file, strings_num, array);
+
+    array[strings_num] = -10;
+
+    for ( i = 0; array[i] != -10 ; i++ )
     {
-        printf("[%d]: %d\n", i + 1, array[i]);
+        printf("[%d] Строка %d: %d\n", i, i + 1, array[i]);
     }
+
+    
 
 
     fclose(file);                                       // файл закрыт
@@ -76,7 +81,11 @@ void Array_fill_in(FILE* file, int strings_num, int* array)
         array[i] = i + 1;
     }
 
-    array[i] = i + 1;
+    array[strings_num - 1] = (int)('b');
+    printf("Строк: %d\n", strings_num);
+    printf("Последнее значение: %d\n", array[strings_num]);
+
+    exit (100);
 }
 
 // printf("# %d\n", strings_num);
