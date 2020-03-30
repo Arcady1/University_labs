@@ -23,9 +23,9 @@ int main(int argc, char const *argv[])
     strings_num = Strings_number(file);
     array = (int*) malloc(strings_num * sizeof(int) + 1);
 
-    // Array_fill_in(file, strings_num, array);
+    Array_fill_in(file, strings_num, array);
 
-    array[strings_num] = -10;
+    // array[strings_num] = -10;
 
     for ( i = 0; array[i] != -10 ; i++ )
     {
@@ -68,24 +68,10 @@ void Array_fill_in(FILE* file, int strings_num, int* array)
 
     for ( i = 0; i < strings_num; i++ )
     {
-        // printf("@\n");
-        // while ( (symbol = fgetc(file)) != '\n' )
-        // {
-        //     if ( symbol != '\n' )
-        //         symb_num++;
-            
-        //     else if ( symbol == '\n' )
-        //         break;
-        // }
         
-        array[i] = i + 1;
     }
 
-    array[strings_num - 1] = (int)('b');
-    printf("Строк: %d\n", strings_num);
-    printf("Последнее значение: %d\n", array[strings_num]);
-
-    exit (100);
+    array[strings_num] = -10;
 }
 
 // printf("# %d\n", strings_num);
