@@ -3,63 +3,44 @@
 
 int Strings_number(FILE*);                              // ф-ия подсчета кол-ва строк в файле; принимает файл, возвращает кол-во строк
 void Array_fill_in(FILE*, int, int*);                   // ф-ия заполнения массива 'array' числами - кол-во символов в строке; принимает 'file', кол-во строк, указатель на массив 'array', ничего не возвращает, т.к. изменяет массив через указатель
+int Average_length(int, int*);                          // ф-ия подсчета средней длины строки; принимает кол-во строк и указатель на массив 'array', возвращает среднюю длину строки
+int Search_count(int, int*);                            // ф-ия подсчета непустых строк, длина которых >= средней величины; принимает среднюю длину строки и указатель на массив 'array'
+void Errors(int);                                       // ф-ия проверки на ошибки при передаче аргументов командной строки
 
 int main(int argc, char const *argv[])
 {
     FILE *file;                                         // указатель на файл
     int strings_num;                                    // кол-во строк в файле
     int* array;                                         // указатель на выделенную память (размер = кол-во строк + 1)
-    int i;
+    int aver_len;                                       // средняя длина строки
+    int num_more_aver;                                  // кол-во непустых строк, длина которых >= средней величины
+
+    Errors(argc);
 
     file = fopen(argv[1], "r");                         // 'r' - только для чтения
 
     if (file == NULL)
     {
-        printf("Error\n");                              // если не удалось открыть файл - ошибка
-
+        printf("Ошибка при обработке файла\n");                              // если не удалось открыть файл - ошибка
+        
         return 1;
     }
 
     strings_num = Strings_number(file);
-    array = (int*) malloc(strings_num * sizeof(int) + 1);
-
     fseek(file, 0, SEEK_SET);                           // изменить позицию на 0 байт относительно начала файла; 'SEEK_SET' - начало файла
 
+    array = (int*) malloc(strings_num * sizeof(int) + 1);
+
     Array_fill_in(file, strings_num, array);
+    fclose(file);                                       // файл закрыт
 
-    // ###########################################################
-    // char symbol[100];
-    // char c;
-    // int symb_num;
-    // int j = 0;
+    aver_len = Average_length(strings_num, array);
+    num_more_aver = Search_count(aver_len, array);
 
-    // symb_num = 0;
+    free(array);                                        // очистил динамически выделенную память
 
-    // while( (c = fgetc(file)) != EOF )
-    // {
-    //     if ( c == '\n' )
-    //     {
-    //         symbol[j] = 'Z';
-    //         printf("%c", symbol[j]);
-    //     }
-    //     else
-    //     {
-    //         symbol[j] = c;
-    //         printf("%c", symbol[j]);
-    //     }
-        
-    //     j++;
-    // }
-
-    // array[strings_num] = -10;
-    // ###########################################################
-
-    // for ( i = 0; array[i] != -10 ; i++ )
-    //     printf("[%d] Строка %d: %d\n", i, i + 1, array[i]);
-
-    fclose(file);
-
-    printf("Кол-во строк: %d\n", strings_num);
+    printf("Средняя длина строки: %d\n", aver_len);
+    printf("Кол-во строк, длина которых не меньше средней величины: %d\n", num_more_aver);
     
     return 0;
 }
@@ -99,4 +80,44 @@ void Array_fill_in(FILE* file, int strings_num, int* array)
     }
 
     array[strings_num] = -10;
+}
+
+int Average_length(int strings_num, int* array)
+{
+    int aver_len;
+    int i;
+    int digit;
+
+    digit = 0;
+
+    for ( i = 0; array[i] != -10; i++ )
+        digit += array[i];
+
+    aver_len = digit / strings_num;
+
+    return aver_len;
+}
+
+int Search_count(int aver_len, int* array)
+{
+    int num_more_aver;
+    int i;
+
+    num_more_aver = 0;
+
+    for ( i = 0; array[i] != -10; i++ )
+        if ( array[i] >= aver_len )
+            num_more_aver++;  
+
+    return num_more_aver;
+}
+
+void Errors(int argc)
+{
+    if ( argc != 2 )                                // проверка на кол-во аргументов (= 2)
+    {
+        printf("Ошибка при вводе аргументов\n");
+
+        exit (1);
+    }
 }
