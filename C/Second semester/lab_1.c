@@ -25,11 +25,7 @@ int main(int argc, char const *argv[])
 
     fseek(file, 0, SEEK_SET);                           // изменить позицию на 0 байт относительно начала файла; 'SEEK_SET' - начало файла
 
-
-    
-
-
-    // Array_fill_in(file, strings_num, array);
+    Array_fill_in(file, strings_num, array);
 
     // ###########################################################
     // char symbol[100];
@@ -86,27 +82,20 @@ int Strings_number(FILE* file)
 
 void Array_fill_in(FILE* file, int strings_num, int* array)
 {
-    char symbol[100];
     char c;
     int symb_num;
-    int i = 0;
+    int i;
 
     symb_num = 0;
 
-    while( (c = fgetc(file)) != EOF )
+    for (i = 0; i < strings_num; i++)
     {
-        if ( c == '\n' )
-        {
-            symbol[i] = 'Z';
-            printf("%c", symbol[i]);
-        }
-        else
-        {
-            symbol[i] = c;
-            printf("%c", symbol[i]);
-        }
+        while( (c = fgetc(file)) != '\n' )
+            symb_num++;
         
-        i++;
+        array[i] = symb_num;
+
+        symb_num = 0;
     }
 
     array[strings_num] = -10;
