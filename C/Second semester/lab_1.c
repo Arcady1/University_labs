@@ -20,35 +20,42 @@ int main(int argc, char const *argv[])
         return 1;
     }
 
-    // strings_num = Strings_number(file);
+    strings_num = Strings_number(file);
     array = (int*) malloc(strings_num * sizeof(int) + 1);
+
+    fseek(file, 0, SEEK_SET);                           // изменить позицию на 0 байт относительно начала файла; 'SEEK_SET' - начало файла
+
+
+    
+
+
     // Array_fill_in(file, strings_num, array);
 
     // ###########################################################
-    char symbol[100];
-    char c;
-    int symb_num;
-    int j = 0;
+    // char symbol[100];
+    // char c;
+    // int symb_num;
+    // int j = 0;
 
-    symb_num = 0;
+    // symb_num = 0;
 
-    while( (c = fgetc(file)) != EOF )
-    {
-        if ( c == '\n' )
-        {
-            symbol[j] = 'Z';
-            printf("%c", symbol[j]);
-        }
-        else
-        {
-            symbol[j] = c;
-            printf("%c", symbol[j]);
-        }
+    // while( (c = fgetc(file)) != EOF )
+    // {
+    //     if ( c == '\n' )
+    //     {
+    //         symbol[j] = 'Z';
+    //         printf("%c", symbol[j]);
+    //     }
+    //     else
+    //     {
+    //         symbol[j] = c;
+    //         printf("%c", symbol[j]);
+    //     }
         
-        j++;
-    }
+    //     j++;
+    // }
 
-    array[strings_num] = -10;
+    // array[strings_num] = -10;
     // ###########################################################
 
     // for ( i = 0; array[i] != -10 ; i++ )
