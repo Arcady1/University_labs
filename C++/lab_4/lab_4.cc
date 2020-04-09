@@ -1,18 +1,19 @@
 // Гусаров Аркадий РК6-23Б 1 курс. Программа подсчета числа различных заглавных букв в любом слове из латинских букв, которое задается аргументы командной строки.
 // Пример ввода: ./a.out AbcCdDD
 
+#include <cctype>
 #include <iostream>
 using namespace std;
 
 class Letters
 {
     private:
-        unsigned word;                                          // закодированное слово (из терминала)
-        unsigned alpha;                                         // закодированный алфавит
+        unsigned low;                                           // находятся строчные буквы слова
+        unsigned cap;                                           // находятся заглавные буквы слова
     public:
-        Letters() { word = 0; alpha = 0; };                     // конструктор по умолчанию
+        Letters() { low = 0; cap = 67108863; };                 // конструктор по умолчанию
         Letters(char*);                                         // конструктор инициализации строки и преобразования слова в 'word', заполнение 'alpha' алфавитом заглавных букв; принимает введенное слово
-        int operator,(unsigned&);                               // перегрузка оператора ',' для перемножения 'word' и 'alpha'; принимает введенное слово, возвращает число заглавных букв в слове
+        int operator,(Letters&);                                // перегрузка оператора ',' для перемножения 'word' и 'alpha'; принимает введенное слово, возвращает число заглавных букв в слове
         friend ostream& operator<<(ostream&, Letters&);         // перегрузка оператора '<<'
 };
 
@@ -20,50 +21,45 @@ Letters::Letters(char* s)
 {
     int code;
     
-    word = 0;
-    alpha = 0;
+    cap = 0;
+    low = 0;
 
-    while (*s)                                          // инициализация единицами позиций заглавных букв введенного слова
+    while (*s)                                          // заполнение cap и low 
     {
         code = (int)(*s);
 
-        if ( (code > 64) & (code < 91) )
-        {
-            printf("U: %c; ", (char)(code));
-            word |= (1 << (code - 'A'));
-            printf("code: %d\n", code - 'A');
-        }    
+        if ( isupper(*s) )                              // если буква прописная
+            cap |= (1 << (code - 'A'));
+
+        else
+            low |= (1 << (code - 'a')); 
 
         s++;
     }
-
-    for (int i = 0; i < 26; i++)                        // заполнение 'alpha' алфавитом заглавных букв
-        alpha |= (1 << i);
 }
 
-int Letters::operator,(unsigned& alp)
+int Letters::operator,(Letters& object_)
 {
     unsigned bin;
+    unsigned digit;
     int count;
-    
-    alp = alpha;
-    bin = 0;
-    count = 0;
 
-    word = word & alpha;                                // в word перезаписали позиции заглавных букв слова
+    count = 0;
+    digit = 1;
+    bin = cap & object_.cap;
 
     for (int i = 0; i < 26; i++)                        // подсчет заглавных букв
     {
-        bin = 1 << i;
+        digit = 1 << i;
 
-        if ( ((word & bin) > 0) )
+        if ( ((bin & digit) > 0) )
             count++;
     }
 
     return count;
 }
 
-ostream& operator<<(ostream& out, Letters& wd)
+ostream& operator<<(ostream& out, Letters& text_)
 {
     unsigned bin;
 
@@ -71,7 +67,7 @@ ostream& operator<<(ostream& out, Letters& wd)
 
     for (int i = 0; i < 26; i++)
     {
-        if ( (wd.word & bin) > 0 )
+        if ( (text_.cap & bin) > 0 )
             out << (char)('A' + i);
         
         bin = bin << 1;
@@ -86,14 +82,13 @@ int main(int argc, char *argv[])
 {
     Errors_check(argc);
 
-    unsigned alp;
     int result;
-
     Letters text(argv[1]);
-    result = (text.operator,(alp));
+    Letters object;
 
-    cout << text << endl;
-    cout << result << endl;
+    result = (text, object);
+
+    cout << result << " = (" << text << ", " << object << ")" << endl;
 
     return 0;
 }
