@@ -124,14 +124,25 @@ SymLink *SymLink::top()
     }
 
     lenght -= count; // длина слова без букв с max кодом
+    printf("%d\n", lenght);
     for (int i = 0; i < count; i++)
     {
         q = head->seek(lenght / 2); // буква в середине слова - q
-        q->after(symbol);           // запись буквы с max кодом в середину слова
+        putchar(q->_sym);
+        q->before(symbol);           // запись буквы с max кодом в середину слова
         lenght++;
+        exit (10);
     }
 
-    head->print();
+    p = head;
+    while (p != NULL)
+    {
+        putchar(p->_sym);
+        q = p->incr();
+        p = q;
+    }
+
+    // head->print();
 
     // symbol->excluse();       // удаляем букву с max кодом
     // lenght -= count; //
