@@ -18,8 +18,8 @@ public:
     SymLink *seek(int);                                   // функция, возвращающая адрес записи
     int count();                                          // подсчет количества символов
     int print();                                          // вывод списка на экран
-    int top();                                            // поиск символа с максимальным кодом
-    int mess(int, int);                                           // смена позиции буквы и установка знака '^'
+    SymLink *top();                                       // поиск символа с максимальным кодом
+    int mess(int, int);                                   // смена позиции буквы и установка знака '^'
 };
 
 SymLink *SymLink::seek(int n)
@@ -63,44 +63,92 @@ int SymLink::print()
     return 0;
 }
 
-int SymLink::top()
+SymLink *SymLink::top()
 {
     SymLink *p = this;
+    SymLink *head = this; // указывает на head списка
     SymLink *q;
-    SymLink *s;
-    
+    SymLink *symbol;
+    int count, lenght;
     int code_n, code_l;
 
+    count = 0;
+    lenght = 0;
     code_l = 10;
     p = p->incr();
 
-    while (p != NULL)
+    while (p != NULL) // поиск максимального кода, записывается в code_l
     {
         code_n = (int)p->_sym;
 
         if (code_n > code_l)
-        {
             code_l = code_n;
-            s = p;
+
+        q = p->incr();
+        p = q;
+    }
+
+    p = head;
+    while (p != NULL) // подсчет букв с max кодом - count
+    {
+        if (int(p->_sym) == code_l)
+        {
+            count++;
         }
 
         q = p->incr();
         p = q;
     }
 
-    // над ячейкой списка с буквой f - указатель s
-    printf("%d\n", code_l);
+    p = head;
+    while (p != NULL) // длина слова - lenght
+    {
+        lenght++;
+        q = p->incr();
+        p = q;
+    }
 
-    q = s;
-    s->excluse();
+    lenght -= 2;
 
-    // сдвинуться в начало
-    // относительно начала сдвинуться в центр
-    // добавить q
-    // вставить перед этой ячейкой ^
+    p = head;
+    while (p != NULL) // удаляю и переставляю букву с max кодом
+    {
+        if (int(p->_sym) == code_l)
+        {
+            symbol = p;
+            symbol->excluse();
+        }
 
-    // return code_l;
-    return 0;
+        q = p->incr();
+        p = q;
+    }
+
+    lenght -= count; // длина слова без букв с max кодом
+    for (int i = 0; i < count; i++)
+    {
+        q = head->seek(lenght / 2); // буква в середине слова - q
+        q->after(symbol);           // запись буквы с max кодом в середину слова
+        lenght++;
+    }
+
+    head->print();
+
+    // symbol->excluse();       // удаляем букву с max кодом
+    // lenght -= count; //
+
+    // count--;
+
+    // putchar(symbol->_sym);
+
+    // над ячейкой списка с буквой f - указатель symbol
+    // printf("%d\n", code_l);
+    // printf("%d\n", count);
+    // printf("%d\n", lenght);
+
+    // q = symbol; // q хранит ячейку с буквой с max кодом
+    // symbol->excluse();
+
+    // return q;
 }
 
 int SymLink::mess(int code, int center)
@@ -111,7 +159,7 @@ int SymLink::mess(int code, int center)
 
     // while ( int(p->_sym) != code )
     //     p = p->incr();
-    
+
     // q = p;
     // p->excluse();
 
@@ -142,14 +190,14 @@ int main(int argc, char *argv[])
         tail->before(c);
     }
 
-    code = head->top();
+    p = head->top(); // p - символ, который нужно переставить в центр
     // center = (head->count()) / 2;
 
     // p->mess(code, center);
 
     // p = head->seek(center);
 
-    head->print();
+    // head->print();
 
     return 0;
 }
