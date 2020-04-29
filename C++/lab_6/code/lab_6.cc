@@ -1,4 +1,4 @@
-// Гусаров Аркадий РК6-23Б 1 курс. Программа ...
+// Гусаров Аркадий РК6-23Б 1 курс. Программа в каждой входной символьной строке переставляет символы с наибольшим кодом в середину строки без изменения взаимного расположения остальных символов.
 // Компиляция: g++ dlink.cpp lab_6.cc
 // Пример ввода: ./a.out asdasd
 
@@ -92,9 +92,7 @@ void *SymLink::work()
     while (p != NULL)                           // подсчет букв с max кодом - count
     {
         if (int(p->_sym) == code_l)
-        {
             count++;
-        }
 
         q = p->incr();
         p = q;
@@ -111,7 +109,7 @@ void *SymLink::work()
     lenght -= 2;
 
     p = head;
-    while (p != NULL)                           // удаляю и переставляю букву с max кодом
+    while (p != NULL)                           // удаляю букву с max кодом
     {
         if (int(p->_sym) == code_l)
         {
@@ -129,13 +127,13 @@ void *SymLink::work()
 
     SymLink *head_1 = q;
     SymLink *head_2 = q->incr();
-    // SymLink *top;
+    SymLink *top;
 
-    // top->_sym = 94;
+    top->_sym = 94;
 
     for (int i = 0; i < count; i++)
     {
-        // head_1 = (SymLink *) head_1->append(top);
+        head_1 = (SymLink *) head_1->append(top);
         head_1->after(symbol);
         head_1 = head_1->incr();
     }

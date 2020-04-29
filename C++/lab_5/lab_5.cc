@@ -17,7 +17,6 @@ public:
     float getY() { return y; };
     friend istream &operator>>(istream &, Dot &);
     friend ostream& operator<<(ostream&, Dot&);
-    friend class Line;
 };
 
 istream &operator>>(istream &input, Dot &p)         // перегрузка ввода
@@ -49,7 +48,7 @@ Dot Line::clipX()
 {
     float x_;
 
-    x_ = (B.x - A.x) * (-A.y) / (B.y - A.y) + A.x;
+    x_ = (B.getX() - A.getX()) * (-A.getY()) / (B.getY() - A.getY()) + A.getX();
     return Dot(x_, 0.0);
 }
 
@@ -57,7 +56,7 @@ Dot Line::clipY()
 {
     float y_;
 
-    y_ = (B.y - A.y) * (-A.x) / (B.x - A.x) + A.y;
+    y_ = (B.getY() - A.getY()) * (-A.getX()) / (B.getX() - A.getX()) + A.getY();
     return Dot(0.0, y_);
 }
 
@@ -65,7 +64,7 @@ int main(int argc, char *argv[])
 {
     Dot A, B;
 
-    cout << "Input Ax;Ay or EXIT" << endl;
+    cout << "Input Ax;Ay Bx;By or EXIT" << endl;
 
     while (cin >> A >> B)                           // пока данные вводятся корректно
     {
@@ -77,7 +76,7 @@ int main(int argc, char *argv[])
         Dot OY = L.clipY();    
         cout << OY << endl;
 
-        cout << "Input Ax;Ay or EXIT" << endl;
+        cout << "\nInput Ax;Ay Bx;By or EXIT" << endl;
     }    
 
     return 0;
