@@ -67,6 +67,7 @@ int SymLink::top()
 {
     SymLink *p = this;
     SymLink *q;
+    SymLink *s;
     
     int code_n, code_l;
 
@@ -78,15 +79,28 @@ int SymLink::top()
         code_n = (int)p->_sym;
 
         if (code_n > code_l)
+        {
             code_l = code_n;
+            s = p;
+        }
 
         q = p->incr();
         p = q;
     }
 
+    // над ячейкой списка с буквой f - указатель s
     printf("%d\n", code_l);
 
-    return code_l;
+    q = s;
+    s->excluse();
+
+    // сдвинуться в начало
+    // относительно начала сдвинуться в центр
+    // добавить q
+    // вставить перед этой ячейкой ^
+
+    // return code_l;
+    return 0;
 }
 
 int SymLink::mess(int code, int center)
@@ -129,9 +143,9 @@ int main(int argc, char *argv[])
     }
 
     code = head->top();
-    center = (head->count()) / 2;
+    // center = (head->count()) / 2;
 
-    p->mess(code, center);
+    // p->mess(code, center);
 
     // p = head->seek(center);
 
