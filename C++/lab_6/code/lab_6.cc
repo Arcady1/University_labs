@@ -7,19 +7,19 @@
 #include "dlink.hpp"
 using namespace std;
 
-class SymLink : public Dlink // SymLink - наследник класса Dlink
+class SymLink : public Dlink                                // SymLink - наследник класса Dlink
 {
 private:
     unsigned char _sym;
 
 public:
-    SymLink(unsigned char c) : Dlink(), _sym(c){};        // констуктор
-    SymLink *incr() { return (SymLink *)Dlink::incr(); }; // метод базового класса
-    SymLink *decr() { return (SymLink *)Dlink::decr(); }; // метод базового класса
-    SymLink *seek(int);                                   // функция, возвращающая адрес записи
-    int count();                                          // подсчет количества символов
-    int print();                                          // вывод списка на экран
-    void *work();                                         // поиск символа с максимальным кодом
+    SymLink(unsigned char c) : Dlink(), _sym(c){};          // констуктор
+    SymLink *incr() { return (SymLink *)Dlink::incr(); };   // метод базового класса
+    SymLink *decr() { return (SymLink *)Dlink::decr(); };   // метод базового класса
+    SymLink *seek(int);                                     // функция, возвращающая адрес записи
+    int count();                                            // подсчет количества символов
+    int print();                                            // вывод списка на экран
+    void *work();                                           // поиск символа с максимальным кодом
 };
 
 SymLink *SymLink::seek(int n)
@@ -45,7 +45,7 @@ int SymLink::count()
         p = q;
         n++;
     }
-    return (n - 2); // учет "стражей" - указателей на начало и конец
+    return (n - 2);                             // учет "стражей" - указателей на начало и конец
 }
 
 int SymLink::print()
@@ -66,7 +66,7 @@ int SymLink::print()
 void *SymLink::work()
 {
     SymLink *p = this;
-    SymLink *head = this; // указывает на head списка
+    SymLink *head = this;                       // указывает на head списка
     SymLink *q;
     SymLink *symbol;
     int count, lenght;
@@ -77,7 +77,7 @@ void *SymLink::work()
     code_l = 10;
     p = p->incr();
 
-    while (p != NULL) // поиск максимального кода, записывается в code_l
+    while (p != NULL)                           // поиск максимального кода, записывается в code_l
     {
         code_n = (int)p->_sym;
 
@@ -89,7 +89,7 @@ void *SymLink::work()
     }
 
     p = head;
-    while (p != NULL) // подсчет букв с max кодом - count
+    while (p != NULL)                           // подсчет букв с max кодом - count
     {
         if (int(p->_sym) == code_l)
         {
@@ -101,7 +101,7 @@ void *SymLink::work()
     }
 
     p = head;
-    while (p != NULL) // длина слова - lenght
+    while (p != NULL)                           // длина слова - lenght
     {
         lenght++;
         q = p->incr();
@@ -111,7 +111,7 @@ void *SymLink::work()
     lenght -= 2;
 
     p = head;
-    while (p != NULL) // удаляю и переставляю букву с max кодом
+    while (p != NULL)                           // удаляю и переставляю букву с max кодом
     {
         if (int(p->_sym) == code_l)
         {
@@ -125,21 +125,19 @@ void *SymLink::work()
 
     lenght -= count;
 
-    q = head->seek(lenght / 2); // находимся в середине слова
+    q = head->seek(lenght / 2);                 // находимся в середине слова
 
     SymLink *head_1 = q;
     SymLink *head_2 = q->incr();
+    // SymLink *top;
+
+    // top->_sym = 94;
 
     for (int i = 0; i < count; i++)
     {
+        // head_1 = (SymLink *) head_1->append(top);
         head_1->after(symbol);
-        putchar(head_1->_sym);
-        printf("\n");
-        // head_1->_next = symbol;
         head_1 = head_1->incr();
-        putchar(head_1->_sym);
-        printf("\n");
-        // head_1 = head_1->_next;
     }
 
     head_1->_next = head_2;
@@ -148,8 +146,7 @@ void *SymLink::work()
 int main(int argc, char *argv[])
 {
     int ch;
-    // int center;        // длина введенного слова
-    SymLink *watch[2]; // начало и конец списка
+    SymLink *watch[2];                          // начало и конец списка
     SymLink *head;
     SymLink *tail;
     SymLink *c;
@@ -157,7 +154,7 @@ int main(int argc, char *argv[])
 
     watch[0] = head = new SymLink('\n');
     watch[1] = tail = new SymLink('\n');
-    tail->before(head); //прикрепляем tail к head
+    tail->before(head);                         // прикрепляем tail к head
 
     while ((ch = getchar()) != '\n')
     {
@@ -165,7 +162,7 @@ int main(int argc, char *argv[])
         tail->before(c);
     }
 
-    head->work(); // p - символ, который нужно переставить в центр
+    head->work();
 
     head->print();
 
