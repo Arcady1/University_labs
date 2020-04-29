@@ -1,5 +1,6 @@
 // Гусаров Аркадий РК6-23Б 1 курс. Программа ...
-// Пример ввода: ./a.out ...
+// Компиляция: g++ dlink.cpp lab_6.cc
+// Пример ввода: ./a.out asdasd
 
 #include <cstdio>
 #include <cstdlib>
@@ -18,8 +19,7 @@ public:
     SymLink *seek(int);                                   // функция, возвращающая адрес записи
     int count();                                          // подсчет количества символов
     int print();                                          // вывод списка на экран
-    SymLink *top();                                       // поиск символа с максимальным кодом
-    int mess(int, int);                                   // смена позиции буквы и установка знака '^'
+    void *work();                                         // поиск символа с максимальным кодом
 };
 
 SymLink *SymLink::seek(int n)
@@ -63,7 +63,7 @@ int SymLink::print()
     return 0;
 }
 
-SymLink *SymLink::top()
+void *SymLink::work()
 {
     SymLink *p = this;
     SymLink *head = this; // указывает на head списка
@@ -123,90 +123,35 @@ SymLink *SymLink::top()
         p = q;
     }
 
-    lenght -= count; 
-    
-    q = head->seek(lenght / 2);     // находимся в середине слова
-    // printf("%c\n", q->_sym);
+    lenght -= count;
 
-    SymLink* head_1 = q;            // d
-    SymLink* head_2 = q->incr();    // a
+    q = head->seek(lenght / 2); // находимся в середине слова
+
+    SymLink *head_1 = q;
+    SymLink *head_2 = q->incr();
 
     for (int i = 0; i < count; i++)
     {
         head_1->after(symbol);
+        putchar(head_1->_sym);
+        printf("\n");
+        // head_1->_next = symbol;
         head_1 = head_1->incr();
+        putchar(head_1->_sym);
+        printf("\n");
+        // head_1 = head_1->_next;
     }
 
     head_1->_next = head_2;
-
-    head->print();
-    
-    
-    // длина слова без букв с max кодом
-    // printf("%d\n", lenght);
-    // for (int i = 0; i < count; i++)
-    // {
-    //     q = head->seek(lenght / 2); // буква в середине слова - q
-    //     putchar(q->_sym);
-    //     q->before(symbol);           // запись буквы с max кодом в середину слова
-    //     lenght++;
-    //     // exit (10);
-    // }
-
-    // p = head;
-    // while (p != NULL)
-    // {
-    //     putchar(p->_sym);
-    //     q = p->incr();
-    //     p = q;
-    // }
-
-    // head->print();
-
-    // symbol->excluse();       // удаляем букву с max кодом
-    // lenght -= count; //
-
-    // count--;
-
-    // putchar(symbol->_sym);
-
-    // над ячейкой списка с буквой f - указатель symbol
-    // printf("%d\n", code_l);
-    // printf("%d\n", count);
-    // printf("%d\n", lenght);
-
-    // q = symbol; // q хранит ячейку с буквой с max кодом
-    // symbol->excluse();
-
-    // return q;
-}
-
-int SymLink::mess(int code, int center)
-{
-    // char ch;
-    SymLink *p = this;
-    SymLink *q;
-
-    // while ( int(p->_sym) != code )
-    //     p = p->incr();
-
-    // q = p;
-    // p->excluse();
-
-    q->toTail(center);
-    // p->after(q);
 }
 
 int main(int argc, char *argv[])
 {
-    // int length, t;
     int ch;
-    int code;
-    int center;        // длина введенного слова
+    // int center;        // длина введенного слова
     SymLink *watch[2]; // начало и конец списка
     SymLink *head;
     SymLink *tail;
-    // SymLink *head1;
     SymLink *c;
     SymLink *p;
 
@@ -220,14 +165,9 @@ int main(int argc, char *argv[])
         tail->before(c);
     }
 
-    p = head->top(); // p - символ, который нужно переставить в центр
-    // center = (head->count()) / 2;
+    head->work(); // p - символ, который нужно переставить в центр
 
-    // p->mess(code, center);
-
-    // p = head->seek(center);
-
-    // head->print();
+    head->print();
 
     return 0;
 }
