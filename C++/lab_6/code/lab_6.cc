@@ -19,6 +19,7 @@ public:
     int count();                                          // подсчет количества символов
     int print();                                          // вывод списка на экран
     int top();                                            // поиск символа с максимальным кодом
+    int mess(int, int);                                           // смена позиции буквы и установка знака '^'
 };
 
 SymLink *SymLink::seek(int n)
@@ -66,7 +67,7 @@ int SymLink::top()
 {
     SymLink *p = this;
     SymLink *q;
-
+    
     int code_n, code_l;
 
     code_l = 10;
@@ -84,6 +85,24 @@ int SymLink::top()
     }
 
     printf("%d\n", code_l);
+
+    return code_l;
+}
+
+int SymLink::mess(int code, int center)
+{
+    // char ch;
+    SymLink *p = this;
+    SymLink *q;
+
+    // while ( int(p->_sym) != code )
+    //     p = p->incr();
+    
+    // q = p;
+    // p->excluse();
+
+    q->toTail(center);
+    // p->after(q);
 }
 
 int main(int argc, char *argv[])
@@ -91,6 +110,7 @@ int main(int argc, char *argv[])
     // int length, t;
     int ch;
     int code;
+    int center;        // длина введенного слова
     SymLink *watch[2]; // начало и конец списка
     SymLink *head;
     SymLink *tail;
@@ -108,15 +128,14 @@ int main(int argc, char *argv[])
         tail->before(c);
     }
 
-    // while (  != '\n' ) // поиск символа с максимальным кодом
-    // {
-    //     code = int(#);
+    code = head->top();
+    center = (head->count()) / 2;
 
-    //     /* code */
-    // }
+    p->mess(code, center);
 
-    head->top();
-    // head->print();
+    // p = head->seek(center);
+
+    head->print();
 
     return 0;
 }
