@@ -123,24 +123,43 @@ SymLink *SymLink::top()
         p = q;
     }
 
-    lenght -= count; // длина слова без букв с max кодом
-    printf("%d\n", lenght);
+    lenght -= count; 
+    
+    q = head->seek(lenght / 2);     // находимся в середине слова
+    // printf("%c\n", q->_sym);
+
+    SymLink* head_1 = q;            // d
+    SymLink* head_2 = q->incr();    // a
+
     for (int i = 0; i < count; i++)
     {
-        q = head->seek(lenght / 2); // буква в середине слова - q
-        putchar(q->_sym);
-        q->before(symbol);           // запись буквы с max кодом в середину слова
-        lenght++;
-        exit (10);
+        head_1->after(symbol);
+        head_1 = head_1->incr();
     }
 
-    p = head;
-    while (p != NULL)
-    {
-        putchar(p->_sym);
-        q = p->incr();
-        p = q;
-    }
+    head_1->_next = head_2;
+
+    head->print();
+    
+    
+    // длина слова без букв с max кодом
+    // printf("%d\n", lenght);
+    // for (int i = 0; i < count; i++)
+    // {
+    //     q = head->seek(lenght / 2); // буква в середине слова - q
+    //     putchar(q->_sym);
+    //     q->before(symbol);           // запись буквы с max кодом в середину слова
+    //     lenght++;
+    //     // exit (10);
+    // }
+
+    // p = head;
+    // while (p != NULL)
+    // {
+    //     putchar(p->_sym);
+    //     q = p->incr();
+    //     p = q;
+    // }
 
     // head->print();
 
