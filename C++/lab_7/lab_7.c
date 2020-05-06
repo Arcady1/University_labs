@@ -1,10 +1,12 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-int leap_year(int);        // ф-ия проверки, являтся ли год високосным; принимает год, возвращает кол-во дней, которое надо прибавить
-int days_fD(int[], int[]); // ф-ия проверки, сколько дней прошло от начальной даты до конца года; принимает начальную дату, возвращает кол-во дней
-int days_lD(int[], int[]); // ф-ия проверки, сколько дней прошло от начала года до конечной даты; принимает конечную дату, возвращает кол-во дней
-void Errors(int[]);        // ф-ия проверки на ошибки при вводе дат
+int leap_year(int);              // ф-ия проверки, являтся ли год високосным; принимает год, возвращает кол-во дней, которое надо прибавить
+int days_fD(int[], int[]);       // ф-ия проверки, сколько дней прошло от начальной даты до конца года; принимает начальную дату, возвращает кол-во дней
+int days_lD(int[], int[]);       // ф-ия проверки, сколько дней прошло от начала года до конечной даты; принимает конечную дату, возвращает кол-во дней
+void Errors_date(int[]);         // ф-ия проверки на ошибки при вводе даты
+void Errors_DateS(int[], int[]); // ф-ия проверки на ошибки при вводе дат
+int append_year(int);            // ф-ия дописывает год, если введены только две цифры; принимает и возвращает год
 
 int main(int argc, char *argv[])
 {
@@ -20,16 +22,20 @@ int main(int argc, char *argv[])
         {
             printf("Введите начальную дату в формате MM.DD.[CC]YY: ");
             scanf("%d.%d.%d", &date_1[0], &date_1[1], &date_1[2]);
-            Errors(date_1);
+            Errors_date(date_1);
+            date_1[2] = append_year(date_1[2]);
         }
 
         else if (i == 1)
         {
             printf("Введите конечную дату в формате MM.DD.[CC]YY: ");
             scanf("%d.%d.%d", &date_2[0], &date_2[1], &date_2[2]);
-            Errors(date_2);
+            Errors_date(date_2);
+            date_2[2] = append_year(date_2[2]);
         }
     }
+
+    Errors_DateS(date_1, date_2);
 
     // кол-во лет между датами (исключая их самих)
     years = (date_2[2] - 1) - date_1[2];
@@ -96,7 +102,64 @@ int days_lD(int date_2[], int month[])
     return days;
 }
 
-void Errors(int date[])
+void Errors_date(int date[])
 {
+    if ((date[0] < 1) | (date[0] > 12))
+    {
+        printf("Некорректно введен месяц!\n");
+        exit(8);
+    }
 
+    if ((date[1] < 1) | (date[1] > 31))
+    {
+        printf("Некорректно введен день!\n");
+        exit(9);
+    }
+
+    if (date[2] < 0)
+    {
+        printf("Некорректно введен год!\n");
+        exit(10);
+    }
+}
+
+void Errors_DateS(int date_1[], int date_2[])
+{
+    if ((date_1[0] == date_2[0]) & (date_1[1] == date_2[1]) & (date_1[2] == date_2[2]))
+    {
+        printf("Одинаковые даты!\n");
+        exit(11);
+    }
+}
+
+int append_year(int year)
+{
+    int count;
+    int num;
+
+    num = year;
+    count = 1;
+
+    // подсчет кол-ва символов
+    while (num != 0)
+    {
+        num /= 10;
+        if (num != 0)
+            count++;
+    }
+
+    if ((count < 1) | (count == 3) | (count > 4))
+    {
+        printf("Некорректно введен год!\n");
+        exit(12);
+    }
+
+    if (count == 4)
+        return year;
+
+    else if (year <= 20)
+        return (2000 + year);
+
+    else
+        return (1900 + year);
 }
