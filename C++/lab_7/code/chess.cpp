@@ -1,7 +1,7 @@
 // main file
-/* Вывести шахматную доску, на которой будет базовая фигура, Plus, Cros или
+/* Вывести шахматную доску, на которой будет базовая фигура, Alfil, King или
 Sultan в заданной позиции. Позиции под атакой фигуры должны быть обозначены *,
-+, x в соответствии с фигурой. */
+x, + в соответствии с фигурой. */
 
 #include <iostream>
 #include "chesslib.hpp"
@@ -20,6 +20,6 @@ int main(int argc, char **argv)
     return 1;
   }
   Sultan f(argv[1]); // создание фигуры
-  f.printBoard();  // (sic!)
+  f.printBoard();    // (sic!)
   return 0;
 }
