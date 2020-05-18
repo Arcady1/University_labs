@@ -26,6 +26,9 @@ public:
     Fraction(){};                                                // констрктор по умолчанию
     Fraction(int num_, int denom_) : num(num_), denom(denom_){}; // констрктор со списком инициализации
     Fraction(char *);                                            // конструктор инициализации строки
+    Fraction operator+(Fraction &);                              // перегрузка оператора '+' для сложения дробей
+    Fraction operator=(Fraction &);                              // перегрузка оператора '='
+    Fraction evclid(Fraction);                                   // метод, реализующий алгоритм Евклида
     int getNum() { return num; };
     int getDenom() { return denom; };
 };
@@ -52,14 +55,20 @@ Fraction::Fraction(char *frac)
     }
 };
 
+Fraction Fraction::operator+(Fraction &second){};
+
+Fraction Fraction::operator=(Fraction &obj){};
+
+Fraction Fraction::evclid(Fraction sum){};
+
 int main(int argc, char *argv[])
 {
-    Fraction first, second;
+    Fraction first = argv[1];
+    Fraction second = argv[2];
+    Fraction sum = first + second;
 
-    first = argv[1];
-    second = argv[2];
-
-    printf("%d %d\n", first.getNum(), first.getDenom());
+    printf("Вы ввели: %d/%d\n", first.getNum(), first.getDenom());
+    printf("Вы ввели: %d/%d\n", second.getNum(), second.getDenom());
 
     return 0;
 }
