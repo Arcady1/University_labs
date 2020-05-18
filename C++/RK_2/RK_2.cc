@@ -28,7 +28,7 @@ public:
     Fraction(char *);                                            // конструктор инициализации строки
     Fraction operator+(Fraction &);                              // перегрузка оператора '+' для сложения дробей
     Fraction operator=(Fraction &);                              // перегрузка оператора '='
-    Fraction evclid(Fraction);                                   // метод, реализующий алгоритм Евклида
+    int evclid();                                                // метод, реализующий алгоритм Евклида
     int getNum() { return num; };
     int getDenom() { return denom; };
 };
@@ -58,7 +58,7 @@ Fraction::Fraction(char *frac)
 Fraction Fraction::operator+(Fraction &second)
 {
     Fraction result;
-    // сохраняю знаменатель первой дроби, чтобв корректно домножать вторую
+    // сохраняю знаменатель первой дроби, чтобы корректно домножать вторую
     int firstDen = this->denom;
     // приведение дробей к общему знаменателю
     this->num *= second.denom;
@@ -75,7 +75,8 @@ Fraction Fraction::operator+(Fraction &second)
     return result;
 };
 
-Fraction Fraction::operator=(Fraction &result){
+Fraction Fraction::operator=(Fraction &result)
+{
     printf("%d\n", this->num);
     // int sumNum, sumDenom;
     // sumNum = this->num * second.denom;
@@ -84,10 +85,24 @@ Fraction Fraction::operator=(Fraction &result){
     // this->num =
 };
 
-Fraction Fraction::evclid(Fraction sum){};
+int Fraction::evclid()
+{
+    int a, b, t;
+    a = this->num;
+    b = this->denom;
+
+    while (b != 0)
+    {
+        t = b;
+        b = a % b;
+        a = t;
+    }
+    return a;
+};
 
 int main(int argc, char *argv[])
 {
+    int gcd;
     Fraction first = argv[1];
     Fraction second = argv[2];
 
@@ -97,6 +112,10 @@ int main(int argc, char *argv[])
     Fraction sum = first + second;
 
     printf("Сумма: %d/%d\n", sum.getNum(), sum.getDenom());
+
+    // поиск НОД
+    gcd = sum.evclid();
+    printf("НОД: %d\n", gcd);
 
     return 0;
 }
