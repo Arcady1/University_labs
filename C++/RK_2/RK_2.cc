@@ -1,66 +1,65 @@
-#include <math.h>
+/* Разработать объектно-ориентированную программу для вычисления суммы обыкновенных дробей, 
+которые должны передаваться ей через два аргумента командной строки. Результат суммирования 
+должен отображаться строкой стандартного вывода в формате обыкновенной дроби. Во всех случаях 
+для записи обыкновенных дроби должен применяться символьный формат, где ее числитель и 
+знаменатель разделены знаком '/'. 
+Программная реализация вычислений суммы должна быть основана на разработке 
+класса обыкновенных дробей с приватными полями 
+данных для целочисленных значений числителя и знаменателя, а также компонентным методом 
+перегрузки оператора '+'. Конструкторы класса должны выполнять преобразования обоих 
+операндов в указанный числовой формат обыкновенных дробей. Для приведения исходных и 
+результирующей обыкновенных дробей к несократимому виду следует предусмотреть компонентный 
+метод, реализующий алгоритм Евклида, и перегрузку оператора присваивания.
+*/
+
+#include <stdlib.h> // для функции atoi()
+#include <stdio.h>
 #include <iostream>
 using namespace std;
 
-class Ratio
+class Fraction
 {
 private:
-    int numer;                                                          // числитель дроби
-    int denom;                                                          // знаменатель дроби
+    int num;   // числитель дроби
+    int denom; // знаменатель дроби
 public:
-    Ratio() { numer = denom = 1; };                                     // конструктор по умолчанию
-    Ratio(int numer_, int denom_) : numer(numer_), denom(denom_) {};    // инициализация переменных списком
-    void Div(int &);                                                    // метод реализует деление дроби на число; принимает делитель по ссылке
-    void Evclid(void);                                                  // метод реализует алгоритм Евклида
-    int getNumer() { return numer; };
+    Fraction(){};                                                // констрктор по умолчанию
+    Fraction(int num_, int denom_) : num(num_), denom(denom_){}; // констрктор со списком инициализации
+    Fraction(char *);                                            // конструктор инициализации строки
+    int getNum() { return num; };
     int getDenom() { return denom; };
 };
 
-void Ratio::Div(int &digit)
+Fraction::Fraction(char *frac)
 {
-    this->denom *= digit;                                           // this указывает на то, что denom (слева от равно) принадлежит классу Ratio (указатель на текущий объект класса)
-}
+    int count = 0;
+    num = 0;
+    denom = 0;
 
-void Ratio::Evclid(void)
-{
-    int a, b, c;
-
-    // ??? ПЕРЕГРУЗКА ОПЕРАТОРА ПРИСВАИВАНИЯ ???
-    a = abs(this->numer);
-    b = abs(this->denom);
-    c = 1;
-
-    while ( c != 0 )
+    while (*frac)
     {
-        // ??? ПЕРЕГРУЗКА ОПЕРАТОРА ПРИСВАИВАНИЯ ???
-        c = a % b;
-        a = b;
-        b = c;
+        count++;
+
+        if (*frac != '/') // инициализация введенной дроби
+        {
+            if (count == 1)
+                num = atoi(frac);
+            else
+                denom = atoi(frac);
+        }
+
+        frac++;
     }
+};
 
-    // ??? ПЕРЕГРУЗКА ОПЕРАТОРА ДЕЛЕНИЯ ???
-    this->numer /= a;
-    this->denom /= a;
-}
-
-int main(int argc, char const *argv[])
+int main(int argc, char *argv[])
 {
-    int numer_;                                                     // числитель введенной дроби
-    int denom_;                                                     // знаменатель введенной дроби
-    int digit;                                                      // число, на которое делим дробь
+    Fraction first, second;
 
-    sscanf(argv[1], "%d/%d", &numer_, &denom_);
-    sscanf(argv[2], "%d", &digit);
+    first = argv[1];
+    second = argv[2];
 
-    Ratio drob(numer_, denom_);
-    
-    drob.Div(digit);
-    // ВЫВОД ДРОБИ, РАЗДЕЛЕННОЙ НА ЧИСЛО (БЕЗ СОКРАЩЕНИЯ)
-    cout << drob.getNumer() << "/" << drob.getDenom() << endl;
-
-    drob.Evclid();
-    // ВЫВОД СОКРАЩЕННОЙ ДРОБИ
-    cout << drob.getNumer() << "/" << drob.getDenom() << endl;
+    printf("%d %d\n", first.getNum(), first.getDenom());
 
     return 0;
 }
