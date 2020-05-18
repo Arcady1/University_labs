@@ -55,9 +55,34 @@ Fraction::Fraction(char *frac)
     }
 };
 
-Fraction Fraction::operator+(Fraction &second){};
+Fraction Fraction::operator+(Fraction &second)
+{
+    Fraction result;
+    // сохраняю знаменатель первой дроби, чтобв корректно домножать вторую
+    int firstDen = this->denom;
+    // приведение дробей к общему знаменателю
+    this->num *= second.denom;
+    this->denom *= second.denom;
+    second.num *= firstDen;
+    second.denom *= firstDen;
 
-Fraction Fraction::operator=(Fraction &obj){};
+    result.num = this->num + second.num;
+    result.denom = this->denom;
+
+    printf("Преобразование: %d/%d\n", this->num, this->denom);
+    printf("Преобразование: %d/%d\n", second.num, second.denom);
+
+    return result;
+};
+
+Fraction Fraction::operator=(Fraction &result){
+    printf("%d\n", this->num);
+    // int sumNum, sumDenom;
+    // sumNum = this->num * second.denom;
+
+    // sumDenom =
+    // this->num =
+};
 
 Fraction Fraction::evclid(Fraction sum){};
 
@@ -65,10 +90,13 @@ int main(int argc, char *argv[])
 {
     Fraction first = argv[1];
     Fraction second = argv[2];
-    Fraction sum = first + second;
 
     printf("Вы ввели: %d/%d\n", first.getNum(), first.getDenom());
     printf("Вы ввели: %d/%d\n", second.getNum(), second.getDenom());
+
+    Fraction sum = first + second;
+
+    printf("Сумма: %d/%d\n", sum.getNum(), sum.getDenom());
 
     return 0;
 }
