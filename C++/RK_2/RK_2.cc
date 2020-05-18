@@ -28,7 +28,9 @@ public:
     Fraction(char *);                                            // конструктор инициализации строки
     Fraction operator+(Fraction &);                              // перегрузка оператора '+' для сложения дробей
     Fraction operator=(Fraction &);                              // перегрузка оператора '='
+    void reduce(int &);                                          // метод сокращения дроби
     int evclid();                                                // метод, реализующий алгоритм Евклида
+    void output();                                               // метод вывода ответа
     int getNum() { return num; };
     int getDenom() { return denom; };
 };
@@ -46,9 +48,15 @@ Fraction::Fraction(char *frac)
         if (*frac != '/') // инициализация введенной дроби
         {
             if (count == 1)
+            {
                 num = atoi(frac);
+                cout << num << endl;
+            }
             else
+            {
                 denom = atoi(frac);
+                cout << "here" << denom << endl;
+            }
         }
 
         frac++;
@@ -60,6 +68,15 @@ Fraction Fraction::operator+(Fraction &second)
     Fraction result;
     // сохраняю знаменатель первой дроби, чтобы корректно домножать вторую
     int firstDen = this->denom;
+
+    if (this->denom == second.denom)
+    {
+        result.num = this->num + second.num;
+        result.denom = this->denom;
+
+        return result;
+    }
+
     // приведение дробей к общему знаменателю
     this->num *= second.denom;
     this->denom *= second.denom;
@@ -77,7 +94,7 @@ Fraction Fraction::operator+(Fraction &second)
 
 Fraction Fraction::operator=(Fraction &result)
 {
-    printf("%d\n", this->num);
+    printf("@\n");
     // int sumNum, sumDenom;
     // sumNum = this->num * second.denom;
 
@@ -100,22 +117,56 @@ int Fraction::evclid()
     return a;
 };
 
+void Fraction::reduce(int &gcd)
+{
+    this->num /= gcd;
+    this->denom /= gcd;
+};
+
+void Fraction::output()
+{
+    int numer = this->num;
+    int denomer = this->denom;
+    int gcd;
+
+    if (denomer == 1)
+    {
+        printf("Итог:\t\t%d\n", numer);
+    }
+
+    else if (numer > denomer)
+    {
+        printf("Итог:\t\t%d ", numer / denomer);
+
+        this->num = numer % denomer;
+        gcd = this->evclid();
+        this->reduce(gcd);
+
+        printf("%d/%d\n", this->num, this->denom);
+    }
+};
+
 int main(int argc, char *argv[])
 {
     int gcd;
     Fraction first = argv[1];
     Fraction second = argv[2];
 
-    printf("Вы ввели: %d/%d\n", first.getNum(), first.getDenom());
-    printf("Вы ввели: %d/%d\n", second.getNum(), second.getDenom());
+    printf("Вы ввели I:\t%d/%d\n", first.getNum(), first.getDenom());
+    printf("Вы ввели II:\t%d/%d\n", second.getNum(), second.getDenom());
 
     Fraction sum = first + second;
-
-    printf("Сумма: %d/%d\n", sum.getNum(), sum.getDenom());
+    printf("Сумма:\t\t%d/%d\n", sum.getNum(), sum.getDenom());
 
     // поиск НОД
     gcd = sum.evclid();
-    printf("НОД: %d\n", gcd);
+    printf("НОД:\t\t%d\n", gcd);
+
+    // сокращение дроби
+    sum.reduce(gcd);
+    printf("Сумма:\t\t%d/%d\n", sum.getNum(), sum.getDenom());
+
+    sum.output();
 
     return 0;
 }
