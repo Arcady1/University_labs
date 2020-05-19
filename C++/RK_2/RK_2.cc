@@ -1,16 +1,5 @@
-/* Разработать объектно-ориентированную программу для вычисления суммы обыкновенных дробей, 
-которые должны передаваться ей через два аргумента командной строки. Результат суммирования 
-должен отображаться строкой стандартного вывода в формате обыкновенной дроби. Во всех случаях 
-для записи обыкновенных дроби должен применяться символьный формат, где ее числитель и 
-знаменатель разделены знаком '/'. 
-Программная реализация вычислений суммы должна быть основана на разработке 
-класса обыкновенных дробей с приватными полями 
-данных для целочисленных значений числителя и знаменателя, а также компонентным методом 
-перегрузки оператора '+'. Конструкторы класса должны выполнять преобразования обоих 
-операндов в указанный числовой формат обыкновенных дробей. Для приведения исходных и 
-результирующей обыкновенных дробей к несократимому виду следует предусмотреть компонентный 
-метод, реализующий алгоритм Евклида, и перегрузку оператора присваивания.
-*/
+/* Гусаров Аркадий РК6-23Б 1 курс. Программа для ычисления суммы обыкновенных дробей, которые должны передаваться ей через два аргумента командной строки.
+Пример ввода: ./a.out 1/5 2/8 */
 
 #include <stdlib.h> // для функции atoi()
 #include <string.h> // для функции strchr()
@@ -29,7 +18,7 @@ public:
     Fraction(int num_, int denom_) : num(num_), denom(denom_){}; // констрктор со списком инициализации
     Fraction(char *);                                            // конструктор инициализации строки
     Fraction operator+(Fraction &);                              // перегрузка оператора '+' для сложения дробей
-    Fraction operator=(Fraction &);                              // перегрузка оператора '='
+    Fraction operator=(Fraction &);                              // перегрузка оператора присваивания ('=')
     void reduce(int &);                                          // метод сокращения дроби
     int evclid();                                                // метод, реализующий алгоритм Евклида
     void output();                                               // метод вывода ответа
@@ -113,30 +102,50 @@ void Fraction::reduce(int &gcd)
 
 void Fraction::output()
 {
-    int numer = this->num;
+    bool negative = false;
+    int numer;
     int denomer = this->denom;
     int gcd;
 
+    if (this->num < 0)
+    {
+        numer = abs(this->num);
+        negative = true;
+    }
+    //
+    else
+        numer = this->num;
+
     if (denomer == 1)
     {
-        printf("Итог:\t\t%d\n", numer);
+        if (negative)
+            printf("Итог:\t\t-%d\n", numer);
+
+        else
+            printf("Итог:\t\t%d\n", numer);
     }
 
     else if (numer > denomer)
     {
-        printf("Итог:\t\t%d ", numer / denomer);
+        if (negative)
+            printf("Итог:\t\t-%d ", numer / denomer);
+
+        else
+            printf("Итог:\t\t%d ", numer / denomer);
 
         this->num = numer % denomer;
-        gcd = this->evclid();
-        this->reduce(gcd);
-
         printf("%d/%d\n", this->num, this->denom);
     }
 };
 
+void Errors(int); // функция проверки на ошибки при вводе аргументов
+
 int main(int argc, char *argv[])
 {
     int gcd;
+
+    Errors(argc);
+
     Fraction first = argv[1];
     Fraction second = argv[2];
 
@@ -157,4 +166,13 @@ int main(int argc, char *argv[])
     sum.output();
 
     return 0;
+}
+
+void Errors(int argc)
+{
+    if (argc != 3)
+    {
+        printf("Ошибка при вводе аргументов\n");
+        exit(1);
+    }
 }
