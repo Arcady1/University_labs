@@ -21,11 +21,11 @@ S после каждого его хода должен быть кратен (
 #include <stdlib.h>
 using namespace std;
 
-// класс куча
+// класс сумма
 class Sum
 {
 private:
-    int size = 0; // размер набранной суммы
+    int size = 0; // набранная сумма
 public:
     Sum(int s) : size(s){}; // конструктор инициализации
     int get(int n = 0)
@@ -51,7 +51,7 @@ public:
 
 int Gambler::query()
 {
-    cout << "Sum = " << sum->get() << " " << name << " > ";
+    cout << "Sum = " << sum->get() << " " << name << "\t> ";
     return sum->get();
 }
 
@@ -60,7 +60,7 @@ class Man : public Gambler
 {
 public:
     Man(Sum &s, int l, const char *n) : Gambler(s, l) { name = n; }; // конструктор инициализации
-    virtual int move(Sum) override;
+    virtual int move(Sum);
 };
 
 // класс компьютера
@@ -68,13 +68,13 @@ class Pc : public Gambler
 {
 public:
     Pc(Sum &s, int l, const char *n) : Gambler(s, l) { name = n; }; // конструктор инициализации
-    virtual int move(Sum) override;
+    virtual int move(Sum);
 };
 
 int Man::move(Sum S)
 {
     int g;
-    cin >> g;               // приращение, добавленное игроком
+    cin >> g;               // приращение
     if ((g < 1) || (g > N)) // при ошибке ввода числа человеком
         g = N;
 
@@ -83,16 +83,16 @@ int Man::move(Sum S)
 
 int Pc::move(Sum end)
 {
-    int S = end.get();
+    int S = end.get();  // максимальное значение суммы
     int x = 1;          // величина хода (приращение)
-    int s = sum->get(); // текущий остаток суммы
+    int s = sum->get(); // текущая сумма
 
     while (((S - (s + x)) % (N + 1)) != 0) // находим нужный остаток суммы
     {
-        if (x > N)
+        // если выигрышный ход сделать невозможно, Pc должен повторить ход человека
+        if ((S - (s + x)) < (N + 1))
         {
-            printf("\n!\n");
-            x = 1;
+            x = 2;
             break;
         }
         else
@@ -101,12 +101,8 @@ int Pc::move(Sum end)
 
     sum->get(x); // увеличиваем сумму на величину хода Pc
     cout << x << endl;
+
     return (sum->get());
-
-    // КОГДА РАЗНОСТЬ МЕЖДУ S И SUM <= N, НАДО ХОДИТЬ И ВЫИГРЫВАТЬ
-
-    // если sum == 0, тогда +1
-    // иначе, если не работает алгоритм, + предвдущий шаг человека
 }
 
 int main(int argc, char *argv[])
