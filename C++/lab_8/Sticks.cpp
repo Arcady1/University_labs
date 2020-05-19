@@ -45,13 +45,13 @@ protected:
 public:
     Gambler(Sum &s, int l) : N(l) { sum = &s; }; // конструктор инициализации
     int query();                                 // функция запроса хода; возвращает размер текущей суммы
-    virtual int move(Sum) = 0;                      // виртуальная функция хода
+    virtual int move(Sum) = 0;                   // виртуальная функция хода
     virtual ~Gambler(){};                        // виртуальный деструктор
 };
 
 int Gambler::query()
 {
-    cout << "S = " << sum->get() << " " << name << " > ";
+    cout << "Sum = " << sum->get() << " " << name << " > ";
     return sum->get();
 }
 
@@ -93,8 +93,10 @@ int Pc::move(Sum end)
     // }
     while (((S - (s + x)) % (N + 1)) != 0) // находим нужный остаток суммы
     {
+        // printf("\n$ %d $\n", (S - s - x));
         if (x > N)
         {
+            printf("!");
             // ИСПРАВИТЬ НА ХОД, СДЕЛАННЫЙ ЧЕЛОЕКОМ!!!
             x = 1;
             break;
@@ -104,7 +106,9 @@ int Pc::move(Sum end)
             x++;
         }
     }
-    sum->get(s + x); // увеличиваем сумму на величину хода Pc
+    // printf("$ %d $\n", (S - s - x));
+
+    sum->get(x); // увеличиваем сумму на величину хода Pc
     cout << s + x << endl;
     return (sum->get());
     // если sum == 0, тогда +1
@@ -141,7 +145,7 @@ int main(int argc, char *argv[])
     while (g[i]->query() < s.get()) // пока размер суммы меньше заданной величины s
     {
         g[i]->move(s); // сам ход
-        if (++i > 1)  // смена хода
+        if (++i > 1)   // смена хода
             i = 0;
     }
     cout << "Winner\n";
