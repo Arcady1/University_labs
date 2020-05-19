@@ -13,6 +13,8 @@
 */
 
 #include <stdlib.h> // для функции atoi()
+#include <string.h> // для функции strchr()
+#include <math.h>   // для использования модуля
 #include <stdio.h>
 #include <iostream>
 using namespace std;
@@ -35,32 +37,18 @@ public:
     int getDenom() { return denom; };
 };
 
-Fraction::Fraction(char *frac)
+Fraction::Fraction(char *s)
 {
-    int count = 0;
-    num = 0;
-    denom = 0;
+    char *p = strchr(s, '/'); // указатель p указывает на черту
 
-    while (*frac)
+    if (p != NULL) // если наклонная черта найдена
     {
-        count++;
-
-        if (*frac != '/') // инициализация введенной дроби
-        {
-            if (count == 1)
-            {
-                num = atoi(frac);
-                cout << num << endl;
-            }
-            else
-            {
-                denom = atoi(frac);
-                cout << "here" << denom << endl;
-            }
-        }
-
-        frac++;
+        *p = '\0';       // заменяем черту на нулевой байт, являющийся признаком конца строки
+        p++;             // сдвигаем указатель p на следующий байт, указывающий на начало строки знаменателя
+        denom = atoi(p); // присваиваем значение знаменателю
     }
+
+    num = atoi(s); // присваиваем значение строки s числителю
 };
 
 Fraction Fraction::operator+(Fraction &second)
@@ -87,7 +75,7 @@ Fraction Fraction::operator+(Fraction &second)
     result.denom = this->denom;
 
     printf("Преобразование: %d/%d\n", this->num, this->denom);
-    printf("Преобразование: %d/%d\n", second.num, second.denom);
+    printf("\t\t%d/%d\n", second.num, second.denom);
 
     return result;
 };
@@ -105,8 +93,8 @@ Fraction Fraction::operator=(Fraction &result)
 int Fraction::evclid()
 {
     int a, b, t;
-    a = this->num;
-    b = this->denom;
+    a = abs(this->num);
+    b = abs(this->denom);
 
     while (b != 0)
     {
@@ -152,8 +140,8 @@ int main(int argc, char *argv[])
     Fraction first = argv[1];
     Fraction second = argv[2];
 
-    printf("Вы ввели I:\t%d/%d\n", first.getNum(), first.getDenom());
-    printf("Вы ввели II:\t%d/%d\n", second.getNum(), second.getDenom());
+    printf("Вы ввели:\t%d/%d\n", first.getNum(), first.getDenom());
+    printf("\t\t%d/%d\n", second.getNum(), second.getDenom());
 
     Fraction sum = first + second;
     printf("Сумма:\t\t%d/%d\n", sum.getNum(), sum.getDenom());
@@ -164,7 +152,7 @@ int main(int argc, char *argv[])
 
     // сокращение дроби
     sum.reduce(gcd);
-    printf("Сумма:\t\t%d/%d\n", sum.getNum(), sum.getDenom());
+    printf("Итог:\t\t%d/%d\n", sum.getNum(), sum.getDenom());
 
     sum.output();
 
