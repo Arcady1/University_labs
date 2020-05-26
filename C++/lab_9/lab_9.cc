@@ -4,25 +4,52 @@
 #include <iostream>
 using namespace std;
 
-void scanFile(FILE *);
+void error(int, FILE *); // ф-ия проверки на ошибки; принимает кол-во аргументов командной строки и указатель на файл
+bool isSymbol(char);     // ф-ия проверки символа (разделитьель / нет); принимает символ, возвращает false, если разделитьель, иначе - true
+void scanFile(FILE *);   // ф-ия поиска в текстовом файле абзаца, который состоит из максимального числа строк; принимает указатель на файл
 
 int main(int argc, char *argv[])
 {
-    FILE *file;                 // указатель на файл
-    file = fopen(argv[1], "r"); // файл открыт для чтения
-    if (file == NULL)
-    {
-        printf("Файл не найден\n");
-        return 1;
-    }
-
+    FILE *file;                  // указатель на файл
+    file = fopen(argv[1], "r+"); // файл открыт для чтения и записи (должен существовать)
     //
+    error(argc, file);
+    fseek(file, 0, SEEK_SET); // сдвиг в начало файла
     scanFile(file);
-
     //
     fclose(file); // файл закрыт
 
     return 0;
+}
+
+void error(int argc, FILE *file)
+{
+    char c;                  // текущий символ
+    bool someSymbol = false; // есть ли символ в строке
+
+    if (argc != 2)
+    {
+        cout << "Ошибка при вводе аргументов" << endl;
+        exit(1);
+    }
+    if (file == NULL)
+    {
+        cout << "Файл не найден" << endl;
+        exit(2);
+    }
+    // добавление в конец фалйа '\n'
+    fseek(file, 0, SEEK_END); // сдвиг в конец файла
+    fputs("\n", file);        // дописывание '\n'
+}
+
+bool isSymbol(char c)
+{
+    bool someSymbol = false;
+
+    if ((c != ' ') && (c != '\t'))
+        someSymbol = true;
+
+    return someSymbol;
 }
 
 void scanFile(FILE *file)
@@ -40,13 +67,9 @@ void scanFile(FILE *file)
         // проверка, что в строке есть символы помимо ' ' и '\t'
         if (c != '\n')
         {
-            if ((c != ' ') || (c != '\t'))
-            {
-                someSymbol = true;
-            }
             printf("%c", c);
+            someSymbol = isSymbol(c);
         }
-
         else
         {
             currentString += 1;
