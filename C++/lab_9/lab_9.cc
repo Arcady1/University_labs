@@ -1,28 +1,31 @@
 // Гусаров Аркадий РК6-23Б 1 курс. Программа для поиска в любом заданном текстовом файле абзаца, который состоит из максимального числа строк.
+// Пример ввода: ./a.out file.txt
 
 #include <stdio.h> // для работы с файлом
 #include <iostream>
 using namespace std;
 
-void error(int, FILE *); // ф-ия проверки на ошибки; принимает кол-во аргументов командной строки и указатель на файл
-bool isSymbol(char);     // ф-ия проверки символа (разделитьель / нет); принимает символ, возвращает false, если разделитьель, иначе - true
-void scanFile(FILE *);   // ф-ия поиска в текстовом файле абзаца, который состоит из максимального числа строк; принимает указатель на файл
-
-int main(int argc, char *argv[])
+class Paragraph
 {
-    FILE *file;                  // указатель на файл
-    file = fopen(argv[1], "r+"); // файл открыт для чтения и записи (должен существовать)
-    //
-    error(argc, file);
-    fseek(file, 0, SEEK_SET); // сдвиг в начало файла
-    scanFile(file);
-    //
-    fclose(file); // файл закрыт
+private:
+    FILE *file;                   // указатель на файл
+    int maxParagraphStrings = -1; // max число строк в абзаце
+    int paddingTopMax = 0;        // отступ от начала файла до абзаца с max числом строк
 
-    return 0;
-}
+public:
+    Paragraph(char *);   // конструктор по умолчанию
+    void error(int);     // ф-ия проверки на ошибки; принимает кол-во аргументов командной строки
+    void scanFile();     // ф-ия поиска в текстовом файле абзаца, который состоит из максимального числа строк
+    bool isSymbol(char); // ф-ия проверки символа (разделитель / нет); принимает символ, возвращает false, если разделитьель, иначе - true
+    void output();       // ф-ия вывода результата
+};
 
-void error(int argc, FILE *file)
+Paragraph::Paragraph(char *name)
+{
+    file = fopen(name, "r+"); // файл открыт для чтения и записи (должен существовать)
+};
+
+void Paragraph::error(int argc)
 {
     char c;                  // текущий символ
     bool someSymbol = false; // есть ли символ в строке
@@ -37,49 +40,31 @@ void error(int argc, FILE *file)
         cout << "Файл не найден" << endl;
         exit(2);
     }
-    // добавление в конец фалйа '\n'
+    // добавление в конец файла '\n'
     fseek(file, 0, SEEK_END); // сдвиг в конец файла
     fputs("\n", file);        // дописывание '\n'
-}
+    fseek(file, 0, SEEK_SET); // сдвиг в начало файла
+};
 
-bool isSymbol(char c)
-{
-    bool someSymbol = false;
-
-    if ((c != ' ') && (c != '\t'))
-        someSymbol = true;
-
-    return someSymbol;
-}
-
-void scanFile(FILE *file)
+void Paragraph::scanFile()
 {
     char c;                       // текущий символ
     bool someSymbol = false;      // есть ли символ в строке
     int currentString = 0;        // текущая строка в файле
     int paddingTop = 0;           // отступ от начала файла до текущего абзаца
-    int paddingTopMax = 0;        // отступ от начала фала до абзаца с max числом строк
     int thisParagraphStrings = 0; // кол-во строк в текущем абзаце
-    int maxParagraphStrings = -1; // max число строк в абзаце
 
     while ((c = fgetc(file)) != EOF)
     {
         // проверка, что в строке есть символы помимо ' ' и '\t'
         if (c != '\n')
-        {
-            printf("%c", c);
-            someSymbol = isSymbol(c);
-        }
+            someSymbol += isSymbol(c);
         else
         {
             currentString += 1;
-            printf("\ncurrentString: %d\n", currentString);
             // если были символы в строке, то абзац продолжается
             if (someSymbol == true)
-            {
                 thisParagraphStrings += 1;
-                printf("thisParagraphStrings: %d\n", thisParagraphStrings);
-            }
             // иначе - абзац закончился
             else if (someSymbol == false)
             {
@@ -95,7 +80,33 @@ void scanFile(FILE *file)
             someSymbol = false;
         }
     }
+};
 
-    cout << maxParagraphStrings << endl;
-    cout << paddingTopMax << endl;
+bool Paragraph::isSymbol(char c)
+{
+    bool someSymbol = false;
+
+    if ((c != ' ') && (c != '\t'))
+        someSymbol = true;
+
+    return someSymbol;
+};
+
+void Paragraph::output()
+{
+    fclose(file); // файл закрыт
+
+    cout << "Максимальное кол-во строк: " << maxParagraphStrings << endl;
+    cout << "Отступ до абзаца: " << paddingTopMax << endl;
+};
+
+int main(int argc, char *argv[])
+{
+    Paragraph par(argv[1]);
+
+    par.error(argc);
+    par.scanFile();
+    par.output();
+
+    return 0;
 }
