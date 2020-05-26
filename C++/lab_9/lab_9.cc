@@ -96,8 +96,8 @@ void Paragraph::output()
 {
     fclose(file); // файл закрыт
 
-    cout << "Максимальное кол-во строк: " << maxParagraphStrings << endl;
-    cout << "Отступ до абзаца: " << paddingTopMax << endl;
+    cerr << "Максимальное кол-во строк: " << maxParagraphStrings << endl;
+    cerr << "Отступ до абзаца: " << paddingTopMax << endl;
 };
 
 int main(int argc, char *argv[])
