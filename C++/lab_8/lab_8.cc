@@ -1,10 +1,11 @@
-// Гусаров Аркадий РК6-23Б 1 курс. Программа
-
+/* Гусаров Аркадий РК6-23Б 1 курс. Программа для закраски окна алфавитно-цифровой консоли поочередно во все цвета фона 
+в порядке роста их escape-кодов.
+Запуск: ./a.out */
 #include <string.h>    // для работы со строками
 #include <sstream>     // i(o)stringsteam, str
 #include <sys/ioctl.h> // winsize, (tty_)ioctl
 #include <termios.h>   // termios, tc(s)getattr
-#include <unistd.h>    // getpid, read, getopt
+#include <unistd.h>    // read
 #include <iostream>
 using namespace std;
 // консольное пространство имен
@@ -108,8 +109,6 @@ int main(int argc, char *argv[])
         cout << CUP(y, x_mirror) << SGR(code_color) << flush; // точка слева
         y++;
 
-        usleep(700); // задержка
-
         if (y > hterm)
         {
             y = 0;
@@ -125,6 +124,8 @@ int main(int argc, char *argv[])
 
             if (code_color > 47)
                 code_color = 40;
+
+            usleep(30000); // задержка в микросекундах
         }
         if (x == wterm)
         {
@@ -136,6 +137,6 @@ int main(int argc, char *argv[])
             break;
     }
 
-    cout << SGR(0) << CUP(1, 1) << EW;
+    cout << SGR(0) << CUP(1, 1) << EW; // SGR(0): 0 - для сброса цвета строки; EW - для очистки терминала
     return 0;
 }
