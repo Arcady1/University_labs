@@ -96,6 +96,7 @@ void Paragraph::output()
 {
     fclose(file); // файл закрыт
 
+    // cerr - объект класса ostream; предназначен для небуферизированного вывода сообщения об ошибках
     cerr << "Максимальное кол-во строк: " << maxParagraphStrings << endl;
     cerr << "Отступ до абзаца: " << paddingTopMax << endl;
 };
