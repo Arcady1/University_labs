@@ -81,6 +81,7 @@ int main(int argc, char *argv[])
     int hterm = hmax();         // высота терминала
     int code_color = 40;        // цвет фона (код: 40 - 47)
     int x, y, x_mirror, center; // координаты
+    int num_of_col = 0;         // кол-во закрашенных колонок
 
     center = wterm / 2;
     x = center;
@@ -89,7 +90,6 @@ int main(int argc, char *argv[])
 
     cout << EW; // очистка окна
 
-    // TODO увеличить ширину полоски в 2 раза
     while (true)
     {
         cout << CUP(y, x) << SGR(code_color) << flush;        // точка справа
@@ -101,12 +101,16 @@ int main(int argc, char *argv[])
             y = 0;
             x++;
             x_mirror = center - (x - center);
-            code_color++;
+            num_of_col++;
+
+            if (num_of_col == 2)
+            {
+                ++code_color;
+                num_of_col = 0;
+            }
 
             if (code_color > 47)
-            {
                 code_color = 40;
-            }
         }
         if (x == wterm)
         {
