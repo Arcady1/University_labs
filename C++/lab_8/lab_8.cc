@@ -3,6 +3,8 @@
 #include <string.h>    // для работы со строками
 #include <sstream>     // i(o)stringsteam, str
 #include <sys/ioctl.h> // winsize, (tty_)ioctl
+#include <termios.h>   // termios, tc(s)getattr
+#include <unistd.h>    // getpid, read, getopt
 #include <iostream>
 using namespace std;
 // консольное пространство имен
@@ -22,14 +24,10 @@ namespace con
         ioctl(0, TIOCGWINSZ, &w);
         return (w.ws_row);
     }
-    // манипуляторы EW, ES - для очистки терминала
+    // манипулятор EW - для очистки терминала
     ostream &EW(ostream &s)
     {
         return s << string("\033[2J"); // '\033[' - ESCAPE последовательность; 2 - очистка всей строки, J - очистка всего окна
-    }
-    ostream &ES(ostream &s)
-    {
-        return s << string("\033[2K"); // 2K - очистка всей строки
     }
     // класс escape - потока
     class estream
@@ -48,7 +46,6 @@ namespace con
         s << e.escape << flush;
         return s;
     };
-
     // манипулятор CUP - для управления курсором
     estream CUP(int y, int x) // y, x - номер строки и столба
     {
@@ -65,15 +62,30 @@ namespace con
         sout << "\033[" << code << "m ";
         return estream(sout.str());
     }
-
 } // namespace con
 
 using con::CUP;
-using con::ES;
 using con::EW;
 using con::hmax;
 using con::SGR;
 using con::wmax;
+
+int kbhit()
+{
+    int n = 0;
+    char buf[512];
+    struct termios t[2];
+    tcgetattr(0, &t[0]);
+    tcgetattr(0, &t[1]);
+    t[0].c_lflag &= ~(ICANON | ECHO);
+    t[0].c_cc[VMIN] = 0;
+    t[0].c_cc[VTIME] = 0;
+    tcsetattr(0, TCSANOW, &t[0]);
+    n = read(0, buf, 512);
+    tcsetattr(0, TCSAFLUSH, &t[1]);
+
+    return (n);
+}
 
 int main(int argc, char *argv[])
 {
@@ -95,6 +107,8 @@ int main(int argc, char *argv[])
         cout << CUP(y, x) << SGR(code_color) << flush;        // точка справа
         cout << CUP(y, x_mirror) << SGR(code_color) << flush; // точка слева
         y++;
+
+        usleep(700); // задержка
 
         if (y > hterm)
         {
@@ -118,9 +132,10 @@ int main(int argc, char *argv[])
             x_mirror = x - 1;
             y = 0;
         }
+        if (kbhit() > 0) // остановка при нажатии на любую клавишу
+            break;
     }
 
-    // TODO при остановке программы полная очистка терминала
-    cout << EW << CUP(1, 1);
+    cout << SGR(0) << CUP(1, 1) << EW;
     return 0;
 }
