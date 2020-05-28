@@ -60,7 +60,7 @@ namespace con
     estream SGR(int code)
     {
         ostringstream sout;
-        sout << "\033[" << code << "m ";
+        sout << "\033[" << code << "m "; // m - режим псевдографического отображения
         return estream(sout.str());
     }
 } // namespace con
@@ -105,6 +105,9 @@ int main(int argc, char *argv[])
 
     while (true)
     {
+        wterm = wmax();                                       // ширина терминала
+        hterm = hmax();                                       // высота терминала
+        center = wterm / 2;                                   // обновление центра терминала
         cout << CUP(y, x) << SGR(code_color) << flush;        // точка справа
         cout << CUP(y, x_mirror) << SGR(code_color) << flush; // точка слева
         y++;
