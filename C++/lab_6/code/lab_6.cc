@@ -129,11 +129,11 @@ void *SymLink::work()
     SymLink *head_2 = q->incr();
     SymLink *top;
 
-    top->_sym = 94;
+    // ! top->_sym = 94;
 
     for (int i = 0; i < count; i++)
     {
-        head_1 = (SymLink *) head_1->append(top);
+        // ! head_1 = (SymLink *) head_1->append(top);
         head_1->after(symbol);
         head_1 = head_1->incr();
     }
