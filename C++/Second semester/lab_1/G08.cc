@@ -11,7 +11,7 @@
 игроков должны отображаться в клетках стандартного вывода шахматной доски. 
 Игра должна завершаться диагностикой ее итогового результата.
 
-TODO Пример ввода: ./a.out ###
+Пример ввода: ./a.out
 */
 
 #include <iostream>
@@ -23,17 +23,19 @@ class Domino
 {
 private:
     int sizeOfBoard = 10;
+    int halfOfBoard = sizeOfBoard / 2;
     char posS[2];
     char posE[2];
     char board[10][10];
 
 public:
     Domino() { boardFill(); };
-    void boardFill();  // заполнение поля (матрицы)
-    void printBoard(); // метод отображения доски
-    void move();
-    void modBoard();          // метод преобразует поле после хода
-    char letterToIndex(char); // метод возвращает индекс, соответсвующий букве поля
+    void boardFill();          // заполнение поля (матрицы)
+    void printBoard();         // метод отображения доски
+    void moveUser();           // ход человека
+    void movePC(int[], int[]); // ход компьютера
+    void modBoard();           // метод преобразует поле после хода
+    char letterToIndex(char);  // метод возвращает индекс, соответсвующий букве поля
 };
 
 void Domino::boardFill()
@@ -66,7 +68,7 @@ void Domino::printBoard()
 }
 
 // TODO
-void Domino::move()
+void Domino::moveUser()
 {
     int indexPosStart[2]; // позиции фишек в индексах матрицы
     int indexPosEnd[2];
@@ -85,11 +87,44 @@ void Domino::move()
     printf("Bytes:\t\t%d%d %d%d\n", q, w, e, r);
     printf("Real input:\t%d%d %d%d\n=====================\n", indexPosStart[0], indexPosStart[1], indexPosEnd[0], indexPosEnd[1]);
     // TODO проверка хода
+    board[indexPosStart[0]][indexPosStart[1]] = '~';
+    board[indexPosEnd[0]][indexPosEnd[1]] = '~';
     // ход компьютера
+    movePC(indexPosStart, indexPosEnd);
+    printBoard();
+}
 
-    // преобразование поля
+void Domino::movePC(int indexPosStart[], int indexPosEnd[])
+{
+    int res11, res12, res21, res22;
+    char symbol = '=';
 
-    // отображение доски
+    res11 = 9 - indexPosStart[0];
+    res12 = 9 - indexPosEnd[0];
+    res21 = 9 - indexPosStart[1];
+    res22 = 9 - indexPosEnd[1];
+
+    if ((board[res11][indexPosStart[1]] == '.') && (board[res12][indexPosEnd[1]] == '.'))
+    {
+        board[res11][indexPosStart[1]] = symbol;
+        board[res12][indexPosEnd[1]] = symbol;
+    }
+    else if ((board[indexPosStart[0]][res21] == '.') && (board[indexPosEnd[0]][res22] == '.'))
+    {
+        board[indexPosStart[0]][res21] = symbol;
+        board[indexPosEnd[0]][res22] = symbol;
+    }
+    else if ((board[res11][res21] == '.') && (board[res12][res22] == '.'))
+    {
+        board[res11][res21] == symbol;
+        board[res12][res22] == symbol;
+    }
+
+    else
+    {
+        cout << "You are winner!" << endl;
+        exit(2);
+    }
 }
 
 char Domino::letterToIndex(char pos)
@@ -136,10 +171,8 @@ int main(int argc, char *argv[])
     // отображение хода
     while (getchar() != '\t')
     {
-        U.move();       // ход игрока
-        U.printBoard(); // вывод доски
+        U.moveUser(); // ход игрока
     }
-    // зеркально ход делает комьютер
 
     return 0;
 }
