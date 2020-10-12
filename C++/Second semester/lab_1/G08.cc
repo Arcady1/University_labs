@@ -22,29 +22,31 @@ using namespace std;
 class Domino
 {
 private:
+    int sizeOfBoard = 10;
     char posS[2];
     char posE[2];
-    const char *board[10][10];
+    char board[10][10];
 
 public:
     Domino() { boardFill(); };
     void boardFill();  // заполнение поля (матрицы)
     void printBoard(); // метод отображения доски
     void move();
+    void modBoard();          // метод преобразует поле после хода
+    char letterToIndex(char); // метод возвращает индекс, соответсвующий букве поля
 };
 
 void Domino::boardFill()
 {
     for (int i = 0; i < 10; i++)
         for (int j = 0; j < 10; j++)
-            board[i][j] = ".";
+            board[i][j] = '.';
 }
 
 // TODO
 void Domino::printBoard()
 {
     char s[2];
-    int sizeOfBoard = 10;
     // ! const char *mark = ".x+";      // маркер позиции (безопасная / под атакой)
     cout << "\ta b c d e f g h i j\n\n";  // верхняя строка
     for (int i = 0; i < sizeOfBoard; i++) // цикл по строкам
@@ -58,7 +60,7 @@ void Domino::printBoard()
             //! char m = (*this != s) ? mark[attack(s)] : isA();
             cout << board[i][j] << " ";
         }
-        cout << "\t" << i << "\n"; // номер строки доски справа
+        cout << "\t" << sizeOfBoard - i << "\n"; // номер строки доски справа
     }
     cout << "\n\ta b c d e f g h i j\n"; // нижняя строка
 }
@@ -69,8 +71,53 @@ void Domino::move()
     // char *position[2];
 
     scanf("%c%c %c%c", &posS[0], &posS[1], &posE[0], &posE[1]);
-    printf("\n=================\nYour input: %c%c %c%c\n=================\n", posS[0], posS[1], posE[0], posE[1]);
+    printf("\n=======================\nYour input: %c%c %c%c\n=======================\n", posS[0], posS[1], posE[0], posE[1]);
+    int POSS_x = letterToIndex(posS[0]);
+    int POSS_y = int(posS[1]) - 49;
+    int POSE_x = letterToIndex(posE[0]);
+    int POSE_y = int(posE[1]) - 49;
+
+    int q = sizeof(POSS_x);
+    int w = sizeof(POSS_y);
+    int e = sizeof(POSE_x);
+    int r = sizeof(POSE_y);
+    printf("Bytes:\t\t%d%d %d%d\n", q, w, e, r);
+    printf("Real input:\t%d%d %d%d\n=======================\n", POSS_x, POSS_y, POSE_x, POSE_y);
     // TODO проверка хода
+    // ход компьютера
+
+    // преобразование поля
+
+    // отображение доски
+}
+
+char Domino::letterToIndex(char pos)
+{
+    switch (pos)
+    {
+    case 'a':
+        return 0;
+    case 'b':
+        return 1;
+    case 'c':
+        return 2;
+    case 'd':
+        return 3;
+    case 'e':
+        return 4;
+    case 'f':
+        return 5;
+    case 'g':
+        return 6;
+    case 'h':
+        return 7;
+    case 'i':
+        return 8;
+    case 'j':
+        return 9;
+    default:
+        return -1;
+    }
 }
 
 int main(int argc, char *argv[])
