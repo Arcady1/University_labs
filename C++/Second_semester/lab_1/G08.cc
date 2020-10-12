@@ -15,17 +15,13 @@
 */
 
 #include <iostream>
-#include <string>
+#include <cmath>
 using namespace std;
-// ! #define SIZE 10;
 
 class Domino
 {
 private:
     int sizeOfBoard = 10;
-    int halfOfBoard = sizeOfBoard / 2;
-    char posS[2];
-    char posE[2];
     char board[10][10];
 
 public:
@@ -34,7 +30,6 @@ public:
     void printBoard();         // метод отображения доски
     void moveUser();           // ход человека
     void movePC(int[], int[]); // ход компьютера
-    void modBoard();           // метод преобразует поле после хода
     char letterToIndex(char);  // метод возвращает индекс, соответсвующий букве поля
 };
 
@@ -45,83 +40,104 @@ void Domino::boardFill()
             board[i][j] = '.';
 }
 
-// TODO
 void Domino::printBoard()
 {
-    // ! char s[2];
-    // ! const char *mark = ".x+";      // маркер позиции (безопасная / под атакой)
     cout << "\ta b c d e f g h i j\n\n";  // верхняя строка
     for (int i = 0; i < sizeOfBoard; i++) // цикл по строкам
     {
         cout << i << "\t"; // номер строки доски слева
-        // ! s[1] = '0' + i;   // текущая позиция по горизонтали
         for (int j = 0; j < sizeOfBoard; j++)
-        { // цикл по столбцам
-            // ! s[0] = 'a' + j; // текущая позиция по вертикали
-            // если позиция не совпадает с положением фигуры, то вывести маркер
-            //! char m = (*this != s) ? mark[attack(s)] : isA();
             cout << board[i][j] << " ";
-        }
+
         cout << "\t" << i << "\n"; // номер строки доски справа
     }
     cout << "\n\ta b c d e f g h i j\n"; // нижняя строка
 }
 
-// TODO
 void Domino::moveUser()
 {
-    int indexPosStart[2]; // позиции фишек в индексах матрицы
-    int indexPosEnd[2];
+    int posStart[2]; // позиции фишек по индексам матрицы
+    int posEnd[2];
+    char posS[2]; // введенные координаты
+    char posE[2];
+    char userSymbol = 'u';
 
     scanf("%c%c %c%c", &posS[0], &posS[1], &posE[0], &posE[1]);
-    printf("\n=====================\nYour input: %c%c %c%c\n=====================\n", posS[0], posS[1], posE[0], posE[1]);
-    indexPosStart[0] = int(posS[1]) - 48;
-    indexPosStart[1] = letterToIndex(posS[0]);
-    indexPosEnd[0] = int(posE[1]) - 48;
-    indexPosEnd[1] = letterToIndex(posE[0]);
+    printf("\n=================\nYour input: %c%c %c%c\n=================\n", posS[0], posS[1], posE[0], posE[1]);
 
-    int q = sizeof(indexPosStart[0]);
-    int w = sizeof(indexPosStart[1]);
-    int e = sizeof(indexPosEnd[0]);
-    int r = sizeof(indexPosEnd[1]);
-    printf("Bytes:\t\t%d%d %d%d\n", q, w, e, r);
-    printf("Real input:\t%d%d %d%d\n=====================\n", indexPosStart[0], indexPosStart[1], indexPosEnd[0], indexPosEnd[1]);
-    // TODO проверка хода
-    board[indexPosStart[0]][indexPosStart[1]] = '~';
-    board[indexPosEnd[0]][indexPosEnd[1]] = '~';
-    // ход компьютера
-    movePC(indexPosStart, indexPosEnd);
+    posStart[0] = int(posS[1]) - 48;
+    posStart[1] = letterToIndex(posS[0]);
+    posEnd[0] = int(posE[1]) - 48;
+    posEnd[1] = letterToIndex(posE[0]);
+
+    // ввод одинаковых координат
+    if ((posStart[0] == posEnd[0]) && (posStart[1] == posEnd[1]))
+    {
+        cout << "ERROR: No difference!" << endl;
+        exit(3);
+    }
+    // за пределами поля
+    else if ((posStart[0] < 0) || (posStart[0] > 9) || (posEnd[0] < 0) || (posEnd[0] > 9) || (posStart[1] < 0) || (posStart[1] > 9) || (posEnd[1] < 0) || (posEnd[1] > 9))
+    {
+        cout << "ERROR: Off the chessboard!" << endl;
+        exit(4);
+    }
+    // свободны ли клетки
+    else if ((board[posStart[0]][posStart[1]] != '.') || (board[posEnd[0]][posEnd[1]]) != '.')
+    {
+        cout << "ERROR: Is not free!" << endl;
+        exit(5);
+    }
+    // неправильное расположение фишек
+    else if ((abs(posStart[0] - posEnd[0]) >= 1) && (abs(posStart[1] - posEnd[1]) >= 1))
+    {
+        cout << "ERROR: Chips are diagonally!" << endl;
+        exit(6);
+    }
+    else if ((abs(posStart[0] - posEnd[0]) > 1) || (abs(posStart[1] - posEnd[1]) > 1))
+    {
+        cout << "ERROR: Over-distance!" << endl;
+        exit(7);
+    }
+    else
+    {
+        board[posStart[0]][posStart[1]] = userSymbol;
+        board[posEnd[0]][posEnd[1]] = userSymbol;
+    }
+
+    movePC(posStart, posEnd); // ход компьютера
     printBoard();
 }
 
-void Domino::movePC(int indexPosStart[], int indexPosEnd[])
+void Domino::movePC(int posStart[], int posEnd[])
 {
     int res11, res12, res21, res22;
-    char symbol = '=';
+    char PCsymbol = 'c';
 
-    res11 = 9 - indexPosStart[0];
-    res12 = 9 - indexPosEnd[0];
-    res21 = 9 - indexPosStart[1];
-    res22 = 9 - indexPosEnd[1];
+    res11 = 9 - posStart[0];
+    res12 = 9 - posEnd[0];
+    res21 = 9 - posStart[1];
+    res22 = 9 - posEnd[1];
 
-    if ((board[res11][indexPosStart[1]] == '.') && (board[res12][indexPosEnd[1]] == '.'))
+    if ((board[res11][posStart[1]] == '.') && (board[res12][posEnd[1]] == '.'))
     {
-        board[res11][indexPosStart[1]] = symbol;
-        board[res12][indexPosEnd[1]] = symbol;
+        board[res11][posStart[1]] = PCsymbol;
+        board[res12][posEnd[1]] = PCsymbol;
     }
-    else if ((board[indexPosStart[0]][res21] == '.') && (board[indexPosEnd[0]][res22] == '.'))
+    else if ((board[posStart[0]][res21] == '.') && (board[posEnd[0]][res22] == '.'))
     {
-        board[indexPosStart[0]][res21] = symbol;
-        board[indexPosEnd[0]][res22] = symbol;
+        board[posStart[0]][res21] = PCsymbol;
+        board[posEnd[0]][res22] = PCsymbol;
     }
     else if ((board[res11][res21] == '.') && (board[res12][res22] == '.'))
     {
-        board[res11][res21] == symbol;
-        board[res12][res22] == symbol;
+        board[res11][res21] == PCsymbol;
+        board[res12][res22] == PCsymbol;
     }
 
     else
     {
+        printBoard();
         cout << "You are winner!" << endl;
         exit(2);
     }
@@ -158,18 +174,18 @@ char Domino::letterToIndex(char pos)
 
 int main(int argc, char *argv[])
 {
-    // проверка числа аргументов и допустимости позиции
+    // проверка числа аргументов
     if (argc != 1)
     {
-        std::cout << "Incorrect number of arguments" << std::endl;
+        cout << "Incorrect number of arguments" << endl;
         return 1;
     }
+
     Domino U;
     U.printBoard();
 
-    // TODO  проверка, что координаты корректны
-    // отображение хода
-    while (getchar() != '\t')
+    printf("Input: ");
+    while (getchar() != '\0')
     {
         U.moveUser(); // ход игрока
     }
