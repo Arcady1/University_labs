@@ -46,12 +46,12 @@ void Domino::boardFill()
 // TODO
 void Domino::printBoard()
 {
-    char s[2];
+    // ! char s[2];
     // ! const char *mark = ".x+";      // маркер позиции (безопасная / под атакой)
     cout << "\ta b c d e f g h i j\n\n";  // верхняя строка
     for (int i = 0; i < sizeOfBoard; i++) // цикл по строкам
     {
-        cout << sizeOfBoard - i << "\t"; // номер строки доски слева
+        cout << i << "\t"; // номер строки доски слева
         // ! s[1] = '0' + i;   // текущая позиция по горизонтали
         for (int j = 0; j < sizeOfBoard; j++)
         { // цикл по столбцам
@@ -60,7 +60,7 @@ void Domino::printBoard()
             //! char m = (*this != s) ? mark[attack(s)] : isA();
             cout << board[i][j] << " ";
         }
-        cout << "\t" << sizeOfBoard - i << "\n"; // номер строки доски справа
+        cout << "\t" << i << "\n"; // номер строки доски справа
     }
     cout << "\n\ta b c d e f g h i j\n"; // нижняя строка
 }
@@ -68,21 +68,22 @@ void Domino::printBoard()
 // TODO
 void Domino::move()
 {
-    // char *position[2];
+    int indexPosStart[2]; // позиции фишек в индексах матрицы
+    int indexPosEnd[2];
 
     scanf("%c%c %c%c", &posS[0], &posS[1], &posE[0], &posE[1]);
-    printf("\n=======================\nYour input: %c%c %c%c\n=======================\n", posS[0], posS[1], posE[0], posE[1]);
-    int POSS_x = letterToIndex(posS[0]);
-    int POSS_y = int(posS[1]) - 49;
-    int POSE_x = letterToIndex(posE[0]);
-    int POSE_y = int(posE[1]) - 49;
+    printf("\n=====================\nYour input: %c%c %c%c\n=====================\n", posS[0], posS[1], posE[0], posE[1]);
+    indexPosStart[0] = int(posS[1]) - 48;
+    indexPosStart[1] = letterToIndex(posS[0]);
+    indexPosEnd[0] = int(posE[1]) - 48;
+    indexPosEnd[1] = letterToIndex(posE[0]);
 
-    int q = sizeof(POSS_x);
-    int w = sizeof(POSS_y);
-    int e = sizeof(POSE_x);
-    int r = sizeof(POSE_y);
+    int q = sizeof(indexPosStart[0]);
+    int w = sizeof(indexPosStart[1]);
+    int e = sizeof(indexPosEnd[0]);
+    int r = sizeof(indexPosEnd[1]);
     printf("Bytes:\t\t%d%d %d%d\n", q, w, e, r);
-    printf("Real input:\t%d%d %d%d\n=======================\n", POSS_x, POSS_y, POSE_x, POSE_y);
+    printf("Real input:\t%d%d %d%d\n=====================\n", indexPosStart[0], indexPosStart[1], indexPosEnd[0], indexPosEnd[1]);
     // TODO проверка хода
     // ход компьютера
 
