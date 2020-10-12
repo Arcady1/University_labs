@@ -15,43 +15,83 @@ TODO Пример ввода: ./a.out ###
 */
 
 #include <iostream>
+#include <string>
 using namespace std;
+// ! #define SIZE 10;
 
 class Domino
 {
 private:
+    char posS[2];
+    char posE[2];
+    const char *board[10][10];
 
 public:
-    friend void printBoard(); // метод отображения доски
+    Domino() { boardFill(); };
+    void boardFill();  // заполнение поля (матрицы)
+    void printBoard(); // метод отображения доски
+    void move();
 };
 
+void Domino::boardFill()
+{
+    for (int i = 0; i < 10; i++)
+        for (int j = 0; j < 10; j++)
+            board[i][j] = ".";
+}
+
 // TODO
-void printBoard()
+void Domino::printBoard()
 {
     char s[2];
     int sizeOfBoard = 10;
     // ! const char *mark = ".x+";      // маркер позиции (безопасная / под атакой)
     cout << "\ta b c d e f g h i j\n\n";  // верхняя строка
-    for (int i = sizeOfBoard; i > 0; i--) // цикл по строкам
+    for (int i = 0; i < sizeOfBoard; i++) // цикл по строкам
     {
-        cout << i << "\t"; // номер строки доски слева
+        cout << sizeOfBoard - i << "\t"; // номер строки доски слева
         // ! s[1] = '0' + i;   // текущая позиция по горизонтали
         for (int j = 0; j < sizeOfBoard; j++)
         { // цикл по столбцам
             // ! s[0] = 'a' + j; // текущая позиция по вертикали
             // если позиция не совпадает с положением фигуры, то вывести маркер
             //! char m = (*this != s) ? mark[attack(s)] : isA();
-            cout << ". ";
+            cout << board[i][j] << " ";
         }
         cout << "\t" << i << "\n"; // номер строки доски справа
     }
     cout << "\n\ta b c d e f g h i j\n"; // нижняя строка
 }
 
+// TODO
+void Domino::move()
+{
+    // char *position[2];
+
+    scanf("%c%c %c%c", &posS[0], &posS[1], &posE[0], &posE[1]);
+    printf("\n=================\nYour input: %c%c %c%c\n=================\n", posS[0], posS[1], posE[0], posE[1]);
+    // TODO проверка хода
+}
+
 int main(int argc, char *argv[])
 {
-    Domino A;
-    printBoard();
+    // проверка числа аргументов и допустимости позиции
+    if (argc != 1)
+    {
+        std::cout << "Incorrect number of arguments" << std::endl;
+        return 1;
+    }
+    Domino U;
+    U.printBoard();
+
+    // TODO  проверка, что координаты корректны
+    // отображение хода
+    while (getchar() != '\t')
+    {
+        U.move();       // ход игрока
+        U.printBoard(); // вывод доски
+    }
+    // зеркально ход делает комьютер
 
     return 0;
 }
