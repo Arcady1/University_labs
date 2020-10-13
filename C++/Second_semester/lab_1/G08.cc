@@ -184,7 +184,7 @@ int main(int argc, char *argv[])
     Domino U;
     U.printBoard();
 
-    printf("Input: ");
+    printf("Input:  ");
     while (getchar() != '\0')
     {
         U.moveUser(); // ход игрока
