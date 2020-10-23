@@ -12,8 +12,11 @@
 Игра должна завершаться диагностикой ее итогового результата.
 
 Пример ввода: ./a.out
+" " a1 a2
 */
 
+#include <stdio.h>
+#include <stdlib.h>
 #include <iostream>
 #include <cmath>
 using namespace std;
@@ -30,7 +33,6 @@ public:
     void printBoard();         // метод отображения доски
     void moveUser();           // ход человека
     void movePC(int[], int[]); // ход компьютера
-    char letterToIndex(char);  // метод возвращает индекс, соответсвующий букве поля
 };
 
 void Domino::boardFill()
@@ -66,9 +68,9 @@ void Domino::moveUser()
     printf("\n=================\nYour input: %c%c %c%c\n=================\n", posS[0], posS[1], posE[0], posE[1]);
 
     posStart[0] = int(posS[1]) - 48;
-    posStart[1] = letterToIndex(posS[0]);
+    posStart[1] = int(posS[0])-97;
     posEnd[0] = int(posE[1]) - 48;
-    posEnd[1] = letterToIndex(posE[0]);
+    posEnd[1] = int(posE[0]) - 97;
 
     // ввод одинаковых координат
     if ((posStart[0] == posEnd[0]) && (posStart[1] == posEnd[1]))
@@ -143,35 +145,6 @@ void Domino::movePC(int posStart[], int posEnd[])
     }
 }
 
-char Domino::letterToIndex(char pos)
-{
-    switch (pos)
-    {
-    case 'a':
-        return 0;
-    case 'b':
-        return 1;
-    case 'c':
-        return 2;
-    case 'd':
-        return 3;
-    case 'e':
-        return 4;
-    case 'f':
-        return 5;
-    case 'g':
-        return 6;
-    case 'h':
-        return 7;
-    case 'i':
-        return 8;
-    case 'j':
-        return 9;
-    default:
-        return -1;
-    }
-}
-
 int main(int argc, char *argv[])
 {
     // проверка числа аргументов
@@ -184,7 +157,7 @@ int main(int argc, char *argv[])
     Domino U;
     U.printBoard();
 
-    printf("Input:  ");
+    printf("Input: ");
     while (getchar() != '\0')
     {
         U.moveUser(); // ход игрока
