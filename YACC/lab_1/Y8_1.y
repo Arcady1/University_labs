@@ -25,15 +25,15 @@
 %token ONE
 
 %%
-input: { printf("Enter the line: \n"); }    // рекурсивное правило; в первый раз запускается: { printf("Enter the line: \n"); }
-     | input line                            // затем - input line
+input: { printf("Enter the line: \n"); }        // рекурсивное правило; в первый раз запускается: { printf("Enter the line: \n"); }
+     | input line                               // затем - input line
      ;
 
 line: '\n' { printf("Empty line!\n"); }
-    | error '\n' { yyerrok; }         // оператор yyerrok переводит анализатор в обычное состояние
-    | expr '\n'                                         // пустое действие при появлении \n в конце строки
+    | error '\n' { yyerrok; }                   // оператор yyerrok переводит анализатор в обычное состояние
+    | expr '\n'                                 // пустое действие при появлении \n в конце строки
     {
-        if ((maxLengZero > 1) || ($1 == 0))             // сообщение об ошибке, если нули повторяются или если 0 - в конце
+        if ((maxLengZero > 1) || ($1 == 0))     // сообщение об ошибке, если нули повторяются или если 0 - в конце
             yyerror("syntax error");
     }
     ;
