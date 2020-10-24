@@ -8,6 +8,7 @@
 
 Запуск: yacc Y8_1.y
         g++ y.tab.c
+        ./a.out
 */
 
 %{
@@ -16,43 +17,40 @@
     void yyerror(char const *);
     int yylex(void);
     
-    int lengZero = 0;
-    int maxLengZero = 0;
+    int lengZero;
+    int maxLengZero;
 %}
 
-/* %start input */
 %token ZERO
 %token ONE
 
 %%
-input: { printf("Enter the line: \n"); }    // рекурсивное правило работает только в первый раз : { printf("Enter the line: \n"); }
+input: { printf("Enter the line: \n"); }    // рекурсивное правило; в первый раз запускается: { printf("Enter the line: \n"); }
     | input line                            // затем - input line
     ;
 
 line: '\n' { printf("Empty line!\n"); }
     | error '\n' { printf("Try again: "); yyerrok; }    // оператор переводит анализатор в обычное состояние
-    | expr '\n'                                             // пустое действие при появлении \n в конце строки
-    {                                                   // сообщение об ошибке, если нули повторяются
-        if (maxLengZero > 1) 
-            yyerror("LONG ZERO!");
-        printf(":: %d\n", $1);
+    | expr '\n'                                         // пустое действие при появлении \n в конце строки
+    {
+        if ((maxLengZero > 1) || ($1 == 0))             // сообщение об ошибке, если нули повторяются или если 0 - в конце
+            yyerror("Error!");
     }
     ;
 
-expr: ZERO { lengZero = 1; maxLengZero = 1; }
-    | ONE { lengZero = 0; maxLengZero = 0; }
+expr: ZERO { lengZero = 1; maxLengZero = 1; $$ = 0; }
+    | ONE { lengZero = 0; maxLengZero = 0; $$ = 1; }
     | expr ZERO 
     {
         ++lengZero;
         if (lengZero > maxLengZero)
             maxLengZero = lengZero;
-
-        $$ = maxLengZero;
+        $$ = 0;
     }
     | expr ONE
     {
         lengZero = 0;
-        $$ = maxLengZero;
+        $$ = 1;
     }
     ;
 %%
@@ -70,7 +68,7 @@ int yylex(void)
         return ONE;     // шаблоны в потоке ввода 1
     if (c == EOF)
         return 0;
-        
+
     return c;
 }
      

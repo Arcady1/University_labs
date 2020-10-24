@@ -62,15 +62,15 @@
 
 
 /* Copy the first part of user declarations.  */
-#line 13 "Y8_1.y" /* yacc.c:339  */
+#line 14 "Y8_1.y" /* yacc.c:339  */
 
     #include <stdio.h>        
     
     void yyerror(char const *);
     int yylex(void);
     
-    int lengZero = 0;
-    int maxLengZero = 0;
+    int lengZero;
+    int maxLengZero;
 
 #line 76 "y.tab.c" /* yacc.c:339  */
 
@@ -425,8 +425,8 @@ static const yytype_uint8 yytranslate[] =
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    28,    28,    29,    32,    33,    34,    42,    43,    44,
-      52
+       0,    28,    28,    29,    32,    33,    34,    41,    42,    43,
+      51
 };
 #endif
 
@@ -1216,49 +1216,48 @@ yyreduce:
 
   case 6:
 #line 35 "Y8_1.y" /* yacc.c:1646  */
-    {                                                   // сообщение об ошибке, если нули повторяются
-        if (maxLengZero > 1) 
-            yyerror("LONG ZERO!");
-        printf(":: %d\n", (yyvsp[-1]));
+    {
+        if ((maxLengZero > 1) || ((yyvsp[-1]) == 0))             // сообщение об ошибке, если нули повторяются или если 0 - в конце
+            yyerror("Error!");
     }
-#line 1225 "y.tab.c" /* yacc.c:1646  */
+#line 1224 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 7:
-#line 42 "Y8_1.y" /* yacc.c:1646  */
-    { lengZero = 1; maxLengZero = 1; }
-#line 1231 "y.tab.c" /* yacc.c:1646  */
+#line 41 "Y8_1.y" /* yacc.c:1646  */
+    { lengZero = 1; maxLengZero = 1; (yyval) = 0; }
+#line 1230 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 8:
-#line 43 "Y8_1.y" /* yacc.c:1646  */
-    { lengZero = 0; maxLengZero = 0; }
-#line 1237 "y.tab.c" /* yacc.c:1646  */
+#line 42 "Y8_1.y" /* yacc.c:1646  */
+    { lengZero = 0; maxLengZero = 0; (yyval) = 1; }
+#line 1236 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 9:
-#line 45 "Y8_1.y" /* yacc.c:1646  */
+#line 44 "Y8_1.y" /* yacc.c:1646  */
     {
         ++lengZero;
         if (lengZero > maxLengZero)
             maxLengZero = lengZero;
 
-        (yyval) = maxLengZero;
+        (yyval) = 0;
     }
-#line 1249 "y.tab.c" /* yacc.c:1646  */
+#line 1248 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 10:
-#line 53 "Y8_1.y" /* yacc.c:1646  */
+#line 52 "Y8_1.y" /* yacc.c:1646  */
     {
         lengZero = 0;
-        (yyval) = maxLengZero;
+        (yyval) = 1;
     }
-#line 1258 "y.tab.c" /* yacc.c:1646  */
+#line 1257 "y.tab.c" /* yacc.c:1646  */
     break;
 
 
-#line 1262 "y.tab.c" /* yacc.c:1646  */
+#line 1261 "y.tab.c" /* yacc.c:1646  */
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -1486,7 +1485,7 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 58 "Y8_1.y" /* yacc.c:1906  */
+#line 57 "Y8_1.y" /* yacc.c:1906  */
 
 
 /* Функция yylex возвращает лексемы до тех пор, пока синтаксический анализатор не обнаружит 
