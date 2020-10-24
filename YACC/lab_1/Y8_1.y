@@ -11,33 +11,50 @@
 */
 
 %{
-#include <stdio.h>        
-int yylex(void);
-void yyerror(char const *);
+    #include <stdio.h>        
+    
+    void yyerror(char const *);
+    int yylex(void);
+    
+    int lengZero = 0;
+    int maxLengZero = 0;
 %}
 
+/* %start input */
 %token ZERO
 %token ONE
 
 %%
-input: { printf("Enter the line: \n"); }
-    | input line; // рекурсия (имя правила input должно быть слева от line)
+input: { printf("Enter the line: \n"); }    // рекурсивное правило работает только в первый раз : { printf("Enter the line: \n"); }
+    | input line                            // затем - input line
+    ;
 
 line: '\n' { printf("Empty line!\n"); }
-    | error '\n' { printf("Try again: "); yyerrok; } // оператор переводит анализатор в обычное состояние
-    | expr '\n' 
-    {                                                   //выведем сообщение об ошибке, если количество разрядов нечётное
-        if(($1 % 2) == 1) 
-            yyerror("syntax error");
-        else
-            printf("Nice!\n");
+    | error '\n' { printf("Try again: "); yyerrok; }    // оператор переводит анализатор в обычное состояние
+    | expr '\n'                                             // пустое действие при появлении \n в конце строки
+    {                                                   // сообщение об ошибке, если нули повторяются
+        if (maxLengZero > 1) 
+            yyerror("LONG ZERO!");
+        printf(":: %d\n", $1);
     }
-/*будем увеличивать значение псевдопеременной $$ с каждой единицей и нулём*/
-expr: ONE { $$++; }
-	| ZERO { $$++; }
-	| expr ONE { $$++; }
-	| expr ZERO { $$++; }
-;
+    ;
+
+expr: ZERO { lengZero = 1; maxLengZero = 1; }
+    | ONE { lengZero = 0; maxLengZero = 0; }
+    | expr ZERO 
+    {
+        ++lengZero;
+        if (lengZero > maxLengZero)
+            maxLengZero = lengZero;
+
+        $$ = maxLengZero;
+    }
+    | expr ONE
+    {
+        lengZero = 0;
+        $$ = maxLengZero;
+    }
+    ;
 %%
 
 /* Функция yylex возвращает лексемы до тех пор, пока синтаксический анализатор не обнаружит 
@@ -47,10 +64,10 @@ int yylex(void)
     int c;
 
     c = getchar();
-    if(c == '1')
-        return ONE; // шаблоны в потоке ввода ONE
     if(c == '0')
-        return ZERO; // шаблоны в потоке ввода ZERO
+        return ZERO;    // шаблоны в потоке ввода 0
+    if(c == '1')
+        return ONE;     // шаблоны в потоке ввода 1
     if (c == EOF)
         return 0;
         
@@ -64,6 +81,6 @@ void yyerror(char const *s)
 
 int main()
 {
-    yyparse(); // yyparse() вызывает для чтения лексем функцию yylex()
+    yyparse();      // yyparse() вызывает для чтения лексем функцию yylex()
     return 0;
 }
