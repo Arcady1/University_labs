@@ -26,15 +26,15 @@
 
 %%
 input: { printf("Enter the line: \n"); }    // рекурсивное правило; в первый раз запускается: { printf("Enter the line: \n"); }
-    | input line                            // затем - input line
-    ;
+     | input line                            // затем - input line
+     ;
 
 line: '\n' { printf("Empty line!\n"); }
-    | error '\n' { printf("Try again: "); yyerrok; }    // оператор переводит анализатор в обычное состояние
+    | error '\n' { yyerrok; }         // оператор yyerrok переводит анализатор в обычное состояние
     | expr '\n'                                         // пустое действие при появлении \n в конце строки
     {
         if ((maxLengZero > 1) || ($1 == 0))             // сообщение об ошибке, если нули повторяются или если 0 - в конце
-            yyerror("Error!");
+            yyerror("syntax error");
     }
     ;
 

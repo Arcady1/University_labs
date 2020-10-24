@@ -426,7 +426,7 @@ static const yytype_uint8 yytranslate[] =
 static const yytype_uint8 yyrline[] =
 {
        0,    28,    28,    29,    32,    33,    34,    41,    42,    43,
-      51
+      50
 };
 #endif
 
@@ -1210,7 +1210,7 @@ yyreduce:
 
   case 5:
 #line 33 "Y8_1.y" /* yacc.c:1646  */
-    { printf("Try again: "); yyerrok; }
+    { yyerrok; }
 #line 1215 "y.tab.c" /* yacc.c:1646  */
     break;
 
@@ -1218,7 +1218,7 @@ yyreduce:
 #line 35 "Y8_1.y" /* yacc.c:1646  */
     {
         if ((maxLengZero > 1) || ((yyvsp[-1]) == 0))             // сообщение об ошибке, если нули повторяются или если 0 - в конце
-            yyerror("Error!");
+            yyerror("syntax error");
     }
 #line 1224 "y.tab.c" /* yacc.c:1646  */
     break;
@@ -1241,23 +1241,22 @@ yyreduce:
         ++lengZero;
         if (lengZero > maxLengZero)
             maxLengZero = lengZero;
-
         (yyval) = 0;
     }
-#line 1248 "y.tab.c" /* yacc.c:1646  */
+#line 1247 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 10:
-#line 52 "Y8_1.y" /* yacc.c:1646  */
+#line 51 "Y8_1.y" /* yacc.c:1646  */
     {
         lengZero = 0;
         (yyval) = 1;
     }
-#line 1257 "y.tab.c" /* yacc.c:1646  */
+#line 1256 "y.tab.c" /* yacc.c:1646  */
     break;
 
 
-#line 1261 "y.tab.c" /* yacc.c:1646  */
+#line 1260 "y.tab.c" /* yacc.c:1646  */
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -1485,7 +1484,7 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 57 "Y8_1.y" /* yacc.c:1906  */
+#line 56 "Y8_1.y" /* yacc.c:1906  */
 
 
 /* Функция yylex возвращает лексемы до тех пор, пока синтаксический анализатор не обнаружит 
@@ -1501,7 +1500,7 @@ int yylex(void)
         return ONE;     // шаблоны в потоке ввода 1
     if (c == EOF)
         return 0;
-        
+
     return c;
 }
      
