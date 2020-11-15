@@ -1,16 +1,12 @@
-/* Гусаров Аркадий РК6-33Б 2 курс.
-
-Запуск: yacc Y8_1.y
-        g++ y.tab.c
-        ./a.out
-*/
+// Гусаров Аркадий РК6-33Б 2 курс.
 
 %{
     #include <stdio.h>        
     
     void yyerror(char const *);
     int yylex(void);
-    int yywrap() {return 1;}
+    int yywrap() { return 1; }
+    int Round(int, int);
 %}
 
 %token NUMBER
@@ -28,20 +24,32 @@ line: '\n' { printf("Empty line!\n"); }
 expr: NUMBER '/' NUMBER '\n'
     {
         if ($3 == 0)
-            yyerror("syntax error");
+            yyerror("syntax error");        
         else
-            printf("%d and %d\n", (int)($1), (int)($3));
+            printf("%d and %d\n%d;\n", (int)($1), (int)($3), Round($1, $3));
     }
     ;
 %%
+
+int main()
+{
+    yyparse();      // yyparse() вызывается для чтения лексем 
+    return 0;
+}
      
 void yyerror(char const *s)
 {
     fprintf(stderr, "%s\n", s);      
 }
 
-int main()
+int Round(int numer, int denom)
 {
-    yyparse();      // yyparse() вызывает для чтения лексем функцию yylex()
-    return 0;
+    if (numer % denom != 0)
+    {
+        if (((numer < 0) && (denom > 0)) || ((numer > 0) && (denom < 0)))
+            return (numer / denom);
+        return (numer / denom + 1);
+    }
+    else
+        return (numer / denom);
 }

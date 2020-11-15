@@ -443,14 +443,20 @@ int yy_flex_debug = 0;
 char *yytext;
 #line 1 "lab.l"
 /* Гусаров Аркадий РК6-33Б 2 курс.
-
+Разработать транслятор для округления значения любой обыкновенной дроби с
+необязательным знаком до наименьшего целого числа, которое превосходит ее
+по величине. Записи обыкновенных дробей, в которых числитель и знаменатель
+разделены символом '/', должны передаваться транслятору строками потока
+стандартного ввода. Результаты трансляции должны отображаться строками
+целых чисел в потоке стандартного вывода.
 
 Запуск: yacc -d lab.y; lex lab.l; cc y.tab.c lex.yy.c; ./a.out
+Округлить в больую сторону
 */
-#line 9 "lab.l"
+#line 15 "lab.l"
     #include "y.tab.h"
-#line 453 "lex.yy.c"
-#line 454 "lex.yy.c"
+#line 459 "lex.yy.c"
+#line 460 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -667,9 +673,9 @@ YY_DECL
 		}
 
 	{
-#line 14 "lab.l"
+#line 20 "lab.l"
 
-#line 673 "lex.yy.c"
+#line 679 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -728,31 +734,31 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 15 "lab.l"
+#line 21 "lab.l"
 { yylval = atoi(yytext); return NUMBER; }
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 16 "lab.l"
+#line 22 "lab.l"
 { return '/'; }
 	YY_BREAK
 case 3:
 /* rule 3 can match eol */
 YY_RULE_SETUP
-#line 17 "lab.l"
+#line 23 "lab.l"
 { return '\n'; }
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 18 "lab.l"
+#line 24 "lab.l"
 { }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 19 "lab.l"
+#line 25 "lab.l"
 ECHO;
 	YY_BREAK
-#line 756 "lex.yy.c"
+#line 762 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1757,7 +1763,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 19 "lab.l"
+#line 25 "lab.l"
 
 
 // Нет main(), т.к. она определена в lab.y

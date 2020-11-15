@@ -62,15 +62,16 @@
 
 
 /* Copy the first part of user declarations.  */
-#line 8 "lab.y" /* yacc.c:339  */
+#line 3 "lab.y" /* yacc.c:339  */
 
     #include <stdio.h>        
     
     void yyerror(char const *);
     int yylex(void);
-    int yywrap() {return 1;}
+    int yywrap() { return 1; }
+    int Round(int, int);
 
-#line 74 "y.tab.c" /* yacc.c:339  */
+#line 75 "y.tab.c" /* yacc.c:339  */
 
 # ifndef YY_NULLPTR
 #  if defined __cplusplus && 201103L <= __cplusplus
@@ -127,7 +128,7 @@ int yyparse (void);
 
 /* Copy the second part of user declarations.  */
 
-#line 131 "y.tab.c" /* yacc.c:358  */
+#line 132 "y.tab.c" /* yacc.c:358  */
 
 #ifdef short
 # undef short
@@ -424,7 +425,7 @@ static const yytype_uint8 yytranslate[] =
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    19,    19,    20,    23,    24,    25,    28
+       0,    15,    15,    16,    19,    20,    21,    24
 };
 #endif
 
@@ -1193,36 +1194,36 @@ yyreduce:
   switch (yyn)
     {
         case 2:
-#line 19 "lab.y" /* yacc.c:1646  */
+#line 15 "lab.y" /* yacc.c:1646  */
     { printf("Enter the line: \n"); }
-#line 1199 "y.tab.c" /* yacc.c:1646  */
+#line 1200 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 4:
-#line 23 "lab.y" /* yacc.c:1646  */
+#line 19 "lab.y" /* yacc.c:1646  */
     { printf("Empty line!\n"); }
-#line 1205 "y.tab.c" /* yacc.c:1646  */
+#line 1206 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 5:
-#line 24 "lab.y" /* yacc.c:1646  */
+#line 20 "lab.y" /* yacc.c:1646  */
     { yyerrok; }
-#line 1211 "y.tab.c" /* yacc.c:1646  */
+#line 1212 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 7:
-#line 29 "lab.y" /* yacc.c:1646  */
+#line 25 "lab.y" /* yacc.c:1646  */
     {
         if ((yyvsp[-1]) == 0)
-            yyerror("syntax error");
+            yyerror("syntax error");        
         else
-            printf("%d and %d\n", (int)((yyvsp[-3])), (int)((yyvsp[-1])));
+            printf("%d and %d\n%d;\n", (int)((yyvsp[-3])), (int)((yyvsp[-1])), Round((yyvsp[-3]), (yyvsp[-1])));
     }
-#line 1222 "y.tab.c" /* yacc.c:1646  */
+#line 1223 "y.tab.c" /* yacc.c:1646  */
     break;
 
 
-#line 1226 "y.tab.c" /* yacc.c:1646  */
+#line 1227 "y.tab.c" /* yacc.c:1646  */
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -1450,16 +1451,28 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 36 "lab.y" /* yacc.c:1906  */
+#line 32 "lab.y" /* yacc.c:1906  */
 
+
+int main()
+{
+    yyparse();      // yyparse() вызывает для чтения лексем функцию yylex()
+    return 0;
+}
      
 void yyerror(char const *s)
 {
     fprintf(stderr, "%s\n", s);      
 }
 
-int main()
+int Round(int numer, int denom)
 {
-    yyparse();      // yyparse() вызывает для чтения лексем функцию yylex()
-    return 0;
+    if (numer % denom != 0)
+    {
+        if (((numer < 0) && (denom > 0)) || ((numer > 0) && (denom < 0)))
+            return (numer / denom);
+        return (numer / denom + 1);
+    }
+    else
+        return (numer / denom);
 }
