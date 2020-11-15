@@ -26,7 +26,7 @@ expr: NUMBER '/' NUMBER '\n'
         if ($3 == 0)
             yyerror("syntax error");        
         else
-            printf("%d and %d\n%d;\n", (int)($1), (int)($3), Round($1, $3));
+            printf("%d\n", Round($1, $3));
     }
     ;
 %%
