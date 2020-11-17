@@ -1,5 +1,6 @@
 // Гусаров Аркадий РК6-33Б 2 курс.
 
+// Блок глобальных описаний
 %{
     #include <stdio.h>        
     
@@ -11,9 +12,10 @@
 
 %token NUMBER
 
+// Секция правил
 %%
-input: { printf("Enter the line: \n"); }        // рекурсивное правило; в первый раз запускается: { printf("Enter the line: \n"); }
-     | input line                               // затем - input line
+input: { printf("Enter the line: \n"); }        // позволяет трактовать нетерминал input как одиночную лексему line, или последовательность лексем line произвольной длины
+     | input line
      ;
 
 line: '\n' { printf("Empty line!\n"); }
@@ -39,7 +41,8 @@ int main()
      
 void yyerror(char const *s)
 {
-    fprintf(stderr, "%s\n", s);      
+    fprintf(stderr, "%s\n", s);
+    return 1;     
 }
 
 int Round(int numer, int denom)
