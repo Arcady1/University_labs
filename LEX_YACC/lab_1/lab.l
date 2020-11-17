@@ -9,12 +9,13 @@
 Запуск: yacc -d lab.y; lex lab.l; cc y.tab.c lex.yy.c; ./a.out
 */
 
+// Блок глобальных описаний
 %{
     #include "y.tab.h"
 %}
 
 DIGIT       0|-?[1-9]+[0-9]*
-
+// Секция правил
 %%
 {DIGIT}     { yylval = atoi(yytext); return NUMBER; }
 \/          { return '/'; }
