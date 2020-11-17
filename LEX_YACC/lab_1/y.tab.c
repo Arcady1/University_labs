@@ -66,7 +66,7 @@
 
     #include <stdio.h>        
     
-    void yyerror(char const *);
+    int yyerror(char const *);
     int yylex(void);
     int yywrap() { return 1; }
     int Round(int, int);
@@ -1460,9 +1460,10 @@ int main()
     return 0;
 }
      
-void yyerror(char const *s)
+int yyerror(char const *s)
 {
     fprintf(stderr, "%s\n", s);
+    return 1;     
 }
 
 int Round(int numer, int denom)
