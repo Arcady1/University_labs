@@ -62,7 +62,7 @@
 
 
 /* Copy the first part of user declarations.  */
-#line 3 "lab.y" /* yacc.c:339  */
+#line 4 "lab.y" /* yacc.c:339  */
 
     #include <stdio.h>        
     
@@ -425,7 +425,7 @@ static const yytype_uint8 yytranslate[] =
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    15,    15,    16,    19,    20,    21,    24
+       0,    17,    17,    18,    21,    22,    23,    26
 };
 #endif
 
@@ -1194,25 +1194,25 @@ yyreduce:
   switch (yyn)
     {
         case 2:
-#line 15 "lab.y" /* yacc.c:1646  */
+#line 17 "lab.y" /* yacc.c:1646  */
     { printf("Enter the line: \n"); }
 #line 1200 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 4:
-#line 19 "lab.y" /* yacc.c:1646  */
+#line 21 "lab.y" /* yacc.c:1646  */
     { printf("Empty line!\n"); }
 #line 1206 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 5:
-#line 20 "lab.y" /* yacc.c:1646  */
+#line 22 "lab.y" /* yacc.c:1646  */
     { yyerrok; }
 #line 1212 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 7:
-#line 25 "lab.y" /* yacc.c:1646  */
+#line 27 "lab.y" /* yacc.c:1646  */
     {
         if ((yyvsp[-1]) == 0)
             yyerror("syntax error");        
@@ -1451,7 +1451,7 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 32 "lab.y" /* yacc.c:1906  */
+#line 34 "lab.y" /* yacc.c:1906  */
 
 
 int main()
@@ -1462,7 +1462,7 @@ int main()
      
 void yyerror(char const *s)
 {
-    fprintf(stderr, "%s\n", s);      
+    fprintf(stderr, "%s\n", s);
 }
 
 int Round(int numer, int denom)

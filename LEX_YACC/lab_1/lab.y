@@ -42,7 +42,6 @@ int main()
 void yyerror(char const *s)
 {
     fprintf(stderr, "%s\n", s);
-    return 1;     
 }
 
 int Round(int numer, int denom)
