@@ -13,24 +13,58 @@
 	#include <ctype.h>
 %}
 
-ZERO_ONE	[01]
-OTHER		[2-9]?
 
+%START Q1 Q2 Q3 Q4 Q5 Q6 ER
 %%
-{ZERO_ONE}+ {
-	int zero = 0;
-	int one = 0;
-	for(int i = 0; i < yyleng; i++) {
-		if((int)(tolower(yytext[i])) == 49)
-			++one;
-		else
-			++zero;
-	}
-	if((one % 2 != 0) && (zero % 3 == 0))
-		printf("Correct: %s\n", yytext);
+<Q1>[ \n\t] {
+    puts("INRUT ERROR!");
+    BEGIN 0 ;
 }
-({OTHER}+{ZERO_ONE}*)+	{}
-.|\n {}
+<Q1>0 BEGIN Q5;
+<Q1>1 BEGIN Q2;
+
+<Q2>[ \n\t] {
+    puts("CORECR!");
+    BEGIN 0 ;
+}
+<Q2>[^10\ \n\t] BEGIN ER ;
+<Q2>0 BEGIN Q3;
+<Q2>1 BEGIN Q1;
+
+<Q3>[ \n\t] {
+    puts("INRUT ERROR!");
+    BEGIN 0 ;
+}
+<Q3>0 BEGIN Q4; 
+<Q3>1 BEGIN Q5;
+
+<Q4>[ \n\t] {
+    puts("INRUT ERROR!");
+    BEGIN 0 ;
+}
+<Q4>0 BEGIN Q2;
+<Q4>1 BEGIN Q6;
+
+<Q5>[ \n\t] {
+    puts("INRUT ERROR!");
+    BEGIN 0;
+}
+<Q5>0 BEGIN Q6;
+<Q5>1 BEGIN Q3;
+
+<Q6>[ \n\t] {
+    puts("INRUT ERROR!");
+    BEGIN 0;
+}
+<Q6>0 BEGIN Q1;
+<Q6>1 BEGIN Q4;
+
+<ER>[^\ \t\n] BEGIN ER;
+
+0	BEGIN Q5;
+1	BEGIN Q2;
+\n	puts("INPUT ERROR!");
+.		;
 %%
 
 int main()
