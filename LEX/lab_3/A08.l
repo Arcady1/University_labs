@@ -13,8 +13,8 @@
 	#include <ctype.h>
 %}
 
-
 %START Q1 Q2 Q3 Q4 Q5 Q6 ER
+
 %%
 <Q1>[ \n\t] {
     puts("Input Error");
