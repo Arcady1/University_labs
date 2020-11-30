@@ -13,8 +13,8 @@
 
 %{
 	#include<stdio.h>
-    int yylex();
-    int yyerror(char* s);
+    	int yylex();
+    	int yyerror(char* s);
 %}
 
 %%
