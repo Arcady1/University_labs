@@ -6,14 +6,15 @@
 Программная реализация конечного автомата должна формироваться генератором YACC по
 правилам регулярной грамматики.
 
-Запуск: yacc A08.y; g++ y.tab.c; ./a.out
+Правосторонний вывод
+
+Запуск: yacc A08_r.y; g++ y.tab.c; ./a.out
 */
 
 %{
     #include <stdio.h>
     int yylex();
     int yyerror(char* s);
-    char* mes[] = {"Correct", "Incorrect"};
 %}
 
 %%
@@ -50,7 +51,11 @@ int yyerror(char* s)
 
 int main(int argc, char* argv[])
 {
-    int ret = yyparse();
-    printf("%s\n", mes[ret]);
+    int ret;
+
+    if((ret = yyparse() ) == 0)
+        puts("Correct");
+    else
+        puts("Error");
     return (ret);
 }
