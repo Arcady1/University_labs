@@ -9,8 +9,9 @@
 Запуск: lex -t L8W.l > L8WRes.c ; cc -o L8WRes L8WRes.c -ll ; cat input.c | ./L8WRes
 */
 %{
-#include <ctype.h>
+	#include <ctype.h>
 %}
+
 %%
 [a-zA-Z]+ {
 	int flag;
