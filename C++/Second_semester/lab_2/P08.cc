@@ -97,6 +97,9 @@ void Liters::Move()
     A = A_st - B - C;
 }
 
+// Функция делает проверку на ошибки ввода
+void Errors(int, int, int, int);
+
 int main(int argc, char *argv[])
 {
     int a, b, c, d;
@@ -105,6 +108,8 @@ int main(int argc, char *argv[])
     cout << "A B C - volume of vessels\nD - to measure" << endl;
     cin >> a >> b >> c >> d;
     cout << "\n";
+
+    Errors(a, b, c, d);
 
     Liters Do(a, b, c, d);
     int res = Do.Overflow();
@@ -117,7 +122,36 @@ int main(int argc, char *argv[])
 
     else if (res == 1)
     {
-        cout << "\ERROR" << endl;
+        cout << "\nError" << endl;
         return 1;
+    }
+}
+
+void Errors(int a, int b, int c, int d)
+{
+    int errStatus = 0;
+    int max;
+
+    // Поиск max элемента среди A B и C
+    if ((a >= b) && (a >= c))
+        max = a;
+    else if ((b >= a) && (b >= c))
+        max = b;
+    else if ((c >= a) && (c >= b))
+        max = c;
+
+    if (d > max)
+        errStatus = 1;
+
+    else if (max != a)
+        errStatus = 1;
+
+    else if (d < 0)
+        errStatus = 1;
+
+    if (errStatus == 1)
+    {
+        cout << "Input error" << endl;
+        exit(1);
     }
 }
