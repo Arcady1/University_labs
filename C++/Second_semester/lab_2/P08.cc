@@ -41,54 +41,19 @@ private:
     int C = 0;
     // Количество операций
     int step = 0;
-    // ! Матрица мндексов для
-    int **tab;
-    // Начальные индексы матрицы
+    // Начальные индексы в сетке
     int i = 0;
     int j = 0;
-
-    void Create(); // Функция создает матрицу - бильярдный стол и выводит ее
-    void Move();   // Функция совершает перемещения по бильярдному столу
+    // Функция совершает перемещения по сетке
+    void Move();
 
 public:
     Liters(int A_, int B_, int C_, int D_) : A_st(A_), B_st(B_), C_st(C_), D(D_) { A = A_st; };
     int Overflow();
 };
 
-void Liters::Create()
-{
-    int b = B_st;
-
-    tab = new int *[C_st];
-
-    for (int row = 0; row <= C_st; row++)
-        tab[row] = new int[B_st];
-
-    for (int row = 0; row <= B_st; row++)
-        for (int col = 0; col <= C_st; col++)
-        {
-            if (col == 0)
-            {
-                tab[row][col] = b;
-                --b;
-            }
-            else
-                tab[row][col] = col;
-        }
-
-    // Вывод матрицы
-    for (int row = 0; row <= B_st; row++)
-    {
-        for (int col = 0; col <= C_st; col++)
-            cout << tab[row][col] << " ";
-        cout << "\n";
-    }
-}
-
 int Liters::Overflow()
 {
-    this->Create();
-
     while (true)
     {
         cout << "A "
@@ -134,18 +99,25 @@ void Liters::Move()
 
 int main(int argc, char *argv[])
 {
-    Liters Do(8, 3, 5, 4);
+    int a, b, c, d;
+
+    cout << "Input: A B C D" << endl;
+    cout << "A B C - volume of vessels\nD - to measure" << endl;
+    cin >> a >> b >> c >> d;
+    cout << "\n";
+
+    Liters Do(a, b, c, d);
     int res = Do.Overflow();
 
     if (res == 0)
     {
-        cout << "Success!" << endl;
+        cout << "\nSuccess" << endl;
         return 0;
     }
 
     else if (res == 1)
     {
-        cout << "Wrong!" << endl;
+        cout << "\ERROR" << endl;
         return 1;
     }
 }
