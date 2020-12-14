@@ -13,8 +13,8 @@
 
 %{
 	#include<stdio.h>
-    int yylex();
-    int yyerror(char* s);
+	int yylex();
+	int yyerror(const char* s);
 %}
 
 %%
@@ -53,7 +53,7 @@ int yylex()
 	return (getchar());
 }
 
-int yyerror(char *s)
+int yyerror(const char *s)
 {
 	return 1;
 }

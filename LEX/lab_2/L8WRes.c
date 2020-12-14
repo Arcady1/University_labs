@@ -445,10 +445,10 @@ char *yytext;
 стандартного ввода. Результаты поиска должны отображаться в одну колонку 
 потока стандартного вывода.
 
-Запуск: lex -t L8W.l > L8WRes.c ; cc -o L8WRes L8WRes.c -ll ; cat input.c | ./L8WRes
+Запуск: lex -t L8W.l > L8WRes.c ; cc -o L8WRes L8WRes.c -ll ; ./L8WRes
 */
 #line 12 "L8W.l"
-#include <ctype.h>
+	#include <ctype.h>
 #line 453 "<stdout>"
 #line 454 "<stdout>"
 
@@ -667,7 +667,7 @@ YY_DECL
 		}
 
 	{
-#line 14 "L8W.l"
+#line 15 "L8W.l"
 
 #line 673 "<stdout>"
 
@@ -728,7 +728,7 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 15 "L8W.l"
+#line 16 "L8W.l"
 {
 	int flag;
 	for(int i = 0; i < yyleng - 1; i++) {
@@ -749,12 +749,12 @@ YY_RULE_SETUP
 case 2:
 /* rule 2 can match eol */
 YY_RULE_SETUP
-#line 31 "L8W.l"
+#line 32 "L8W.l"
 {}
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 32 "L8W.l"
+#line 33 "L8W.l"
 ECHO;
 	YY_BREAK
 #line 761 "<stdout>"
@@ -1762,7 +1762,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 32 "L8W.l"
+#line 33 "L8W.l"
 
 
 int main()

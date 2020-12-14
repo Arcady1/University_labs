@@ -6,7 +6,7 @@
 стандартного ввода. Результаты поиска должны отображаться в одну колонку 
 потока стандартного вывода.
 
-Запуск: lex -t L8W.l > L8WRes.c ; cc -o L8WRes L8WRes.c -ll ; cat input.c | ./L8WRes
+Запуск: lex -t L8W.l > L8WRes.c ; cc -o L8WRes L8WRes.c -ll ; ./L8WRes
 */
 %{
 	#include <ctype.h>
