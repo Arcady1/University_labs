@@ -133,7 +133,6 @@ int main(int argc, char *argv[])
 void Errors(int a, int b, int c, int d)
 {
     int errStatus = 0;
-    int max;
 
     if ((a <= b) || (b <= c) || (d >= b))
         errStatus = 1;
