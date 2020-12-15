@@ -87,6 +87,9 @@ int Liters::Overflow()
         ++step;
         this->Move();
         cout << "\n";
+
+        if (A < 0)
+            return 1;
     }
 }
 
@@ -105,7 +108,7 @@ int main(int argc, char *argv[])
     int a, b, c, d;
 
     cout << "Input: A B C D" << endl;
-    cout << "A B C - volume of vessels\nD - to measure" << endl;
+    cout << "A B C - volume of vessels\nD - to measure\nA > B > C; D < B" << endl;
     cin >> a >> b >> c >> d;
     cout << "\n";
 
@@ -122,7 +125,7 @@ int main(int argc, char *argv[])
 
     else if (res == 1)
     {
-        cout << "\nError" << endl;
+        cout << "Impossible" << endl;
         return 1;
     }
 }
@@ -132,18 +135,7 @@ void Errors(int a, int b, int c, int d)
     int errStatus = 0;
     int max;
 
-    // Поиск max элемента среди A B и C
-    if ((a >= b) && (a >= c))
-        max = a;
-    else if ((b >= a) && (b >= c))
-        max = b;
-    else if ((c >= a) && (c >= b))
-        max = c;
-
-    if (d > max)
-        errStatus = 1;
-
-    else if (max != a)
+    if ((a <= b) || (b <= c) || (d >= b))
         errStatus = 1;
 
     else if (d < 0)
