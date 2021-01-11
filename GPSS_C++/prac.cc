@@ -3,9 +3,9 @@
 #include <stdlib.h>
 
 #define TIME_MODEL 3600;
-#define R1 6
-#define G1 9
-#define B1 11
+#define R1 9
+#define G1 5
+#define B1 10
 
 class System
 {
