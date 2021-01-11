@@ -19,17 +19,21 @@ public:
     int get_id() { return id; };
     int get_queue_length() { return queue_length; };
     double get_time_free() { return time_free; };
-    double set_time_free(double time)
-    {
-        time_free = time;
-        return time_free;
-    };
-    int set_queue_length(int xx)
-    {
-        queue_length = xx;
-        return queue_length;
-    };
+    double set_time_free(double);
+    int set_queue_length(int);
 };
+
+double System::set_time_free(double time)
+{
+    time_free = time;
+    return time_free;
+}
+
+int System::set_queue_length(int xx)
+{
+    queue_length = xx;
+    return queue_length;
+}
 
 class Transaction
 {
@@ -47,31 +51,41 @@ public:
     double get_time_queue() { return time_queue; };
     double get_time_service() { return time_service; };
     double get_time_end() { return time_end; };
-    int set_id(int id1)
-    {
-        id = id1;
-        return id;
-    };
-    double set_time_arrive(double time)
-    {
-        time_arrive = time;
-        return time_arrive;
-    };
-    double set_time_queue(double time)
-    {
-        time_queue = time;
-        return time_queue;
-    };
-    double set_time_service(double time)
-    {
-        time_service = time;
-        return time_service;
-    };
-    double set_time_end(double time)
-    {
-        time_end = time;
-        return time_end;
-    };
+    int set_id(int);
+    double set_time_arrive(double);
+    double set_time_queue(double);
+    double set_time_service(double);
+    double set_time_end(double);
+};
+
+int Transaction::set_id(int id1)
+{
+    id = id1;
+    return id;
+};
+
+double Transaction::set_time_arrive(double time)
+{
+    time_arrive = time;
+    return time_arrive;
+};
+
+double Transaction::set_time_queue(double time)
+{
+    time_queue = time;
+    return time_queue;
+};
+
+double Transaction::set_time_service(double time)
+{
+    time_service = time;
+    return time_service;
+};
+
+double Transaction::set_time_end(double time)
+{
+    time_end = time;
+    return time_end;
 };
 
 double uniform(int, double, double);
@@ -119,14 +133,18 @@ int main()
         {
             if (length1 > 0)
                 length1--;
+
             device[0].set_queue_length(length1);
         }
+
         if (global_time >= device[1].get_time_free())
         {
             if (length2 > 0)
                 length2--;
+
             device[1].set_queue_length(length2);
         }
+
         if ((global_time < device[0].get_time_free()) && (global_time < device[1].get_time_free()) && (device[0].get_queue_length() * device[1].get_queue_length() != 0))
         {
             if ((device[0].get_queue_length() <= device[1].get_queue_length()))
@@ -154,6 +172,7 @@ int main()
             file_output(1, 1, fp, transact[j].get_time_end(), j);
             file_output(2, -1, fp, transact[j].get_time_end(), j);
         }
+        
         else
         {
             fprintf(fp, "2.\n");
@@ -181,6 +200,7 @@ int main()
 double uniform(int seed, double min, double max)
 {
     srand(seed);
+    
     return ((double)rand() / RAND_MAX) * (max - min) + min;
 }
 
