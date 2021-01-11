@@ -2,7 +2,7 @@
 #include <time.h>
 #include <stdlib.h>
 
-#define TIME_MODEL 36.0;
+#define TIME_MODEL 3600;
 #define R1 6
 #define G1 9
 #define B1 11
