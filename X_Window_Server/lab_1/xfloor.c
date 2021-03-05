@@ -1,10 +1,10 @@
-// ! Компиляция: cc xfloor.c -lX11
+/* Компиляция: cc xfloor.c -lX11 */
 
 #include <X11/Xlib.h>  /* заголовок базовой Х графики */
 #include <X11/Xutil.h> /* заголовок графических утилит */
 /* Габаритные макросы для рисунка фона*/
 #define WIDTH 128  /* ширина повторяющегося элемента */
-#define HEIGHT 128 /* высота повторяющегося элемента */
+#define HEIGHT 256 /* высота повторяющегося элемента */
 
 int main(int argc, char *argv[])
 {
@@ -34,9 +34,18 @@ int main(int argc, char *argv[])
   XFillRectangle(dpy, pix, gc, 0, 0, 2 * WIDTH, 2 * HEIGHT);
   XSetForeground(dpy, gc, BlackPixel(dpy, src));
 
-  XDrawArc(dpy, pix, gc, 0, 0, WIDTH, HEIGHT, 0, (360 * 64));
-  XDrawLine(dpy, pix, gc, WIDTH / 2, HEIGHT, WIDTH / 2, 2 * HEIGHT);
-  XDrawLine(dpy, pix, gc, WIDTH, HEIGHT / 2, 2 * WIDTH, HEIGHT / 2);
+  /* Горизонтальные линии */
+  XDrawLine(dpy, pix, gc, 0, HEIGHT, 2 * WIDTH, HEIGHT);
+  XDrawLine(dpy, pix, gc, 0, 0, 2 * WIDTH, 0);
+  /* Ромбы */
+  XDrawLine(dpy, pix, gc, 0, HEIGHT, WIDTH, 0);
+  XDrawLine(dpy, pix, gc, WIDTH, 0, 2 * WIDTH, HEIGHT);
+  XDrawLine(dpy, pix, gc, 2 * WIDTH, HEIGHT, WIDTH, 2 * HEIGHT);
+  XDrawLine(dpy, pix, gc, 0, HEIGHT, WIDTH, 2 * HEIGHT);
+  /* Точки */
+  XDrawPoint(dpy, pix, gc, 0, HEIGHT / 2);
+  XDrawPoint(dpy, pix, gc, WIDTH, 1.5 * HEIGHT);
+
   XFlush(dpy);
 
   amask = (CWOverrideRedirect | CWBackPixmap);
