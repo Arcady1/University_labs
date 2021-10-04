@@ -1,6 +1,13 @@
+/*
+Перечислить все последовательности из m = 4 букв слова ИНТЕГРАЛ. 
+Для перечисления нужно применить алгоритм транспозиции бинарных сочетаний с правым сдвигом.
+
+Компиляция: g++ lab1_6C.cc 
+Запуск: ./a.out
+*/
+
 #include <iostream>
 #include <cmath>
-#include <stdio.h>
 using namespace std;
 
 unsigned char word[] = "INTEGRAL";
