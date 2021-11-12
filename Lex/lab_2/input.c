@@ -1,8 +1,0 @@
-/*
-abcd
-abcda
-abcdA
-efgh
-EfgH
-EfgEh
-*/
