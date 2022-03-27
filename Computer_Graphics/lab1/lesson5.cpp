@@ -46,6 +46,7 @@ GLvoid LoadGLTextures()
 		GL_RGB, GL_UNSIGNED_BYTE, texture1->data);
 }
 
+// Изменение размеров OpenGL сцены, когда меняются размеры окна
 GLvoid ReSizeGLScene(GLsizei width, GLsizei height)		// Resize And Initialize The GL Window
 {
 	if (height==0)										// Prevent A Divide By Zero By
@@ -65,15 +66,16 @@ GLvoid ReSizeGLScene(GLsizei width, GLsizei height)		// Resize And Initialize Th
 	glLoadIdentity();									// Reset The Modelview Matrix
 }
 
+// Настройки для OpenGL
 GLvoid InitGL(GLsizei Width, GLsizei Height)
 {
-	LoadGLTextures();			// Загрузка текстур
-	glEnable(GL_TEXTURE_2D);		// Разрешение наложение текстуры
-	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-	glClearDepth(1.0);
-	glDepthFunc(GL_LESS);
-	glEnable(GL_DEPTH_TEST);
-	glShadeModel(GL_SMOOTH);
+	LoadGLTextures();			          // Загрузка текстур
+	glEnable(GL_TEXTURE_2D);		      // Разрешение наложение текстуры
+	glClearColor(0.8f, 0.8, 0.8f, 0.0f);  // Очистка экрана в заданный цвет
+	glClearDepth(1.0);                    // Разрешить очистку буфера глубины
+	glDepthFunc(GL_LESS);                 // Тип теста глубины
+	glEnable(GL_DEPTH_TEST);              // Разрешить тест глубины
+    glShadeModel(GL_SMOOTH);              // Разрешить плавное цветовое сглаживание
 
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
@@ -83,7 +85,8 @@ GLvoid InitGL(GLsizei Width, GLsizei Height)
 	glMatrixMode(GL_MODELVIEW);
 }
 
-int DrawGLScene(GLvoid)									// Here's Where We Do All The Drawing
+// Отрисовка сцены
+int DrawGLScene(GLvoid)
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);	// Clear Screen And Depth Buffer
 	glLoadIdentity();									// Reset The Current Modelview Matrix
@@ -141,6 +144,7 @@ int DrawGLScene(GLvoid)									// Here's Where We Do All The Drawing
 	return TRUE;										// Keep Going
 }
 
+// Корректное разрушение окна
 GLvoid KillGLWindow(GLvoid)								// Properly Kill The Window
 {
 	if (fullscreen)										// Are We In Fullscreen Mode?
