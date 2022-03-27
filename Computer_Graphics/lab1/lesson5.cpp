@@ -97,7 +97,7 @@ GLvoid DrawCylinder(GLfloat radius, GLfloat height) {
     GLfloat angle_stepsize = 0.1;
 
     // Отрисовка трубы
-    glColor3f(0.0f, 0.0f, 0.0f);
+    glColor3f(1.0f, 0.0f, 0.0f);
     glBegin(GL_QUAD_STRIP);
     angle_cyl = 0.0;
 
@@ -114,13 +114,14 @@ GLvoid DrawCylinder(GLfloat radius, GLfloat height) {
     glEnd();
 
     // Отрисовка верхушки цилиндра
-    glColor3f(1.0f, 0.0f, 0.0f);
+    //glColor3f(0.0f, 1.0f, 0.0f);
     glBegin(GL_POLYGON);
     angle_cyl = 0.0;
 
     while (angle_cyl < 2 * PI) {
       x = radius * cos(angle_cyl);
       y = radius * sin(angle_cyl);
+      glTexCoord2f(x, y);
       glVertex3f(x, y, height);
       angle_cyl += angle_stepsize;
     }
@@ -129,7 +130,7 @@ GLvoid DrawCylinder(GLfloat radius, GLfloat height) {
     glEnd();
 
     // Отрисовка дна цилиндра
-    glColor3f(0.0f, 0.0f, 0.0f);
+    glColor3f(0.0f, 0.0f, 1.0f);
     glBegin(GL_POLYGON);
     angle_cyl = 0.0;
 
@@ -151,17 +152,12 @@ int DrawGLScene(GLvoid)
 	glLoadIdentity();									// Reset The Current Modelview Matrix
 	glTranslatef(0.0f,0.0f,-3.0f);						// Move Left 1.5 Units And Into The Screen 6.0
 
-	glRotatef(xrot,1.0f,0.0f,0.0f);		// Вращение по оси X
-	glRotatef(yrot,0.0f,1.0f,0.0f);		// Вращение по оси Y
-	glRotatef(zrot,0.0f,0.0f,1.0f);		// Вращение по оси Z
-	glBindTexture(GL_TEXTURE_2D, texture[0]);
+	glRotatef(xrot,1.0f,0.0f,0.0f);		                // Вращение по оси X
+	glRotatef(yrot,0.0f,1.0f,0.0f);		                // Вращение по оси Y
+	glRotatef(zrot,0.0f,0.0f,1.0f);		                // Вращение по оси Z
+    glBindTexture(GL_TEXTURE_2D, texture[0]);
 
 	DrawCylinder(0.3, 1.0);
-
-	//glTexCoord2f(0.0f, 0.0f); glVertex3f(-1.0f, -1.0f, -1.0f);	// Низ лево
-	//glTexCoord2f(1.0f, 0.0f); glVertex3f(-1.0f, -1.0f, 1.0f);	// Низ право
-	//glTexCoord2f(1.0f, 1.0f); glVertex3f(-1.0f, 1.0f, 1.0f);	// Верх право
-	//glTexCoord2f(0.0f, 1.0f); glVertex3f(-1.0f, 1.0f, -1.0f);	// Верх лево
 
 	xrot += 0.3f;			// Ось вращения X
 	yrot += 0.2f;			// Ось вращения Y
