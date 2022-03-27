@@ -1,2 +1,0 @@
-D:\workspace\cg\solution\lab1\Debug\lesson5.exe
-D:\workspace\cg\solution\lab1\Debug\lesson5.pdb
