@@ -91,53 +91,57 @@ GLvoid InitGL(GLsizei Width, GLsizei Height)
 
 // Функция отрисовки цилиндра
 GLvoid DrawCylinder(GLfloat radius, GLfloat height) {
-  GLfloat x = 0.0;
-  GLfloat y = 0.0;
-  GLfloat angle_ = 0.0;
-  GLfloat angle_stepsize = 0.1;
+    GLfloat x = 0.0;
+    GLfloat y = 0.0;
+    GLfloat angle_cyl = 0.0;
+    GLfloat angle_stepsize = 0.1;
 
-  // Отрисовка трубы
-  glColor3f(0.0f, 0.0f, 1.0f);
-  glBegin(GL_QUAD_STRIP);
-  angle_ = 0.0;
-  while (angle_ < 2 * PI) {
-    x = radius * cos(angle_);
-    y = radius * sin(angle_);
-    glVertex3f(x, y, 0.0);
-    glVertex3f(x, y, height);
-    angle_ = angle_ + angle_stepsize;
-  }
-  glVertex3f(radius, 0.0, 0.0);
-  glVertex3f(radius, 0.0, height);
-  glEnd();
+    // Отрисовка трубы
+    glColor3f(0.0f, 0.0f, 0.0f);
+    glBegin(GL_QUAD_STRIP);
+    angle_cyl = 0.0;
 
-  // Отрисовка верхушки цилиндра
-  glColor3f(1.0f, 0.0f, 0.0f);
-  glBegin(GL_POLYGON);
-  angle_ = 0.0;
+    while (angle_cyl < 2 * PI) {
+      x = radius * cos(angle_cyl);
+      y = radius * sin(angle_cyl);
+      glVertex3f(x, y, 0.0);
+      glVertex3f(x, y, height);
+      angle_cyl += angle_stepsize;
+    }
 
-  while (angle_ < 2 * PI) {
-    x = radius * cos(angle_);
-    y = radius * sin(angle_);
-    glVertex3f(x, y, height);
-    angle_ = angle_ + angle_stepsize;
-  }
-  glVertex3f(radius, 0.0, height);
-  glEnd();
+    glVertex3f(radius, 0.0, 0.0);
+    glVertex3f(radius, 0.0, height);
+    glEnd();
 
-  // Отрисовка дна цилиндра
-  glColor3f(0.0f, 1.0f, 0.0f);
-  glBegin(GL_POLYGON);
-  angle_ = 0.0;
+    // Отрисовка верхушки цилиндра
+    glColor3f(1.0f, 0.0f, 0.0f);
+    glBegin(GL_POLYGON);
+    angle_cyl = 0.0;
 
-  while (angle_ < 2 * PI) {
-    x = radius * cos(angle_);
-    y = radius * sin(angle_);
-    glVertex3f(x, y, 0.0);
-    angle_ = angle_ + angle_stepsize;
-  }
-  glVertex3f(radius, 0.0, 0.0);
-  glEnd();
+    while (angle_cyl < 2 * PI) {
+      x = radius * cos(angle_cyl);
+      y = radius * sin(angle_cyl);
+      glVertex3f(x, y, height);
+      angle_cyl += angle_stepsize;
+    }
+
+    glVertex3f(radius, 0.0, height);
+    glEnd();
+
+    // Отрисовка дна цилиндра
+    glColor3f(0.0f, 0.0f, 0.0f);
+    glBegin(GL_POLYGON);
+    angle_cyl = 0.0;
+
+    while (angle_cyl < 2 * PI) {
+      x = radius * cos(angle_cyl);
+      y = radius * sin(angle_cyl);
+      glVertex3f(x, y, 0.0);
+      angle_cyl += angle_stepsize;
+    }
+
+    glVertex3f(radius, 0.0, 0.0);
+    glEnd();
 }
 
 // Отрисовка сцены
@@ -145,7 +149,7 @@ int DrawGLScene(GLvoid)
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);	// Clear Screen And Depth Buffer
 	glLoadIdentity();									// Reset The Current Modelview Matrix
-	glTranslatef(0.0f,0.0f,-5.0f);						// Move Left 1.5 Units And Into The Screen 6.0
+	glTranslatef(0.0f,0.0f,-3.0f);						// Move Left 1.5 Units And Into The Screen 6.0
 
 	glRotatef(xrot,1.0f,0.0f,0.0f);		// Вращение по оси X
 	glRotatef(yrot,0.0f,1.0f,0.0f);		// Вращение по оси Y
