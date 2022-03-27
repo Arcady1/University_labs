@@ -10,6 +10,9 @@
 #include <gl\gl.h>			// Header File For The OpenGL32 Library
 #include <gl\glu.h>			// Header File For The GLu32 Library
 #include "gl\glaux.h"		// Header File For The Glaux Library
+#include <math.h>
+
+#define PI 3.1415927
 
 HDC			hDC=NULL;		// Private GDI Device Context
 HGLRC		hRC=NULL;		// Permanent Rendering Context
@@ -37,6 +40,7 @@ GLvoid LoadGLTextures()
 	// Загрузка картинки
 	AUX_RGBImageRec* texture1;
 	texture1 = auxDIBImageLoad("resources/brick.bmp");
+
 	// Создание текстуры
 	glGenTextures(1, &texture[0]);
 	glBindTexture(GL_TEXTURE_2D, texture[0]);
@@ -85,6 +89,57 @@ GLvoid InitGL(GLsizei Width, GLsizei Height)
 	glMatrixMode(GL_MODELVIEW);
 }
 
+// Функция отрисовки цилиндра
+GLvoid DrawCylinder(GLfloat radius, GLfloat height) {
+  GLfloat x = 0.0;
+  GLfloat y = 0.0;
+  GLfloat angle_ = 0.0;
+  GLfloat angle_stepsize = 0.1;
+
+  // Отрисовка трубы
+  glColor3f(0.0f, 0.0f, 1.0f);
+  glBegin(GL_QUAD_STRIP);
+  angle_ = 0.0;
+  while (angle_ < 2 * PI) {
+    x = radius * cos(angle_);
+    y = radius * sin(angle_);
+    glVertex3f(x, y, 0.0);
+    glVertex3f(x, y, height);
+    angle_ = angle_ + angle_stepsize;
+  }
+  glVertex3f(radius, 0.0, 0.0);
+  glVertex3f(radius, 0.0, height);
+  glEnd();
+
+  // Отрисовка верхушки цилиндра
+  glColor3f(1.0f, 0.0f, 0.0f);
+  glBegin(GL_POLYGON);
+  angle_ = 0.0;
+
+  while (angle_ < 2 * PI) {
+    x = radius * cos(angle_);
+    y = radius * sin(angle_);
+    glVertex3f(x, y, height);
+    angle_ = angle_ + angle_stepsize;
+  }
+  glVertex3f(radius, 0.0, height);
+  glEnd();
+
+  // Отрисовка дна цилиндра
+  glColor3f(0.0f, 1.0f, 0.0f);
+  glBegin(GL_POLYGON);
+  angle_ = 0.0;
+
+  while (angle_ < 2 * PI) {
+    x = radius * cos(angle_);
+    y = radius * sin(angle_);
+    glVertex3f(x, y, 0.0);
+    angle_ = angle_ + angle_stepsize;
+  }
+  glVertex3f(radius, 0.0, 0.0);
+  glEnd();
+}
+
 // Отрисовка сцены
 int DrawGLScene(GLvoid)
 {
@@ -97,45 +152,13 @@ int DrawGLScene(GLvoid)
 	glRotatef(zrot,0.0f,0.0f,1.0f);		// Вращение по оси Z
 	glBindTexture(GL_TEXTURE_2D, texture[0]);
 
-	glBegin(GL_QUADS);
+	DrawCylinder(0.3, 1.0);
 
-	// Передняя грань
-	glTexCoord2f(0.0f, 0.0f); glVertex3f(-1.0f, -1.0f, 1.0f);	// Низ лево
-	glTexCoord2f(1.0f, 0.0f); glVertex3f(1.0f, -1.0f, 1.0f);	// Низ право
-	glTexCoord2f(1.0f, 1.0f); glVertex3f(1.0f, 1.0f, 1.0f);	    // Верх право
-	glTexCoord2f(0.0f, 1.0f); glVertex3f(-1.0f, 1.0f, 1.0f);	// Верх лево
+	//glTexCoord2f(0.0f, 0.0f); glVertex3f(-1.0f, -1.0f, -1.0f);	// Низ лево
+	//glTexCoord2f(1.0f, 0.0f); glVertex3f(-1.0f, -1.0f, 1.0f);	// Низ право
+	//glTexCoord2f(1.0f, 1.0f); glVertex3f(-1.0f, 1.0f, 1.0f);	// Верх право
+	//glTexCoord2f(0.0f, 1.0f); glVertex3f(-1.0f, 1.0f, -1.0f);	// Верх лево
 
-					// Задняя грань
-	glTexCoord2f(1.0f, 0.0f); glVertex3f(-1.0f, -1.0f, -1.0f);	// Низ право
-	glTexCoord2f(1.0f, 1.0f); glVertex3f(-1.0f, 1.0f, -1.0f);	// Верх право
-	glTexCoord2f(0.0f, 1.0f); glVertex3f(1.0f, 1.0f, -1.0f);	// Верх лево
-	glTexCoord2f(0.0f, 0.0f); glVertex3f(1.0f, -1.0f, -1.0f);	// Низ лево
-
-					// Верхняя грань
-	glTexCoord2f(0.0f, 1.0f); glVertex3f(-1.0f, 1.0f, -1.0f);	// Верх лево
-	glTexCoord2f(0.0f, 0.0f); glVertex3f(-1.0f, 1.0f, 1.0f);	// Низ лево
-	glTexCoord2f(1.0f, 0.0f); glVertex3f(1.0f, 1.0f, 1.0f);	    // Низ право
-	glTexCoord2f(1.0f, 1.0f); glVertex3f(1.0f, 1.0f, -1.0f);	// Верх право
-
-					// Нижняя грань
-	glTexCoord2f(1.0f, 1.0f); glVertex3f(-1.0f, -1.0f, -1.0f);	// Верх право
-	glTexCoord2f(0.0f, 1.0f); glVertex3f(1.0f, -1.0f, -1.0f);	// Верх лево
-	glTexCoord2f(0.0f, 0.0f); glVertex3f(1.0f, -1.0f, 1.0f);	// Низ лево
-	glTexCoord2f(1.0f, 0.0f); glVertex3f(-1.0f, -1.0f, 1.0f);	// Низ право
-
-					// Правая грань
-	glTexCoord2f(1.0f, 0.0f); glVertex3f(1.0f, -1.0f, -1.0f);	// Низ право
-	glTexCoord2f(1.0f, 1.0f); glVertex3f(1.0f, 1.0f, -1.0f);	// Верх право
-	glTexCoord2f(0.0f, 1.0f); glVertex3f(1.0f, 1.0f, 1.0f);	    // Верх лево
-	glTexCoord2f(0.0f, 0.0f); glVertex3f(1.0f, -1.0f, 1.0f);	// Низ лево
-
-					// Левая грань
-	glTexCoord2f(0.0f, 0.0f); glVertex3f(-1.0f, -1.0f, -1.0f);	// Низ лево
-	glTexCoord2f(1.0f, 0.0f); glVertex3f(-1.0f, -1.0f, 1.0f);	// Низ право
-	glTexCoord2f(1.0f, 1.0f); glVertex3f(-1.0f, 1.0f, 1.0f);	// Верх право
-	glTexCoord2f(0.0f, 1.0f); glVertex3f(-1.0f, 1.0f, -1.0f);	// Верх лево
-
-	glEnd();
 	xrot += 0.3f;			// Ось вращения X
 	yrot += 0.2f;			// Ось вращения Y
 	zrot += 0.4f;			// Ось вращения Z
