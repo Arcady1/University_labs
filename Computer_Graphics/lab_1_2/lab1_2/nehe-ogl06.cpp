@@ -91,8 +91,6 @@ GLvoid InitGL(GLsizei Width, GLsizei Height)
 
 // Функция отрисовки цилиндра
 GLvoid DrawCylinder(GLfloat radius, GLfloat height) {
-    GLfloat x_center = radius / 2;
-    GLfloat y_center = radius / 2;
     GLfloat z_center = height / 2;
     GLfloat x = 0.0f;
     GLfloat y = 0.0f;
@@ -100,13 +98,13 @@ GLvoid DrawCylinder(GLfloat radius, GLfloat height) {
     GLfloat angle_stepsize = 0.1f;
     GLfloat angle_end = 2 * PI + angle_stepsize;
 
-    // Отрисовка трубы
+    // Отрисовка тела цилиндра
     glBegin(GL_QUAD_STRIP);
     angle_cyl = 0.0;
 
     while (angle_cyl < angle_end) {
-      x = radius * cos(angle_cyl) - x_center;
-      y = radius * sin(angle_cyl) - y_center;
+      x = radius * cos(angle_cyl);
+      y = radius * sin(angle_cyl);
       glVertex3f(x, y, -z_center);
       glVertex3f(x, y, z_center);
       angle_cyl += angle_stepsize;
@@ -119,11 +117,9 @@ GLvoid DrawCylinder(GLfloat radius, GLfloat height) {
     angle_cyl = 0.0;
 
     while (angle_cyl < angle_end) {
-      GLfloat x_tex = radius * cos(angle_cyl);
-      GLfloat y_tex = radius * sin(angle_cyl);
-      x = x_tex - x_center;
-      y = y_tex - y_center;
-      glTexCoord2f(x_tex, y_tex);
+      x = radius * cos(angle_cyl);
+      y = radius * sin(angle_cyl);
+      glTexCoord2f(x, y);
       glVertex3f(x, y, z_center);
       angle_cyl += angle_stepsize;
     }
@@ -135,8 +131,8 @@ GLvoid DrawCylinder(GLfloat radius, GLfloat height) {
     angle_cyl = 0.0;
 
     while (angle_cyl < angle_end) {
-      x = radius * cos(angle_cyl) - x_center;
-      y = radius * sin(angle_cyl) - y_center;
+      x = radius * cos(angle_cyl);
+      y = radius * sin(angle_cyl);
       glVertex3f(x, y, -z_center);
       angle_cyl += angle_stepsize;
     }
