@@ -6,6 +6,6 @@ f:\pc\documents\github\university_labs\computer_graphics\lab_1_2\lab1_2\nehe-ogl
 f:\pc\documents\github\university_labs\computer_graphics\lab_1_2\lab1_2\nehe-ogl06.cpp(121): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
 f:\pc\documents\github\university_labs\computer_graphics\lab_1_2\lab1_2\nehe-ogl06.cpp(134): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
 f:\pc\documents\github\university_labs\computer_graphics\lab_1_2\lab1_2\nehe-ogl06.cpp(135): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
-f:\pc\documents\github\university_labs\computer_graphics\lab_1_2\lab1_2\nehe-ogl06.cpp(327): warning C4838: conversion from 'int' to 'BYTE' requires a narrowing conversion
-f:\pc\documents\github\university_labs\computer_graphics\lab_1_2\lab1_2\nehe-ogl06.cpp(370): warning C4715: 'CreateGLWindow': not all control paths return a value
-  Lesson5.vcxproj -> F:\PC\Documents\GitHub\University_labs\Computer_Graphics\lab_1_2\lab1_2\.\Debug\lesson5.exe
+f:\pc\documents\github\university_labs\computer_graphics\lab_1_2\lab1_2\nehe-ogl06.cpp(328): warning C4838: conversion from 'int' to 'BYTE' requires a narrowing conversion
+f:\pc\documents\github\university_labs\computer_graphics\lab_1_2\lab1_2\nehe-ogl06.cpp(371): warning C4715: 'CreateGLWindow': not all control paths return a value
+LINK : fatal error LNK1168: cannot open .\Debug/Lesson5.exe for writing

@@ -98,7 +98,7 @@ GLvoid DrawCylinder(GLfloat radius, GLfloat height) {
     GLfloat angle_stepsize = 0.1f;
     GLfloat angle_end = 2 * PI + angle_stepsize;
 
-    // Отрисовка тела цилиндра
+    // Отрисовка боковой грани цилиндра
     glBegin(GL_QUAD_STRIP);
     angle_cyl = 0.0;
 
@@ -133,6 +133,7 @@ GLvoid DrawCylinder(GLfloat radius, GLfloat height) {
     while (angle_cyl < angle_end) {
       x = radius * cos(angle_cyl);
       y = radius * sin(angle_cyl);
+      glTexCoord2f(x, y);
       glVertex3f(x, y, -z_center);
       angle_cyl += angle_stepsize;
     }
@@ -145,7 +146,7 @@ int DrawGLScene(GLvoid)
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);	// Clear Screen And Depth Buffer
 	glLoadIdentity();									// Reset The Current Modelview Matrix
-	glTranslatef(0.0f,0.0f,-3.5f);						// Move Left 1.5 Units And Into The Screen 6.0
+	glTranslatef(0.0f,0.0f,-3.5f);						// Сдвиг по оси Z "от экрана"
 
 	glRotatef(xrot,1.0f,0.0f,0.0f);		                // Вращение по оси X
 	glRotatef(yrot,0.0f,1.0f,0.0f);		                // Вращение по оси Y
