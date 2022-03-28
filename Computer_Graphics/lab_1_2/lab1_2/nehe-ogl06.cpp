@@ -39,7 +39,7 @@ GLvoid LoadGLTextures()
 {
 	// Загрузка картинки
 	AUX_RGBImageRec* texture1;
-	texture1 = auxDIBImageLoad("resources/brick.bmp");
+	texture1 = auxDIBImageLoad("Data/Mask1.bmp");
 
 	// Создание текстуры
 	glGenTextures(1, &texture[0]);
