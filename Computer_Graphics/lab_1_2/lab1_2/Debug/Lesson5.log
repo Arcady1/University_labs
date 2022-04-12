@@ -1,0 +1,11 @@
+﻿cl : Command line warning D9035: option 'Gm' has been deprecated and will be removed in a future release
+  nehe-ogl06.cpp
+f:\pc\documents\github\university_labs\computer_graphics\lab_1_2\lab1_2\nehe-ogl06.cpp(106): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
+f:\pc\documents\github\university_labs\computer_graphics\lab_1_2\lab1_2\nehe-ogl06.cpp(107): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
+f:\pc\documents\github\university_labs\computer_graphics\lab_1_2\lab1_2\nehe-ogl06.cpp(120): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
+f:\pc\documents\github\university_labs\computer_graphics\lab_1_2\lab1_2\nehe-ogl06.cpp(121): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
+f:\pc\documents\github\university_labs\computer_graphics\lab_1_2\lab1_2\nehe-ogl06.cpp(134): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
+f:\pc\documents\github\university_labs\computer_graphics\lab_1_2\lab1_2\nehe-ogl06.cpp(135): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
+f:\pc\documents\github\university_labs\computer_graphics\lab_1_2\lab1_2\nehe-ogl06.cpp(328): warning C4838: conversion from 'int' to 'BYTE' requires a narrowing conversion
+f:\pc\documents\github\university_labs\computer_graphics\lab_1_2\lab1_2\nehe-ogl06.cpp(371): warning C4715: 'CreateGLWindow': not all control paths return a value
+LINK : fatal error LNK1168: cannot open .\Debug/Lesson5.exe for writing
