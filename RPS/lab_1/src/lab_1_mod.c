@@ -5,9 +5,11 @@
 содержащего  3 переменные (т.е. задачу отыскания значений всех комбинаций 3  логических
 переменных, делающих выражение истинным).
 
-Компиляция: gcc lab_1.c
-Запуск: ./a.out
-Пример ввода: a*b+c
+Доп. задание: в качестве аргумента командной строки передавать число переменных в выражении.
+
+Компиляция: gcc lab_1_mod.c 
+Запуск: ./a.out 4
+Пример ввода: a+b+c+c
 */
 
 #include <sys/types.h>
@@ -17,7 +19,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-bool switch_op(bool a, bool b, char op)
+bool swap_operation(bool a, bool b, char op)
 {
     switch (op)
     {
@@ -28,40 +30,44 @@ bool switch_op(bool a, bool b, char op)
     }
 }
 
-void check(bool *pid, int size, char *buf)
+void correct(bool *pid, int size, char *buf)
 {
     bool result; // Результат сравнения
-    char chars[3];
-    char *smb1 = "+";
-    char *smb2 = "*";
 
-    if ((buf[0] == *smb1) & (buf[1] == *smb2))
-    {
-        result = switch_op(pid[1], pid[2], buf[1]);
-        result = switch_op(result, pid[0], buf[0]);
-    }
-    else
-    {
-        result = switch_op(pid[0], pid[1], buf[0]);
-        result = switch_op(result, pid[2], buf[1]);
-    }
+    result = swap_operation(pid[0], pid[1], buf[0]);
+
+    for (int i = 2; i < size; i++)
+        result = swap_operation(result, pid[i], buf[i - 1]);
 
     // Отметка, что выражение истино
     if (result)
-        printf("*");
+        printf("!");
     printf("\n");
 }
 
-int main()
+int main(int argc, char *argv[])
 {
-    const int n = 3; // Количество логический переменных
-    bool pid[n];     // Массив логических переменных
-    char buf[n];     // Массив логических операций
-    int idx = 0;     // Текущий индекс в buf
+    if (argc != 2)
+    {
+        printf("Неверное количество аргументов\n");
+        exit(11);
+    }
+
+    const int n = atoi(argv[1]); // Количество логический переменных
+    bool pid[n];                 // Массив логических переменных
+    char buf[n];                 // Массив логических операций
+    int idx = 0;                 // Текущий индекс в buf
+
+    if ((n < 2) || (n > 26))
+    {
+        printf("Введите число от 2 до 26\n");
+        exit(12);
+    }
 
     for (int i = 0; i < n * 2 - 1; i++)
     {
         char c = getchar();
+
         if (i % 2 == 1)
         {
             buf[idx] = c;
@@ -84,7 +90,7 @@ int main()
     }
 
     // Проверка истинности выражения
-    check(pid, n, buf);
+    correct(pid, n, buf);
 
     return 0;
 }
