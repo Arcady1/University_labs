@@ -1,0 +1,11 @@
+set title 'Title'
+set xlabel 'X'
+set ylabel 'Y'
+set cbrange [0.9:1]
+set xrange[0:417]
+set yrange[-50:50] 
+do for [i=0:99] {
+plot 'out.txt' index i using 1:2 smooth bezier
+pause 0.05
+}
+pause -1
