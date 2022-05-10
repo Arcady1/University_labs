@@ -212,9 +212,8 @@ void RenderActors(bool shadows)
 			DrawActorShadow(actor, false);
 	}
 
-	for (int i = 0; i < (int)balls.size(); ++i) {
+	for (int i = 0; i < (int)balls.size(); ++i)
 		balls[i].move();
-	}
 }
 
 
@@ -740,7 +739,7 @@ int minElement(std::vector<float> labels, std::vector<bool> isVisits) {
 	return min;
 }
 
-std::vector<int> deicstra(int start) {
+std::vector<int> DijkstraAlgorithm(int start) {
 	int N = matrix.size();
 
 	std::vector<float> labels;
@@ -777,7 +776,7 @@ std::vector<int> deicstra(int start) {
 }
 
 std::vector<int> path(int start, int end) {
-	std::vector<int> paths = deicstra(start);
+    std::vector<int> paths = DijkstraAlgorithm(start);
 	std::vector<int> shortPath;
 
 	int index = end;

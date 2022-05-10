@@ -1,6 +1,6 @@
  Lesson116_DEBUG
 
- Timestamp is 627a5158 (Tue May 10 14:49:44 2022)
+ Timestamp is 627a51a7 (Tue May 10 14:51:03 2022)
 
  Preferred load address is 00400000
 
@@ -56,19 +56,19 @@
 
   Address         Publics by Value              Rva+Base       Lib:Object
 
- 0000:00000000       ___guard_longjmp_count     00000000     <absolute>
- 0000:00000000       __except_list              00000000     <absolute>
- 0000:00000000       ___enclave_config          00000000     <absolute>
- 0000:00000000       ___hybrid_code_map         00000000     <absolute>
- 0000:00000000       ___dynamic_value_reloc_table 00000000     <absolute>
  0000:00000000       ___hybrid_code_map_count   00000000     <absolute>
+ 0000:00000000       ___enclave_config          00000000     <absolute>
+ 0000:00000000       ___guard_iat_count         00000000     <absolute>
+ 0000:00000000       __except_list              00000000     <absolute>
+ 0000:00000000       ___hybrid_code_map         00000000     <absolute>
+ 0000:00000000       ___guard_iat_table         00000000     <absolute>
  0000:00000000       ___volatile_metadata       00000000     <absolute>
- 0000:00000000       ___guard_fids_table        00000000     <absolute>
+ 0000:00000000       ___hybrid_auxiliary_iat    00000000     <absolute>
+ 0000:00000000       ___dynamic_value_reloc_table 00000000     <absolute>
  0000:00000000       ___guard_longjmp_table     00000000     <absolute>
  0000:00000000       ___guard_fids_count        00000000     <absolute>
- 0000:00000000       ___guard_iat_count         00000000     <absolute>
- 0000:00000000       ___hybrid_auxiliary_iat    00000000     <absolute>
- 0000:00000000       ___guard_iat_table         00000000     <absolute>
+ 0000:00000000       ___guard_longjmp_count     00000000     <absolute>
+ 0000:00000000       ___guard_fids_table        00000000     <absolute>
  0000:0000002c       __tls_array                0000002c     <absolute>
  0000:00000100       ___guard_flags             00000100     <absolute>
  0000:000001f8       ___safe_se_handler_count   000001f8     <absolute>
@@ -389,8 +389,8 @@
  0001:000206c0       ?readBuffer@MemoryReadBuffer@@UBEXPAXI@Z 004216c0 f   Stream.obj
  0001:00020910       ??0NxStream@@QAE@XZ        00421910 f i Stream.obj
  0001:00020930       ??1NxStream@@UAE@XZ        00421930 f i Stream.obj
- 0001:00020950       ??_EMemoryReadBuffer@@UAEPAXI@Z 00421950 f i Stream.obj
  0001:00020950       ??_GMemoryReadBuffer@@UAEPAXI@Z 00421950 f i Stream.obj
+ 0001:00020950       ??_EMemoryReadBuffer@@UAEPAXI@Z 00421950 f i Stream.obj
  0001:00020990       ??_GMemoryWriteBuffer@@UAEPAXI@Z 00421990 f i Stream.obj
  0001:00020990       ??_EMemoryWriteBuffer@@UAEPAXI@Z 00421990 f i Stream.obj
  0001:000209d0       ??_ENxStream@@UAEPAXI@Z    004219d0 f i Stream.obj
@@ -441,10 +441,10 @@
  0001:00022e10       ??0SampleMutex@@QAE@XZ     00423e10 f i UserAllocator.obj
  0001:00022e30       ??1NxUserAllocator@@UAE@XZ 00423e30 f i UserAllocator.obj
  0001:00022e50       ??1SampleMutex@@QAE@XZ     00423e50 f i UserAllocator.obj
- 0001:00022e70       ??_GNxUserAllocator@@UAEPAXI@Z 00423e70 f i UserAllocator.obj
  0001:00022e70       ??_ENxUserAllocator@@UAEPAXI@Z 00423e70 f i UserAllocator.obj
- 0001:00022eb0       ??_GUserAllocator@@UAEPAXI@Z 00423eb0 f i UserAllocator.obj
+ 0001:00022e70       ??_GNxUserAllocator@@UAEPAXI@Z 00423e70 f i UserAllocator.obj
  0001:00022eb0       ??_EUserAllocator@@UAEPAXI@Z 00423eb0 f i UserAllocator.obj
+ 0001:00022eb0       ??_GUserAllocator@@UAEPAXI@Z 00423eb0 f i UserAllocator.obj
  0001:00022ef0       ?checkDEBUG@NxUserAllocator@@UAEXXZ 00423ef0 f i UserAllocator.obj
  0001:00022f00       ?lock@SampleMutex@@QAEXXZ  00423f00 f i UserAllocator.obj
  0001:00022f20       ?malloc@NxUserAllocator@@UAEPAXIW4NxMemoryType@@@Z 00423f20 f i UserAllocator.obj
@@ -497,7 +497,7 @@
  0001:000258c0       ?getColorLayer@@YAMAAH@Z   004268c0 f   Lesson116.obj
  0001:000258f0       ?random@@YANNN@Z           004268f0 f   Lesson116.obj
  0001:00025930       ?minElement@@YAHV?$vector@MV?$allocator@M@std@@@std@@V?$vector@_NV?$allocator@_N@std@@@2@@Z 00426930 f   Lesson116.obj
- 0001:00025ab0       ?deicstra@@YA?AV?$vector@HV?$allocator@H@std@@@std@@H@Z 00426ab0 f   Lesson116.obj
+ 0001:00025ab0       ?DijkstraAlgorithm@@YA?AV?$vector@HV?$allocator@H@std@@@std@@H@Z 00426ab0 f   Lesson116.obj
  0001:00026770       ??$?0$$V@?$_Compressed_pair@V?$allocator@D@std@@V?$_String_val@U?$_Simple_types@D@std@@@2@$00@std@@QAE@U_Zero_then_variadic_args_t@1@@Z 00427770 f i Lesson116.obj
  0001:000267a0       ??$?0$$V@?$_Compressed_pair@V?$allocator@H@std@@V?$_Vector_val@U?$_Simple_types@H@std@@@2@$00@std@@QAE@U_Zero_then_variadic_args_t@1@@Z 004277a0 f i Lesson116.obj
  0001:000267d0       ??$?0$$V@?$_Compressed_pair@V?$allocator@I@std@@V?$_Vector_val@U?$_Simple_types@I@std@@@2@$00@std@@QAE@U_Zero_then_variadic_args_t@1@@Z 004277d0 f i Lesson116.obj
@@ -1092,20 +1092,20 @@
  0001:00033430       ??_D?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEXXZ 00434430 f i Lesson116.obj
  0001:00033459       ??_E?$basic_ofstream@DU?$char_traits@D@std@@@std@@$4PPPPPPPM@A@AEPAXI@Z 00434459 f i Lesson116.obj
  0001:00033463       ??_E?$basic_ostream@DU?$char_traits@D@std@@@std@@$4PPPPPPPM@A@AEPAXI@Z 00434463 f i Lesson116.obj
- 0001:00033470       ??_G?$basic_filebuf@DU?$char_traits@D@std@@@std@@UAEPAXI@Z 00434470 f i Lesson116.obj
  0001:00033470       ??_E?$basic_filebuf@DU?$char_traits@D@std@@@std@@UAEPAXI@Z 00434470 f i Lesson116.obj
+ 0001:00033470       ??_G?$basic_filebuf@DU?$char_traits@D@std@@@std@@UAEPAXI@Z 00434470 f i Lesson116.obj
  0001:000334b0       ??_E?$basic_ios@DU?$char_traits@D@std@@@std@@UAEPAXI@Z 004344b0 f i Lesson116.obj
  0001:000334b0       ??_G?$basic_ios@DU?$char_traits@D@std@@@std@@UAEPAXI@Z 004344b0 f i Lesson116.obj
- 0001:000334f0       ??_E?$basic_ofstream@DU?$char_traits@D@std@@@std@@UAEPAXI@Z 004344f0 f i Lesson116.obj
  0001:000334f0       ??_G?$basic_ofstream@DU?$char_traits@D@std@@@std@@UAEPAXI@Z 004344f0 f i Lesson116.obj
+ 0001:000334f0       ??_E?$basic_ofstream@DU?$char_traits@D@std@@@std@@UAEPAXI@Z 004344f0 f i Lesson116.obj
  0001:00033540       ??_G?$basic_ostream@DU?$char_traits@D@std@@@std@@UAEPAXI@Z 00434540 f i Lesson116.obj
  0001:00033540       ??_E?$basic_ostream@DU?$char_traits@D@std@@@std@@UAEPAXI@Z 00434540 f i Lesson116.obj
  0001:00033590       ??_E?$basic_streambuf@DU?$char_traits@D@std@@@std@@UAEPAXI@Z 00434590 f i Lesson116.obj
  0001:00033590       ??_G?$basic_streambuf@DU?$char_traits@D@std@@@std@@UAEPAXI@Z 00434590 f i Lesson116.obj
- 0001:000335d0       ??_G?$codecvt@DDU_Mbstatet@@@std@@MAEPAXI@Z 004345d0 f i Lesson116.obj
  0001:000335d0       ??_E?$codecvt@DDU_Mbstatet@@@std@@MAEPAXI@Z 004345d0 f i Lesson116.obj
- 0001:00033630       ??_E?$ctype@D@std@@MAEPAXI@Z 00434630 f i Lesson116.obj
+ 0001:000335d0       ??_G?$codecvt@DDU_Mbstatet@@@std@@MAEPAXI@Z 004345d0 f i Lesson116.obj
  0001:00033630       ??_G?$ctype@D@std@@MAEPAXI@Z 00434630 f i Lesson116.obj
+ 0001:00033630       ??_E?$ctype@D@std@@MAEPAXI@Z 00434630 f i Lesson116.obj
  0001:00033690       ??_G?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@MAEPAXI@Z 00434690 f i Lesson116.obj
  0001:00033690       ??_E?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@MAEPAXI@Z 00434690 f i Lesson116.obj
  0001:000336f0       ??_G?$numpunct@D@std@@MAEPAXI@Z 004346f0 f i Lesson116.obj
@@ -1113,33 +1113,33 @@
  0001:00033750       ??_G?$vector@HV?$allocator@H@std@@@std@@QAEPAXI@Z 00434750 f i Lesson116.obj
  0001:00033790       ??_G?$vector@NV?$allocator@N@std@@@std@@QAEPAXI@Z 00434790 f i Lesson116.obj
  0001:000337d0       ??_GBall@@QAEPAXI@Z        004347d0 f i Lesson116.obj
- 0001:00033810       ??_ENxPlaneShapeDesc@@UAEPAXI@Z 00434810 f i Lesson116.obj
  0001:00033810       ??_GNxPlaneShapeDesc@@UAEPAXI@Z 00434810 f i Lesson116.obj
- 0001:00033850       ??_E_Facet_base@std@@UAEPAXI@Z 00434850 f i Lesson116.obj
+ 0001:00033810       ??_ENxPlaneShapeDesc@@UAEPAXI@Z 00434810 f i Lesson116.obj
  0001:00033850       ??_G_Facet_base@std@@UAEPAXI@Z 00434850 f i Lesson116.obj
+ 0001:00033850       ??_E_Facet_base@std@@UAEPAXI@Z 00434850 f i Lesson116.obj
  0001:00033890       ??_G_Generic_error_category@std@@UAEPAXI@Z 00434890 f i Lesson116.obj
  0001:00033890       ??_E_Generic_error_category@std@@UAEPAXI@Z 00434890 f i Lesson116.obj
  0001:000338d0       ??_G_Iostream_error_category@std@@UAEPAXI@Z 004348d0 f i Lesson116.obj
  0001:000338d0       ??_E_Iostream_error_category@std@@UAEPAXI@Z 004348d0 f i Lesson116.obj
  0001:00033910       ??_E_System_error@std@@UAEPAXI@Z 00434910 f i Lesson116.obj
  0001:00033910       ??_G_System_error@std@@UAEPAXI@Z 00434910 f i Lesson116.obj
- 0001:00033950       ??_Gbad_cast@std@@UAEPAXI@Z 00434950 f i Lesson116.obj
  0001:00033950       ??_Ebad_cast@std@@UAEPAXI@Z 00434950 f i Lesson116.obj
+ 0001:00033950       ??_Gbad_cast@std@@UAEPAXI@Z 00434950 f i Lesson116.obj
  0001:00033990       ??_Gcodecvt_base@std@@UAEPAXI@Z 00434990 f i Lesson116.obj
  0001:00033990       ??_Ecodecvt_base@std@@UAEPAXI@Z 00434990 f i Lesson116.obj
  0001:000339f0       ??_Ectype_base@std@@UAEPAXI@Z 004349f0 f i Lesson116.obj
  0001:000339f0       ??_Gctype_base@std@@UAEPAXI@Z 004349f0 f i Lesson116.obj
- 0001:00033a50       ??_Gexception@std@@UAEPAXI@Z 00434a50 f i Lesson116.obj
  0001:00033a50       ??_Eexception@std@@UAEPAXI@Z 00434a50 f i Lesson116.obj
- 0001:00033a90       ??_Efacet@locale@std@@MAEPAXI@Z 00434a90 f i Lesson116.obj
+ 0001:00033a50       ??_Gexception@std@@UAEPAXI@Z 00434a50 f i Lesson116.obj
  0001:00033a90       ??_Gfacet@locale@std@@MAEPAXI@Z 00434a90 f i Lesson116.obj
+ 0001:00033a90       ??_Efacet@locale@std@@MAEPAXI@Z 00434a90 f i Lesson116.obj
  0001:00033af0       ??_Gfailure@ios_base@std@@UAEPAXI@Z 00434af0 f i Lesson116.obj
  0001:00033af0       ??_Efailure@ios_base@std@@UAEPAXI@Z 00434af0 f i Lesson116.obj
- 0001:00033b30       ??_Gios_base@std@@UAEPAXI@Z 00434b30 f i Lesson116.obj
  0001:00033b30       ??_Eios_base@std@@UAEPAXI@Z 00434b30 f i Lesson116.obj
+ 0001:00033b30       ??_Gios_base@std@@UAEPAXI@Z 00434b30 f i Lesson116.obj
  0001:00033b70       ??_Glocale@std@@QAEPAXI@Z  00434b70 f i Lesson116.obj
- 0001:00033bd0       ??_Gruntime_error@std@@UAEPAXI@Z 00434bd0 f i Lesson116.obj
  0001:00033bd0       ??_Eruntime_error@std@@UAEPAXI@Z 00434bd0 f i Lesson116.obj
+ 0001:00033bd0       ??_Gruntime_error@std@@UAEPAXI@Z 00434bd0 f i Lesson116.obj
  0001:00033c10       ??_Esystem_error@std@@UAEPAXI@Z 00434c10 f i Lesson116.obj
  0001:00033c10       ??_Gsystem_error@std@@UAEPAXI@Z 00434c10 f i Lesson116.obj
  0001:00033c50       ?_Adjust_manually_vector_aligned@std@@YAXAAPAXAAI@Z 00434c50 f i Lesson116.obj
@@ -1891,8 +1891,8 @@
  0001:00044410       ??1bad_array_new_length@std@@UAE@XZ 00445410 f i LIBCMTD:throw_bad_alloc.obj
  0001:00044430       ??_Ebad_alloc@std@@UAEPAXI@Z 00445430 f i LIBCMTD:throw_bad_alloc.obj
  0001:00044430       ??_Gbad_alloc@std@@UAEPAXI@Z 00445430 f i LIBCMTD:throw_bad_alloc.obj
- 0001:00044470       ??_Ebad_array_new_length@std@@UAEPAXI@Z 00445470 f i LIBCMTD:throw_bad_alloc.obj
  0001:00044470       ??_Gbad_array_new_length@std@@UAEPAXI@Z 00445470 f i LIBCMTD:throw_bad_alloc.obj
+ 0001:00044470       ??_Ebad_array_new_length@std@@UAEPAXI@Z 00445470 f i LIBCMTD:throw_bad_alloc.obj
  0001:000444b0       ?__scrt_throw_std_bad_alloc@@YAXXZ 004454b0 f   LIBCMTD:throw_bad_alloc.obj
  0001:000444e0       ?__scrt_throw_std_bad_array_new_length@@YAXXZ 004454e0 f   LIBCMTD:throw_bad_alloc.obj
  0001:00044510       ___scrt_fastfail           00445510 f   LIBCMTD:utility_desktop.obj
@@ -1970,18 +1970,18 @@
  0001:00045800       ??1regex_error@std@@UAE@XZ 00446800 f i libcpmtd:xthrow.obj
  0001:00045820       ??_Ebad_function_call@std@@UAEPAXI@Z 00446820 f i libcpmtd:xthrow.obj
  0001:00045820       ??_Gbad_function_call@std@@UAEPAXI@Z 00446820 f i libcpmtd:xthrow.obj
- 0001:00045860       ??_Ginvalid_argument@std@@UAEPAXI@Z 00446860 f i libcpmtd:xthrow.obj
  0001:00045860       ??_Einvalid_argument@std@@UAEPAXI@Z 00446860 f i libcpmtd:xthrow.obj
- 0001:000458a0       ??_Elength_error@std@@UAEPAXI@Z 004468a0 f i libcpmtd:xthrow.obj
+ 0001:00045860       ??_Ginvalid_argument@std@@UAEPAXI@Z 00446860 f i libcpmtd:xthrow.obj
  0001:000458a0       ??_Glength_error@std@@UAEPAXI@Z 004468a0 f i libcpmtd:xthrow.obj
+ 0001:000458a0       ??_Elength_error@std@@UAEPAXI@Z 004468a0 f i libcpmtd:xthrow.obj
  0001:000458e0       ??_Elogic_error@std@@UAEPAXI@Z 004468e0 f i libcpmtd:xthrow.obj
  0001:000458e0       ??_Glogic_error@std@@UAEPAXI@Z 004468e0 f i libcpmtd:xthrow.obj
  0001:00045920       ??_Gout_of_range@std@@UAEPAXI@Z 00446920 f i libcpmtd:xthrow.obj
  0001:00045920       ??_Eout_of_range@std@@UAEPAXI@Z 00446920 f i libcpmtd:xthrow.obj
  0001:00045960       ??_Goverflow_error@std@@UAEPAXI@Z 00446960 f i libcpmtd:xthrow.obj
  0001:00045960       ??_Eoverflow_error@std@@UAEPAXI@Z 00446960 f i libcpmtd:xthrow.obj
- 0001:000459a0       ??_Gregex_error@std@@UAEPAXI@Z 004469a0 f i libcpmtd:xthrow.obj
  0001:000459a0       ??_Eregex_error@std@@UAEPAXI@Z 004469a0 f i libcpmtd:xthrow.obj
+ 0001:000459a0       ??_Gregex_error@std@@UAEPAXI@Z 004469a0 f i libcpmtd:xthrow.obj
  0001:000459e0       ?_Stringify@regex_error@std@@CAPBDW4error_type@regex_constants@2@@Z 004469e0 f i libcpmtd:xthrow.obj
  0001:00045ae0       ?_Xbad_alloc@std@@YAXXZ    00446ae0 f   libcpmtd:xthrow.obj
  0001:00045b10       ?_Xbad_function_call@std@@YAXXZ 00446b10 f   libcpmtd:xthrow.obj
@@ -2013,8 +2013,8 @@
  0001:00046920       ??3_Fac_node@std@@SAXPAX@Z 00447920 f i libcpmtd:locale0.obj
  0001:00046940       ??4?$_Yarn@D@std@@QAEAAV01@PBD@Z 00447940 f i libcpmtd:locale0.obj
  0001:00046a00       ??_G_Fac_node@std@@QAEPAXI@Z 00447a00 f i libcpmtd:locale0.obj
- 0001:00046a60       ??_G_Locimp@locale@std@@MAEPAXI@Z 00447a60 f i libcpmtd:locale0.obj
  0001:00046a60       ??_E_Locimp@locale@std@@MAEPAXI@Z 00447a60 f i libcpmtd:locale0.obj
+ 0001:00046a60       ??_G_Locimp@locale@std@@MAEPAXI@Z 00447a60 f i libcpmtd:locale0.obj
  0001:00046ac0       ?_C_str@?$_Yarn@D@std@@QBEPBDXZ 00447ac0 f i libcpmtd:locale0.obj
  0001:00046b00       ?_Empty@?$_Yarn@D@std@@QBE_NXZ 00447b00 f i libcpmtd:locale0.obj
  0001:00046b40       ?_Facet_Register@std@@YAXPAV_Facet_base@1@@Z 00447b40 f   libcpmtd:locale0.obj
@@ -2489,64 +2489,64 @@
  0001:0005ada0       ??_G?$_Mpunct@G@std@@MAEPAXI@Z 0045bda0 f i libcpmtd:wlocale.obj
  0001:0005ae00       ??_G?$_Mpunct@_W@std@@MAEPAXI@Z 0045be00 f i libcpmtd:wlocale.obj
  0001:0005ae00       ??_E?$_Mpunct@_W@std@@MAEPAXI@Z 0045be00 f i libcpmtd:wlocale.obj
- 0001:0005ae60       ??_G?$codecvt@GDU_Mbstatet@@@std@@MAEPAXI@Z 0045be60 f i libcpmtd:wlocale.obj
  0001:0005ae60       ??_E?$codecvt@GDU_Mbstatet@@@std@@MAEPAXI@Z 0045be60 f i libcpmtd:wlocale.obj
- 0001:0005aec0       ??_G?$codecvt@_WDU_Mbstatet@@@std@@MAEPAXI@Z 0045bec0 f i libcpmtd:wlocale.obj
+ 0001:0005ae60       ??_G?$codecvt@GDU_Mbstatet@@@std@@MAEPAXI@Z 0045be60 f i libcpmtd:wlocale.obj
  0001:0005aec0       ??_E?$codecvt@_WDU_Mbstatet@@@std@@MAEPAXI@Z 0045bec0 f i libcpmtd:wlocale.obj
- 0001:0005af20       ??_G?$collate@G@std@@MAEPAXI@Z 0045bf20 f i libcpmtd:wlocale.obj
+ 0001:0005aec0       ??_G?$codecvt@_WDU_Mbstatet@@@std@@MAEPAXI@Z 0045bec0 f i libcpmtd:wlocale.obj
  0001:0005af20       ??_E?$collate@G@std@@MAEPAXI@Z 0045bf20 f i libcpmtd:wlocale.obj
- 0001:0005af80       ??_G?$collate@_W@std@@MAEPAXI@Z 0045bf80 f i libcpmtd:wlocale.obj
+ 0001:0005af20       ??_G?$collate@G@std@@MAEPAXI@Z 0045bf20 f i libcpmtd:wlocale.obj
  0001:0005af80       ??_E?$collate@_W@std@@MAEPAXI@Z 0045bf80 f i libcpmtd:wlocale.obj
+ 0001:0005af80       ??_G?$collate@_W@std@@MAEPAXI@Z 0045bf80 f i libcpmtd:wlocale.obj
  0001:0005afe0       ??_E?$ctype@G@std@@MAEPAXI@Z 0045bfe0 f i libcpmtd:wlocale.obj
  0001:0005afe0       ??_G?$ctype@G@std@@MAEPAXI@Z 0045bfe0 f i libcpmtd:wlocale.obj
- 0001:0005b040       ??_E?$ctype@_W@std@@MAEPAXI@Z 0045c040 f i libcpmtd:wlocale.obj
  0001:0005b040       ??_G?$ctype@_W@std@@MAEPAXI@Z 0045c040 f i libcpmtd:wlocale.obj
- 0001:0005b0a0       ??_G?$messages@G@std@@MAEPAXI@Z 0045c0a0 f i libcpmtd:wlocale.obj
+ 0001:0005b040       ??_E?$ctype@_W@std@@MAEPAXI@Z 0045c040 f i libcpmtd:wlocale.obj
  0001:0005b0a0       ??_E?$messages@G@std@@MAEPAXI@Z 0045c0a0 f i libcpmtd:wlocale.obj
- 0001:0005b100       ??_E?$messages@_W@std@@MAEPAXI@Z 0045c100 f i libcpmtd:wlocale.obj
+ 0001:0005b0a0       ??_G?$messages@G@std@@MAEPAXI@Z 0045c0a0 f i libcpmtd:wlocale.obj
  0001:0005b100       ??_G?$messages@_W@std@@MAEPAXI@Z 0045c100 f i libcpmtd:wlocale.obj
- 0001:0005b160       ??_G?$money_get@GV?$istreambuf_iterator@GU?$char_traits@G@std@@@std@@@std@@MAEPAXI@Z 0045c160 f i libcpmtd:wlocale.obj
+ 0001:0005b100       ??_E?$messages@_W@std@@MAEPAXI@Z 0045c100 f i libcpmtd:wlocale.obj
  0001:0005b160       ??_E?$money_get@GV?$istreambuf_iterator@GU?$char_traits@G@std@@@std@@@std@@MAEPAXI@Z 0045c160 f i libcpmtd:wlocale.obj
+ 0001:0005b160       ??_G?$money_get@GV?$istreambuf_iterator@GU?$char_traits@G@std@@@std@@@std@@MAEPAXI@Z 0045c160 f i libcpmtd:wlocale.obj
  0001:0005b1c0       ??_G?$money_get@_WV?$istreambuf_iterator@_WU?$char_traits@_W@std@@@std@@@std@@MAEPAXI@Z 0045c1c0 f i libcpmtd:wlocale.obj
  0001:0005b1c0       ??_E?$money_get@_WV?$istreambuf_iterator@_WU?$char_traits@_W@std@@@std@@@std@@MAEPAXI@Z 0045c1c0 f i libcpmtd:wlocale.obj
- 0001:0005b220       ??_E?$money_put@GV?$ostreambuf_iterator@GU?$char_traits@G@std@@@std@@@std@@MAEPAXI@Z 0045c220 f i libcpmtd:wlocale.obj
  0001:0005b220       ??_G?$money_put@GV?$ostreambuf_iterator@GU?$char_traits@G@std@@@std@@@std@@MAEPAXI@Z 0045c220 f i libcpmtd:wlocale.obj
- 0001:0005b280       ??_G?$money_put@_WV?$ostreambuf_iterator@_WU?$char_traits@_W@std@@@std@@@std@@MAEPAXI@Z 0045c280 f i libcpmtd:wlocale.obj
+ 0001:0005b220       ??_E?$money_put@GV?$ostreambuf_iterator@GU?$char_traits@G@std@@@std@@@std@@MAEPAXI@Z 0045c220 f i libcpmtd:wlocale.obj
  0001:0005b280       ??_E?$money_put@_WV?$ostreambuf_iterator@_WU?$char_traits@_W@std@@@std@@@std@@MAEPAXI@Z 0045c280 f i libcpmtd:wlocale.obj
+ 0001:0005b280       ??_G?$money_put@_WV?$ostreambuf_iterator@_WU?$char_traits@_W@std@@@std@@@std@@MAEPAXI@Z 0045c280 f i libcpmtd:wlocale.obj
  0001:0005b2e0       ??_E?$moneypunct@G$00@std@@MAEPAXI@Z 0045c2e0 f i libcpmtd:wlocale.obj
  0001:0005b2e0       ??_G?$moneypunct@G$00@std@@MAEPAXI@Z 0045c2e0 f i libcpmtd:wlocale.obj
- 0001:0005b340       ??_G?$moneypunct@G$0A@@std@@MAEPAXI@Z 0045c340 f i libcpmtd:wlocale.obj
  0001:0005b340       ??_E?$moneypunct@G$0A@@std@@MAEPAXI@Z 0045c340 f i libcpmtd:wlocale.obj
+ 0001:0005b340       ??_G?$moneypunct@G$0A@@std@@MAEPAXI@Z 0045c340 f i libcpmtd:wlocale.obj
  0001:0005b3a0       ??_G?$moneypunct@_W$00@std@@MAEPAXI@Z 0045c3a0 f i libcpmtd:wlocale.obj
  0001:0005b3a0       ??_E?$moneypunct@_W$00@std@@MAEPAXI@Z 0045c3a0 f i libcpmtd:wlocale.obj
- 0001:0005b400       ??_G?$moneypunct@_W$0A@@std@@MAEPAXI@Z 0045c400 f i libcpmtd:wlocale.obj
  0001:0005b400       ??_E?$moneypunct@_W$0A@@std@@MAEPAXI@Z 0045c400 f i libcpmtd:wlocale.obj
+ 0001:0005b400       ??_G?$moneypunct@_W$0A@@std@@MAEPAXI@Z 0045c400 f i libcpmtd:wlocale.obj
  0001:0005b460       ??_G?$num_get@GV?$istreambuf_iterator@GU?$char_traits@G@std@@@std@@@std@@MAEPAXI@Z 0045c460 f i libcpmtd:wlocale.obj
  0001:0005b460       ??_E?$num_get@GV?$istreambuf_iterator@GU?$char_traits@G@std@@@std@@@std@@MAEPAXI@Z 0045c460 f i libcpmtd:wlocale.obj
  0001:0005b4c0       ??_G?$num_get@_WV?$istreambuf_iterator@_WU?$char_traits@_W@std@@@std@@@std@@MAEPAXI@Z 0045c4c0 f i libcpmtd:wlocale.obj
  0001:0005b4c0       ??_E?$num_get@_WV?$istreambuf_iterator@_WU?$char_traits@_W@std@@@std@@@std@@MAEPAXI@Z 0045c4c0 f i libcpmtd:wlocale.obj
  0001:0005b520       ??_E?$num_put@GV?$ostreambuf_iterator@GU?$char_traits@G@std@@@std@@@std@@MAEPAXI@Z 0045c520 f i libcpmtd:wlocale.obj
  0001:0005b520       ??_G?$num_put@GV?$ostreambuf_iterator@GU?$char_traits@G@std@@@std@@@std@@MAEPAXI@Z 0045c520 f i libcpmtd:wlocale.obj
- 0001:0005b580       ??_E?$num_put@_WV?$ostreambuf_iterator@_WU?$char_traits@_W@std@@@std@@@std@@MAEPAXI@Z 0045c580 f i libcpmtd:wlocale.obj
  0001:0005b580       ??_G?$num_put@_WV?$ostreambuf_iterator@_WU?$char_traits@_W@std@@@std@@@std@@MAEPAXI@Z 0045c580 f i libcpmtd:wlocale.obj
+ 0001:0005b580       ??_E?$num_put@_WV?$ostreambuf_iterator@_WU?$char_traits@_W@std@@@std@@@std@@MAEPAXI@Z 0045c580 f i libcpmtd:wlocale.obj
  0001:0005b5e0       ??_G?$numpunct@G@std@@MAEPAXI@Z 0045c5e0 f i libcpmtd:wlocale.obj
  0001:0005b5e0       ??_E?$numpunct@G@std@@MAEPAXI@Z 0045c5e0 f i libcpmtd:wlocale.obj
- 0001:0005b640       ??_E?$numpunct@_W@std@@MAEPAXI@Z 0045c640 f i libcpmtd:wlocale.obj
  0001:0005b640       ??_G?$numpunct@_W@std@@MAEPAXI@Z 0045c640 f i libcpmtd:wlocale.obj
- 0001:0005b6a0       ??_E?$time_get@GV?$istreambuf_iterator@GU?$char_traits@G@std@@@std@@@std@@MAEPAXI@Z 0045c6a0 f i libcpmtd:wlocale.obj
+ 0001:0005b640       ??_E?$numpunct@_W@std@@MAEPAXI@Z 0045c640 f i libcpmtd:wlocale.obj
  0001:0005b6a0       ??_G?$time_get@GV?$istreambuf_iterator@GU?$char_traits@G@std@@@std@@@std@@MAEPAXI@Z 0045c6a0 f i libcpmtd:wlocale.obj
+ 0001:0005b6a0       ??_E?$time_get@GV?$istreambuf_iterator@GU?$char_traits@G@std@@@std@@@std@@MAEPAXI@Z 0045c6a0 f i libcpmtd:wlocale.obj
  0001:0005b700       ??_E?$time_get@_WV?$istreambuf_iterator@_WU?$char_traits@_W@std@@@std@@@std@@MAEPAXI@Z 0045c700 f i libcpmtd:wlocale.obj
  0001:0005b700       ??_G?$time_get@_WV?$istreambuf_iterator@_WU?$char_traits@_W@std@@@std@@@std@@MAEPAXI@Z 0045c700 f i libcpmtd:wlocale.obj
- 0001:0005b760       ??_G?$time_put@GV?$ostreambuf_iterator@GU?$char_traits@G@std@@@std@@@std@@MAEPAXI@Z 0045c760 f i libcpmtd:wlocale.obj
  0001:0005b760       ??_E?$time_put@GV?$ostreambuf_iterator@GU?$char_traits@G@std@@@std@@@std@@MAEPAXI@Z 0045c760 f i libcpmtd:wlocale.obj
- 0001:0005b7c0       ??_E?$time_put@_WV?$ostreambuf_iterator@_WU?$char_traits@_W@std@@@std@@@std@@MAEPAXI@Z 0045c7c0 f i libcpmtd:wlocale.obj
+ 0001:0005b760       ??_G?$time_put@GV?$ostreambuf_iterator@GU?$char_traits@G@std@@@std@@@std@@MAEPAXI@Z 0045c760 f i libcpmtd:wlocale.obj
  0001:0005b7c0       ??_G?$time_put@_WV?$ostreambuf_iterator@_WU?$char_traits@_W@std@@@std@@@std@@MAEPAXI@Z 0045c7c0 f i libcpmtd:wlocale.obj
- 0001:0005b820       ??_Emessages_base@std@@UAEPAXI@Z 0045c820 f i libcpmtd:wlocale.obj
+ 0001:0005b7c0       ??_E?$time_put@_WV?$ostreambuf_iterator@_WU?$char_traits@_W@std@@@std@@@std@@MAEPAXI@Z 0045c7c0 f i libcpmtd:wlocale.obj
  0001:0005b820       ??_Gmessages_base@std@@UAEPAXI@Z 0045c820 f i libcpmtd:wlocale.obj
- 0001:0005b880       ??_Emoney_base@std@@UAEPAXI@Z 0045c880 f i libcpmtd:wlocale.obj
+ 0001:0005b820       ??_Emessages_base@std@@UAEPAXI@Z 0045c820 f i libcpmtd:wlocale.obj
  0001:0005b880       ??_Gmoney_base@std@@UAEPAXI@Z 0045c880 f i libcpmtd:wlocale.obj
- 0001:0005b8e0       ??_Gtime_base@std@@UAEPAXI@Z 0045c8e0 f i libcpmtd:wlocale.obj
+ 0001:0005b880       ??_Emoney_base@std@@UAEPAXI@Z 0045c880 f i libcpmtd:wlocale.obj
  0001:0005b8e0       ??_Etime_base@std@@UAEPAXI@Z 0045c8e0 f i libcpmtd:wlocale.obj
+ 0001:0005b8e0       ??_Gtime_base@std@@UAEPAXI@Z 0045c8e0 f i libcpmtd:wlocale.obj
  0001:0005b940       ?_Alloc_proxy@?$_String_alloc@U?$_String_base_types@GV?$allocator@G@std@@@std@@@std@@QAEXXZ 0045c940 f i libcpmtd:wlocale.obj
  0001:0005b9e0       ?_Assign_rv_contents@?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@QAEX$$QAV12@U?$integral_constant@_N$00@2@@Z 0045c9e0 f i libcpmtd:wlocale.obj
  0001:0005ba20       ?_Assign_rv_contents@?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QAEX$$QAV12@U?$integral_constant@_N$00@2@@Z 0045ca20 f i libcpmtd:wlocale.obj
@@ -3017,16 +3017,16 @@
  0001:0007bb10       ??Y?$_String_const_iterator@V?$_String_val@U?$_Simple_types@D@std@@@std@@@std@@QAEAAV01@H@Z 0047cb10 f i libcpmtd:xlocale.obj
  0001:0007bb50       ??Y?$_String_iterator@V?$_String_val@U?$_Simple_types@D@std@@@std@@@std@@QAEAAV01@H@Z 0047cb50 f i libcpmtd:xlocale.obj
  0001:0007bb80       ??Z?$_String_iterator@V?$_String_val@U?$_Simple_types@D@std@@@std@@@std@@QAEAAV01@H@Z 0047cb80 f i libcpmtd:xlocale.obj
- 0001:0007bbb0       ??_G?$_Mpunct@D@std@@MAEPAXI@Z 0047cbb0 f i libcpmtd:xlocale.obj
  0001:0007bbb0       ??_E?$_Mpunct@D@std@@MAEPAXI@Z 0047cbb0 f i libcpmtd:xlocale.obj
+ 0001:0007bbb0       ??_G?$_Mpunct@D@std@@MAEPAXI@Z 0047cbb0 f i libcpmtd:xlocale.obj
  0001:0007bc10       ??_E?$collate@D@std@@MAEPAXI@Z 0047cc10 f i libcpmtd:xlocale.obj
  0001:0007bc10       ??_G?$collate@D@std@@MAEPAXI@Z 0047cc10 f i libcpmtd:xlocale.obj
  0001:0007bc70       ??_G?$messages@D@std@@MAEPAXI@Z 0047cc70 f i libcpmtd:xlocale.obj
  0001:0007bc70       ??_E?$messages@D@std@@MAEPAXI@Z 0047cc70 f i libcpmtd:xlocale.obj
  0001:0007bcd0       ??_E?$money_get@DV?$istreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@MAEPAXI@Z 0047ccd0 f i libcpmtd:xlocale.obj
  0001:0007bcd0       ??_G?$money_get@DV?$istreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@MAEPAXI@Z 0047ccd0 f i libcpmtd:xlocale.obj
- 0001:0007bd30       ??_E?$money_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@MAEPAXI@Z 0047cd30 f i libcpmtd:xlocale.obj
  0001:0007bd30       ??_G?$money_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@MAEPAXI@Z 0047cd30 f i libcpmtd:xlocale.obj
+ 0001:0007bd30       ??_E?$money_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@MAEPAXI@Z 0047cd30 f i libcpmtd:xlocale.obj
  0001:0007bd90       ??_E?$moneypunct@D$00@std@@MAEPAXI@Z 0047cd90 f i libcpmtd:xlocale.obj
  0001:0007bd90       ??_G?$moneypunct@D$00@std@@MAEPAXI@Z 0047cd90 f i libcpmtd:xlocale.obj
  0001:0007bdf0       ??_G?$moneypunct@D$0A@@std@@MAEPAXI@Z 0047cdf0 f i libcpmtd:xlocale.obj
@@ -3229,8 +3229,8 @@
  0001:00089a30       ??Eiterator@HandlerMap@__FrameHandler3@@QAEAAV012@XZ 0048aa30 f i libvcruntimed:frame.obj
  0001:00089a60       ??Eiterator@TryBlockMap@__FrameHandler3@@QAEAAV012@XZ 0048aa60 f i libvcruntimed:frame.obj
  0001:00089a90       ??Miterator@TryBlockMap@__FrameHandler3@@QBE_NABV012@@Z 0048aa90 f i libvcruntimed:frame.obj
- 0001:00089ad0       ??_Ebad_exception@std@@UAEPAXI@Z 0048aad0 f i libvcruntimed:frame.obj
  0001:00089ad0       ??_Gbad_exception@std@@UAEPAXI@Z 0048aad0 f i libvcruntimed:frame.obj
+ 0001:00089ad0       ??_Ebad_exception@std@@UAEPAXI@Z 0048aad0 f i libvcruntimed:frame.obj
  0001:00089b10       ?BuildCatchObject@__FrameHandler3@@SAXPAUEHExceptionRecord@@PAXPBU_s_HandlerType@@PBU_s_CatchableType@@@Z 0048ab10 f   libvcruntimed:frame.obj
  0001:00089b40       ?BuildCatchObjectHelper@__FrameHandler3@@SAHPAUEHExceptionRecord@@PAXPBU_s_HandlerType@@PBU_s_CatchableType@@@Z 0048ab40 f   libvcruntimed:frame.obj
  0001:00089fc0       ?FrameUnwindToEmptyState@__FrameHandler3@@SAXPAUEHRegistrationNode@@PAXPBU_s_FuncInfo@@@Z 0048afc0 f   libvcruntimed:frame.obj
@@ -3470,8 +3470,8 @@
  0001:0009920a       __abnormal_termination     0049a20a f   libvcruntimed:exsup.obj
  0001:00099230       __NLG_Notify1              0049a230 f   libvcruntimed:exsup.obj
  0001:0009923c       __NLG_Notify               0049a23c f   libvcruntimed:exsup.obj
- 0001:00099253       __NLG_Dispatch             0049a253     libvcruntimed:exsup.obj
  0001:00099253       __NLG_Dispatch2            0049a253     libvcruntimed:exsup.obj
+ 0001:00099253       __NLG_Dispatch             0049a253     libvcruntimed:exsup.obj
  0001:0009925b       __NLG_Call                 0049a25b f   libvcruntimed:exsup.obj
  0001:0009925d       __NLG_Return2              0049a25d     libvcruntimed:exsup.obj
  0001:000992b0       _cos                       0049a2b0 f   libucrtd:cos.obj
@@ -9679,263 +9679,262 @@
 
  Static symbols
 
- 0001:fffff000       __unwindfunclet$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@QBD@Z$0 00400000 f   libcpmtd:xonce.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:locale.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:locale.obj
- 0002:ffebf000       __ehfuncinfo$?c_str@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QBEPBDXZ 00400000     libcpmtd:xlocale.obj
- 0002:ffebf000       __ehfuncinfo$??1?$__crt_win32_buffer@_WU__crt_win32_buffer_internal_dynamic_resizing@@@@QAE@XZ 00400000     libucrtd:setenvironmentvariablea.obj
- 0002:ffebf000       __unwindtable$??0?$_String_alloc@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QAE@XZ 00400000     libcpmtd:xlocale.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:locale.obj
- 0001:fffff000       __unwindfunclet$??0NxMat34@@QAE@_N@Z$0 00400000 f   WindSample.obj
- 0001:fffff000       __ehhandler$??1_Locinfo@std@@QAE@XZ 00400000 f   libcpmtd:xlocale.obj
- 0001:fffff000       __unwindfunclet$??$use_facet@V?$ctype@D@std@@@std@@YAABV?$ctype@D@0@ABVlocale@0@@Z$0 00400000 f   libcpmtd:xlocale.obj
- 0001:fffff000       __ehhandler$??4?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEAAV01@$$QAV01@@Z 00400000 f   libcpmtd:xlocale.obj
- 0001:fffff000       __ehhandler$?_Orphan_all@_Container_base12@std@@QAEXXZ 00400000 f   libcpmtd:wlocale.obj
- 0002:ffebf000       __ehfuncinfo$??0_Locinfo@std@@QAE@PBD@Z 00400000     libcpmtd:xlocale.obj
- 0001:fffff000       __ehhandler$?c_str@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QBEPBDXZ 00400000 f   libcpmtd:wlocale.obj
- 0001:fffff000       __ehhandler$??1?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@XZ 00400000 f   libcpmtd:wlocale.obj
- 0000:ffe42000       __guard_fids__             00400000     libucrtd:debug_heap_hook.obj
- 0001:fffff000       __unwindfunclet$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@ID@Z$0 00400000 f   libcpmtd:wlocale.obj
- 0001:fffff000       __unwindfunclet$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@QBD@Z$0 00400000 f   libcpmtd:wlocale.obj
- 0001:fffff000       __ehhandler$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@XZ 00400000 f   libcpmtd:wlocale.obj
- 0001:fffff000       __ehhandler$??1?$_String_alloc@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QAE@XZ 00400000 f   libcpmtd:xlocale.obj
- 0001:fffff000       __ehhandler$?_Swap_all@_Container_base12@std@@QAEXAAU12@@Z 00400000 f   libcpmtd:wlocale.obj
- 0001:fffff000       __ehhandler$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@$$QAV01@@Z 00400000 f   libcpmtd:xlocale.obj
- 0001:fffff000       __unwindfunclet$??0_Locinfo@std@@QAE@PBD@Z$0 00400000 f   libcpmtd:xlocale.obj
- 0001:fffff000       __unwindfunclet$?name@locale@std@@QBE?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@2@XZ$0 00400000 f   libcpmtd:xlocale.obj
- 0001:fffff000       __unwindfunclet$??$_Getloctxt@DV?$istreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@YAHAAV?$istreambuf_iterator@DU?$char_traits@D@std@@@0@0IPBD@Z$0 00400000 f   libcpmtd:xlocale.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:locale.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:locale.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:locale.obj
- 0002:ffebf000       __unwindtable$??$use_facet@V?$numpunct@D@std@@@std@@YAABV?$numpunct@D@0@ABVlocale@0@@Z 00400000     libcpmtd:locale.obj
- 0002:ffebf000       __ehfuncinfo$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@XZ 00400000     libcpmtd:xlocale.obj
- 0002:ffebf000       __unwindtable$??0?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@QAE@ABV_Locinfo@1@I@Z 00400000     libcpmtd:locale.obj
- 0002:ffebf000       __ehfuncinfo$??1locale@std@@QAE@XZ 00400000     libcpmtd:locale.obj
- 0002:ffebf000       __ehfuncinfo$??0locale@std@@QAE@XZ 00400000     libcpmtd:locale.obj
- 0002:ffebf000       __ehfuncinfo$??0locale@std@@QAE@ABV01@@Z 00400000     libcpmtd:locale.obj
- 0002:ffebf000       __ehfuncinfo$??1?$_Yarn@_W@std@@QAE@XZ 00400000     libcpmtd:locale.obj
- 0002:ffebf000       __ehfuncinfo$??1?$_Yarn@D@std@@QAE@XZ 00400000     libcpmtd:locale.obj
- 0002:ffebf000       __ehfuncinfo$??1_Locinfo@std@@QAE@XZ 00400000     libcpmtd:locale.obj
- 0002:ffebf000       __ehfuncinfo$??1_Locinfo@std@@QAE@XZ 00400000     libcpmtd:xlocale.obj
- 0002:ffebf000       __ehfuncinfo$??0_Locinfo@std@@QAE@PBD@Z 00400000     libcpmtd:locale.obj
- 0002:ffebf000       __ehfuncinfo$?c_str@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QBEPBDXZ 00400000     libcpmtd:locale.obj
- 0002:ffebf000       __ehfuncinfo$??1?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@XZ 00400000     libcpmtd:locale.obj
- 0002:ffebf000       __ehfuncinfo$?_Assign_rv_contents_with_alloc_always_equal@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEX$$QAV12@U?$integral_constant@_N$00@2@@Z 00400000     libcpmtd:locale.obj
- 0002:ffebf000       __ehfuncinfo$??4?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEAAV01@$$QAV01@@Z 00400000     libcpmtd:locale.obj
- 0002:ffebf000       __unwindtable$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@ID@Z 00400000     libcpmtd:locale.obj
- 0002:ffebf000       __ehfuncinfo$??1?$_Yarn@D@std@@QAE@XZ 00400000     libcpmtd:xlocale.obj
- 0002:ffebf000       __unwindtable$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@QBD@Z 00400000     libcpmtd:locale.obj
- 0001:fffff000       __unwindfunclet$??0NxMat34@@QAE@_N@Z$0 00400000 f   ExplosionSample.obj
- 0002:ffebf000       __ehfuncinfo$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@XZ 00400000     libcpmtd:locale.obj
- 0002:ffebf000       __ehfuncinfo$??1?$_String_alloc@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QAE@XZ 00400000     libcpmtd:locale.obj
- 0002:ffebf000       __ehfuncinfo$??1?$_Yarn@_W@std@@QAE@XZ 00400000     libcpmtd:xlocale.obj
- 0002:ffebf000       __ehfuncinfo$??0locale@std@@QAE@ABV01@@Z 00400000     libcpmtd:xlocale.obj
- 0002:ffebf000       __unwindtable$??0?$_String_alloc@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QAE@XZ 00400000     libcpmtd:locale.obj
- 0002:ffebf000       __ehfuncinfo$??1locale@std@@QAE@XZ 00400000     libcpmtd:xlocale.obj
- 0002:ffebf000       __ehfuncinfo$?_Swap_all@_Container_base12@std@@QAEXAAU12@@Z 00400000     libcpmtd:locale.obj
- 0002:ffebf000       __ehfuncinfo$?_Orphan_all@_Container_base12@std@@QAEXXZ 00400000     libcpmtd:locale.obj
- 0001:fffff000       __ehhandler$??$?0U?$default_delete@V_Facet_base@std@@@std@@$0A@@?$unique_ptr@V_Facet_base@std@@U?$default_delete@V_Facet_base@std@@@2@@std@@QAE@PAV_Facet_base@1@@Z 00400000 f   libcpmtd:locale.obj
- 0002:ffebf000       __unwindtable$?name@locale@std@@QBE?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@2@XZ 00400000     libcpmtd:xlocale.obj
- 0001:fffff000       __unwindfunclet$??$use_facet@V?$codecvt@DDU_Mbstatet@@@std@@@std@@YAABV?$codecvt@DDU_Mbstatet@@@0@ABVlocale@0@@Z$0 00400000 f   libcpmtd:locale.obj
- 0002:ffebf000       __unwindtable$??0?$ctype@D@std@@QAE@ABV_Locinfo@1@I@Z 00400000     libcpmtd:xlocale.obj
- 0002:ffebf000       __unwindtable$?_Getcat@?$ctype@D@std@@SAIPAPBVfacet@locale@2@PBV42@@Z 00400000     libcpmtd:xlocale.obj
- 0001:fffff000       __unwindfunclet$?_Getcat@?$codecvt@DDU_Mbstatet@@@std@@SAIPAPBVfacet@locale@2@PBV42@@Z$0 00400000 f   libcpmtd:locale.obj
- 0002:ffebf000       __ehfuncinfo$??1?$ctype@D@std@@MAE@XZ 00400000     libcpmtd:xlocale.obj
- 0001:fffff000       __unwindfunclet$??0?$codecvt@DDU_Mbstatet@@@std@@QAE@ABV_Locinfo@1@I@Z$0 00400000 f   libcpmtd:locale.obj
- 0002:ffebf000       __unwindtable$??$use_facet@V?$ctype@D@std@@@std@@YAABV?$ctype@D@0@ABVlocale@0@@Z 00400000     libcpmtd:xlocale.obj
- 0002:ffebf000       __unwindtable$??0NxForceFieldLinearKernelDesc@@QAE@XZ 00400000     VortexSample.obj
- 0001:fffff000       __unwindfunclet$??$use_facet@V?$numpunct@D@std@@@std@@YAABV?$numpunct@D@0@ABVlocale@0@@Z$0 00400000 f   libcpmtd:locale.obj
- 0002:ffebf000       __unwindtable$??0NxForceFieldShapeGroupDesc@@QAE@XZ 00400000     VortexSample.obj
- 0002:ffebf000       __unwindtable$??0NxForceFieldDesc@@QAE@XZ 00400000     VortexSample.obj
- 0001:fffff000       __ehhandler$?_Init@?$numpunct@D@std@@IAEXABV_Locinfo@2@_N@Z 00400000 f   libcpmtd:locale.obj
- 0001:fffff000       __ehhandler$??1?$numpunct@D@std@@MAE@XZ 00400000 f   libcpmtd:locale.obj
- 0002:ffebf000       __ehfuncinfo$??1?$NxArray@PAVNxForceFieldShapeGroup@@VNxAllocatorDefault@@@@QAE@XZ 00400000     VortexSample.obj
- 0001:fffff000       __unwindfunclet$?_Getcat@?$numpunct@D@std@@SAIPAPBVfacet@locale@2@PBV42@@Z$0 00400000 f   libcpmtd:locale.obj
- 0002:ffebf000       __ehfuncinfo$??1?$NxArray@PAVNxForceFieldShapeDesc@@VNxAllocatorDefault@@@@QAE@XZ 00400000     VortexSample.obj
- 0001:fffff000       __unwindfunclet$??0?$numpunct@D@std@@QAE@ABV_Locinfo@1@I_N@Z$0 00400000 f   libcpmtd:locale.obj
- 0002:ffebf000       __unwindtable$??0NxForceFieldShapeDesc@@IAE@W4NxShapeType@@@Z 00400000     VortexSample.obj
- 0002:ffebf000       __unwindtable$??0NxActorDesc@@QAE@XZ 00400000     VortexSample.obj
- 0001:fffff000       __unwindfunclet$??$use_facet@V?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@@std@@YAABV?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@0@ABVlocale@0@@Z$0 00400000 f   libcpmtd:locale.obj
- 0002:ffebf000       __ehfuncinfo$??1?$NxArray@PAVNxShapeDesc@@VNxAllocatorDefault@@@@QAE@XZ 00400000     VortexSample.obj
- 0002:ffebf000       __unwindtable$??0NxBodyDesc@@QAE@XZ 00400000     VortexSample.obj
- 0002:ffebf000       __unwindtable$??0NxMat34@@QAE@_N@Z 00400000     VortexSample.obj
- 0001:fffff000       __unwindfunclet$??0NxForceFieldLinearKernelDesc@@QAE@XZ$0 00400000 f   VortexSample.obj
- 0001:fffff000       __unwindfunclet$?_Iput@?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@ABA?AV?$ostreambuf_iterator@DU?$char_traits@D@std@@@2@V32@AAVios_base@2@DPADI@Z$0 00400000 f   libcpmtd:locale.obj
- 0001:fffff000       __unwindfunclet$??0NxForceFieldShapeGroupDesc@@QAE@XZ$0 00400000 f   VortexSample.obj
- 0001:fffff000       __unwindfunclet$??0NxForceFieldDesc@@QAE@XZ$0 00400000 f   VortexSample.obj
- 0001:fffff000       __ehhandler$??1?$NxArray@PAVNxForceFieldShapeGroup@@VNxAllocatorDefault@@@@QAE@XZ 00400000 f   VortexSample.obj
- 0001:fffff000       __ehhandler$??1?$NxArray@PAVNxForceFieldShapeDesc@@VNxAllocatorDefault@@@@QAE@XZ 00400000 f   VortexSample.obj
- 0001:fffff000       __unwindfunclet$?_Fput@?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@ABA?AV?$ostreambuf_iterator@DU?$char_traits@D@std@@@2@V32@AAVios_base@2@DPBDI@Z$0 00400000 f   libcpmtd:locale.obj
- 0001:fffff000       __unwindfunclet$??0NxForceFieldShapeDesc@@IAE@W4NxShapeType@@@Z$0 00400000 f   VortexSample.obj
- 0001:fffff000       __unwindfunclet$?do_put@?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@MBE?AV?$ostreambuf_iterator@DU?$char_traits@D@std@@@2@V32@AAVios_base@2@DO@Z$0 00400000 f   libcpmtd:locale.obj
- 0001:fffff000       __unwindfunclet$??0NxActorDesc@@QAE@XZ$0 00400000 f   VortexSample.obj
- 0001:fffff000       __unwindfunclet$?do_put@?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@MBE?AV?$ostreambuf_iterator@DU?$char_traits@D@std@@@2@V32@AAVios_base@2@DN@Z$0 00400000 f   libcpmtd:locale.obj
- 0001:fffff000       __ehhandler$??1?$NxArray@PAVNxShapeDesc@@VNxAllocatorDefault@@@@QAE@XZ 00400000 f   VortexSample.obj
- 0001:fffff000       __unwindfunclet$??0NxBodyDesc@@QAE@XZ$0 00400000 f   VortexSample.obj
- 0001:fffff000       __unwindfunclet$?do_put@?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@MBE?AV?$ostreambuf_iterator@DU?$char_traits@D@std@@@2@V32@AAVios_base@2@D_N@Z$0 00400000 f   libcpmtd:locale.obj
- 0002:ffebf000       __unwindtable$??$_Getloctxt@DV?$istreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@YAHAAV?$istreambuf_iterator@DU?$char_traits@D@std@@@0@0IPBD@Z 00400000     libcpmtd:xlocale.obj
- 0001:fffff000       __unwindfunclet$??0?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@QAE@ABV_Locinfo@1@I@Z$0 00400000 f   libcpmtd:locale.obj
- 0002:ffebf000       __unwindtable$??$?0V?$allocator@D@std@@X@?$_String_alloc@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QAE@$$QAV?$allocator@D@1@@Z 00400000     libcpmtd:xlocale.obj
  0002:ffebf000       __ehfuncinfo$??$?0U?$default_delete@V_Facet_base@std@@@std@@$0A@@?$unique_ptr@V_Facet_base@std@@U?$default_delete@V_Facet_base@std@@@2@@std@@QAE@PAV_Facet_base@1@@Z 00400000     libcpmtd:xlocale.obj
- 0001:fffff000       __unwindfunclet$?_Getcat@?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@SAIPAPBVfacet@locale@2@PBV42@@Z$0 00400000 f   libcpmtd:locale.obj
+ 0000:ffe42000       __guard_fids__             00400000     libucrtd:timeset_initializer.obj
+ 0000:ffe42000       __guard_fids_?__scrt_initialize_thread_safe_statics@@YAHXZ 00400000     LIBCMTD:thread_safe_statics.obj
+ 0000:ffe42000       __guard_fids__             00400000     LIBCMTD:exe_main.obj
+ 0000:ffe42000       __guard_fids_?get_unexpected_or_default@@YAP6AXXZQBU__vcrt_ptd@@@Z 00400000     libvcruntimed:unexpected.obj
+ 0000:ffe42000       __guard_fids__             00400000     libvcruntimed:undname.obj
+ 0000:ffe42000       __guard_fids_?pre_c_initialization@@YAHXZ 00400000     LIBCMTD:exe_main.obj
+ 0000:ffe42000       __guard_fids__             00400000     LIBCMTD:throw_bad_alloc.obj
+ 0000:ffe42000       __guard_fids__             00400000     LIBCMTD:throw_bad_alloc.obj
+ 0000:ffe42000       __guard_fids__             00400000     LIBCMTD:throw_bad_alloc.obj
+ 0000:ffe42000       __guard_fids__             00400000     LIBCMTD:throw_bad_alloc.obj
+ 0000:ffe42000       __guard_fids__             00400000     LIBCMTD:throw_bad_alloc.obj
+ 0000:ffe42000       __guard_fids__             00400000     LIBCMTD:throw_bad_alloc.obj
+ 0000:ffe42000       __guard_fids__             00400000     LIBCMTD:throw_bad_alloc.obj
+ 0000:ffe42000       __guard_fids__             00400000     LIBCMTD:throw_bad_alloc.obj
+ 0000:ffe42000       __guard_fids____scrt_set_unhandled_exception_filter 00400000     LIBCMTD:utility_desktop.obj
+ 0000:ffe42000       __guard_fids__             00400000     LIBCMTD:guard_support.obj
+ 0000:ffe42000       __guard_fids___guard_icall_checks_enforced 00400000     LIBCMTD:guard_support.obj
+ 0000:ffe42000       __guard_fids__             00400000     libvcruntimed:undname.obj
+ 0000:ffe42000       __guard_fids_??__Einitlocks@std@@YAXXZ 00400000     libcpmtd:xlock.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xlock.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xthrow.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xthrow.obj
+ 0001:fffff000       __ehhandler$??1?$__crt_win32_buffer@_WU__crt_win32_buffer_internal_dynamic_resizing@@@@QAE@XZ 00400000 f   libucrtd:setenvironmentvariablea.obj
+ 0000:ffe42000       __guard_fids__             00400000     libucrtd:multibyte_initializer.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xthrow.obj
+ 0000:ffe42000       __guard_fids_??$__acrt_wcs_to_mbs@U__crt_win32_buffer_no_resizing@@@@YAHQB_WAAV?$__crt_win32_buffer@DU__crt_win32_buffer_no_resizing@@@@PAU__crt_locale_pointers@@@Z 00400000     libucrtd:findnextfilea.obj
+ 0002:ffebf000       __ehfuncinfo$??1?$__crt_win32_buffer@DU__crt_win32_buffer_no_resizing@@@@QAE@XZ 00400000     libucrtd:findnextfilea.obj
+ 0001:fffff000       __ehhandler$??1?$__crt_win32_buffer@DU__crt_win32_buffer_no_resizing@@@@QAE@XZ 00400000 f   libucrtd:findnextfilea.obj
+ 0000:ffe42000       __guard_fids_??$__acrt_mbs_to_wcs@U__crt_win32_buffer_internal_dynamic_resizing@@@@YAHQBDAAV?$__crt_win32_buffer@_WU__crt_win32_buffer_internal_dynamic_resizing@@@@PAU__crt_locale_pointers@@@Z 00400000     libucrtd:findfirstfileexa.obj
+ 0002:ffebf000       __ehfuncinfo$??1?$__crt_win32_buffer@_WU__crt_win32_buffer_internal_dynamic_resizing@@@@QAE@XZ 00400000     libucrtd:findfirstfileexa.obj
+ 0001:fffff000       __ehhandler$??1?$__crt_win32_buffer@_WU__crt_win32_buffer_internal_dynamic_resizing@@@@QAE@XZ 00400000 f   libucrtd:findfirstfileexa.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xthrow.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xthrow.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xthrow.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xthrow.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xthrow.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xthrow.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xthrow.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xthrow.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xthrow.obj
+ 0000:ffe42000       __guard_fids__             00400000     libvcruntimed:undname.obj
+ 0000:ffe42000       __guard_fids__             00400000     libvcruntimed:undname.obj
+ 0000:ffe42000       __guard_fids__             00400000     libvcruntimed:undname.obj
+ 0000:ffe42000       __guard_fids__             00400000     libvcruntimed:undname.obj
+ 0000:ffe42000       __guard_fids____except_validate_jump_buffer 00400000     libvcruntimed:jbcxrval.obj
+ 0000:ffe42000       __guard_fids___guard_icall_checks_enforced 00400000     libvcruntimed:jbcxrval.obj
+ 0000:ffe42000       __guard_fids__             00400000     libvcruntimed:jbcxrval.obj
+ 0001:fffff000       __ehhandler$??1?$_Yarn@D@std@@QAE@XZ 00400000 f   libcpmtd:locale0.obj
+ 0001:fffff000       __ehhandler$??1locale@std@@QAE@XZ 00400000 f   libcpmtd:locale0.obj
+ 0000:ffe42000       __guard_fids____libm_error_support 00400000     libucrtd:libm_error.obj
+ 0000:ffe42000       __guard_fids_??__E_Fac_tidy_reg@std@@YAXXZ 00400000     libcpmtd:locale0.obj
+ 0002:ffebf000       __ehfuncinfo$??1?$_Yarn@D@std@@QAE@XZ 00400000     libcpmtd:locale0.obj
+ 0002:ffebf000       __ehfuncinfo$??1locale@std@@QAE@XZ 00400000     libcpmtd:locale0.obj
+ 0000:ffe42000       __guard_fids_?_Setgloballocale@locale@std@@CAXPAX@Z 00400000     libcpmtd:locale0.obj
+ 0000:ffe42000       __guard_fids_??__Eclassic_locale@std@@YAXXZ 00400000     libcpmtd:locale0.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xlocale.obj
+ 0002:ffebf000       __ehfuncinfo$??1?$__crt_win32_buffer@_WU__crt_win32_buffer_internal_dynamic_resizing@@@@QAE@XZ 00400000     libucrtd:open.obj
+ 0001:fffff000       __unwindfunclet$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@ID@Z$0 00400000 f   libcpmtd:xonce.obj
+ 0001:fffff000       __ehhandler$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@$$QAV01@@Z 00400000 f   libcpmtd:xonce.obj
+ 0001:fffff000       __ehhandler$?_Assign_rv_contents_with_alloc_always_equal@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEX$$QAV12@U?$integral_constant@_N$00@2@@Z 00400000 f   libcpmtd:xonce.obj
+ 0001:fffff000       __ehhandler$??1?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@XZ 00400000 f   libcpmtd:xonce.obj
+ 0001:fffff000       __ehhandler$??1?$__crt_win32_buffer@_WU__crt_win32_buffer_internal_dynamic_resizing@@@@QAE@XZ 00400000 f   libucrtd:open.obj
+ 0001:fffff000       __ehhandler$?c_str@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QBEPBDXZ 00400000 f   libcpmtd:xonce.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xlocale.obj
+ 0001:fffff000       __unwindfunclet$?_Makestr@_System_error@std@@CA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@2@Verror_code@2@V32@@Z$0 00400000 f   libcpmtd:xonce.obj
  0000:ffe42000       __guard_fids__             00400000     libcpmtd:xlocale.obj
  0000:ffe42000       __guard_fids__             00400000     libcpmtd:xlocale.obj
- 0001:fffff000       __unwindfunclet$??$use_facet@V?$ctype@D@std@@@std@@YAABV?$ctype@D@0@ABVlocale@0@@Z$0 00400000 f   libcpmtd:locale.obj
+ 0001:fffff000       __unwindfunclet$??0_System_error@std@@IAE@Verror_code@1@ABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@1@@Z$1 00400000 f   libcpmtd:xonce.obj
  0000:ffe42000       __guard_fids__             00400000     libcpmtd:xlocale.obj
- 0000:ffe42000       __guard_fids__GetLocaleNameFromLangCountry 00400000     libucrtd:get_qualified_locale.obj
- 0000:ffe42000       __guard_fids__GetLocaleNameFromLanguage 00400000     libucrtd:get_qualified_locale.obj
- 0001:fffff000       __ehhandler$??1?$ctype@D@std@@MAE@XZ 00400000 f   libcpmtd:locale.obj
+ 0001:fffff000       __unwindfunclet$??$?0V?$allocator@D@std@@X@?$_String_alloc@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QAE@$$QAV?$allocator@D@1@@Z$0 00400000 f   libcpmtd:xonce.obj
+ 0002:ffebf000       __ehfuncinfo$?_Orphan_all@_Container_base12@std@@QAEXXZ 00400000     libcpmtd:xonce.obj
+ 0002:ffebf000       __ehfuncinfo$?_Swap_all@_Container_base12@std@@QAEXAAU12@@Z 00400000     libcpmtd:xonce.obj
  0000:ffe42000       __guard_fids__             00400000     libcpmtd:xlocale.obj
- 0001:fffff000       __unwindfunclet$?_Getcat@?$ctype@D@std@@SAIPAPBVfacet@locale@2@PBV42@@Z$0 00400000 f   libcpmtd:locale.obj
+ 0002:ffebf000       __unwindtable$??0?$_String_alloc@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QAE@XZ 00400000     libcpmtd:xonce.obj
+ 0002:ffebf000       __ehfuncinfo$??1?$_String_alloc@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QAE@XZ 00400000     libcpmtd:xonce.obj
  0000:ffe42000       __guard_fids__             00400000     libcpmtd:xlocale.obj
- 0001:fffff000       __unwindfunclet$??0?$ctype@D@std@@QAE@ABV_Locinfo@1@I@Z$0 00400000 f   libcpmtd:locale.obj
+ 0002:ffebf000       __unwindtable$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@ABV01@@Z 00400000     libcpmtd:xonce.obj
  0000:ffe42000       __guard_fids__             00400000     libcpmtd:xlocale.obj
- 0001:fffff000       __ehhandler$??1locale@std@@QAE@XZ 00400000 f   libcpmtd:locale.obj
- 0001:fffff000       __ehhandler$??0locale@std@@QAE@XZ 00400000 f   libcpmtd:locale.obj
- 0001:fffff000       __ehhandler$??0locale@std@@QAE@ABV01@@Z 00400000 f   libcpmtd:locale.obj
- 0001:fffff000       __ehhandler$??1?$_Yarn@_W@std@@QAE@XZ 00400000 f   libcpmtd:locale.obj
- 0001:fffff000       __ehhandler$??1?$_Yarn@D@std@@QAE@XZ 00400000 f   libcpmtd:locale.obj
- 0001:fffff000       __ehhandler$??1_Locinfo@std@@QAE@XZ 00400000 f   libcpmtd:locale.obj
+ 0002:ffebf000       __unwindtable$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@QBD@Z 00400000     libcpmtd:xonce.obj
  0000:ffe42000       __guard_fids__             00400000     libcpmtd:xlocale.obj
- 0000:ffe42000       __guard_fids__GetLcidFromLangCountry 00400000     libucrtd:getqloc_downlevel.obj
- 0000:ffe42000       __guard_fids__GetLcidFromLanguage 00400000     libucrtd:getqloc_downlevel.obj
- 0000:ffe42000       __guard_fids__GetLcidFromCountry 00400000     libucrtd:getqloc_downlevel.obj
- 0000:ffe42000       __guard_fids__             00400000     libucrtd:locale_initializer.obj
+ 0002:ffebf000       __unwindtable$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@ID@Z 00400000     libcpmtd:xonce.obj
+ 0002:ffebf000       __ehfuncinfo$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@$$QAV01@@Z 00400000     libcpmtd:xonce.obj
+ 0002:ffebf000       __ehfuncinfo$?_Assign_rv_contents_with_alloc_always_equal@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEX$$QAV12@U?$integral_constant@_N$00@2@@Z 00400000     libcpmtd:xonce.obj
+ 0002:ffebf000       __ehfuncinfo$??1?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@XZ 00400000     libcpmtd:xonce.obj
+ 0002:ffebf000       __ehfuncinfo$?c_str@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QBEPBDXZ 00400000     libcpmtd:xonce.obj
  0000:ffe42000       __guard_fids__             00400000     libcpmtd:xlocale.obj
+ 0002:ffebf000       __unwindtable$?_Makestr@_System_error@std@@CA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@2@Verror_code@2@V32@@Z 00400000     libcpmtd:xonce.obj
  0000:ffe42000       __guard_fids__             00400000     libcpmtd:xlocale.obj
+ 0002:ffebf000       __unwindtable$??0_System_error@std@@IAE@Verror_code@1@ABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@1@@Z 00400000     libcpmtd:xonce.obj
+ 0000:ffe42000       __guard_fids_??$_Immortalize@V_Generic_error_category@std@@@std@@YAAAV_Generic_error_category@0@XZ 00400000     libcpmtd:xonce.obj
+ 0000:ffe42000       __guard_fids_??$_Immortalize@V_System_error_category@std@@@std@@YAAAV_System_error_category@0@XZ 00400000     libcpmtd:xonce.obj
  0000:ffe42000       __guard_fids__             00400000     libcpmtd:xlocale.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xlocale.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xlocale.obj
- 0001:fffff000       __unwindfunclet$??0_Locinfo@std@@QAE@PBD@Z$0 00400000 f   libcpmtd:locale.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xlocale.obj
- 0001:fffff000       __ehhandler$?c_str@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QBEPBDXZ 00400000 f   libcpmtd:locale.obj
- 0001:fffff000       __ehhandler$??1?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@XZ 00400000 f   libcpmtd:locale.obj
- 0001:fffff000       __ehhandler$?_Assign_rv_contents_with_alloc_always_equal@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEX$$QAV12@U?$integral_constant@_N$00@2@@Z 00400000 f   libcpmtd:locale.obj
- 0001:fffff000       __ehhandler$??4?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEAAV01@$$QAV01@@Z 00400000 f   libcpmtd:locale.obj
- 0001:fffff000       __unwindfunclet$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@ID@Z$0 00400000 f   libcpmtd:locale.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xlocale.obj
- 0001:fffff000       __unwindfunclet$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@QBD@Z$0 00400000 f   libcpmtd:locale.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xlocale.obj
- 0001:fffff000       __ehhandler$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@XZ 00400000 f   libcpmtd:locale.obj
- 0001:fffff000       __ehhandler$??1?$_String_alloc@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QAE@XZ 00400000 f   libcpmtd:locale.obj
- 0001:fffff000       __unwindfunclet$??0?$_String_alloc@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QAE@XZ$0 00400000 f   libcpmtd:locale.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xlocale.obj
- 0001:fffff000       __ehhandler$?_Swap_all@_Container_base12@std@@QAEXAAU12@@Z 00400000 f   libcpmtd:locale.obj
- 0001:fffff000       __ehhandler$?_Orphan_all@_Container_base12@std@@QAEXXZ 00400000 f   libcpmtd:locale.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xlocale.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xlocale.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xlocale.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xlocale.obj
- 0002:ffebf000       __ehfuncinfo$??1locale@std@@QAE@XZ 00400000     libcpmtd:ios.obj
- 0001:fffff000       __ehhandler$??1locale@std@@QAE@XZ 00400000 f   libcpmtd:ios.obj
- 0002:ffebf000       __ehfuncinfo$?_Orphan_all@_Container_base12@std@@QAEXXZ 00400000     libcpmtd:syserror.obj
- 0001:fffff000       __ehhandler$?_Orphan_all@_Container_base12@std@@QAEXXZ 00400000 f   libcpmtd:syserror.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xonce.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xonce.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xonce.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xonce.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xonce.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xonce.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xonce.obj
+ 0002:ffebf000       __unwindtable$??$?0V?$allocator@D@std@@X@?$_String_alloc@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QAE@$$QAV?$allocator@D@1@@Z 00400000     libcpmtd:xonce.obj
  0000:ffe42000       __guard_fids__             00400000     libcpmtd:xonce.obj
  0000:ffe42000       __guard_fids__             00400000     libcpmtd:xonce.obj
  0000:ffe42000       __guard_fids__             00400000     libucrtd:sse2_initializer.obj
  0000:ffe42000       __guard_fids__             00400000     libcpmtd:xonce.obj
  0000:ffe42000       __guard_fids__             00400000     libcpmtd:xonce.obj
- 0002:ffebf000       __unwindtable$??$?0V?$allocator@D@std@@X@?$_String_alloc@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QAE@$$QAV?$allocator@D@1@@Z 00400000     libcpmtd:xonce.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xlocale.obj
- 0000:ffe42000       __guard_fids_??$_Immortalize@V_System_error_category@std@@@std@@YAAAV_System_error_category@0@XZ 00400000     libcpmtd:xonce.obj
- 0000:ffe42000       __guard_fids_??$_Immortalize@V_Generic_error_category@std@@@std@@YAAAV_Generic_error_category@0@XZ 00400000     libcpmtd:xonce.obj
- 0002:ffebf000       __unwindtable$??0_System_error@std@@IAE@Verror_code@1@ABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@1@@Z 00400000     libcpmtd:xonce.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xlocale.obj
- 0002:ffebf000       __unwindtable$?_Makestr@_System_error@std@@CA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@2@Verror_code@2@V32@@Z 00400000     libcpmtd:xonce.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xlocale.obj
- 0002:ffebf000       __ehfuncinfo$?c_str@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QBEPBDXZ 00400000     libcpmtd:xonce.obj
- 0002:ffebf000       __ehfuncinfo$??1?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@XZ 00400000     libcpmtd:xonce.obj
- 0002:ffebf000       __ehfuncinfo$?_Assign_rv_contents_with_alloc_always_equal@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEX$$QAV12@U?$integral_constant@_N$00@2@@Z 00400000     libcpmtd:xonce.obj
- 0002:ffebf000       __ehfuncinfo$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@$$QAV01@@Z 00400000     libcpmtd:xonce.obj
- 0002:ffebf000       __unwindtable$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@ID@Z 00400000     libcpmtd:xonce.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xlocale.obj
- 0002:ffebf000       __unwindtable$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@QBD@Z 00400000     libcpmtd:xonce.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xlocale.obj
- 0002:ffebf000       __unwindtable$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@ABV01@@Z 00400000     libcpmtd:xonce.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xlocale.obj
- 0002:ffebf000       __ehfuncinfo$??1?$_String_alloc@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QAE@XZ 00400000     libcpmtd:xonce.obj
- 0002:ffebf000       __unwindtable$??0?$_String_alloc@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QAE@XZ 00400000     libcpmtd:xonce.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xlocale.obj
- 0002:ffebf000       __ehfuncinfo$?_Swap_all@_Container_base12@std@@QAEXAAU12@@Z 00400000     libcpmtd:xonce.obj
- 0002:ffebf000       __ehfuncinfo$?_Orphan_all@_Container_base12@std@@QAEXXZ 00400000     libcpmtd:xonce.obj
- 0001:fffff000       __unwindfunclet$??$?0V?$allocator@D@std@@X@?$_String_alloc@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QAE@$$QAV?$allocator@D@1@@Z$0 00400000 f   libcpmtd:xonce.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xlocale.obj
- 0001:fffff000       __unwindfunclet$??0_System_error@std@@IAE@Verror_code@1@ABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@1@@Z$1 00400000 f   libcpmtd:xonce.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xonce.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xonce.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xonce.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xonce.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xonce.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xonce.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xonce.obj
+ 0001:fffff000       __ehhandler$?_Orphan_all@_Container_base12@std@@QAEXXZ 00400000 f   libcpmtd:syserror.obj
+ 0002:ffebf000       __ehfuncinfo$?_Orphan_all@_Container_base12@std@@QAEXXZ 00400000     libcpmtd:syserror.obj
+ 0001:fffff000       __ehhandler$??1locale@std@@QAE@XZ 00400000 f   libcpmtd:ios.obj
+ 0002:ffebf000       __ehfuncinfo$??1locale@std@@QAE@XZ 00400000     libcpmtd:ios.obj
  0000:ffe42000       __guard_fids__             00400000     libcpmtd:xlocale.obj
  0000:ffe42000       __guard_fids__             00400000     libcpmtd:xlocale.obj
- 0001:fffff000       __unwindfunclet$?_Makestr@_System_error@std@@CA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@2@Verror_code@2@V32@@Z$0 00400000 f   libcpmtd:xonce.obj
  0000:ffe42000       __guard_fids__             00400000     libcpmtd:xlocale.obj
- 0001:fffff000       __ehhandler$?c_str@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QBEPBDXZ 00400000 f   libcpmtd:xonce.obj
- 0001:fffff000       __ehhandler$??1?$__crt_win32_buffer@_WU__crt_win32_buffer_internal_dynamic_resizing@@@@QAE@XZ 00400000 f   libucrtd:open.obj
- 0001:fffff000       __ehhandler$??1?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@XZ 00400000 f   libcpmtd:xonce.obj
- 0001:fffff000       __ehhandler$?_Assign_rv_contents_with_alloc_always_equal@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEX$$QAV12@U?$integral_constant@_N$00@2@@Z 00400000 f   libcpmtd:xonce.obj
- 0001:fffff000       __ehhandler$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@$$QAV01@@Z 00400000 f   libcpmtd:xonce.obj
- 0001:fffff000       __unwindfunclet$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@ID@Z$0 00400000 f   libcpmtd:xonce.obj
- 0002:ffebf000       __ehfuncinfo$??1?$__crt_win32_buffer@_WU__crt_win32_buffer_internal_dynamic_resizing@@@@QAE@XZ 00400000     libucrtd:open.obj
  0000:ffe42000       __guard_fids__             00400000     libcpmtd:xlocale.obj
- 0000:ffe42000       __guard_fids_??__Eclassic_locale@std@@YAXXZ 00400000     libcpmtd:locale0.obj
- 0000:ffe42000       __guard_fids_?_Setgloballocale@locale@std@@CAXPAX@Z 00400000     libcpmtd:locale0.obj
- 0002:ffebf000       __ehfuncinfo$??1locale@std@@QAE@XZ 00400000     libcpmtd:locale0.obj
- 0002:ffebf000       __ehfuncinfo$??1?$_Yarn@D@std@@QAE@XZ 00400000     libcpmtd:locale0.obj
- 0000:ffe42000       __guard_fids_??__E_Fac_tidy_reg@std@@YAXXZ 00400000     libcpmtd:locale0.obj
- 0000:ffe42000       __guard_fids____libm_error_support 00400000     libucrtd:libm_error.obj
- 0001:fffff000       __ehhandler$??1locale@std@@QAE@XZ 00400000 f   libcpmtd:locale0.obj
- 0001:fffff000       __ehhandler$??1?$_Yarn@D@std@@QAE@XZ 00400000 f   libcpmtd:locale0.obj
- 0000:ffe42000       __guard_fids__             00400000     libvcruntimed:jbcxrval.obj
- 0000:ffe42000       __guard_fids___guard_icall_checks_enforced 00400000     libvcruntimed:jbcxrval.obj
- 0000:ffe42000       __guard_fids____except_validate_jump_buffer 00400000     libvcruntimed:jbcxrval.obj
- 0000:ffe42000       __guard_fids__             00400000     libvcruntimed:undname.obj
- 0000:ffe42000       __guard_fids__             00400000     libvcruntimed:undname.obj
- 0000:ffe42000       __guard_fids__             00400000     libvcruntimed:undname.obj
- 0000:ffe42000       __guard_fids__             00400000     libvcruntimed:undname.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xthrow.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xthrow.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xthrow.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xthrow.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xthrow.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xthrow.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xthrow.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xthrow.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xthrow.obj
- 0001:fffff000       __ehhandler$??1?$__crt_win32_buffer@_WU__crt_win32_buffer_internal_dynamic_resizing@@@@QAE@XZ 00400000 f   libucrtd:findfirstfileexa.obj
- 0002:ffebf000       __ehfuncinfo$??1?$__crt_win32_buffer@_WU__crt_win32_buffer_internal_dynamic_resizing@@@@QAE@XZ 00400000     libucrtd:findfirstfileexa.obj
- 0000:ffe42000       __guard_fids_??$__acrt_mbs_to_wcs@U__crt_win32_buffer_internal_dynamic_resizing@@@@YAHQBDAAV?$__crt_win32_buffer@_WU__crt_win32_buffer_internal_dynamic_resizing@@@@PAU__crt_locale_pointers@@@Z 00400000     libucrtd:findfirstfileexa.obj
- 0001:fffff000       __ehhandler$??1?$__crt_win32_buffer@DU__crt_win32_buffer_no_resizing@@@@QAE@XZ 00400000 f   libucrtd:findnextfilea.obj
- 0002:ffebf000       __ehfuncinfo$??1?$__crt_win32_buffer@DU__crt_win32_buffer_no_resizing@@@@QAE@XZ 00400000     libucrtd:findnextfilea.obj
- 0000:ffe42000       __guard_fids_??$__acrt_wcs_to_mbs@U__crt_win32_buffer_no_resizing@@@@YAHQB_WAAV?$__crt_win32_buffer@DU__crt_win32_buffer_no_resizing@@@@PAU__crt_locale_pointers@@@Z 00400000     libucrtd:findnextfilea.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xthrow.obj
- 0000:ffe42000       __guard_fids__             00400000     libucrtd:multibyte_initializer.obj
- 0001:fffff000       __ehhandler$??1?$__crt_win32_buffer@_WU__crt_win32_buffer_internal_dynamic_resizing@@@@QAE@XZ 00400000 f   libucrtd:setenvironmentvariablea.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xthrow.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xthrow.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xlock.obj
- 0000:ffe42000       __guard_fids_??__Einitlocks@std@@YAXXZ 00400000     libcpmtd:xlock.obj
- 0000:ffe42000       __guard_fids__             00400000     libvcruntimed:undname.obj
- 0000:ffe42000       __guard_fids___guard_icall_checks_enforced 00400000     LIBCMTD:guard_support.obj
- 0000:ffe42000       __guard_fids__             00400000     LIBCMTD:guard_support.obj
- 0000:ffe42000       __guard_fids____scrt_set_unhandled_exception_filter 00400000     LIBCMTD:utility_desktop.obj
- 0000:ffe42000       __guard_fids__             00400000     LIBCMTD:throw_bad_alloc.obj
- 0000:ffe42000       __guard_fids__             00400000     LIBCMTD:throw_bad_alloc.obj
- 0000:ffe42000       __guard_fids__             00400000     LIBCMTD:throw_bad_alloc.obj
- 0000:ffe42000       __guard_fids__             00400000     LIBCMTD:throw_bad_alloc.obj
- 0000:ffe42000       __guard_fids__             00400000     LIBCMTD:throw_bad_alloc.obj
- 0000:ffe42000       __guard_fids__             00400000     LIBCMTD:throw_bad_alloc.obj
- 0000:ffe42000       __guard_fids__             00400000     LIBCMTD:throw_bad_alloc.obj
- 0000:ffe42000       __guard_fids__             00400000     LIBCMTD:throw_bad_alloc.obj
- 0000:ffe42000       __guard_fids_?pre_c_initialization@@YAHXZ 00400000     LIBCMTD:exe_main.obj
- 0000:ffe42000       __guard_fids__             00400000     libvcruntimed:undname.obj
- 0000:ffe42000       __guard_fids_?get_unexpected_or_default@@YAP6AXXZQBU__vcrt_ptd@@@Z 00400000     libvcruntimed:unexpected.obj
- 0000:ffe42000       __guard_fids__             00400000     LIBCMTD:exe_main.obj
- 0000:ffe42000       __guard_fids_?__scrt_initialize_thread_safe_statics@@YAHXZ 00400000     LIBCMTD:thread_safe_statics.obj
- 0000:ffe42000       __guard_fids__             00400000     libucrtd:timeset_initializer.obj
- 0000:ffe42000       __guard_fids__             00400000     LIBCMTD:thread_safe_statics.obj
+ 0001:fffff000       __ehhandler$?_Orphan_all@_Container_base12@std@@QAEXXZ 00400000 f   libcpmtd:locale.obj
+ 0001:fffff000       __ehhandler$?_Swap_all@_Container_base12@std@@QAEXAAU12@@Z 00400000 f   libcpmtd:locale.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xlocale.obj
+ 0001:fffff000       __unwindfunclet$??0?$_String_alloc@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QAE@XZ$0 00400000 f   libcpmtd:locale.obj
+ 0001:fffff000       __ehhandler$??1?$_String_alloc@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QAE@XZ 00400000 f   libcpmtd:locale.obj
+ 0001:fffff000       __ehhandler$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@XZ 00400000 f   libcpmtd:locale.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xlocale.obj
+ 0001:fffff000       __unwindfunclet$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@QBD@Z$0 00400000 f   libcpmtd:locale.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xlocale.obj
+ 0001:fffff000       __unwindfunclet$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@ID@Z$0 00400000 f   libcpmtd:locale.obj
+ 0001:fffff000       __ehhandler$??4?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEAAV01@$$QAV01@@Z 00400000 f   libcpmtd:locale.obj
+ 0001:fffff000       __ehhandler$?_Assign_rv_contents_with_alloc_always_equal@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEX$$QAV12@U?$integral_constant@_N$00@2@@Z 00400000 f   libcpmtd:locale.obj
+ 0001:fffff000       __ehhandler$??1?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@XZ 00400000 f   libcpmtd:locale.obj
+ 0001:fffff000       __ehhandler$?c_str@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QBEPBDXZ 00400000 f   libcpmtd:locale.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xlocale.obj
+ 0001:fffff000       __unwindfunclet$??0_Locinfo@std@@QAE@PBD@Z$0 00400000 f   libcpmtd:locale.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xlocale.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xlocale.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xlocale.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xlocale.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xlocale.obj
+ 0000:ffe42000       __guard_fids__             00400000     libucrtd:locale_initializer.obj
+ 0000:ffe42000       __guard_fids__GetLcidFromCountry 00400000     libucrtd:getqloc_downlevel.obj
+ 0000:ffe42000       __guard_fids__GetLcidFromLanguage 00400000     libucrtd:getqloc_downlevel.obj
+ 0000:ffe42000       __guard_fids__GetLcidFromLangCountry 00400000     libucrtd:getqloc_downlevel.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xlocale.obj
+ 0001:fffff000       __ehhandler$??1_Locinfo@std@@QAE@XZ 00400000 f   libcpmtd:locale.obj
+ 0001:fffff000       __ehhandler$??1?$_Yarn@D@std@@QAE@XZ 00400000 f   libcpmtd:locale.obj
+ 0001:fffff000       __ehhandler$??1?$_Yarn@_W@std@@QAE@XZ 00400000 f   libcpmtd:locale.obj
+ 0001:fffff000       __ehhandler$??0locale@std@@QAE@ABV01@@Z 00400000 f   libcpmtd:locale.obj
+ 0001:fffff000       __ehhandler$??0locale@std@@QAE@XZ 00400000 f   libcpmtd:locale.obj
+ 0001:fffff000       __ehhandler$??1locale@std@@QAE@XZ 00400000 f   libcpmtd:locale.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xlocale.obj
+ 0001:fffff000       __unwindfunclet$??0?$ctype@D@std@@QAE@ABV_Locinfo@1@I@Z$0 00400000 f   libcpmtd:locale.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xlocale.obj
+ 0001:fffff000       __unwindfunclet$?_Getcat@?$ctype@D@std@@SAIPAPBVfacet@locale@2@PBV42@@Z$0 00400000 f   libcpmtd:locale.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xlocale.obj
+ 0001:fffff000       __ehhandler$??1?$ctype@D@std@@MAE@XZ 00400000 f   libcpmtd:locale.obj
+ 0000:ffe42000       __guard_fids__GetLocaleNameFromLanguage 00400000     libucrtd:get_qualified_locale.obj
+ 0000:ffe42000       __guard_fids__GetLocaleNameFromLangCountry 00400000     libucrtd:get_qualified_locale.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xlocale.obj
+ 0001:fffff000       __unwindfunclet$??$use_facet@V?$ctype@D@std@@@std@@YAABV?$ctype@D@0@ABVlocale@0@@Z$0 00400000 f   libcpmtd:locale.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xlocale.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xlocale.obj
+ 0001:fffff000       __unwindfunclet$?_Getcat@?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@SAIPAPBVfacet@locale@2@PBV42@@Z$0 00400000 f   libcpmtd:locale.obj
+ 0002:ffebf000       __unwindtable$??$?0V?$allocator@D@std@@X@?$_String_alloc@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QAE@$$QAV?$allocator@D@1@@Z 00400000     libcpmtd:xlocale.obj
+ 0001:fffff000       __unwindfunclet$??0?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@QAE@ABV_Locinfo@1@I@Z$0 00400000 f   libcpmtd:locale.obj
+ 0002:ffebf000       __unwindtable$??$_Getloctxt@DV?$istreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@YAHAAV?$istreambuf_iterator@DU?$char_traits@D@std@@@0@0IPBD@Z 00400000     libcpmtd:xlocale.obj
+ 0001:fffff000       __unwindfunclet$?do_put@?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@MBE?AV?$ostreambuf_iterator@DU?$char_traits@D@std@@@2@V32@AAVios_base@2@D_N@Z$0 00400000 f   libcpmtd:locale.obj
+ 0001:fffff000       __unwindfunclet$??0NxBodyDesc@@QAE@XZ$0 00400000 f   VortexSample.obj
+ 0001:fffff000       __ehhandler$??1?$NxArray@PAVNxShapeDesc@@VNxAllocatorDefault@@@@QAE@XZ 00400000 f   VortexSample.obj
+ 0001:fffff000       __unwindfunclet$?do_put@?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@MBE?AV?$ostreambuf_iterator@DU?$char_traits@D@std@@@2@V32@AAVios_base@2@DN@Z$0 00400000 f   libcpmtd:locale.obj
+ 0001:fffff000       __unwindfunclet$??0NxActorDesc@@QAE@XZ$0 00400000 f   VortexSample.obj
+ 0001:fffff000       __unwindfunclet$?do_put@?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@MBE?AV?$ostreambuf_iterator@DU?$char_traits@D@std@@@2@V32@AAVios_base@2@DO@Z$0 00400000 f   libcpmtd:locale.obj
+ 0001:fffff000       __unwindfunclet$??0NxForceFieldShapeDesc@@IAE@W4NxShapeType@@@Z$0 00400000 f   VortexSample.obj
+ 0001:fffff000       __unwindfunclet$?_Fput@?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@ABA?AV?$ostreambuf_iterator@DU?$char_traits@D@std@@@2@V32@AAVios_base@2@DPBDI@Z$0 00400000 f   libcpmtd:locale.obj
+ 0001:fffff000       __ehhandler$??1?$NxArray@PAVNxForceFieldShapeDesc@@VNxAllocatorDefault@@@@QAE@XZ 00400000 f   VortexSample.obj
+ 0001:fffff000       __ehhandler$??1?$NxArray@PAVNxForceFieldShapeGroup@@VNxAllocatorDefault@@@@QAE@XZ 00400000 f   VortexSample.obj
+ 0001:fffff000       __unwindfunclet$??0NxForceFieldDesc@@QAE@XZ$0 00400000 f   VortexSample.obj
+ 0001:fffff000       __unwindfunclet$??0NxForceFieldShapeGroupDesc@@QAE@XZ$0 00400000 f   VortexSample.obj
+ 0001:fffff000       __unwindfunclet$?_Iput@?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@ABA?AV?$ostreambuf_iterator@DU?$char_traits@D@std@@@2@V32@AAVios_base@2@DPADI@Z$0 00400000 f   libcpmtd:locale.obj
+ 0001:fffff000       __unwindfunclet$??0NxForceFieldLinearKernelDesc@@QAE@XZ$0 00400000 f   VortexSample.obj
+ 0002:ffebf000       __unwindtable$??0NxMat34@@QAE@_N@Z 00400000     VortexSample.obj
+ 0002:ffebf000       __unwindtable$??0NxBodyDesc@@QAE@XZ 00400000     VortexSample.obj
+ 0002:ffebf000       __ehfuncinfo$??1?$NxArray@PAVNxShapeDesc@@VNxAllocatorDefault@@@@QAE@XZ 00400000     VortexSample.obj
+ 0001:fffff000       __unwindfunclet$??$use_facet@V?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@@std@@YAABV?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@0@ABVlocale@0@@Z$0 00400000 f   libcpmtd:locale.obj
+ 0002:ffebf000       __unwindtable$??0NxActorDesc@@QAE@XZ 00400000     VortexSample.obj
+ 0002:ffebf000       __unwindtable$??0NxForceFieldShapeDesc@@IAE@W4NxShapeType@@@Z 00400000     VortexSample.obj
+ 0001:fffff000       __unwindfunclet$??0?$numpunct@D@std@@QAE@ABV_Locinfo@1@I_N@Z$0 00400000 f   libcpmtd:locale.obj
+ 0002:ffebf000       __ehfuncinfo$??1?$NxArray@PAVNxForceFieldShapeDesc@@VNxAllocatorDefault@@@@QAE@XZ 00400000     VortexSample.obj
+ 0001:fffff000       __unwindfunclet$?_Getcat@?$numpunct@D@std@@SAIPAPBVfacet@locale@2@PBV42@@Z$0 00400000 f   libcpmtd:locale.obj
+ 0002:ffebf000       __ehfuncinfo$??1?$NxArray@PAVNxForceFieldShapeGroup@@VNxAllocatorDefault@@@@QAE@XZ 00400000     VortexSample.obj
+ 0001:fffff000       __ehhandler$??1?$numpunct@D@std@@MAE@XZ 00400000 f   libcpmtd:locale.obj
+ 0001:fffff000       __ehhandler$?_Init@?$numpunct@D@std@@IAEXABV_Locinfo@2@_N@Z 00400000 f   libcpmtd:locale.obj
+ 0002:ffebf000       __unwindtable$??0NxForceFieldDesc@@QAE@XZ 00400000     VortexSample.obj
+ 0002:ffebf000       __unwindtable$??0NxForceFieldShapeGroupDesc@@QAE@XZ 00400000     VortexSample.obj
+ 0001:fffff000       __unwindfunclet$??$use_facet@V?$numpunct@D@std@@@std@@YAABV?$numpunct@D@0@ABVlocale@0@@Z$0 00400000 f   libcpmtd:locale.obj
+ 0002:ffebf000       __unwindtable$??0NxForceFieldLinearKernelDesc@@QAE@XZ 00400000     VortexSample.obj
+ 0002:ffebf000       __unwindtable$??$use_facet@V?$ctype@D@std@@@std@@YAABV?$ctype@D@0@ABVlocale@0@@Z 00400000     libcpmtd:xlocale.obj
+ 0001:fffff000       __unwindfunclet$??0?$codecvt@DDU_Mbstatet@@@std@@QAE@ABV_Locinfo@1@I@Z$0 00400000 f   libcpmtd:locale.obj
+ 0002:ffebf000       __ehfuncinfo$??1?$ctype@D@std@@MAE@XZ 00400000     libcpmtd:xlocale.obj
+ 0001:fffff000       __unwindfunclet$?_Getcat@?$codecvt@DDU_Mbstatet@@@std@@SAIPAPBVfacet@locale@2@PBV42@@Z$0 00400000 f   libcpmtd:locale.obj
+ 0002:ffebf000       __unwindtable$?_Getcat@?$ctype@D@std@@SAIPAPBVfacet@locale@2@PBV42@@Z 00400000     libcpmtd:xlocale.obj
+ 0002:ffebf000       __unwindtable$??0?$ctype@D@std@@QAE@ABV_Locinfo@1@I@Z 00400000     libcpmtd:xlocale.obj
+ 0001:fffff000       __unwindfunclet$??$use_facet@V?$codecvt@DDU_Mbstatet@@@std@@@std@@YAABV?$codecvt@DDU_Mbstatet@@@0@ABVlocale@0@@Z$0 00400000 f   libcpmtd:locale.obj
+ 0002:ffebf000       __unwindtable$?name@locale@std@@QBE?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@2@XZ 00400000     libcpmtd:xlocale.obj
+ 0001:fffff000       __ehhandler$??$?0U?$default_delete@V_Facet_base@std@@@std@@$0A@@?$unique_ptr@V_Facet_base@std@@U?$default_delete@V_Facet_base@std@@@2@@std@@QAE@PAV_Facet_base@1@@Z 00400000 f   libcpmtd:locale.obj
+ 0002:ffebf000       __ehfuncinfo$?_Orphan_all@_Container_base12@std@@QAEXXZ 00400000     libcpmtd:locale.obj
+ 0002:ffebf000       __ehfuncinfo$?_Swap_all@_Container_base12@std@@QAEXAAU12@@Z 00400000     libcpmtd:locale.obj
+ 0002:ffebf000       __ehfuncinfo$??1locale@std@@QAE@XZ 00400000     libcpmtd:xlocale.obj
+ 0002:ffebf000       __unwindtable$??0?$_String_alloc@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QAE@XZ 00400000     libcpmtd:locale.obj
+ 0002:ffebf000       __ehfuncinfo$??0locale@std@@QAE@ABV01@@Z 00400000     libcpmtd:xlocale.obj
+ 0002:ffebf000       __ehfuncinfo$??1?$_Yarn@_W@std@@QAE@XZ 00400000     libcpmtd:xlocale.obj
+ 0002:ffebf000       __ehfuncinfo$??1?$_String_alloc@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QAE@XZ 00400000     libcpmtd:locale.obj
+ 0002:ffebf000       __ehfuncinfo$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@XZ 00400000     libcpmtd:locale.obj
+ 0001:fffff000       __unwindfunclet$??0NxMat34@@QAE@_N@Z$0 00400000 f   ExplosionSample.obj
+ 0002:ffebf000       __unwindtable$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@QBD@Z 00400000     libcpmtd:locale.obj
+ 0002:ffebf000       __ehfuncinfo$??1?$_Yarn@D@std@@QAE@XZ 00400000     libcpmtd:xlocale.obj
+ 0002:ffebf000       __unwindtable$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@ID@Z 00400000     libcpmtd:locale.obj
+ 0002:ffebf000       __ehfuncinfo$??4?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEAAV01@$$QAV01@@Z 00400000     libcpmtd:locale.obj
+ 0002:ffebf000       __ehfuncinfo$?_Assign_rv_contents_with_alloc_always_equal@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEX$$QAV12@U?$integral_constant@_N$00@2@@Z 00400000     libcpmtd:locale.obj
+ 0002:ffebf000       __ehfuncinfo$??1?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@XZ 00400000     libcpmtd:locale.obj
+ 0002:ffebf000       __ehfuncinfo$?c_str@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QBEPBDXZ 00400000     libcpmtd:locale.obj
+ 0002:ffebf000       __ehfuncinfo$??0_Locinfo@std@@QAE@PBD@Z 00400000     libcpmtd:locale.obj
+ 0002:ffebf000       __ehfuncinfo$??1_Locinfo@std@@QAE@XZ 00400000     libcpmtd:xlocale.obj
+ 0002:ffebf000       __ehfuncinfo$??1_Locinfo@std@@QAE@XZ 00400000     libcpmtd:locale.obj
+ 0002:ffebf000       __ehfuncinfo$??1?$_Yarn@D@std@@QAE@XZ 00400000     libcpmtd:locale.obj
+ 0002:ffebf000       __ehfuncinfo$??1?$_Yarn@_W@std@@QAE@XZ 00400000     libcpmtd:locale.obj
+ 0002:ffebf000       __ehfuncinfo$??0locale@std@@QAE@ABV01@@Z 00400000     libcpmtd:locale.obj
+ 0002:ffebf000       __ehfuncinfo$??0locale@std@@QAE@XZ 00400000     libcpmtd:locale.obj
+ 0002:ffebf000       __ehfuncinfo$??1locale@std@@QAE@XZ 00400000     libcpmtd:locale.obj
+ 0002:ffebf000       __unwindtable$??0?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@QAE@ABV_Locinfo@1@I@Z 00400000     libcpmtd:locale.obj
+ 0002:ffebf000       __ehfuncinfo$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@XZ 00400000     libcpmtd:xlocale.obj
+ 0002:ffebf000       __unwindtable$??$use_facet@V?$numpunct@D@std@@@std@@YAABV?$numpunct@D@0@ABVlocale@0@@Z 00400000     libcpmtd:locale.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:locale.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:locale.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:locale.obj
+ 0001:fffff000       __unwindfunclet$??$_Getloctxt@DV?$istreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@YAHAAV?$istreambuf_iterator@DU?$char_traits@D@std@@@0@0IPBD@Z$0 00400000 f   libcpmtd:xlocale.obj
+ 0001:fffff000       __unwindfunclet$?name@locale@std@@QBE?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@2@XZ$0 00400000 f   libcpmtd:xlocale.obj
+ 0001:fffff000       __unwindfunclet$??0_Locinfo@std@@QAE@PBD@Z$0 00400000 f   libcpmtd:xlocale.obj
+ 0001:fffff000       __ehhandler$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@$$QAV01@@Z 00400000 f   libcpmtd:xlocale.obj
+ 0001:fffff000       __ehhandler$?_Swap_all@_Container_base12@std@@QAEXAAU12@@Z 00400000 f   libcpmtd:wlocale.obj
+ 0001:fffff000       __ehhandler$??1?$_String_alloc@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QAE@XZ 00400000 f   libcpmtd:xlocale.obj
+ 0001:fffff000       __ehhandler$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@XZ 00400000 f   libcpmtd:wlocale.obj
+ 0001:fffff000       __unwindfunclet$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@QBD@Z$0 00400000 f   libcpmtd:wlocale.obj
+ 0001:fffff000       __unwindfunclet$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@ID@Z$0 00400000 f   libcpmtd:wlocale.obj
+ 0000:ffe42000       __guard_fids__             00400000     libucrtd:debug_heap_hook.obj
+ 0001:fffff000       __ehhandler$??1?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@XZ 00400000 f   libcpmtd:wlocale.obj
+ 0001:fffff000       __ehhandler$?c_str@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QBEPBDXZ 00400000 f   libcpmtd:wlocale.obj
+ 0002:ffebf000       __ehfuncinfo$??0_Locinfo@std@@QAE@PBD@Z 00400000     libcpmtd:xlocale.obj
+ 0001:fffff000       __ehhandler$?_Orphan_all@_Container_base12@std@@QAEXXZ 00400000 f   libcpmtd:wlocale.obj
+ 0001:fffff000       __ehhandler$??4?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEAAV01@$$QAV01@@Z 00400000 f   libcpmtd:xlocale.obj
+ 0001:fffff000       __unwindfunclet$??$use_facet@V?$ctype@D@std@@@std@@YAABV?$ctype@D@0@ABVlocale@0@@Z$0 00400000 f   libcpmtd:xlocale.obj
+ 0001:fffff000       __ehhandler$??1_Locinfo@std@@QAE@XZ 00400000 f   libcpmtd:xlocale.obj
+ 0001:fffff000       __unwindfunclet$??0NxMat34@@QAE@_N@Z$0 00400000 f   WindSample.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:locale.obj
+ 0002:ffebf000       __unwindtable$??0?$_String_alloc@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QAE@XZ 00400000     libcpmtd:xlocale.obj
+ 0002:ffebf000       __ehfuncinfo$??1?$__crt_win32_buffer@_WU__crt_win32_buffer_internal_dynamic_resizing@@@@QAE@XZ 00400000     libucrtd:setenvironmentvariablea.obj
+ 0002:ffebf000       __ehfuncinfo$?c_str@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QBEPBDXZ 00400000     libcpmtd:xlocale.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:locale.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:locale.obj
+ 0001:fffff000       __unwindfunclet$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@QBD@Z$0 00400000 f   libcpmtd:xonce.obj
  0000:ffe42000       __guard_fids__             00400000     LIBCMTD:std_type_info_static.obj
  0000:ffe3f000       .debug$S                   00400000     glu32:GLU32.dll
  0000:ffe3f000       .debug$S                   00400000     glu32:GLU32.dll
@@ -9992,6 +9991,7 @@
  0000:ffe3f000       .debug$S                   00400000     glut32:glut32.dll
  0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
  0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
  0002:ffebf000       __unwindtable$??0NxSphereShapeDesc@@QAE@XZ 00400000     Lesson116.obj
  0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
  0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
@@ -10004,368 +10004,415 @@
  0002:ffebf000       __unwindtable$??0NxBodyDesc@@QAE@XZ 00400000     Lesson116.obj
  0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
  0002:ffebf000       __unwindtable$??0NxMat34@@QAE@_N@Z 00400000     Lesson116.obj
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
  0000:ffe3f000       .debug$S                   00400000     PhysXLoader:PhysXLoader.dll
  0000:ffe42000       __guard_fids__             00400000     libucrtd:console_output_initializer.obj
  0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe42000       __guard_fids__             00400000     libucrtd:wsetlocale.obj
+ 0001:fffff000       __ehhandler$??1_Iterator_base12@std@@QAE@XZ 00400000 f   libcpmtd:xlocale.obj
+ 0002:ffebf000       __ehfuncinfo$?begin@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE?AV?$_String_iterator@V?$_String_val@U?$_Simple_types@D@std@@@std@@@2@XZ 00400000     libcpmtd:xlocale.obj
+ 0001:fffff000       __ehhandler$??0locale@std@@QAE@ABV01@@Z 00400000 f   libcpmtd:xlocale.obj
+ 0002:ffebf000       __unwindtable$?_Iput@?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@ABA?AV?$ostreambuf_iterator@DU?$char_traits@D@std@@@2@V32@AAVios_base@2@DPADI@Z 00400000     libcpmtd:locale.obj
+ 0002:ffebf000       __unwindtable$??$use_facet@V?$codecvt@DDU_Mbstatet@@@std@@@std@@YAABV?$codecvt@DDU_Mbstatet@@@0@ABVlocale@0@@Z 00400000     libcpmtd:locale.obj
+ 0000:ffe42000       __guard_fids_??$__acrt_mbs_to_wcs@U__crt_win32_buffer_internal_dynamic_resizing@@@@YAHQBDAAV?$__crt_win32_buffer@_WU__crt_win32_buffer_internal_dynamic_resizing@@@@PAU__crt_locale_pointers@@@Z 00400000     libucrtd:setenvironmentvariablea.obj
+ 0002:ffebf000       __unwindtable$??0?$ctype@D@std@@QAE@ABV_Locinfo@1@I@Z 00400000     libcpmtd:locale.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:locale.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:locale.obj
+ 0001:fffff000       __unwindfunclet$??0_Locinfo@std@@QAE@PBD@Z$0 00400000 f   libcpmtd:wlocale.obj
+ 0002:ffebf000       __unwindtable$??0?$numpunct@D@std@@QAE@ABV_Locinfo@1@I_N@Z 00400000     libcpmtd:locale.obj
+ 0001:fffff000       __ehhandler$??1?$ctype@D@std@@MAE@XZ 00400000 f   libcpmtd:xlocale.obj
+ 0001:fffff000       __ehhandler$??1?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@XZ 00400000 f   libcpmtd:xlocale.obj
+ 0001:fffff000       __ehhandler$??1?$_Yarn@_W@std@@QAE@XZ 00400000 f   libcpmtd:xlocale.obj
+ 0001:fffff000       __ehhandler$??$?0U?$default_delete@V_Facet_base@std@@@std@@$0A@@?$unique_ptr@V_Facet_base@std@@U?$default_delete@V_Facet_base@std@@@2@@std@@QAE@PAV_Facet_base@1@@Z 00400000 f   libcpmtd:xlocale.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:locale.obj
+ 0002:ffebf000       __unwindtable$??$use_facet@V?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@@std@@YAABV?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@0@ABVlocale@0@@Z 00400000     libcpmtd:locale.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xthrow.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:locale.obj
+ 0002:ffebf000       __ehfuncinfo$?_Adopt@_Iterator_base12@std@@QAEXPBU_Container_base12@2@@Z 00400000     libcpmtd:xlocale.obj
+ 0001:fffff000       __ehhandler$?begin@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE?AV?$_String_iterator@V?$_String_val@U?$_Simple_types@D@std@@@std@@@2@XZ 00400000 f   libcpmtd:xlocale.obj
+ 0002:ffebf000       __unwindtable$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@ID@Z 00400000     libcpmtd:xlocale.obj
+ 0001:fffff000       __ehhandler$??4_Iterator_base12@std@@QAEAAU01@ABU01@@Z 00400000 f   libcpmtd:xlocale.obj
+ 0002:ffebf000       __ehfuncinfo$??4_Iterator_base12@std@@QAEAAU01@ABU01@@Z 00400000     libcpmtd:xlocale.obj
+ 0001:fffff000       __ehhandler$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@XZ 00400000 f   libcpmtd:xlocale.obj
+ 0000:ffe42000       __guard_fids_??__Einit_atexit@@YAXXZ 00400000     libcpmtd:iosptrs.obj
+ 0002:ffebf000       __ehfuncinfo$??1_Iterator_base12@std@@QAE@XZ 00400000     libcpmtd:xlocale.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xthrow.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:locale.obj
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0002:ffebf000       __ehfuncinfo$??$?0U?$default_delete@V_Facet_base@std@@@std@@$0A@@?$unique_ptr@V_Facet_base@std@@U?$default_delete@V_Facet_base@std@@@2@@std@@QAE@PAV_Facet_base@1@@Z 00400000     libcpmtd:locale.obj
+ 0001:fffff000       __unwindfunclet$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@QBD@Z$0 00400000 f   libcpmtd:xlocale.obj
+ 0002:ffebf000       __ehfuncinfo$??1?$numpunct@D@std@@MAE@XZ 00400000     libcpmtd:locale.obj
+ 0001:fffff000       __ehhandler$?_Swap_all@_Container_base12@std@@QAEXAAU12@@Z 00400000 f   libcpmtd:xlocale.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:locale.obj
+ 0001:fffff000       __ehhandler$??1_Iterator_base12@std@@QAE@XZ 00400000 f   libcpmtd:wlocale.obj
+ 0000:ffe42000       __guard_fids____acrt_initialize_ptd 00400000     libucrtd:per_thread_data.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:locale.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xthrow.obj
+ 0001:fffff000       __unwindfunclet$??$?0V?$allocator@D@std@@X@?$_String_alloc@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QAE@$$QAV?$allocator@D@1@@Z$0 00400000 f   libcpmtd:xlocale.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:locale.obj
+ 0001:fffff000       __ehhandler$??4_Iterator_base12@std@@QAEAAU01@ABU01@@Z 00400000 f   libcpmtd:wlocale.obj
+ 0002:ffebf000       __unwindtable$?_Getcat@?$codecvt@DDU_Mbstatet@@@std@@SAIPAPBVfacet@locale@2@PBV42@@Z 00400000     libcpmtd:locale.obj
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0001:fffff000       __ehhandler$?_Orphan_all@_Container_base12@std@@QAEXXZ 00400000 f   libcpmtd:xlocale.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:locale.obj
+ 0001:fffff000       __unwindfunclet$??0?$_String_alloc@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QAE@XZ$0 00400000 f   libcpmtd:wlocale.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:locale.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xthrow.obj
+ 0001:fffff000       __unwindfunclet$?_Getcat@?$ctype@D@std@@SAIPAPBVfacet@locale@2@PBV42@@Z$0 00400000 f   libcpmtd:xlocale.obj
+ 0002:ffebf000       ??id$initializer$@?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@2P6AXXZA@@3P6AXXZA 00400000     libcpmtd:locale.obj
+ 0002:ffebf000       __unwindtable$?_Getcat@?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@SAIPAPBVfacet@locale@2@PBV42@@Z 00400000     libcpmtd:locale.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:locale.obj
+ 0000:ffe42000       __guard_fids__signal       00400000     libucrtd:signal.obj
+ 0001:fffff000       __unwindfunclet$??0?$_String_alloc@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QAE@XZ$0 00400000 f   libcpmtd:xlocale.obj
+ 0002:ffebf000       ??id$initializer$@?$numpunct@D@std@@2P6AXXZA@@3P6AXXZA 00400000     libcpmtd:locale.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xthrow.obj
+ 0000:ffe42000       __guard_fids_??B<lambda_86056e3c024bff449830248dc1621ed2>@@QBEP6AHPBX0@ZXZ 00400000     libucrtd:argv_wildcards.obj
+ 0000:ffe42000       __guard_fids_??__Einitlocks@std@@YAXXZ 00400000     libcpmtd:iosptrs.obj
+ 0002:ffebf000       __unwindtable$?do_put@?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@MBE?AV?$ostreambuf_iterator@DU?$char_traits@D@std@@@2@V32@AAVios_base@2@DO@Z 00400000     libcpmtd:locale.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:locale.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
+ 0001:fffff000       __ehhandler$?_Adopt@_Iterator_base12@std@@QAEXPBU_Container_base12@2@@Z 00400000 f   libcpmtd:xlocale.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:iosptrs.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xthrow.obj
+ 0002:ffebf000       __unwindtable$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@QBD@Z 00400000     libcpmtd:xlocale.obj
+ 0001:fffff000       __unwindfunclet$??0?$ctype@D@std@@QAE@ABV_Locinfo@1@I@Z$0 00400000 f   libcpmtd:xlocale.obj
+ 0002:ffebf000       __unwindtable$?_Getcat@?$numpunct@D@std@@SAIPAPBVfacet@locale@2@PBV42@@Z 00400000     libcpmtd:locale.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
+ 0001:fffff000       __ehhandler$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@$$QAV01@@Z 00400000 f   libcpmtd:wlocale.obj
+ 0000:ffe42000       __guard_fids_??B<lambda_601ce2808d07e6dd980fd6da59ab4158>@@QBEP6AHPBX0@ZXZ 00400000     libucrtd:argv_wildcards.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xthrow.obj
+ 0001:fffff000       __ehhandler$??1?$_Yarn@D@std@@QAE@XZ 00400000 f   libcpmtd:xlocale.obj
+ 0002:ffebf000       __ehfuncinfo$?_Swap_all@_Container_base12@std@@QAEXAAU12@@Z 00400000     libcpmtd:xlocale.obj
+ 0001:fffff000       __ehhandler$??1_Locinfo@std@@QAE@XZ 00400000 f   libcpmtd:wlocale.obj
+ 0001:fffff000       __ehhandler$?_Assign_rv_contents_with_alloc_always_equal@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEX$$QAV12@U?$integral_constant@_N$00@2@@Z 00400000 f   libcpmtd:wlocale.obj
+ 0002:ffebf000       __unwindtable$?_Getcat@?$ctype@D@std@@SAIPAPBVfacet@locale@2@PBV42@@Z 00400000     libcpmtd:locale.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xthrow.obj
+ 0001:fffff000       __ehhandler$?_Assign_rv_contents_with_alloc_always_equal@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEX$$QAV12@U?$integral_constant@_N$00@2@@Z 00400000 f   libcpmtd:xlocale.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:locale.obj
+ 0001:fffff000       __ehhandler$??1?$_Yarn@D@std@@QAE@XZ 00400000 f   libcpmtd:wlocale.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
+ 0001:fffff000       __unwindfunclet$??0NxForceFieldShapeDesc@@IAE@W4NxShapeType@@@Z$0 00400000 f   WindSample.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xthrow.obj
+ 0001:fffff000       __unwindfunclet$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@ABV01@@Z$0 00400000 f   libcpmtd:xlocale.obj
+ 0002:ffebf000       __ehfuncinfo$??1?$ctype@D@std@@MAE@XZ 00400000     libcpmtd:locale.obj
+ 0002:ffebf000       __ehfuncinfo$??1?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@XZ 00400000     libcpmtd:xlocale.obj
+ 0002:ffebf000       __catchsym$?_Init@?$numpunct@D@std@@IAEXABV_Locinfo@2@_N@Z$2 00400000     libcpmtd:locale.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xthrow.obj
+ 0001:fffff000       __ehhandler$?_Adopt@_Iterator_base12@std@@QAEXPBU_Container_base12@2@@Z 00400000 f   libcpmtd:wlocale.obj
+ 0002:ffebf000       __ehfuncinfo$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@$$QAV01@@Z 00400000     libcpmtd:xlocale.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xthrow.obj
+ 0001:fffff000       __ehhandler$??1?$_String_alloc@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QAE@XZ 00400000 f   libcpmtd:wlocale.obj
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0002:ffebf000       __unwindtable$?do_put@?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@MBE?AV?$ostreambuf_iterator@DU?$char_traits@D@std@@@2@V32@AAVios_base@2@D_N@Z 00400000     libcpmtd:locale.obj
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xthrow.obj
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0002:ffebf000       __ehfuncinfo$?_Assign_rv_contents_with_alloc_always_equal@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEX$$QAV12@U?$integral_constant@_N$00@2@@Z 00400000     libcpmtd:xlocale.obj
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0002:ffebf000       __unwindtable$?do_put@?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@MBE?AV?$ostreambuf_iterator@DU?$char_traits@D@std@@@2@V32@AAVios_base@2@DN@Z 00400000     libcpmtd:locale.obj
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xthrow.obj
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0002:ffebf000       __ehfuncinfo$??4?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEAAV01@$$QAV01@@Z 00400000     libcpmtd:xlocale.obj
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xthrow.obj
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0002:ffebf000       __unwindtable$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@ABV01@@Z 00400000     libcpmtd:xlocale.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xthrow.obj
+ 0002:ffebf000       __unwindtable$??0?$codecvt@DDU_Mbstatet@@@std@@QAE@ABV_Locinfo@1@I@Z 00400000     libcpmtd:locale.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xthrow.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:locale.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:locale.obj
+ 0002:ffebf000       ??id$initializer$@?$codecvt@DDU_Mbstatet@@@std@@2P6AXXZA@@3P6AXXZA 00400000     libcpmtd:locale.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:winapisupp.obj
+ 0001:fffff000       __ehhandler$??1locale@std@@QAE@XZ 00400000 f   libcpmtd:xlocale.obj
+ 0001:fffff000       __ehhandler$?c_str@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QBEPBDXZ 00400000 f   libcpmtd:xlocale.obj
+ 0001:fffff000       __unwindfunclet$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@ID@Z$0 00400000 f   libcpmtd:xlocale.obj
+ 0002:ffebf000       __unwindtable$??$use_facet@V?$ctype@D@std@@@std@@YAABV?$ctype@D@0@ABVlocale@0@@Z 00400000     libcpmtd:locale.obj
+ 0002:ffebf000       __unwindtable$?_Fput@?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@ABA?AV?$ostreambuf_iterator@DU?$char_traits@D@std@@@2@V32@AAVios_base@2@DPBDI@Z 00400000     libcpmtd:locale.obj
+ 0002:ffebf000       __ehfuncinfo$??1?$_String_alloc@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QAE@XZ 00400000     libcpmtd:xlocale.obj
+ 0002:ffebf000       __ehfuncinfo$?_Orphan_all@_Container_base12@std@@QAEXXZ 00400000     libcpmtd:xlocale.obj
+ 0001:fffff000       __ehhandler$??1?$_Yarn@_W@std@@QAE@XZ 00400000 f   libcpmtd:wlocale.obj
+ 0001:fffff000       __ehhandler$??0locale@std@@QAE@ABV01@@Z 00400000 f   libcpmtd:wlocale.obj
+ 0001:fffff000       __ehhandler$??1locale@std@@QAE@XZ 00400000 f   libcpmtd:wlocale.obj
+ 0002:ffebf000       __ehfuncinfo$??1?$NxArray@PAVNxForceFieldShapeGroup@@VNxAllocatorDefault@@@@QAE@XZ 00400000     WindSample.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
+ 0001:fffff000       __ehhandler$??1?$NxArray@PAVNxForceFieldShapeGroup@@VNxAllocatorDefault@@@@QAE@XZ 00400000 f   WindSample.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
+ 0002:ffebf000       __unwindtable$??0NxMat34@@QAE@_N@Z 00400000     ExplosionSample.obj
+ 0002:ffebf000       __ehfuncinfo$??0locale@std@@QAE@ABV01@@Z 00400000     libcpmtd:wlocale.obj
+ 0002:ffebf000       __unwindtable$??0?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QAE@I_W@Z 00400000     libcpmtd:wlocale.obj
  0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
  0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
  0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
  0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
  0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
+ 0000:ffe42000       __guard_fids_??B<lambda_898920cacc91e508364b5fd76d256868>@@QBEP6APAXI@ZXZ 00400000     libvcruntimed:std_type_info.obj
  0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
+ 0001:fffff000       __unwindfunclet$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@ABV01@@Z$0 00400000 f   libcpmtd:xonce.obj
  0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
- 0002:ffebf000       __ehfuncinfo$??1?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QAE@XZ 00400000     libcpmtd:wlocale.obj
- 0002:ffebf000       __ehfuncinfo$??1locale@std@@QAE@XZ 00400000     libcpmtd:wlocale.obj
- 0002:ffebf000       __ehfuncinfo$??0_Locinfo@std@@QAE@PBD@Z 00400000     libcpmtd:wlocale.obj
- 0002:ffebf000       __ehfuncinfo$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@$$QAV01@@Z 00400000     libcpmtd:wlocale.obj
- 0002:ffebf000       __unwindtable$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@QBD@Z 00400000     libcpmtd:wlocale.obj
- 0002:ffebf000       __ehfuncinfo$??1?$_String_alloc@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QAE@XZ 00400000     libcpmtd:wlocale.obj
+ 0000:ffe42000       __guard_fids_??B<lambda_998df822d83bde51c0affd9febd79072>@@QBEP6AXQAX@ZXZ 00400000     libvcruntimed:std_type_info.obj
  0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
- 0002:ffebf000       __ehfuncinfo$??1_Iterator_base12@std@@QAE@XZ 00400000     libcpmtd:wlocale.obj
- 0002:ffebf000       __ehfuncinfo$?_Swap_all@_Container_base12@std@@QAEXAAU12@@Z 00400000     libcpmtd:wlocale.obj
- 0001:fffff000       __ehhandler$??$?0U?$default_delete@V_Facet_base@std@@@std@@$0A@@?$unique_ptr@V_Facet_base@std@@U?$default_delete@V_Facet_base@std@@@2@@std@@QAE@PAV_Facet_base@1@@Z 00400000 f   libcpmtd:wlocale.obj
- 0001:fffff000       __unwindfunclet$??$?0V?$allocator@D@std@@X@?$_String_alloc@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QAE@$$QAV?$allocator@D@1@@Z$0 00400000 f   libcpmtd:wlocale.obj
+ 0001:fffff000       __ehhandler$??1?$_String_alloc@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QAE@XZ 00400000 f   libcpmtd:xonce.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
+ 0002:ffebf000       __ehfuncinfo$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@XZ 00400000     libcpmtd:wlocale.obj
+ 0001:fffff000       __unwindfunclet$??0?$_String_alloc@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QAE@XZ$0 00400000 f   libcpmtd:xonce.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
  0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe42000       __guard_fids_?get_terminate_or_default@@YAP6AXXZQBU__acrt_ptd@@@Z 00400000     libucrtd:terminate.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
+ 0000:ffe42000       __guard_fids____vcrt_initialize_ptd 00400000     libvcruntimed:per_thread_data.obj
  0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
  0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
- 0001:fffff000       __unwindfunclet$??0NxForceFieldLinearKernelDesc@@QAE@XZ$0 00400000 f   WindSample.obj
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0002:ffebf000       __ehfuncinfo$?_Assign_rv_contents_with_alloc_always_equal@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEX$$QAV12@U?$integral_constant@_N$00@2@@Z 00400000     libcpmtd:wlocale.obj
+ 0001:fffff000       __ehhandler$?_Swap_all@_Container_base12@std@@QAEXAAU12@@Z 00400000 f   libcpmtd:xonce.obj
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0002:ffebf000       __unwindtable$??$?0V?$allocator@D@std@@X@?$_String_alloc@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QAE@$$QAV?$allocator@D@1@@Z 00400000     libcpmtd:wlocale.obj
  0000:ffe42000       __guard_fids__             00400000     libcpmtd:locale0.obj
+ 0000:ffe42000       __guard_fids__             00400000     libucrtd:initialization.obj
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0002:ffebf000       __ehfuncinfo$??1_Locinfo@std@@QAE@XZ 00400000     libcpmtd:wlocale.obj
+ 0001:fffff000       __ehhandler$?_Orphan_all@_Container_base12@std@@QAEXXZ 00400000 f   libcpmtd:xonce.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
+ 0002:ffebf000       __ehfuncinfo$?_Orphan_all@_Container_base12@std@@QAEXXZ 00400000     libcpmtd:wlocale.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
+ 0002:ffebf000       __unwindtable$??0NxForceFieldShapeDesc@@IAE@W4NxShapeType@@@Z 00400000     WindSample.obj
+ 0002:ffebf000       __unwindtable$??0?$_String_alloc@U?$_String_base_types@_WV?$allocator@_W@std@@@std@@@std@@QAE@XZ 00400000     libcpmtd:wlocale.obj
+ 0001:fffff000       __unwindfunclet$??0NxMat34@@QAE@_N@Z$0 00400000 f   VortexSample.obj
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0002:ffebf000       __ehfuncinfo$??4_Iterator_base12@std@@QAEAAU01@ABU01@@Z 00400000     libcpmtd:wlocale.obj
  0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
  0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
  0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
  0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0000:ffe42000       __guard_fids__             00400000     libvcruntimed:frame.obj
+ 0000:ffe3f000       .debug$S                   00400000     PhysXLoader:PhysXLoader.dll
+ 0002:ffebf000       __ehfuncinfo$?_Adopt@_Iterator_base12@std@@QAEXPBU_Container_base12@2@@Z 00400000     libcpmtd:wlocale.obj
+ 0000:ffe42000       __guard_fids__             00400000     libucrtd:stdio_initializer.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
+ 0002:ffebf000       __ehfuncinfo$??$?0U?$default_delete@V_Facet_base@std@@@std@@$0A@@?$unique_ptr@V_Facet_base@std@@U?$default_delete@V_Facet_base@std@@@2@@std@@QAE@PAV_Facet_base@1@@Z 00400000     libcpmtd:wlocale.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
+ 0000:ffe42000       __guard_fids__             00400000     libvcruntimed:frame.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
+ 0002:ffebf000       __unwindtable$??0?$_String_alloc@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QAE@XZ 00400000     libcpmtd:wlocale.obj
+ 0001:fffff000       __unwindfunclet$??0?$_String_alloc@U?$_String_base_types@_WV?$allocator@_W@std@@@std@@@std@@QAE@XZ$0 00400000 f   libcpmtd:wlocale.obj
+ 0002:ffebf000       __unwindtable$??0NxBoxForceFieldShapeDesc@@QAE@XZ 00400000     WindSample.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0000:ffe42000       __guard_fids__             00400000     libvcruntimed:ehhelpers.obj
+ 0000:ffe42000       __guard_fids__             00400000     libvcruntimed:frame.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
+ 0000:ffe42000       __guard_fids__             00400000     LIBCMTD:thread_safe_statics.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0000:ffe3f000       .debug$S                   00400000     PhysXLoader:PhysXLoader.dll
+ 0001:fffff000       __ehhandler$??1?$_String_alloc@U?$_String_base_types@_WV?$allocator@_W@std@@@std@@@std@@QAE@XZ 00400000 f   libcpmtd:wlocale.obj
+ 0002:ffebf000       __ehfuncinfo$??1?$NxArray@PAVNxForceFieldShapeDesc@@VNxAllocatorDefault@@@@QAE@XZ 00400000     WindSample.obj
+ 0000:ffe42000       __guard_fids____dcrt_uninitialize_environments_nolock 00400000     libucrtd:environment_initialization.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
+ 0000:ffe42000       __guard_fids__             00400000     libvcruntimed:frame.obj
+ 0002:ffebf000       __unwindtable$??0NxForceFieldShapeGroupDesc@@QAE@XZ 00400000     WindSample.obj
+ 0000:ffe42000       __guard_fids_??B<lambda_29d3c280b90b41c2ae070ffca879996a>@@QBEP6GHPA_W@ZXZ 00400000     libucrtd:winapi_thunks.obj
+ 0002:ffebf000       __unwindtable$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@ID@Z 00400000     libcpmtd:wlocale.obj
+ 0002:ffebf000       __unwindtable$??0NxForceFieldLinearKernelDesc@@QAE@XZ 00400000     WindSample.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
+ 0001:fffff000       __unwindfunclet$??0NxForceFieldShapeGroupDesc@@QAE@XZ$0 00400000 f   WindSample.obj
+ 0002:ffebf000       __ehfuncinfo$?c_str@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QBEPBDXZ 00400000     libcpmtd:wlocale.obj
+ 0002:ffebf000       __unwindtable$??0NxForceFieldDesc@@QAE@XZ 00400000     WindSample.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
+ 0000:ffe42000       __guard_fids__             00400000     libvcruntimed:frame.obj
+ 0001:fffff000       __unwindfunclet$??0NxBoxForceFieldShapeDesc@@QAE@XZ$0 00400000 f   WindSample.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
+ 0002:ffebf000       __ehfuncinfo$??1?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@XZ 00400000     libcpmtd:wlocale.obj
+ 0002:ffebf000       __unwindtable$??0NxMat34@@QAE@_N@Z 00400000     WindSample.obj
+ 0001:fffff000       __unwindfunclet$??0?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QAE@I_W@Z$0 00400000 f   libcpmtd:wlocale.obj
+ 0001:fffff000       __ehhandler$??1?$NxArray@PAVNxForceFieldShapeDesc@@VNxAllocatorDefault@@@@QAE@XZ 00400000 f   WindSample.obj
+ 0002:ffebf000       __ehfuncinfo$??1?$_Yarn@_W@std@@QAE@XZ 00400000     libcpmtd:wlocale.obj
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
+ 0001:fffff000       __unwindfunclet$??0NxMat34@@QAE@_N@Z$0 00400000 f   UserData.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:locale0.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
+ 0002:ffebf000       __ehfuncinfo$??1?$_Yarn@D@std@@QAE@XZ 00400000     libcpmtd:wlocale.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
+ 0001:fffff000       __ehhandler$??1?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QAE@XZ 00400000 f   libcpmtd:wlocale.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
+ 0001:fffff000       __unwindfunclet$??0NxForceFieldDesc@@QAE@XZ$0 00400000 f   WindSample.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:locale0.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0002:ffebf000       __unwindtable$??0NxMat34@@QAE@_N@Z 00400000     UserData.obj
  0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
  0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
  0002:ffebf000       __ehfuncinfo$??1?$_String_alloc@U?$_String_base_types@_WV?$allocator@_W@std@@@std@@@std@@QAE@XZ 00400000     libcpmtd:wlocale.obj
  0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
  0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
- 0002:ffebf000       __unwindtable$??0NxMat34@@QAE@_N@Z 00400000     UserData.obj
  0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:locale0.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
- 0001:fffff000       __unwindfunclet$??0NxForceFieldDesc@@QAE@XZ$0 00400000 f   WindSample.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
- 0001:fffff000       __ehhandler$??1?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QAE@XZ 00400000 f   libcpmtd:wlocale.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
- 0002:ffebf000       __ehfuncinfo$??1?$_Yarn@D@std@@QAE@XZ 00400000     libcpmtd:wlocale.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:locale0.obj
- 0001:fffff000       __unwindfunclet$??0NxMat34@@QAE@_N@Z$0 00400000 f   UserData.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
- 0002:ffebf000       __ehfuncinfo$??1?$_Yarn@_W@std@@QAE@XZ 00400000     libcpmtd:wlocale.obj
- 0001:fffff000       __ehhandler$??1?$NxArray@PAVNxForceFieldShapeDesc@@VNxAllocatorDefault@@@@QAE@XZ 00400000 f   WindSample.obj
- 0001:fffff000       __unwindfunclet$??0?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QAE@I_W@Z$0 00400000 f   libcpmtd:wlocale.obj
- 0002:ffebf000       __unwindtable$??0NxMat34@@QAE@_N@Z 00400000     WindSample.obj
- 0002:ffebf000       __ehfuncinfo$??1?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@XZ 00400000     libcpmtd:wlocale.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
- 0001:fffff000       __unwindfunclet$??0NxBoxForceFieldShapeDesc@@QAE@XZ$0 00400000 f   WindSample.obj
- 0000:ffe42000       __guard_fids__             00400000     libvcruntimed:frame.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
- 0002:ffebf000       __unwindtable$??0NxForceFieldDesc@@QAE@XZ 00400000     WindSample.obj
- 0002:ffebf000       __ehfuncinfo$?c_str@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QBEPBDXZ 00400000     libcpmtd:wlocale.obj
- 0001:fffff000       __unwindfunclet$??0NxForceFieldShapeGroupDesc@@QAE@XZ$0 00400000 f   WindSample.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
- 0002:ffebf000       __unwindtable$??0NxForceFieldLinearKernelDesc@@QAE@XZ 00400000     WindSample.obj
- 0002:ffebf000       __unwindtable$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@ID@Z 00400000     libcpmtd:wlocale.obj
- 0000:ffe42000       __guard_fids_??B<lambda_29d3c280b90b41c2ae070ffca879996a>@@QBEP6GHPA_W@ZXZ 00400000     libucrtd:winapi_thunks.obj
- 0002:ffebf000       __unwindtable$??0NxForceFieldShapeGroupDesc@@QAE@XZ 00400000     WindSample.obj
- 0000:ffe42000       __guard_fids__             00400000     libvcruntimed:frame.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
- 0000:ffe42000       __guard_fids____dcrt_uninitialize_environments_nolock 00400000     libucrtd:environment_initialization.obj
- 0002:ffebf000       __ehfuncinfo$??1?$NxArray@PAVNxForceFieldShapeDesc@@VNxAllocatorDefault@@@@QAE@XZ 00400000     WindSample.obj
- 0001:fffff000       __ehhandler$??1?$_String_alloc@U?$_String_base_types@_WV?$allocator@_W@std@@@std@@@std@@QAE@XZ 00400000 f   libcpmtd:wlocale.obj
- 0000:ffe3f000       .debug$S                   00400000     PhysXLoader:PhysXLoader.dll
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
- 0000:ffe42000       __guard_fids__             00400000     libvcruntimed:frame.obj
- 0000:ffe42000       __guard_fids__             00400000     libvcruntimed:ehhelpers.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
- 0002:ffebf000       __unwindtable$??0NxBoxForceFieldShapeDesc@@QAE@XZ 00400000     WindSample.obj
- 0001:fffff000       __unwindfunclet$??0?$_String_alloc@U?$_String_base_types@_WV?$allocator@_W@std@@@std@@@std@@QAE@XZ$0 00400000 f   libcpmtd:wlocale.obj
- 0002:ffebf000       __unwindtable$??0?$_String_alloc@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QAE@XZ 00400000     libcpmtd:wlocale.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
- 0000:ffe42000       __guard_fids__             00400000     libvcruntimed:frame.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
- 0002:ffebf000       __ehfuncinfo$??$?0U?$default_delete@V_Facet_base@std@@@std@@$0A@@?$unique_ptr@V_Facet_base@std@@U?$default_delete@V_Facet_base@std@@@2@@std@@QAE@PAV_Facet_base@1@@Z 00400000     libcpmtd:wlocale.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
- 0000:ffe42000       __guard_fids__             00400000     libucrtd:stdio_initializer.obj
- 0002:ffebf000       __ehfuncinfo$?_Adopt@_Iterator_base12@std@@QAEXPBU_Container_base12@2@@Z 00400000     libcpmtd:wlocale.obj
- 0000:ffe3f000       .debug$S                   00400000     PhysXLoader:PhysXLoader.dll
- 0000:ffe42000       __guard_fids__             00400000     libvcruntimed:frame.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
- 0002:ffebf000       __ehfuncinfo$??4_Iterator_base12@std@@QAEAAU01@ABU01@@Z 00400000     libcpmtd:wlocale.obj
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0001:fffff000       __unwindfunclet$??0NxMat34@@QAE@_N@Z$0 00400000 f   VortexSample.obj
- 0002:ffebf000       __unwindtable$??0?$_String_alloc@U?$_String_base_types@_WV?$allocator@_W@std@@@std@@@std@@QAE@XZ 00400000     libcpmtd:wlocale.obj
- 0002:ffebf000       __unwindtable$??0NxForceFieldShapeDesc@@IAE@W4NxShapeType@@@Z 00400000     WindSample.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
- 0002:ffebf000       __ehfuncinfo$?_Orphan_all@_Container_base12@std@@QAEXXZ 00400000     libcpmtd:wlocale.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
- 0001:fffff000       __ehhandler$?_Orphan_all@_Container_base12@std@@QAEXXZ 00400000 f   libcpmtd:xonce.obj
- 0002:ffebf000       __ehfuncinfo$??1_Locinfo@std@@QAE@XZ 00400000     libcpmtd:wlocale.obj
- 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
- 0000:ffe42000       __guard_fids__             00400000     libucrtd:initialization.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:locale0.obj
- 0002:ffebf000       __unwindtable$??$?0V?$allocator@D@std@@X@?$_String_alloc@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QAE@$$QAV?$allocator@D@1@@Z 00400000     libcpmtd:wlocale.obj
- 0001:fffff000       __ehhandler$?_Swap_all@_Container_base12@std@@QAEXAAU12@@Z 00400000 f   libcpmtd:xonce.obj
- 0002:ffebf000       __ehfuncinfo$?_Assign_rv_contents_with_alloc_always_equal@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEX$$QAV12@U?$integral_constant@_N$00@2@@Z 00400000     libcpmtd:wlocale.obj
  0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
  0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
  0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
- 0000:ffe42000       __guard_fids____vcrt_initialize_ptd 00400000     libvcruntimed:per_thread_data.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
- 0001:fffff000       __unwindfunclet$??0?$_String_alloc@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QAE@XZ$0 00400000 f   libcpmtd:xonce.obj
- 0002:ffebf000       __ehfuncinfo$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@XZ 00400000     libcpmtd:wlocale.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
- 0001:fffff000       __ehhandler$??1?$_String_alloc@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QAE@XZ 00400000 f   libcpmtd:xonce.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
- 0000:ffe42000       __guard_fids_??B<lambda_998df822d83bde51c0affd9febd79072>@@QBEP6AXQAX@ZXZ 00400000     libvcruntimed:std_type_info.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
- 0001:fffff000       __unwindfunclet$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@ABV01@@Z$0 00400000 f   libcpmtd:xonce.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
- 0000:ffe42000       __guard_fids_??B<lambda_898920cacc91e508364b5fd76d256868>@@QBEP6APAXI@ZXZ 00400000     libvcruntimed:std_type_info.obj
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:locale0.obj
+ 0001:fffff000       __unwindfunclet$??0NxForceFieldLinearKernelDesc@@QAE@XZ$0 00400000 f   WindSample.obj
  0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
  0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
  0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
  0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
  0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
- 0002:ffebf000       __unwindtable$??0?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QAE@I_W@Z 00400000     libcpmtd:wlocale.obj
- 0002:ffebf000       __ehfuncinfo$??0locale@std@@QAE@ABV01@@Z 00400000     libcpmtd:wlocale.obj
- 0002:ffebf000       __unwindtable$??0NxMat34@@QAE@_N@Z 00400000     ExplosionSample.obj
+ 0000:ffe42000       __guard_fids_?get_terminate_or_default@@YAP6AXXZQBU__acrt_ptd@@@Z 00400000     libucrtd:terminate.obj
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0001:fffff000       __unwindfunclet$??$?0V?$allocator@D@std@@X@?$_String_alloc@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QAE@$$QAV?$allocator@D@1@@Z$0 00400000 f   libcpmtd:wlocale.obj
+ 0001:fffff000       __ehhandler$??$?0U?$default_delete@V_Facet_base@std@@@std@@$0A@@?$unique_ptr@V_Facet_base@std@@U?$default_delete@V_Facet_base@std@@@2@@std@@QAE@PAV_Facet_base@1@@Z 00400000 f   libcpmtd:wlocale.obj
+ 0002:ffebf000       __ehfuncinfo$?_Swap_all@_Container_base12@std@@QAEXAAU12@@Z 00400000     libcpmtd:wlocale.obj
+ 0002:ffebf000       __ehfuncinfo$??1_Iterator_base12@std@@QAE@XZ 00400000     libcpmtd:wlocale.obj
  0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
- 0001:fffff000       __ehhandler$??1?$NxArray@PAVNxForceFieldShapeGroup@@VNxAllocatorDefault@@@@QAE@XZ 00400000 f   WindSample.obj
+ 0002:ffebf000       __ehfuncinfo$??1?$_String_alloc@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QAE@XZ 00400000     libcpmtd:wlocale.obj
+ 0002:ffebf000       __unwindtable$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@QBD@Z 00400000     libcpmtd:wlocale.obj
+ 0002:ffebf000       __ehfuncinfo$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@$$QAV01@@Z 00400000     libcpmtd:wlocale.obj
+ 0002:ffebf000       __ehfuncinfo$??0_Locinfo@std@@QAE@PBD@Z 00400000     libcpmtd:wlocale.obj
+ 0002:ffebf000       __ehfuncinfo$??1locale@std@@QAE@XZ 00400000     libcpmtd:wlocale.obj
+ 0002:ffebf000       __ehfuncinfo$??1?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QAE@XZ 00400000     libcpmtd:wlocale.obj
  0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
- 0002:ffebf000       __ehfuncinfo$??1?$NxArray@PAVNxForceFieldShapeGroup@@VNxAllocatorDefault@@@@QAE@XZ 00400000     WindSample.obj
- 0001:fffff000       __ehhandler$??1locale@std@@QAE@XZ 00400000 f   libcpmtd:wlocale.obj
- 0001:fffff000       __ehhandler$??0locale@std@@QAE@ABV01@@Z 00400000 f   libcpmtd:wlocale.obj
- 0001:fffff000       __ehhandler$??1?$_Yarn@_W@std@@QAE@XZ 00400000 f   libcpmtd:wlocale.obj
- 0002:ffebf000       __ehfuncinfo$?_Orphan_all@_Container_base12@std@@QAEXXZ 00400000     libcpmtd:xlocale.obj
- 0002:ffebf000       __ehfuncinfo$??1?$_String_alloc@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QAE@XZ 00400000     libcpmtd:xlocale.obj
- 0002:ffebf000       __unwindtable$?_Fput@?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@ABA?AV?$ostreambuf_iterator@DU?$char_traits@D@std@@@2@V32@AAVios_base@2@DPBDI@Z 00400000     libcpmtd:locale.obj
- 0002:ffebf000       __unwindtable$??$use_facet@V?$ctype@D@std@@@std@@YAABV?$ctype@D@0@ABVlocale@0@@Z 00400000     libcpmtd:locale.obj
- 0001:fffff000       __unwindfunclet$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@ID@Z$0 00400000 f   libcpmtd:xlocale.obj
- 0001:fffff000       __ehhandler$?c_str@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QBEPBDXZ 00400000 f   libcpmtd:xlocale.obj
- 0001:fffff000       __ehhandler$??1locale@std@@QAE@XZ 00400000 f   libcpmtd:xlocale.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:winapisupp.obj
- 0002:ffebf000       ??id$initializer$@?$codecvt@DDU_Mbstatet@@@std@@2P6AXXZA@@3P6AXXZA 00400000     libcpmtd:locale.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:locale.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:locale.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xthrow.obj
- 0002:ffebf000       __unwindtable$??0?$codecvt@DDU_Mbstatet@@@std@@QAE@ABV_Locinfo@1@I@Z 00400000     libcpmtd:locale.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xthrow.obj
- 0002:ffebf000       __unwindtable$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@ABV01@@Z 00400000     libcpmtd:xlocale.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xthrow.obj
- 0002:ffebf000       __ehfuncinfo$??4?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEAAV01@$$QAV01@@Z 00400000     libcpmtd:xlocale.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xthrow.obj
- 0002:ffebf000       __unwindtable$?do_put@?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@MBE?AV?$ostreambuf_iterator@DU?$char_traits@D@std@@@2@V32@AAVios_base@2@DN@Z 00400000     libcpmtd:locale.obj
- 0002:ffebf000       __ehfuncinfo$?_Assign_rv_contents_with_alloc_always_equal@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEX$$QAV12@U?$integral_constant@_N$00@2@@Z 00400000     libcpmtd:xlocale.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xthrow.obj
- 0002:ffebf000       __unwindtable$?do_put@?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@MBE?AV?$ostreambuf_iterator@DU?$char_traits@D@std@@@2@V32@AAVios_base@2@D_N@Z 00400000     libcpmtd:locale.obj
- 0001:fffff000       __ehhandler$??1?$_String_alloc@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QAE@XZ 00400000 f   libcpmtd:wlocale.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xthrow.obj
- 0002:ffebf000       __ehfuncinfo$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@$$QAV01@@Z 00400000     libcpmtd:xlocale.obj
- 0001:fffff000       __ehhandler$?_Adopt@_Iterator_base12@std@@QAEXPBU_Container_base12@2@@Z 00400000 f   libcpmtd:wlocale.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xthrow.obj
- 0002:ffebf000       __catchsym$?_Init@?$numpunct@D@std@@IAEXABV_Locinfo@2@_N@Z$2 00400000     libcpmtd:locale.obj
- 0002:ffebf000       __ehfuncinfo$??1?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@XZ 00400000     libcpmtd:xlocale.obj
- 0002:ffebf000       __ehfuncinfo$??1?$ctype@D@std@@MAE@XZ 00400000     libcpmtd:locale.obj
- 0001:fffff000       __unwindfunclet$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@ABV01@@Z$0 00400000 f   libcpmtd:xlocale.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xthrow.obj
- 0001:fffff000       __unwindfunclet$??0NxForceFieldShapeDesc@@IAE@W4NxShapeType@@@Z$0 00400000 f   WindSample.obj
  0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
- 0001:fffff000       __ehhandler$??1?$_Yarn@D@std@@QAE@XZ 00400000 f   libcpmtd:wlocale.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:locale.obj
- 0001:fffff000       __ehhandler$?_Assign_rv_contents_with_alloc_always_equal@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEX$$QAV12@U?$integral_constant@_N$00@2@@Z 00400000 f   libcpmtd:xlocale.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xthrow.obj
- 0002:ffebf000       __unwindtable$?_Getcat@?$ctype@D@std@@SAIPAPBVfacet@locale@2@PBV42@@Z 00400000     libcpmtd:locale.obj
- 0001:fffff000       __ehhandler$?_Assign_rv_contents_with_alloc_always_equal@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEX$$QAV12@U?$integral_constant@_N$00@2@@Z 00400000 f   libcpmtd:wlocale.obj
- 0001:fffff000       __ehhandler$??1_Locinfo@std@@QAE@XZ 00400000 f   libcpmtd:wlocale.obj
- 0002:ffebf000       __ehfuncinfo$?_Swap_all@_Container_base12@std@@QAEXAAU12@@Z 00400000     libcpmtd:xlocale.obj
- 0001:fffff000       __ehhandler$??1?$_Yarn@D@std@@QAE@XZ 00400000 f   libcpmtd:xlocale.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xthrow.obj
- 0000:ffe42000       __guard_fids_??B<lambda_601ce2808d07e6dd980fd6da59ab4158>@@QBEP6AHPBX0@ZXZ 00400000     libucrtd:argv_wildcards.obj
- 0001:fffff000       __ehhandler$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@$$QAV01@@Z 00400000 f   libcpmtd:wlocale.obj
  0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
- 0002:ffebf000       __unwindtable$?_Getcat@?$numpunct@D@std@@SAIPAPBVfacet@locale@2@PBV42@@Z 00400000     libcpmtd:locale.obj
- 0001:fffff000       __unwindfunclet$??0?$ctype@D@std@@QAE@ABV_Locinfo@1@I@Z$0 00400000 f   libcpmtd:xlocale.obj
- 0002:ffebf000       __unwindtable$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@QBD@Z 00400000     libcpmtd:xlocale.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xthrow.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:iosptrs.obj
- 0001:fffff000       __ehhandler$?_Adopt@_Iterator_base12@std@@QAEXPBU_Container_base12@2@@Z 00400000 f   libcpmtd:xlocale.obj
  0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:locale.obj
- 0002:ffebf000       __unwindtable$?do_put@?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@MBE?AV?$ostreambuf_iterator@DU?$char_traits@D@std@@@2@V32@AAVios_base@2@DO@Z 00400000     libcpmtd:locale.obj
- 0000:ffe42000       __guard_fids_??__Einitlocks@std@@YAXXZ 00400000     libcpmtd:iosptrs.obj
- 0000:ffe42000       __guard_fids_??B<lambda_86056e3c024bff449830248dc1621ed2>@@QBEP6AHPBX0@ZXZ 00400000     libucrtd:argv_wildcards.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xthrow.obj
- 0002:ffebf000       ??id$initializer$@?$numpunct@D@std@@2P6AXXZA@@3P6AXXZA 00400000     libcpmtd:locale.obj
- 0001:fffff000       __unwindfunclet$??0?$_String_alloc@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QAE@XZ$0 00400000 f   libcpmtd:xlocale.obj
- 0000:ffe42000       __guard_fids__signal       00400000     libucrtd:signal.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:locale.obj
- 0002:ffebf000       __unwindtable$?_Getcat@?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@SAIPAPBVfacet@locale@2@PBV42@@Z 00400000     libcpmtd:locale.obj
- 0002:ffebf000       ??id$initializer$@?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@2P6AXXZA@@3P6AXXZA 00400000     libcpmtd:locale.obj
- 0001:fffff000       __unwindfunclet$?_Getcat@?$ctype@D@std@@SAIPAPBVfacet@locale@2@PBV42@@Z$0 00400000 f   libcpmtd:xlocale.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xthrow.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:locale.obj
- 0001:fffff000       __unwindfunclet$??0?$_String_alloc@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QAE@XZ$0 00400000 f   libcpmtd:wlocale.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:locale.obj
- 0001:fffff000       __ehhandler$?_Orphan_all@_Container_base12@std@@QAEXXZ 00400000 f   libcpmtd:xlocale.obj
- 0002:ffebf000       __unwindtable$?_Getcat@?$codecvt@DDU_Mbstatet@@@std@@SAIPAPBVfacet@locale@2@PBV42@@Z 00400000     libcpmtd:locale.obj
- 0001:fffff000       __ehhandler$??4_Iterator_base12@std@@QAEAAU01@ABU01@@Z 00400000 f   libcpmtd:wlocale.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:locale.obj
- 0001:fffff000       __unwindfunclet$??$?0V?$allocator@D@std@@X@?$_String_alloc@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QAE@$$QAV?$allocator@D@1@@Z$0 00400000 f   libcpmtd:xlocale.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xthrow.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:locale.obj
- 0000:ffe42000       __guard_fids____acrt_initialize_ptd 00400000     libucrtd:per_thread_data.obj
- 0001:fffff000       __ehhandler$??1_Iterator_base12@std@@QAE@XZ 00400000 f   libcpmtd:wlocale.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:locale.obj
- 0001:fffff000       __ehhandler$?_Swap_all@_Container_base12@std@@QAEXAAU12@@Z 00400000 f   libcpmtd:xlocale.obj
- 0002:ffebf000       __ehfuncinfo$??1?$numpunct@D@std@@MAE@XZ 00400000     libcpmtd:locale.obj
- 0001:fffff000       __unwindfunclet$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@QBD@Z$0 00400000 f   libcpmtd:xlocale.obj
- 0002:ffebf000       __ehfuncinfo$??$?0U?$default_delete@V_Facet_base@std@@@std@@$0A@@?$unique_ptr@V_Facet_base@std@@U?$default_delete@V_Facet_base@std@@@2@@std@@QAE@PAV_Facet_base@1@@Z 00400000     libcpmtd:locale.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:locale.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xthrow.obj
- 0002:ffebf000       __ehfuncinfo$??1_Iterator_base12@std@@QAE@XZ 00400000     libcpmtd:xlocale.obj
- 0000:ffe42000       __guard_fids_??__Einit_atexit@@YAXXZ 00400000     libcpmtd:iosptrs.obj
- 0001:fffff000       __ehhandler$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@XZ 00400000 f   libcpmtd:xlocale.obj
- 0002:ffebf000       __ehfuncinfo$??4_Iterator_base12@std@@QAEAAU01@ABU01@@Z 00400000     libcpmtd:xlocale.obj
- 0001:fffff000       __ehhandler$??4_Iterator_base12@std@@QAEAAU01@ABU01@@Z 00400000 f   libcpmtd:xlocale.obj
- 0002:ffebf000       __unwindtable$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@ID@Z 00400000     libcpmtd:xlocale.obj
- 0001:fffff000       __ehhandler$?begin@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE?AV?$_String_iterator@V?$_String_val@U?$_Simple_types@D@std@@@std@@@2@XZ 00400000 f   libcpmtd:xlocale.obj
- 0002:ffebf000       __ehfuncinfo$?_Adopt@_Iterator_base12@std@@QAEXPBU_Container_base12@2@@Z 00400000     libcpmtd:xlocale.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:locale.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:xthrow.obj
- 0002:ffebf000       __unwindtable$??$use_facet@V?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@@std@@YAABV?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@0@ABVlocale@0@@Z 00400000     libcpmtd:locale.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:locale.obj
- 0001:fffff000       __ehhandler$??$?0U?$default_delete@V_Facet_base@std@@@std@@$0A@@?$unique_ptr@V_Facet_base@std@@U?$default_delete@V_Facet_base@std@@@2@@std@@QAE@PAV_Facet_base@1@@Z 00400000 f   libcpmtd:xlocale.obj
- 0001:fffff000       __ehhandler$??1?$_Yarn@_W@std@@QAE@XZ 00400000 f   libcpmtd:xlocale.obj
- 0001:fffff000       __ehhandler$??1?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@XZ 00400000 f   libcpmtd:xlocale.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
+ 0000:ffe42000       __guard_fids__             00400000     libcpmtd:wlocale.obj
+ 0000:ffe42000       __guard_fids__             00400000     libucrtd:wsetlocale.obj
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
  0001:fffff000       __unwindfunclet$??0NxSphereShapeDesc@@QAE@XZ$0 00400000 f   Lesson116.obj
- 0001:fffff000       __ehhandler$??1?$ctype@D@std@@MAE@XZ 00400000 f   libcpmtd:xlocale.obj
- 0002:ffebf000       __unwindtable$??0?$numpunct@D@std@@QAE@ABV_Locinfo@1@I_N@Z 00400000     libcpmtd:locale.obj
- 0001:fffff000       __unwindfunclet$??0_Locinfo@std@@QAE@PBD@Z$0 00400000 f   libcpmtd:wlocale.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:locale.obj
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
  0001:fffff000       __unwindfunclet$??0NxActorDesc@@QAE@XZ$0 00400000 f   Lesson116.obj
- 0000:ffe42000       __guard_fids__             00400000     libcpmtd:locale.obj
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
  0001:fffff000       __ehhandler$??1?$NxArray@PAVNxShapeDesc@@VNxAllocatorDefault@@@@QAE@XZ 00400000 f   Lesson116.obj
- 0002:ffebf000       __unwindtable$??0?$ctype@D@std@@QAE@ABV_Locinfo@1@I@Z 00400000     libcpmtd:locale.obj
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
  0001:fffff000       __unwindfunclet$??0NxShapeDesc@@IAE@W4NxShapeType@@@Z$0 00400000 f   Lesson116.obj
- 0000:ffe42000       __guard_fids_??$__acrt_mbs_to_wcs@U__crt_win32_buffer_internal_dynamic_resizing@@@@YAHQBDAAV?$__crt_win32_buffer@_WU__crt_win32_buffer_internal_dynamic_resizing@@@@PAU__crt_locale_pointers@@@Z 00400000     libucrtd:setenvironmentvariablea.obj
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
  0001:fffff000       __unwindfunclet$??0NxBodyDesc@@QAE@XZ$0 00400000 f   Lesson116.obj
- 0002:ffebf000       __unwindtable$??$use_facet@V?$codecvt@DDU_Mbstatet@@@std@@@std@@YAABV?$codecvt@DDU_Mbstatet@@@0@ABVlocale@0@@Z 00400000     libcpmtd:locale.obj
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
  0001:fffff000       __unwindfunclet$??0NxMat34@@QAE@_N@Z$0 00400000 f   Lesson116.obj
- 0002:ffebf000       __unwindtable$?_Iput@?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@ABA?AV?$ostreambuf_iterator@DU?$char_traits@D@std@@@2@V32@AAVios_base@2@DPADI@Z 00400000     libcpmtd:locale.obj
- 0001:fffff000       __ehhandler$??0locale@std@@QAE@ABV01@@Z 00400000 f   libcpmtd:xlocale.obj
- 0002:ffebf000       __ehfuncinfo$?begin@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE?AV?$_String_iterator@V?$_String_val@U?$_Simple_types@D@std@@@std@@@2@XZ 00400000     libcpmtd:xlocale.obj
- 0001:fffff000       __ehhandler$??1_Iterator_base12@std@@QAE@XZ 00400000 f   libcpmtd:xlocale.obj
- 0000:ffe42004       __guard_fids__             00400004     LIBCMTD:exe_main.obj
- 0000:ffe42004       __guard_fids__             00400004     libcpmtd:locale0.obj
- 0000:ffe42004       __guard_fids__             00400004     libucrtd:stdio_initializer.obj
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
+ 0000:ffe3f000       .debug$S                   00400000     kernel32:KERNEL32.dll
  0000:ffe42004       __guard_fids__             00400004     libcpmtd:iosptrs.obj
+ 0000:ffe42004       __guard_fids__             00400004     libcpmtd:locale0.obj
+ 0000:ffe42004       __guard_fids__             00400004     LIBCMTD:exe_main.obj
+ 0000:ffe42004       __guard_fids__             00400004     libucrtd:stdio_initializer.obj
+ 0002:ffebf008       __ehfuncinfo$??$_Getloctxt@DV?$istreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@YAHAAV?$istreambuf_iterator@DU?$char_traits@D@std@@@0@0IPBD@Z 00400008     libcpmtd:xlocale.obj
+ 0002:ffebf008       __ehfuncinfo$??$?0V?$allocator@D@std@@X@?$_String_alloc@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QAE@$$QAV?$allocator@D@1@@Z 00400008     libcpmtd:xlocale.obj
+ 0001:fffff008       __ehhandler$??0?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@QAE@ABV_Locinfo@1@I@Z 00400008 f   libcpmtd:locale.obj
+ 0001:fffff008       __unwindfunclet$??$use_facet@V?$ctype@D@std@@@std@@YAABV?$ctype@D@0@ABVlocale@0@@Z$1 00400008 f   libcpmtd:locale.obj
+ 0001:fffff008       __ehhandler$??0?$ctype@D@std@@QAE@ABV_Locinfo@1@I@Z 00400008 f   libcpmtd:locale.obj
+ 0001:fffff008       __ehhandler$??0?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QAE@I_W@Z 00400008 f   libcpmtd:wlocale.obj
+ 0001:fffff008       __ehhandler$??$_Getloctxt@DV?$istreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@YAHAAV?$istreambuf_iterator@DU?$char_traits@D@std@@@0@0IPBD@Z 00400008 f   libcpmtd:xlocale.obj
+ 0001:fffff008       __ehhandler$??0NxMat34@@QAE@_N@Z 00400008 f   Lesson116.obj
+ 0001:fffff008       __ehhandler$??$?0V?$allocator@D@std@@X@?$_String_alloc@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QAE@$$QAV?$allocator@D@1@@Z 00400008 f   libcpmtd:wlocale.obj
+ 0001:fffff008       __ehhandler$??0NxBodyDesc@@QAE@XZ 00400008 f   Lesson116.obj
+ 0001:fffff008       __ehhandler$??0?$_String_alloc@U?$_String_base_types@_WV?$allocator@_W@std@@@std@@@std@@QAE@XZ 00400008 f   libcpmtd:wlocale.obj
+ 0002:ffebf008       __ehfuncinfo$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@QBD@Z 00400008     libcpmtd:wlocale.obj
+ 0002:ffebf008       __ehfuncinfo$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@ID@Z 00400008     libcpmtd:wlocale.obj
+ 0001:fffff008       __unwindfunclet$??0_Locinfo@std@@QAE@PBD@Z$1 00400008 f   libcpmtd:locale.obj
+ 0002:ffebf008       __ehfuncinfo$??0?$_String_alloc@U?$_String_base_types@_WV?$allocator@_W@std@@@std@@@std@@QAE@XZ 00400008     libcpmtd:wlocale.obj
+ 0002:ffebf008       __ehfuncinfo$??0?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QAE@I_W@Z 00400008     libcpmtd:wlocale.obj
+ 0001:fffff008       __ehhandler$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@ID@Z 00400008 f   libcpmtd:locale.obj
+ 0001:fffff008       __unwindfunclet$??0NxActorDesc@@QAE@XZ$1 00400008 f   Lesson116.obj
+ 0001:fffff008       __ehhandler$??0NxSphereShapeDesc@@QAE@XZ 00400008 f   Lesson116.obj
+ 0001:fffff008       __ehhandler$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@QBD@Z 00400008 f   libcpmtd:locale.obj
+ 0001:fffff008       __ehhandler$??0?$_String_alloc@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QAE@XZ 00400008 f   libcpmtd:locale.obj
+ 0001:fffff008       __ehhandler$??0NxBodyDesc@@QAE@XZ 00400008 f   VortexSample.obj
+ 0002:ffebf008       __ehfuncinfo$??0_System_error@std@@IAE@Verror_code@1@ABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@1@@Z 00400008     libcpmtd:xonce.obj
+ 0002:ffebf008       __ehfuncinfo$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@ID@Z 00400008     libcpmtd:xonce.obj
+ 0002:ffebf008       __ehfuncinfo$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@QBD@Z 00400008     libcpmtd:xonce.obj
+ 0001:fffff008       __unwindfunclet$??0NxForceFieldDesc@@QAE@XZ$1 00400008 f   VortexSample.obj
+ 0002:ffebf008       __ehfuncinfo$??0NxMat34@@QAE@_N@Z 00400008     VortexSample.obj
+ 0002:ffebf008       __ehfuncinfo$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@QBD@Z 00400008     libcpmtd:locale.obj
+ 0002:ffebf008       __ehfuncinfo$??0NxBodyDesc@@QAE@XZ 00400008     VortexSample.obj
+ 0001:fffff008       __unwindfunclet$??$use_facet@V?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@@std@@YAABV?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@0@ABVlocale@0@@Z$1 00400008 f   libcpmtd:locale.obj
+ 0002:ffebf008       __ehfuncinfo$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@ABV01@@Z 00400008     libcpmtd:xonce.obj
+ 0002:ffebf008       __ehfuncinfo$??0?$_String_alloc@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QAE@XZ 00400008     libcpmtd:xonce.obj
+ 0001:fffff008       __ehhandler$??$?0V?$allocator@D@std@@X@?$_String_alloc@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QAE@$$QAV?$allocator@D@1@@Z 00400008 f   libcpmtd:xonce.obj
+ 0001:fffff008       __ehhandler$??0_System_error@std@@IAE@Verror_code@1@ABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@1@@Z 00400008 f   libcpmtd:xonce.obj
+ 0001:fffff008       __unwindfunclet$?_Makestr@_System_error@std@@CA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@2@Verror_code@2@V32@@Z$1 00400008 f   libcpmtd:xonce.obj
+ 0001:fffff008       __ehhandler$??0?$_String_alloc@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QAE@XZ 00400008 f   libcpmtd:xonce.obj
+ 0001:fffff008       __ehhandler$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@QBD@Z 00400008 f   libcpmtd:xonce.obj
+ 0001:fffff008       __ehhandler$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@ABV01@@Z 00400008 f   libcpmtd:xonce.obj
+ 0002:ffebf008       __ehfuncinfo$??0?$_String_alloc@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QAE@XZ 00400008     libcpmtd:wlocale.obj
+ 0001:fffff008       __ehhandler$??0NxMat34@@QAE@_N@Z 00400008 f   VortexSample.obj
+ 0001:fffff008       __ehhandler$?do_put@?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@MBE?AV?$ostreambuf_iterator@DU?$char_traits@D@std@@@2@V32@AAVios_base@2@DN@Z 00400008 f   libcpmtd:locale.obj
+ 0001:fffff008       __ehhandler$?do_put@?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@MBE?AV?$ostreambuf_iterator@DU?$char_traits@D@std@@@2@V32@AAVios_base@2@DO@Z 00400008 f   libcpmtd:locale.obj
+ 0002:ffebf008       __ehfuncinfo$??0NxMat34@@QAE@_N@Z 00400008     Lesson116.obj
+ 0002:ffebf008       __ehfuncinfo$??0NxBodyDesc@@QAE@XZ 00400008     Lesson116.obj
+ 0002:ffebf008       __ehfuncinfo$??0NxMat34@@QAE@_N@Z 00400008     UserData.obj
+ 0002:ffebf008       __ehfuncinfo$??0NxBoxForceFieldShapeDesc@@QAE@XZ 00400008     WindSample.obj
+ 0002:ffebf008       __ehfuncinfo$??$?0V?$allocator@D@std@@X@?$_String_alloc@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QAE@$$QAV?$allocator@D@1@@Z 00400008     libcpmtd:xonce.obj
+ 0001:fffff008       __ehhandler$??0NxMat34@@QAE@_N@Z 00400008 f   UserData.obj
+ 0002:ffebf008       __ehfuncinfo$??0NxSphereShapeDesc@@QAE@XZ 00400008     Lesson116.obj
  0001:fffff008       __ehhandler$??0NxMat34@@QAE@_N@Z 00400008 f   ExplosionSample.obj
  0001:fffff008       __ehhandler$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@ID@Z 00400008 f   libcpmtd:xonce.obj
  0001:fffff008       __ehhandler$??0?$ctype@D@std@@QAE@ABV_Locinfo@1@I@Z 00400008 f   libcpmtd:xlocale.obj
  0001:fffff008       __ehhandler$??$?0V?$allocator@D@std@@X@?$_String_alloc@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QAE@$$QAV?$allocator@D@1@@Z 00400008 f   libcpmtd:xlocale.obj
  0002:ffebf008       __ehfuncinfo$??0?$codecvt@DDU_Mbstatet@@@std@@QAE@ABV_Locinfo@1@I@Z 00400008     libcpmtd:locale.obj
- 0001:fffff008       __ehhandler$??0NxMat34@@QAE@_N@Z 00400008 f   Lesson116.obj
  0002:ffebf008       __ehfuncinfo$??0?$_String_alloc@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QAE@XZ 00400008     libcpmtd:xlocale.obj
- 0001:fffff008       __ehhandler$??0NxBodyDesc@@QAE@XZ 00400008 f   Lesson116.obj
  0002:ffebf008       __ehfuncinfo$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@ABV01@@Z 00400008     libcpmtd:xlocale.obj
  0002:ffebf008       __ehfuncinfo$??0?$numpunct@D@std@@QAE@ABV_Locinfo@1@I_N@Z 00400008     libcpmtd:locale.obj
  0002:ffebf008       __ehfuncinfo$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@QBD@Z 00400008     libcpmtd:xlocale.obj
@@ -10374,15 +10421,16 @@
  0002:ffebf008       __ehfuncinfo$?do_put@?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@MBE?AV?$ostreambuf_iterator@DU?$char_traits@D@std@@@2@V32@AAVios_base@2@DN@Z 00400008     libcpmtd:locale.obj
  0002:ffebf008       __ehfuncinfo$??0?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@QAE@ABV_Locinfo@1@I@Z 00400008     libcpmtd:locale.obj
  0002:ffebf008       __ehfuncinfo$??0?$ctype@D@std@@QAE@ABV_Locinfo@1@I@Z 00400008     libcpmtd:locale.obj
- 0001:fffff008       __unwindfunclet$??0NxActorDesc@@QAE@XZ$1 00400008 f   Lesson116.obj
- 0001:fffff008       __ehhandler$??0NxSphereShapeDesc@@QAE@XZ 00400008 f   Lesson116.obj
  0001:fffff008       __unwindfunclet$??$use_facet@V?$ctype@D@std@@@std@@YAABV?$ctype@D@0@ABVlocale@0@@Z$1 00400008 f   libcpmtd:xlocale.obj
  0002:ffebf008       __ehfuncinfo$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@ID@Z 00400008     libcpmtd:locale.obj
  0001:fffff008       __unwindfunclet$??0_Locinfo@std@@QAE@PBD@Z$1 00400008 f   libcpmtd:xlocale.obj
  0001:fffff008       __ehhandler$??0NxMat34@@QAE@_N@Z 00400008 f   WindSample.obj
  0002:ffebf008       __ehfuncinfo$??0?$_String_alloc@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QAE@XZ 00400008     libcpmtd:locale.obj
+ 0001:fffff008       __unwindfunclet$??0NxActorDesc@@QAE@XZ$1 00400008 f   VortexSample.obj
  0002:ffebf008       __ehfuncinfo$?name@locale@std@@QBE?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@2@XZ 00400008     libcpmtd:xlocale.obj
  0001:fffff008       __unwindfunclet$??$use_facet@V?$codecvt@DDU_Mbstatet@@@std@@@std@@YAABV?$codecvt@DDU_Mbstatet@@@0@ABVlocale@0@@Z$1 00400008 f   libcpmtd:locale.obj
+ 0000:ffe42008       __guard_fids__             00400008     libcpmtd:locale0.obj
+ 0002:ffebf008       __ehfuncinfo$??0NxForceFieldShapeGroupDesc@@QAE@XZ 00400008     WindSample.obj
  0002:ffebf008       __ehfuncinfo$??0?$ctype@D@std@@QAE@ABV_Locinfo@1@I@Z 00400008     libcpmtd:xlocale.obj
  0001:fffff008       __ehhandler$??0?$codecvt@DDU_Mbstatet@@@std@@QAE@ABV_Locinfo@1@I@Z 00400008 f   libcpmtd:locale.obj
  0001:fffff008       __ehhandler$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@ID@Z 00400008 f   libcpmtd:xlocale.obj
@@ -10393,11 +10441,8 @@
  0001:fffff008       __ehhandler$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@ABV01@@Z 00400008 f   libcpmtd:xlocale.obj
  0001:fffff008       __ehhandler$??0?$_String_alloc@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QAE@XZ 00400008 f   libcpmtd:wlocale.obj
  0001:fffff008       __ehhandler$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@QBD@Z 00400008 f   libcpmtd:wlocale.obj
- 0002:ffebf008       __ehfuncinfo$??0NxMat34@@QAE@_N@Z 00400008     Lesson116.obj
  0001:fffff008       __ehhandler$??0?$_String_alloc@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QAE@XZ 00400008 f   libcpmtd:xlocale.obj
- 0002:ffebf008       __ehfuncinfo$??0NxBodyDesc@@QAE@XZ 00400008     Lesson116.obj
  0001:fffff008       __ehhandler$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@ID@Z 00400008 f   libcpmtd:wlocale.obj
- 0002:ffebf008       __ehfuncinfo$??0NxSphereShapeDesc@@QAE@XZ 00400008     Lesson116.obj
  0002:ffebf008       __ehfuncinfo$??0NxForceFieldShapeDesc@@IAE@W4NxShapeType@@@Z 00400008     VortexSample.obj
  0000:ffe42008       __guard_fids__             00400008     LIBCMTD:exe_main.obj
  0002:ffebf008       __ehfuncinfo$??0NxMat34@@QAE@_N@Z 00400008     ExplosionSample.obj
@@ -10407,56 +10452,11 @@
  0002:ffebf008       __ehfuncinfo$??0NxMat34@@QAE@_N@Z 00400008     WindSample.obj
  0002:ffebf008       __ehfuncinfo$??0NxForceFieldShapeDesc@@IAE@W4NxShapeType@@@Z 00400008     WindSample.obj
  0002:ffebf008       __ehfuncinfo$??$?0V?$allocator@D@std@@X@?$_String_alloc@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QAE@$$QAV?$allocator@D@1@@Z 00400008     libcpmtd:wlocale.obj
- 0002:ffebf008       __ehfuncinfo$??0NxForceFieldShapeGroupDesc@@QAE@XZ 00400008     WindSample.obj
- 0000:ffe42008       __guard_fids__             00400008     libcpmtd:locale0.obj
- 0002:ffebf008       __ehfuncinfo$??0NxBoxForceFieldShapeDesc@@QAE@XZ 00400008     WindSample.obj
- 0001:fffff008       __ehhandler$??0NxMat34@@QAE@_N@Z 00400008 f   UserData.obj
- 0002:ffebf008       __ehfuncinfo$??0NxMat34@@QAE@_N@Z 00400008     UserData.obj
- 0001:fffff008       __ehhandler$??0NxMat34@@QAE@_N@Z 00400008 f   VortexSample.obj
- 0002:ffebf008       __ehfuncinfo$??0?$_String_alloc@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QAE@XZ 00400008     libcpmtd:wlocale.obj
- 0001:fffff008       __ehhandler$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@ABV01@@Z 00400008 f   libcpmtd:xonce.obj
- 0001:fffff008       __ehhandler$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@QBD@Z 00400008 f   libcpmtd:xonce.obj
- 0001:fffff008       __ehhandler$??0?$_String_alloc@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QAE@XZ 00400008 f   libcpmtd:xonce.obj
- 0001:fffff008       __unwindfunclet$?_Makestr@_System_error@std@@CA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@2@Verror_code@2@V32@@Z$1 00400008 f   libcpmtd:xonce.obj
- 0001:fffff008       __ehhandler$??0_System_error@std@@IAE@Verror_code@1@ABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@1@@Z 00400008 f   libcpmtd:xonce.obj
- 0001:fffff008       __ehhandler$??$?0V?$allocator@D@std@@X@?$_String_alloc@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QAE@$$QAV?$allocator@D@1@@Z 00400008 f   libcpmtd:xonce.obj
- 0002:ffebf008       __ehfuncinfo$??0?$_String_alloc@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QAE@XZ 00400008     libcpmtd:xonce.obj
- 0002:ffebf008       __ehfuncinfo$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@ABV01@@Z 00400008     libcpmtd:xonce.obj
- 0002:ffebf008       __ehfuncinfo$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@QBD@Z 00400008     libcpmtd:xonce.obj
- 0002:ffebf008       __ehfuncinfo$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@ID@Z 00400008     libcpmtd:xonce.obj
- 0002:ffebf008       __ehfuncinfo$??0_System_error@std@@IAE@Verror_code@1@ABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@1@@Z 00400008     libcpmtd:xonce.obj
- 0002:ffebf008       __ehfuncinfo$??$?0V?$allocator@D@std@@X@?$_String_alloc@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QAE@$$QAV?$allocator@D@1@@Z 00400008     libcpmtd:xonce.obj
- 0001:fffff008       __ehhandler$??0?$_String_alloc@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QAE@XZ 00400008 f   libcpmtd:locale.obj
- 0001:fffff008       __ehhandler$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@QBD@Z 00400008 f   libcpmtd:locale.obj
- 0001:fffff008       __ehhandler$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@ID@Z 00400008 f   libcpmtd:locale.obj
- 0002:ffebf008       __ehfuncinfo$??0?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QAE@I_W@Z 00400008     libcpmtd:wlocale.obj
- 0002:ffebf008       __ehfuncinfo$??0?$_String_alloc@U?$_String_base_types@_WV?$allocator@_W@std@@@std@@@std@@QAE@XZ 00400008     libcpmtd:wlocale.obj
- 0001:fffff008       __unwindfunclet$??0_Locinfo@std@@QAE@PBD@Z$1 00400008 f   libcpmtd:locale.obj
- 0002:ffebf008       __ehfuncinfo$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@ID@Z 00400008     libcpmtd:wlocale.obj
- 0002:ffebf008       __ehfuncinfo$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@QBD@Z 00400008     libcpmtd:wlocale.obj
- 0001:fffff008       __ehhandler$??0?$_String_alloc@U?$_String_base_types@_WV?$allocator@_W@std@@@std@@@std@@QAE@XZ 00400008 f   libcpmtd:wlocale.obj
- 0001:fffff008       __ehhandler$??$?0V?$allocator@D@std@@X@?$_String_alloc@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QAE@$$QAV?$allocator@D@1@@Z 00400008 f   libcpmtd:wlocale.obj
- 0001:fffff008       __ehhandler$??$_Getloctxt@DV?$istreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@YAHAAV?$istreambuf_iterator@DU?$char_traits@D@std@@@0@0IPBD@Z 00400008 f   libcpmtd:xlocale.obj
- 0001:fffff008       __ehhandler$??0?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QAE@I_W@Z 00400008 f   libcpmtd:wlocale.obj
- 0001:fffff008       __ehhandler$??0?$ctype@D@std@@QAE@ABV_Locinfo@1@I@Z 00400008 f   libcpmtd:locale.obj
- 0001:fffff008       __unwindfunclet$??$use_facet@V?$ctype@D@std@@@std@@YAABV?$ctype@D@0@ABVlocale@0@@Z$1 00400008 f   libcpmtd:locale.obj
- 0001:fffff008       __ehhandler$??0?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@QAE@ABV_Locinfo@1@I@Z 00400008 f   libcpmtd:locale.obj
- 0002:ffebf008       __ehfuncinfo$??$?0V?$allocator@D@std@@X@?$_String_alloc@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QAE@$$QAV?$allocator@D@1@@Z 00400008     libcpmtd:xlocale.obj
- 0002:ffebf008       __ehfuncinfo$??$_Getloctxt@DV?$istreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@YAHAAV?$istreambuf_iterator@DU?$char_traits@D@std@@@0@0IPBD@Z 00400008     libcpmtd:xlocale.obj
- 0001:fffff008       __ehhandler$??0NxBodyDesc@@QAE@XZ 00400008 f   VortexSample.obj
- 0001:fffff008       __ehhandler$?do_put@?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@MBE?AV?$ostreambuf_iterator@DU?$char_traits@D@std@@@2@V32@AAVios_base@2@DN@Z 00400008 f   libcpmtd:locale.obj
- 0001:fffff008       __ehhandler$?do_put@?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@MBE?AV?$ostreambuf_iterator@DU?$char_traits@D@std@@@2@V32@AAVios_base@2@DO@Z 00400008 f   libcpmtd:locale.obj
- 0001:fffff008       __unwindfunclet$??0NxActorDesc@@QAE@XZ$1 00400008 f   VortexSample.obj
- 0001:fffff008       __unwindfunclet$??0NxForceFieldDesc@@QAE@XZ$1 00400008 f   VortexSample.obj
- 0002:ffebf008       __ehfuncinfo$??0NxMat34@@QAE@_N@Z 00400008     VortexSample.obj
- 0002:ffebf008       __ehfuncinfo$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@QBD@Z 00400008     libcpmtd:locale.obj
- 0002:ffebf008       __ehfuncinfo$??0NxBodyDesc@@QAE@XZ 00400008     VortexSample.obj
- 0001:fffff008       __unwindfunclet$??$use_facet@V?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@@std@@YAABV?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@0@ABVlocale@0@@Z$1 00400008 f   libcpmtd:locale.obj
- 0001:fffff00b       __unwindfunclet$?_Getcat@?$codecvt@DDU_Mbstatet@@@std@@SAIPAPBVfacet@locale@2@PBV42@@Z$1 0040000b f   libcpmtd:locale.obj
  0001:fffff00b       __unwindfunclet$?_Getcat@?$numpunct@D@std@@SAIPAPBVfacet@locale@2@PBV42@@Z$1 0040000b f   libcpmtd:locale.obj
  0001:fffff00b       __ehhandler$??0NxForceFieldShapeGroupDesc@@QAE@XZ 0040000b f   WindSample.obj
  0001:fffff00b       __unwindfunclet$??0NxShapeDesc@@IAE@W4NxShapeType@@@Z$1 0040000b f   Lesson116.obj
  0001:fffff00b       __unwindfunclet$?_Getcat@?$ctype@D@std@@SAIPAPBVfacet@locale@2@PBV42@@Z$1 0040000b f   libcpmtd:xlocale.obj
+ 0001:fffff00b       __unwindfunclet$?_Getcat@?$codecvt@DDU_Mbstatet@@@std@@SAIPAPBVfacet@locale@2@PBV42@@Z$1 0040000b f   libcpmtd:locale.obj
  0001:fffff00b       __unwindfunclet$??0NxForceFieldLinearKernelDesc@@QAE@XZ$1 0040000b f   VortexSample.obj
  0001:fffff00b       __unwindfunclet$?_Iput@?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@ABA?AV?$ostreambuf_iterator@DU?$char_traits@D@std@@@2@V32@AAVios_base@2@DPADI@Z$1 0040000b f   libcpmtd:locale.obj
  0001:fffff00b       __ehhandler$??0NxForceFieldShapeGroupDesc@@QAE@XZ 0040000b f   VortexSample.obj
@@ -10468,81 +10468,81 @@
  0001:fffff00b       __unwindfunclet$?_Fput@?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@ABA?AV?$ostreambuf_iterator@DU?$char_traits@D@std@@@2@V32@AAVios_base@2@DPBDI@Z$1 0040000b f   libcpmtd:locale.obj
  0001:fffff00b       __ehhandler$??0NxForceFieldShapeDesc@@IAE@W4NxShapeType@@@Z 0040000b f   WindSample.obj
  0000:ffe4200c       __guard_fids__             0040000c     libcpmtd:locale0.obj
- 0002:ffebf010       __ehfuncinfo$??$use_facet@V?$numpunct@D@std@@@std@@YAABV?$numpunct@D@0@ABVlocale@0@@Z 00400010     libcpmtd:locale.obj
- 0002:ffebf010       __ehfuncinfo$??0NxActorDesc@@QAE@XZ 00400010     Lesson116.obj
  0002:ffebf010       __ehfuncinfo$??0NxShapeDesc@@IAE@W4NxShapeType@@@Z 00400010     Lesson116.obj
+ 0002:ffebf010       __ehfuncinfo$??$use_facet@V?$numpunct@D@std@@@std@@YAABV?$numpunct@D@0@ABVlocale@0@@Z 00400010     libcpmtd:locale.obj
  0002:ffebf010       __ehfuncinfo$?_Makestr@_System_error@std@@CA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@2@Verror_code@2@V32@@Z 00400010     libcpmtd:xonce.obj
  0002:ffebf010       __ehfuncinfo$??0NxForceFieldLinearKernelDesc@@QAE@XZ 00400010     WindSample.obj
  0002:ffebf010       __ehfuncinfo$??$use_facet@V?$codecvt@DDU_Mbstatet@@@std@@@std@@YAABV?$codecvt@DDU_Mbstatet@@@0@ABVlocale@0@@Z 00400010     libcpmtd:locale.obj
  0002:ffebf010       __unwindtable$?_Init@?$numpunct@D@std@@IAEXABV_Locinfo@2@_N@Z 00400010     libcpmtd:locale.obj
  0001:fffff010       __ehhandler$??$use_facet@V?$ctype@D@std@@@std@@YAABV?$ctype@D@0@ABVlocale@0@@Z 00400010 f   libcpmtd:locale.obj
- 0002:ffebf010       __ehfuncinfo$??0NxForceFieldLinearKernelDesc@@QAE@XZ 00400010     VortexSample.obj
+ 0001:fffff010       __ehhandler$??$use_facet@V?$ctype@D@std@@@std@@YAABV?$ctype@D@0@ABVlocale@0@@Z 00400010 f   libcpmtd:xlocale.obj
  0001:fffff010       __ehhandler$??$use_facet@V?$numpunct@D@std@@@std@@YAABV?$numpunct@D@0@ABVlocale@0@@Z 00400010 f   libcpmtd:locale.obj
  0001:fffff010       __ehhandler$??$use_facet@V?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@@std@@YAABV?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@0@ABVlocale@0@@Z 00400010 f   libcpmtd:locale.obj
  0002:ffebf010       __ehfuncinfo$??$use_facet@V?$ctype@D@std@@@std@@YAABV?$ctype@D@0@ABVlocale@0@@Z 00400010     libcpmtd:xlocale.obj
+ 0000:ffe42010       __guard_fids__             00400010     libcpmtd:locale0.obj
+ 0002:ffebf010       __ehfuncinfo$??0NxActorDesc@@QAE@XZ 00400010     Lesson116.obj
  0001:fffff010       __ehhandler$?_Makestr@_System_error@std@@CA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@2@Verror_code@2@V32@@Z 00400010 f   libcpmtd:xonce.obj
  0002:ffebf010       __ehfuncinfo$??0NxActorDesc@@QAE@XZ 00400010     VortexSample.obj
  0002:ffebf010       __ehfuncinfo$??$use_facet@V?$ctype@D@std@@@std@@YAABV?$ctype@D@0@ABVlocale@0@@Z 00400010     libcpmtd:locale.obj
  0002:ffebf010       __ehfuncinfo$?do_put@?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@MBE?AV?$ostreambuf_iterator@DU?$char_traits@D@std@@@2@V32@AAVios_base@2@D_N@Z 00400010     libcpmtd:locale.obj
  0002:ffebf010       __ehfuncinfo$??$use_facet@V?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@@std@@YAABV?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@0@ABVlocale@0@@Z 00400010     libcpmtd:locale.obj
  0001:fffff010       __ehhandler$??$use_facet@V?$codecvt@DDU_Mbstatet@@@std@@@std@@YAABV?$codecvt@DDU_Mbstatet@@@0@ABVlocale@0@@Z 00400010 f   libcpmtd:locale.obj
- 0000:ffe42010       __guard_fids__             00400010     libcpmtd:locale0.obj
- 0001:fffff010       __ehhandler$??$use_facet@V?$ctype@D@std@@@std@@YAABV?$ctype@D@0@ABVlocale@0@@Z 00400010 f   libcpmtd:xlocale.obj
+ 0002:ffebf010       __ehfuncinfo$??0NxForceFieldLinearKernelDesc@@QAE@XZ 00400010     VortexSample.obj
+ 0001:fffff013       __ehhandler$??0NxActorDesc@@QAE@XZ 00400013 f   VortexSample.obj
  0001:fffff013       __unwindfunclet$??0NxForceFieldDesc@@QAE@XZ$2 00400013 f   WindSample.obj
  0001:fffff013       __unwindfunclet$??0_Locinfo@std@@QAE@PBD@Z$2 00400013 f   libcpmtd:locale.obj
  0001:fffff013       __unwindfunclet$??0_Locinfo@std@@QAE@PBD@Z$2 00400013 f   libcpmtd:wlocale.obj
  0001:fffff013       __unwindfunclet$?_Iput@?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@ABA?AV?$ostreambuf_iterator@DU?$char_traits@D@std@@@2@V32@AAVios_base@2@DPADI@Z$2 00400013 f   libcpmtd:locale.obj
- 0001:fffff013       __ehhandler$??0NxActorDesc@@QAE@XZ 00400013 f   Lesson116.obj
  0001:fffff013       __unwindfunclet$?_Fput@?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@ABA?AV?$ostreambuf_iterator@DU?$char_traits@D@std@@@2@V32@AAVios_base@2@DPBDI@Z$2 00400013 f   libcpmtd:locale.obj
  0001:fffff013       __ehhandler$?do_put@?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@MBE?AV?$ostreambuf_iterator@DU?$char_traits@D@std@@@2@V32@AAVios_base@2@D_N@Z 00400013 f   libcpmtd:locale.obj
- 0001:fffff013       __ehhandler$??0NxActorDesc@@QAE@XZ 00400013 f   VortexSample.obj
  0001:fffff013       __unwindfunclet$??0_Locinfo@std@@QAE@PBD@Z$2 00400013 f   libcpmtd:xlocale.obj
  0001:fffff013       __unwindfunclet$??0NxForceFieldDesc@@QAE@XZ$2 00400013 f   VortexSample.obj
+ 0001:fffff013       __ehhandler$??0NxActorDesc@@QAE@XZ 00400013 f   Lesson116.obj
  0000:ffe42014       __guard_fids__             00400014     libcpmtd:locale0.obj
- 0001:fffff016       __ehhandler$??0NxShapeDesc@@IAE@W4NxShapeType@@@Z 00400016 f   Lesson116.obj
  0001:fffff016       __ehhandler$??0NxForceFieldLinearKernelDesc@@QAE@XZ 00400016 f   VortexSample.obj
  0001:fffff016       __ehhandler$??0NxForceFieldLinearKernelDesc@@QAE@XZ 00400016 f   WindSample.obj
+ 0001:fffff016       __ehhandler$??0NxShapeDesc@@IAE@W4NxShapeType@@@Z 00400016 f   Lesson116.obj
  0000:ffe42018       __guard_fids__             00400018     libcpmtd:locale0.obj
  0002:ffebf018       __ehfuncinfo$?_Getcat@?$ctype@D@std@@SAIPAPBVfacet@locale@2@PBV42@@Z 00400018     libcpmtd:xlocale.obj
  0002:ffebf018       __ehfuncinfo$?_Getcat@?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@SAIPAPBVfacet@locale@2@PBV42@@Z 00400018     libcpmtd:locale.obj
- 0002:ffebf018       __ehfuncinfo$?_Getcat@?$ctype@D@std@@SAIPAPBVfacet@locale@2@PBV42@@Z 00400018     libcpmtd:locale.obj
- 0002:ffebf018       __ehfuncinfo$?_Getcat@?$numpunct@D@std@@SAIPAPBVfacet@locale@2@PBV42@@Z 00400018     libcpmtd:locale.obj
  0002:ffebf018       __ehfuncinfo$?_Getcat@?$codecvt@DDU_Mbstatet@@@std@@SAIPAPBVfacet@locale@2@PBV42@@Z 00400018     libcpmtd:locale.obj
+ 0002:ffebf018       __ehfuncinfo$?_Getcat@?$numpunct@D@std@@SAIPAPBVfacet@locale@2@PBV42@@Z 00400018     libcpmtd:locale.obj
+ 0002:ffebf018       __ehfuncinfo$?_Getcat@?$ctype@D@std@@SAIPAPBVfacet@locale@2@PBV42@@Z 00400018     libcpmtd:locale.obj
  0001:fffff019       __ehhandler$?name@locale@std@@QBE?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@2@XZ 00400019 f   libcpmtd:xlocale.obj
+ 0001:fffff01e       __unwindfunclet$?_Fput@?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@ABA?AV?$ostreambuf_iterator@DU?$char_traits@D@std@@@2@V32@AAVios_base@2@DPBDI@Z$3 0040001e f   libcpmtd:locale.obj
+ 0001:fffff01e       __unwindfunclet$??0_Locinfo@std@@QAE@PBD@Z$3 0040001e f   libcpmtd:wlocale.obj
+ 0001:fffff01e       __unwindfunclet$?_Iput@?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@ABA?AV?$ostreambuf_iterator@DU?$char_traits@D@std@@@2@V32@AAVios_base@2@DPADI@Z$3 0040001e f   libcpmtd:locale.obj
+ 0001:fffff01e       __unwindfunclet$??0_Locinfo@std@@QAE@PBD@Z$3 0040001e f   libcpmtd:locale.obj
+ 0001:fffff01e       __unwindfunclet$??0_Locinfo@std@@QAE@PBD@Z$3 0040001e f   libcpmtd:xlocale.obj
  0001:fffff01e       __unwindfunclet$??0NxForceFieldDesc@@QAE@XZ$3 0040001e f   VortexSample.obj
  0001:fffff01e       __unwindfunclet$??0NxForceFieldDesc@@QAE@XZ$3 0040001e f   WindSample.obj
- 0001:fffff01e       __unwindfunclet$??0_Locinfo@std@@QAE@PBD@Z$3 0040001e f   libcpmtd:xlocale.obj
- 0001:fffff01e       __unwindfunclet$??0_Locinfo@std@@QAE@PBD@Z$3 0040001e f   libcpmtd:locale.obj
- 0001:fffff01e       __unwindfunclet$?_Iput@?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@ABA?AV?$ostreambuf_iterator@DU?$char_traits@D@std@@@2@V32@AAVios_base@2@DPADI@Z$3 0040001e f   libcpmtd:locale.obj
- 0001:fffff01e       __unwindfunclet$??0_Locinfo@std@@QAE@PBD@Z$3 0040001e f   libcpmtd:wlocale.obj
- 0001:fffff01e       __unwindfunclet$?_Fput@?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@ABA?AV?$ostreambuf_iterator@DU?$char_traits@D@std@@@2@V32@AAVios_base@2@DPBDI@Z$3 0040001e f   libcpmtd:locale.obj
- 0002:ffebf020       __tryblocktable$?_Init@?$numpunct@D@std@@IAEXABV_Locinfo@2@_N@Z 00400020     libcpmtd:locale.obj
+ 0002:ffebf020       __ehfuncinfo$??0NxForceFieldDesc@@QAE@XZ 00400020     VortexSample.obj
  0002:ffebf020       __ehfuncinfo$?_Fput@?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@ABA?AV?$ostreambuf_iterator@DU?$char_traits@D@std@@@2@V32@AAVios_base@2@DPBDI@Z 00400020     libcpmtd:locale.obj
  0002:ffebf020       __ehfuncinfo$??0NxForceFieldDesc@@QAE@XZ 00400020     WindSample.obj
  0002:ffebf020       __ehfuncinfo$?_Iput@?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@ABA?AV?$ostreambuf_iterator@DU?$char_traits@D@std@@@2@V32@AAVios_base@2@DPADI@Z 00400020     libcpmtd:locale.obj
- 0002:ffebf020       __ehfuncinfo$??0NxForceFieldDesc@@QAE@XZ 00400020     VortexSample.obj
- 0001:fffff024       __ehhandler$?_Getcat@?$codecvt@DDU_Mbstatet@@@std@@SAIPAPBVfacet@locale@2@PBV42@@Z 00400024 f   libcpmtd:locale.obj
+ 0002:ffebf020       __tryblocktable$?_Init@?$numpunct@D@std@@IAEXABV_Locinfo@2@_N@Z 00400020     libcpmtd:locale.obj
  0001:fffff024       __ehhandler$?_Getcat@?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@SAIPAPBVfacet@locale@2@PBV42@@Z 00400024 f   libcpmtd:locale.obj
+ 0001:fffff024       __ehhandler$?_Getcat@?$codecvt@DDU_Mbstatet@@@std@@SAIPAPBVfacet@locale@2@PBV42@@Z 00400024 f   libcpmtd:locale.obj
  0002:ffebf024       __unwindtable$??0_Locinfo@std@@QAE@PBD@Z 00400024     libcpmtd:wlocale.obj
  0001:fffff024       __ehhandler$?_Getcat@?$numpunct@D@std@@SAIPAPBVfacet@locale@2@PBV42@@Z 00400024 f   libcpmtd:locale.obj
  0002:ffebf024       __unwindtable$??0_Locinfo@std@@QAE@PBD@Z 00400024     libcpmtd:xlocale.obj
  0001:fffff024       __ehhandler$?_Getcat@?$ctype@D@std@@SAIPAPBVfacet@locale@2@PBV42@@Z 00400024 f   libcpmtd:locale.obj
- 0001:fffff024       __ehhandler$?_Getcat@?$ctype@D@std@@SAIPAPBVfacet@locale@2@PBV42@@Z 00400024 f   libcpmtd:xlocale.obj
  0002:ffebf024       __unwindtable$??0_Locinfo@std@@QAE@PBD@Z 00400024     libcpmtd:locale.obj
- 0001:fffff026       __ehhandler$?_Iput@?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@ABA?AV?$ostreambuf_iterator@DU?$char_traits@D@std@@@2@V32@AAVios_base@2@DPADI@Z 00400026 f   libcpmtd:locale.obj
+ 0001:fffff024       __ehhandler$?_Getcat@?$ctype@D@std@@SAIPAPBVfacet@locale@2@PBV42@@Z 00400024 f   libcpmtd:xlocale.obj
  0001:fffff026       __ehhandler$?_Fput@?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@ABA?AV?$ostreambuf_iterator@DU?$char_traits@D@std@@@2@V32@AAVios_base@2@DPBDI@Z 00400026 f   libcpmtd:locale.obj
- 0001:fffff029       __ehhandler$??0NxForceFieldDesc@@QAE@XZ 00400029 f   VortexSample.obj
+ 0001:fffff026       __ehhandler$?_Iput@?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@ABA?AV?$ostreambuf_iterator@DU?$char_traits@D@std@@@2@V32@AAVios_base@2@DPADI@Z 00400026 f   libcpmtd:locale.obj
+ 0001:fffff029       __ehhandler$??0NxForceFieldDesc@@QAE@XZ 00400029 f   WindSample.obj
  0001:fffff029       __unwindfunclet$??0_Locinfo@std@@QAE@PBD@Z$4 00400029 f   libcpmtd:xlocale.obj
  0001:fffff029       __unwindfunclet$??0_Locinfo@std@@QAE@PBD@Z$4 00400029 f   libcpmtd:locale.obj
  0001:fffff029       __unwindfunclet$??0_Locinfo@std@@QAE@PBD@Z$4 00400029 f   libcpmtd:wlocale.obj
- 0001:fffff029       __ehhandler$??0NxForceFieldDesc@@QAE@XZ 00400029 f   WindSample.obj
- 0001:fffff034       __unwindfunclet$??0_Locinfo@std@@QAE@PBD@Z$5 00400034 f   libcpmtd:locale.obj
+ 0001:fffff029       __ehhandler$??0NxForceFieldDesc@@QAE@XZ 00400029 f   VortexSample.obj
+ 0002:ffebf034       __ehfuncinfo$?_Init@?$numpunct@D@std@@IAEXABV_Locinfo@2@_N@Z 00400034     libcpmtd:locale.obj
  0001:fffff034       __unwindfunclet$??0_Locinfo@std@@QAE@PBD@Z$5 00400034 f   libcpmtd:xlocale.obj
  0001:fffff034       __unwindfunclet$??0_Locinfo@std@@QAE@PBD@Z$5 00400034 f   libcpmtd:wlocale.obj
- 0002:ffebf034       __ehfuncinfo$?_Init@?$numpunct@D@std@@IAEXABV_Locinfo@2@_N@Z 00400034     libcpmtd:locale.obj
+ 0001:fffff034       __unwindfunclet$??0_Locinfo@std@@QAE@PBD@Z$5 00400034 f   libcpmtd:locale.obj
  0001:fffff03f       __unwindfunclet$??0_Locinfo@std@@QAE@PBD@Z$6 0040003f f   libcpmtd:wlocale.obj
- 0001:fffff03f       __unwindfunclet$??0_Locinfo@std@@QAE@PBD@Z$6 0040003f f   libcpmtd:locale.obj
  0001:fffff03f       __unwindfunclet$??0_Locinfo@std@@QAE@PBD@Z$6 0040003f f   libcpmtd:xlocale.obj
+ 0001:fffff03f       __unwindfunclet$??0_Locinfo@std@@QAE@PBD@Z$6 0040003f f   libcpmtd:locale.obj
  0001:fffff04a       __ehhandler$??0_Locinfo@std@@QAE@PBD@Z 0040004a f   libcpmtd:wlocale.obj
  0001:fffff04a       __ehhandler$??0_Locinfo@std@@QAE@PBD@Z 0040004a f   libcpmtd:xlocale.obj
  0001:fffff04a       __ehhandler$??0_Locinfo@std@@QAE@PBD@Z 0040004a f   libcpmtd:locale.obj
@@ -12088,12 +12088,12 @@
  0001:001363ee       __unwindfunclet$?minElement@@YAHV?$vector@MV?$allocator@M@std@@@std@@V?$vector@_NV?$allocator@_N@std@@@2@@Z$1 005373ee f   Lesson116.obj
  0001:001363f6       __unwindfunclet$?minElement@@YAHV?$vector@MV?$allocator@M@std@@@std@@V?$vector@_NV?$allocator@_N@std@@@2@@Z$2 005373f6 f   Lesson116.obj
  0001:0013640f       __ehhandler$?minElement@@YAHV?$vector@MV?$allocator@M@std@@@std@@V?$vector@_NV?$allocator@_N@std@@@2@@Z 0053740f f   Lesson116.obj
- 0001:0013642a       __unwindfunclet$?deicstra@@YA?AV?$vector@HV?$allocator@H@std@@@std@@H@Z$0 0053742a f   Lesson116.obj
- 0001:00136432       __unwindfunclet$?deicstra@@YA?AV?$vector@HV?$allocator@H@std@@@std@@H@Z$1 00537432 f   Lesson116.obj
- 0001:0013643a       __unwindfunclet$?deicstra@@YA?AV?$vector@HV?$allocator@H@std@@@std@@H@Z$2 0053743a f   Lesson116.obj
- 0001:00136442       __unwindfunclet$?deicstra@@YA?AV?$vector@HV?$allocator@H@std@@@std@@H@Z$3 00537442 f   Lesson116.obj
- 0001:0013644d       __unwindfunclet$?deicstra@@YA?AV?$vector@HV?$allocator@H@std@@@std@@H@Z$5 0053744d f   Lesson116.obj
- 0001:00136455       __ehhandler$?deicstra@@YA?AV?$vector@HV?$allocator@H@std@@@std@@H@Z 00537455 f   Lesson116.obj
+ 0001:0013642a       __unwindfunclet$?DijkstraAlgorithm@@YA?AV?$vector@HV?$allocator@H@std@@@std@@H@Z$0 0053742a f   Lesson116.obj
+ 0001:00136432       __unwindfunclet$?DijkstraAlgorithm@@YA?AV?$vector@HV?$allocator@H@std@@@std@@H@Z$1 00537432 f   Lesson116.obj
+ 0001:0013643a       __unwindfunclet$?DijkstraAlgorithm@@YA?AV?$vector@HV?$allocator@H@std@@@std@@H@Z$2 0053743a f   Lesson116.obj
+ 0001:00136442       __unwindfunclet$?DijkstraAlgorithm@@YA?AV?$vector@HV?$allocator@H@std@@@std@@H@Z$3 00537442 f   Lesson116.obj
+ 0001:0013644d       __unwindfunclet$?DijkstraAlgorithm@@YA?AV?$vector@HV?$allocator@H@std@@@std@@H@Z$5 0053744d f   Lesson116.obj
+ 0001:00136455       __ehhandler$?DijkstraAlgorithm@@YA?AV?$vector@HV?$allocator@H@std@@@std@@H@Z 00537455 f   Lesson116.obj
  0001:00136500       __ehhandler$??$?0U?$default_delete@V_Facet_base@std@@@std@@$0A@@?$unique_ptr@V_Facet_base@std@@U?$default_delete@V_Facet_base@std@@@2@@std@@QAE@PAV_Facet_base@1@@Z 00537500 f   Lesson116.obj
  0001:00136530       __unwindfunclet$??$?0V?$allocator@D@std@@X@?$_String_alloc@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QAE@$$QAV?$allocator@D@1@@Z$0 00537530 f   Lesson116.obj
  0001:00136538       __ehhandler$??$?0V?$allocator@D@std@@X@?$_String_alloc@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QAE@$$QAV?$allocator@D@1@@Z 00537538 f   Lesson116.obj
@@ -13633,7 +13633,7 @@
  0002:000401e0       __unwindtable$?minElement@@YAHV?$vector@MV?$allocator@M@std@@@std@@V?$vector@_NV?$allocator@_N@std@@@2@@Z 005811e0     Lesson116.obj
  0002:000401f8       __unwindtable$?CreateSphere@@YAPAVNxActor@@H@Z 005811f8     Lesson116.obj
  0002:00040210       __unwindtable$?InitNx@@YAXXZ 00581210     Lesson116.obj
- 0002:00040228       __ehfuncinfo$?deicstra@@YA?AV?$vector@HV?$allocator@H@std@@@std@@H@Z 00581228     Lesson116.obj
+ 0002:00040228       __ehfuncinfo$?DijkstraAlgorithm@@YA?AV?$vector@HV?$allocator@H@std@@@std@@H@Z 00581228     Lesson116.obj
  0002:0004024c       __ehfuncinfo$?minElement@@YAHV?$vector@MV?$allocator@M@std@@@std@@V?$vector@_NV?$allocator@_N@std@@@2@@Z 0058124c     Lesson116.obj
  0002:00040270       __ehfuncinfo$?CreateSphere@@YAPAVNxActor@@H@Z 00581270     Lesson116.obj
  0002:00040294       __ehfuncinfo$?CreateGroundPlane@@YAPAVNxActor@@XZ 00581294     Lesson116.obj
@@ -13644,7 +13644,7 @@
  0002:00040348       __ehfuncinfo$?GenerateGraph@@YAXAAV?$vector@VNxVec3@@V?$allocator@VNxVec3@@@std@@@std@@AAV?$vector@V?$vector@HV?$allocator@H@std@@@std@@V?$allocator@V?$vector@HV?$allocator@H@std@@@std@@@2@@2@HH@Z 00581348     Lesson116.obj
  0002:0004036c       __ehfuncinfo$?InitNx@@YAXXZ 0058136c     Lesson116.obj
  0002:00040390       __ehfuncinfo$?RenderCallback@@YAXXZ 00581390     Lesson116.obj
- 0002:000403b4       __unwindtable$?deicstra@@YA?AV?$vector@HV?$allocator@H@std@@@std@@H@Z 005813b4     Lesson116.obj
+ 0002:000403b4       __unwindtable$?DijkstraAlgorithm@@YA?AV?$vector@HV?$allocator@H@std@@@std@@H@Z 005813b4     Lesson116.obj
  0002:00040418       __ehfuncinfo$?_Orphan_all@_Container_base12@std@@QAEXXZ 00581418     Lesson116.obj
  0002:00040440       __ehfuncinfo$?_Swap_all@_Container_base12@std@@QAEXAAU12@@Z 00581440     Lesson116.obj
  0002:00040468       __ehfuncinfo$??4_Iterator_base12@std@@QAEAAU01@ABU01@@Z 00581468     Lesson116.obj
