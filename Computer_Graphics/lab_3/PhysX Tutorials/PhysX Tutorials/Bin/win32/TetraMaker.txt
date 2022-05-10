@@ -1,0 +1,4 @@
+Menu System Initialized
+NXUSTREAM: ERROR   : Failed to open physics data file 'C:\Users\.dae' for read access
+NXUSTREAM: ERROR   : Failed to open physics data file 'C:\Users\.dae' for read access
+NXUSTREAM: ERROR   : Failed to open physics data file 'C:\Users\.dae' for read access

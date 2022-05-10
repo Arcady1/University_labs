@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="default|Win32">
+      <Configuration>default</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='default|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='default|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>15.0.28307.799</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='default|Win32'">
+    <OutDir>../../../../../bin/Win32\</OutDir>
+    <IntDir>./build/Win32/Lesson205/default\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>../../../../../bin/Win32\</OutDir>
+    <IntDir>./build/Win32/Lesson205/Debug\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>../../../../../bin/Win32\</OutDir>
+    <IntDir>./build/Win32/Lesson205/Release\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='default|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>../../../../../SDKs/Foundation/include;../../../../../SDKs/Physics/include;../../../../../SDKs/Cooking/include;../../../../../SDKs/PhysXLoader/include;../../../../../SDKs/NxCharacter/include;../../../Shared_Source;../../../Shared_Source/User_Reports;../../../Shared_Source/Timer;../../../Shared_Source/win;../../../../../Graphics/include/win32;../../../../../SDKs/Foundation/include;../../../../../SDKs/Physics/include;../../../../../SDKs/Cooking/include;../../../../../SDKs/PhysXLoader/include;../../../../../SDKs/NxCharacter/include;../../../Shared_Source;../../../Shared_Source/User_Reports;../../../Shared_Source/Timer;../../../Shared_Source/win;../../../../../Graphics/include/win32;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_CONSOLE;WIN32;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <ExceptionHandling>Sync</ExceptionHandling>
+    </ClCompile>
+    <Link>
+      <OutputFile>$(OutDir).exe</OutputFile>
+      <ProgramDatabaseFile>$(OutDir).exe.pdb</ProgramDatabaseFile>
+      <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
+      <GenerateMapFile>true</GenerateMapFile>
+      <MapFileName>$(OutDir).exe.map</MapFileName>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>../../../../../SDKs/Foundation/include;../../../../../SDKs/Physics/include;../../../../../SDKs/Cooking/include;../../../../../SDKs/PhysXLoader/include;../../../../../SDKs/NxCharacter/include;../../../Shared_Source;../../../Shared_Source/User_Reports;../../../Shared_Source/Timer;../../../Shared_Source/win;../../../../../Graphics/include/win32;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <AdditionalOptions>/Od /MTd /Zi  %(AdditionalOptions)</AdditionalOptions>
+      <ExceptionHandling>Sync</ExceptionHandling>
+    </ClCompile>
+    <Link>
+      <OutputFile>$(OutDir)$(ProjectName)_DEBUG.exe</OutputFile>
+      <ProgramDatabaseFile>$(OutDir)$(ProjectName)_DEBUG.exe.pdb</ProgramDatabaseFile>
+      <AdditionalOptions>/DEBUG  %(AdditionalOptions)</AdditionalOptions>
+      <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
+      <GenerateMapFile>true</GenerateMapFile>
+      <MapFileName>$(OutDir)$(ProjectName)_DEBUG.exe.map</MapFileName>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>../../../../../SDKs/Foundation/include;../../../../../SDKs/Physics/include;../../../../../SDKs/Cooking/include;../../../../../SDKs/PhysXLoader/include;../../../../../SDKs/NxCharacter/include;../../../Shared_Source;../../../Shared_Source/User_Reports;../../../Shared_Source/Timer;../../../Shared_Source/win;../../../../../Graphics/include/win32;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_CONSOLE;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <AdditionalOptions>/O2 /MT  %(AdditionalOptions)</AdditionalOptions>
+      <ExceptionHandling>Sync</ExceptionHandling>
+    </ClCompile>
+    <Link>
+      <OutputFile>$(OutDir)Lesson205.exe</OutputFile>
+      <ProgramDatabaseFile>$(OutDir)Lesson205.exe.pdb</ProgramDatabaseFile>
+      <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
+      <GenerateMapFile>true</GenerateMapFile>
+      <MapFileName>$(OutDir)Lesson205.exe.map</MapFileName>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\Shared_Source\Actors.cpp" />
+    <ClCompile Include="..\..\..\Shared_Source\CommonCode.cpp" />
+    <ClCompile Include="..\..\..\Shared_Source\DrawObjects.cpp" />
+    <ClCompile Include="..\..\..\Shared_Source\GLFontRenderer.cpp" />
+    <ClCompile Include="..\..\..\Shared_Source\HUD.cpp" />
+    <ClCompile Include="..\..\..\Shared_Source\Stream.cpp" />
+    <ClCompile Include="..\..\..\Shared_Source\User_Reports\DebugRenderer.cpp" />
+    <ClCompile Include="..\..\..\Shared_Source\User_Reports\UserAllocator.cpp" />
+    <ClCompile Include="..\..\..\Shared_Source\win\MediaPath_WIN.cpp" />
+    <ClCompile Include="..\..\..\Shared_Source\win\Timing_WIN.cpp" />
+    <ClCompile Include="..\..\Lesson205\source\Lesson205.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\Shared_Source\Actors.h" />
+    <ClInclude Include="..\..\..\Shared_Source\CommonCode.h" />
+    <ClInclude Include="..\..\..\Shared_Source\DrawObjects.h" />
+    <ClInclude Include="..\..\..\Shared_Source\HUD.h" />
+    <ClInclude Include="..\..\..\Shared_Source\Stream.h" />
+    <ClInclude Include="..\..\..\Shared_Source\User_Reports\DebugRenderer.h" />
+    <ClInclude Include="..\..\..\Shared_Source\User_Reports\UserAllocator.h" />
+    <ClInclude Include="..\..\Lesson205\source\Lesson205.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="..\..\..\..\..\Graphics\lib\win32\glut\glut32.lib" />
+    <Library Include="..\..\..\..\..\SDKs\lib\win32\PhysXCooking.lib" />
+    <Library Include="..\..\..\..\..\SDKs\lib\win32\PhysXLoader.lib" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

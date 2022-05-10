@@ -1,0 +1,13 @@
+﻿cl : Command line warning D9025: overriding '/MD' with '/MTd'
+  DrawObjects.cpp
+  GLFontRenderer.cpp
+  HUD.cpp
+  Stream.cpp
+  DebugRenderer.cpp
+  MediaPath_WIN.cpp
+  Timing_WIN.cpp
+  Lesson107.cpp
+d:\documents\github\university_labs\computer_graphics\lab_3\physx tutorials\physx tutorials\trainingprograms\programs\shared_source\hud.h(32): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  d:\windows kits\10\include\10.0.17134.0\ucrt\stdio.h(1774): note: see declaration of 'sprintf'
+  Generating Code...
+  Lesson107.vcxproj -> D:\Documents\GitHub\University_labs\Computer_Graphics\lab_3\PhysX Tutorials\PhysX Tutorials\TrainingPrograms\Programs\Chap1\compiler\vc8win32\../../../../../bin/Win32\Lesson107_DEBUG.exe
