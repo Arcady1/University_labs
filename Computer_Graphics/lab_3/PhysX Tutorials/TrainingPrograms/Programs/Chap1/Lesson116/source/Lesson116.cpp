@@ -10,6 +10,7 @@
 #include <time.h>
 #include <fstream>
 #include <string>
+#include "tinyxml.h"
 
 using namespace std;
 
