@@ -5,6 +5,8 @@
 
 Компиляция: gcc lab_3.c
 Запуск: ./a.out
+
+open rk6lab.bmstu.ru
 */
 
 #include <fcntl.h>
@@ -19,7 +21,7 @@
 #include <ifaddrs.h>
 #include <libgen.h>
 #include <ctype.h>
-#define SERVER PORT 8081
+#define SERVER_PORT "21"
 #define MAX_COMMAND_SIZE 4 // Кол-во команд
 #define USER "USER %s\r\n" // Запрос на логин
 #define PASS "PASS %s\r\n" // Запрос на ввод пароля
@@ -27,7 +29,6 @@
 #define PRODUCTION
 char buf[1024]; // Буфер
 int bytes_read; // Кол-во прочитаных байт
-char *myIP;     // Строка IP-адреса
 typedef void (*sighandler)(int);
 
 // Структура "Подключение"
@@ -72,28 +73,6 @@ void extremeClose(int c)
     exit(c);
 }
 
-// Смена точек на запятые в строке
-void changePointsToCommas(char *str)
-{
-    int len = strlen(str);
-    int i;
-
-    for (i = 0; i < len; ++i)
-        if (str[i] == '.')
-            str[i] = ',';
-}
-
-// Смена запятых на точки в строке
-void changeComesToPoints(char *str)
-{
-    int len = strlen(str);
-    int i;
-
-    for (i = 0; i < len; ++i)
-        if (str[i] == ',')
-            str[i] = '.';
-}
-
 // Создание сокета для соединения по порту и ip
 struct Connection *createConnection(const char *port, const char *ipAddress)
 {
@@ -107,7 +86,7 @@ struct Connection *createConnection(const char *port, const char *ipAddress)
     if (ipAddress == NULL)
         hints.ai_flags = AI_PASSIVE;
 
-    printf("Connection port: %s\n", port);
+    printf("Connection on PORT: %s\n", port);
 
     status = getaddrinfo(ipAddress, port, &hints, &(NewConnection->info));
     NewConnection->sock = socket(NewConnection->info->ai_family, NewConnection->info->ai_socktype, NewConnection->info->ai_protocol);
@@ -199,7 +178,7 @@ void openConnection(struct Connection *toSend)
         scanf("%s", ipAddress);
     while (strlen(ipAddress) == 0);
 
-    *toSend = *(createConnection("21", ipAddress));
+    *toSend = *(createConnection(SERVER_PORT, ipAddress));
 
     if (connect(toSend->sock, toSend->info->ai_addr, toSend->info->ai_addrlen) < 0)
     {
@@ -336,7 +315,7 @@ void put(struct Connection *toSend)
 // Выход из клиента
 void quit(struct Connection *toSend)
 {
-    printf("Goodbye\n");
+    printf("Exit\n");
     close(toSend->sock);
     freeaddrinfo(toSend->info);
 }
@@ -355,7 +334,7 @@ void cd(struct Connection *toSend)
 }
 
 // Цикл чтения команд и вызова соотвествующих функций
-void cycle(char *myIP)
+void cycle()
 {
     struct Connection toSend;
     Commands massOfCommands[] = {quit, openConnection, cd, put};
@@ -370,48 +349,8 @@ void cycle(char *myIP)
     } while (commandNum != 0);
 }
 
-void setMyIP(char *myIP)
-{
-    struct ifaddrs *ifaddr, *ifa;
-    int family, s;
-    char host[NI_MAXHOST];
-
-    if (getifaddrs(&ifaddr) == -1)
-    {
-        perror("getifaddrs");
-        exit(EXIT_FAILURE);
-    }
-
-    for (ifa = ifaddr; ifa != NULL; ifa = ifa->ifa_next)
-    {
-        family = ifa->ifa_addr->sa_family;
-
-        if (family == AF_INET)
-        {
-            s = getnameinfo(ifa->ifa_addr, sizeof(struct sockaddr_in), host, NI_MAXHOST, NULL, 0, NI_NUMERICHOST);
-
-            if (s != 0)
-            {
-                extremeClose(-4);
-                printf("getnameinfo() failed: %s\n", gai_strerror(s));
-            }
-
-            if (strcmp(ifa->ifa_name, "lo") != 0)
-            {
-                sprintf(myIP, "%s", host);
-                return;
-            }
-        }
-    }
-}
-
 int main(int argc, char *argv[])
 {
-    myIP = (char *)malloc(sizeof(char) * 23);
-
-    setMyIP(myIP);
-    signal(SIGINT, (sighandler)extremeClose);
-    cycle(myIP);
-
+    cycle();
     return 0;
 }

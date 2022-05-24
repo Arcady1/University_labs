@@ -1,0 +1,15 @@
+.wrapper {
+    display: block;
+    width: 900px;
+    height: 700px;
+    margin: 0 auto;
+}
+
+#canvas {
+    background-color: #eee;
+}
+
+.title {
+    font-size: 20px;
+    text-align: center;
+}
