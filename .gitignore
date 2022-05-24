@@ -7,3 +7,4 @@ C\+\+/.vscode/tasks.json
 .vscode
 .vs
 venv
+__pycache__
