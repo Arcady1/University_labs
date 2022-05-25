@@ -1,3 +1,6 @@
+let nodesColor = generateRandomHEX();
+let linesColor = generateRandomHEX();
+
 async function main() {
     const canvas = document.getElementById("canvas");
     const ctx = canvas.getContext("2d");
@@ -26,6 +29,7 @@ async function main() {
         renderPoint(point["x"] * pointScaler, point["y"] * pointScaler, radius, canvas_width, canvas_height, ctx);
     }
 
+    // Клик на canvas
     canvas.addEventListener("mousedown", function (e) {
         let pos = getCursorPosition(canvas, e);
 
@@ -65,7 +69,7 @@ function renderPoint(x, y, radius, canvas_width, canvas_height, ctx) {
     let posY = (canvas_height / 2) + y;
 
     ctx.beginPath();
-    ctx.fillStyle = "red";
+    ctx.fillStyle = nodesColor;
     ctx.arc(posX, posY, radius, 0, 2 * Math.PI);
     ctx.fill();
 }
@@ -83,17 +87,27 @@ function drawLineWithText(ctx, pointStart, pointEnd, text) {
     let centerY = pointStart.y + (pointEnd.y - pointStart.y) / 2;
     let lineCenterCoords = [centerX, centerY];
 
-    ctx.strokeStyle = "red";
-    ctx.lineWidth = 3;
-
     ctx.beginPath();
     ctx.moveTo(pointStart.x, pointStart.y);
     ctx.lineTo(pointEnd.x, pointEnd.y);
+    ctx.lineWidth = 3;
+    ctx.strokeStyle = linesColor;
     ctx.stroke();
 
     ctx.fillStyle = "black";
     ctx.font = "bold 16px sans-serif";
     ctx.fillText(text, lineCenterCoords[0], lineCenterCoords[1]);
+}
+
+// Генерация случайного цвета. Формат - HEX 
+function generateRandomHEX() {
+    let letters = "0123456789ABCDEF";
+    let color = '#';
+
+    for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
 }
 
 main()

@@ -1,12 +1,15 @@
 /*
 Гусаров Аркадий РК6-63Б. Лабораторная работа №3. Вариант №12.
 
-Задание:
-
 Компиляция: gcc lab_3.c
 Запуск: ./a.out
 
+Сайт: ftp://rk6lab.bmstu.ru
+
 open rk6lab.bmstu.ru
+cd
+put <полный путь к файлу>
+quit
 */
 
 #include <fcntl.h>

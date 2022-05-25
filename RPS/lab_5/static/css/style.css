@@ -1,3 +1,7 @@
+body {
+    background-color: #eee;
+}
+
 .wrapper {
     display: block;
     width: 900px;
@@ -5,11 +9,20 @@
     margin: 0 auto;
 }
 
-#canvas {
-    background-color: #eee;
+.wrapper__header {
+    padding: 15px 0;
+}
+
+.button {
+    display: block;
+    margin: 0 auto;
 }
 
 .title {
     font-size: 20px;
     text-align: center;
+}
+
+#canvas {
+    background-color: #fff;
 }
