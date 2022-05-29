@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <sphereDiameter>3</sphereDiameter>
+  <sphereDiameterTolerance>0.5</sphereDiameterTolerance>
+  <innerCylinderD>15</innerCylinderD>
+  <outerCylinderD>60</outerCylinderD>
+  <cylinderH>50</cylinderH>
+  <cylindersDelta>4</cylindersDelta>
+  <particlesH>6</particlesH>
+</root>
