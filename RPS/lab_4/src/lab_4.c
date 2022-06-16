@@ -44,8 +44,11 @@ mpiexec -f ~/.machinefile -n 4 ./prg
     $ mpicc -o prg lab_4.c
 ?
 Запуск:
+    На сервере:
     $ mpiexec -f ~/.machinefile -n 4 ./prg 16 2000
+    Локально:
     $ ./prg # #
+
     $ gnuplot 'script.dat'
 ?
 Коротко:
@@ -54,21 +57,15 @@ mpiexec -f ~/.machinefile -n 4 ./prg
 ?
 Варианты запуска:
 1) Одна сила в центре
-#define XRANGE 20
-#define LENGTHX 20
-#define LENGTHT 200
+XRANGE 20
 ./prg 20 2000 && gnuplot 'script.dat'
 
 2) Две силы по бокам
-#define XRANGE 20
-#define LENGTHX 20
-#define LENGTHT 200
+XRANGE 40
 ./prg 40 2000 && gnuplot 'script.dat'
 
 3) Одна сила справа
-#define XRANGE 20
-#define LENGTHX 20
-#define LENGTHT 200
+XRANGE 20
 ./prg 16 2000 && gnuplot 'script.dat'
 
 Кол-во процессов    Время выполнения, с
@@ -95,7 +92,7 @@ mpiexec -f ~/.machinefile -n 4 ./prg
 #define LENGTHX 20
 #define LENGTHT 200
 #define LENGTHY 10
-#define XRANGE 16
+#define XRANGE 40
 
 // Комментирование этой строки приведет к отсутсвию вывода
 #define GNUPLOT
